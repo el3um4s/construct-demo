@@ -1,1 +1,6 @@
 theme: jekyll-theme-minimal
+title: "Demo - Construct 3"
+
+url: "https://c3demo.stranianelli.com" # the base hostname & protocol for your site
+plugins:
+  - jekyll-sitemap
