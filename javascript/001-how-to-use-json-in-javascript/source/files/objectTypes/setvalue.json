@@ -1,0 +1,15 @@
+{
+	"name": "SetValue",
+	"plugin-id": "TextBox",
+	"sid": 530616751358978,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "key",
+			"type": "string",
+			"desc": "",
+			"sid": 324670245272110
+		}
+	],
+	"behaviorTypes": []
+}

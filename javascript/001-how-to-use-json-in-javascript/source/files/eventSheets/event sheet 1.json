@@ -1,0 +1,415 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 287991879928964
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SetStyle",
+					"sid": 771750128987405
+				},
+				{
+					"callFunction": "SetTitle",
+					"sid": 726823714005990
+				},
+				{
+					"id": "request-project-file",
+					"objectClass": "AJAX",
+					"sid": 630964797407953,
+					"parameters": {
+						"tag": "\"\"",
+						"file": "test-json.json"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 112974426795188
+				},
+				{
+					"id": "parse",
+					"objectClass": "JSON",
+					"sid": 886502957272865,
+					"parameters": {
+						"data": "AJAX.LastData"
+					}
+				},
+				{
+					"type": "script",
+					"script": "const json = runtime.objects.JSON.getFirstInstance();\nconst jsonChanged = json.getJsonDataCopy();\n\nconsole.log(json.toCompactString());\n\njsonChanged.color = \"green\";\njsonChanged.stats.life += 10;\n\njson.setJsonDataCopy(jsonChanged);\n\nconsole.log(json.toBeautifiedString());\n"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Json_Value",
+					"sid": 539746173779151,
+					"parameters": {
+						"text": "JSON.GetAsBeautifiedString(\"\")"
+					}
+				},
+				{
+					"callFunction": "initializeJSON",
+					"sid": 392085401095475,
+					"parameters": [
+						"\"JSON\""
+					]
+				}
+			],
+			"sid": 856089028388861,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "JSON",
+							"sid": 547136366105580,
+							"parameters": {
+								"path": "\"\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-item",
+							"objectClass": "List",
+							"sid": 194917951473612,
+							"parameters": {
+								"text": "JSON.CurrentKey"
+							}
+						}
+					],
+					"sid": 817510388217983
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "List",
+					"sid": 826176132764371
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Key_value",
+					"sid": 752231596060647,
+					"parameters": {
+						"text": "Functions.getValue(List.SelectedText)"
+					}
+				}
+			],
+			"sid": 584403022646998
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-text-changed",
+					"objectClass": "SetValue",
+					"sid": 520986546136210
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "setValue",
+					"sid": 527222868228331,
+					"parameters": [
+						"SetValue.key",
+						"SetValue.Text"
+					]
+				}
+			],
+			"sid": 857359624914782
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json HELPER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "getValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 850298483727397
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nlet result = json_getKey(key);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 190312987920588
+				},
+				{
+					"functionName": "setValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 215128896750370
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 192098261620495
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst value = localVars.value;\njson_changeKey(key, value);"
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Json_Value",
+							"sid": 532736802039262,
+							"parameters": {
+								"text": "JSON.GetAsBeautifiedString(\"\")"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Key_value",
+							"sid": 329362711058885,
+							"parameters": {
+								"text": "Functions.getValue(List.SelectedText)"
+							}
+						}
+					],
+					"sid": 681716270241201
+				},
+				{
+					"functionName": "initializeJSON",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 356351825370644
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\njson_initialize(name);"
+						}
+					],
+					"sid": 990026616086007
+				}
+			],
+			"sid": 803882940240240
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Style",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SetStyle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "List",
+							"sid": 779847410572124,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "\"Roboto-Regular\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "List",
+							"sid": 321764829566802,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "\"#eaeaea\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "List",
+							"sid": 970666924404006,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "\"#333c52\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "Json_Value",
+							"sid": 953537907863547,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "\"#eaeaea\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "Json_Value",
+							"sid": 721531732011200,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "\"#333c52\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "Key_value",
+							"sid": 259682259829789,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "\"Roboto-Regular\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "Key_value",
+							"sid": 871985264709330,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "\"#eaeaea\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "Key_value",
+							"sid": 822367426611272,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "\"#333c52\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "SetValue",
+							"sid": 773495486005560,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "\"Roboto-Regular\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "SetValue",
+							"sid": 290316909878242,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "\"#eaeaea\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "SetValue",
+							"sid": 283353629191565,
+							"parameters": {
+								"property-name": "\"padding\"",
+								"value": "\"0px 0px 0px 4px\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "SetValue",
+							"sid": 862933599720166,
+							"parameters": {
+								"property-name": "\"border-style\"",
+								"value": "\"none none solid none\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "SetValue",
+							"sid": 760316311096079,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "\"#333c52\""
+							}
+						}
+					],
+					"sid": 553153040285418
+				}
+			],
+			"sid": 207106052455478
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Title",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SetTitle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Title",
+							"sid": 991970525396784,
+							"parameters": {
+								"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+							}
+						}
+					],
+					"sid": 757788374588341
+				}
+			],
+			"sid": 200698937505494
+		}
+	],
+	"sid": 658041950117710
+}
