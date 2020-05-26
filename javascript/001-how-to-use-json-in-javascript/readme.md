@@ -1,5 +1,8 @@
 # How to use JSON in JavaScript
 
+* **c3p** [how-to-use-json-in-javascript-20.05.26.c3p](source/c3p/how-to-use-json-in-javascript-20.05.26.c3p)
+* **demo** [link](demo)
+
 ### global_runtime.js
 
 ```javascript
