@@ -1,0 +1,219 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "isRunning",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 878479901837940
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 783891684686499
+				}
+			],
+			"actions": [
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 627573738522905,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"monotalic\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 749861015202813,
+					"parameters": {
+						"property-name": "\"font-size\"",
+						"value": "\"2em\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 840646592392676,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"#E7EDDF\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 143919677918642,
+					"parameters": {
+						"property-name": "\"background\"",
+						"value": "\"#8B9FA8\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 397813593423445,
+					"parameters": {
+						"property-name": "\"border-color\"",
+						"value": "\"#E7EDDF\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "btn",
+					"sid": 140570770562373,
+					"parameters": {
+						"property-name": "\"border-style\"",
+						"value": "\"solid\""
+					}
+				}
+			],
+			"sid": 795480865616850
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 931100076626241,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 561525845462810,
+					"parameters": {
+						"variable": "isRunning"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 947719815820091,
+					"parameters": {
+						"text": "floor(random(1,9))"
+					}
+				}
+			],
+			"sid": 322453117974265
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "btn",
+					"sid": 585502681437255
+				}
+			],
+			"actions": [],
+			"sid": 128472059888399,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "number",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 561021903373824
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 699844427942855,
+							"parameters": {
+								"variable": "isRunning"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "btn",
+							"sid": 510613202595936,
+							"parameters": {
+								"text": "\"Start\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 925904223261596,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 358010891246917,
+							"parameters": {
+								"variable": "number",
+								"value": "floor(random(1,9))"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 772759662325656,
+							"parameters": {
+								"text": "number"
+							}
+						}
+					],
+					"sid": 190296951159649
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 241642034649637
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "btn",
+							"sid": 263350350775735,
+							"parameters": {
+								"text": "\"Stop\""
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 287460518614229,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 744599951832167
+				}
+			]
+		}
+	],
+	"sid": 653906335561973
+}
