@@ -1,0 +1,244 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "KeyCode_LEFT",
+			"type": "number",
+			"initialValue": "37",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 302975805730708
+		},
+		{
+			"eventType": "variable",
+			"name": "KeyCode_UP",
+			"type": "number",
+			"initialValue": "38",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 497149296966768
+		},
+		{
+			"eventType": "variable",
+			"name": "KeyCode_RIGHT",
+			"type": "number",
+			"initialValue": "39",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 622277689330176
+		},
+		{
+			"eventType": "variable",
+			"name": "KeyCode_DOWN",
+			"type": "number",
+			"initialValue": "40",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 122304811300310
+		},
+		{
+			"eventType": "variable",
+			"name": "C_LEFT",
+			"type": "string",
+			"initialValue": "left",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 559898927674719
+		},
+		{
+			"eventType": "variable",
+			"name": "C_RIGHT",
+			"type": "string",
+			"initialValue": "right",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 626744082202751
+		},
+		{
+			"eventType": "variable",
+			"name": "C_UP",
+			"type": "string",
+			"initialValue": "up",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 428330522861819
+		},
+		{
+			"eventType": "variable",
+			"name": "C_DOWN",
+			"type": "string",
+			"initialValue": "down",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": true,
+			"sid": 136513146457673
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 835917673531912
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 898193685937976,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"id": "set-solid-collision-filter",
+					"objectClass": "Player",
+					"sid": 913963026981556,
+					"parameters": {
+						"mode": "inclusive",
+						"tags": "\"wall\""
+					}
+				}
+			],
+			"sid": 162361243033593
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 133769704079021,
+					"parameters": {
+						"keycode": "KeyCode_LEFT"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Simulate_Constrol",
+					"sid": 362289446505372,
+					"parameters": [
+						"Player.UID",
+						"C_LEFT"
+					]
+				}
+			],
+			"sid": 120934129584320
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 816144566091667,
+					"parameters": {
+						"keycode": "KeyCode_UP"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Simulate_Constrol",
+					"sid": 806747728425148,
+					"parameters": [
+						"Player.UID",
+						"C_UP"
+					]
+				}
+			],
+			"sid": 682874681513171
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 566407922533797,
+					"parameters": {
+						"keycode": "KeyCode_RIGHT"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Simulate_Constrol",
+					"sid": 145993128192639,
+					"parameters": [
+						"Player.UID",
+						"C_RIGHT"
+					]
+				}
+			],
+			"sid": 755967519607986
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-code-pressed",
+					"objectClass": "Keyboard",
+					"sid": 457400315662868,
+					"parameters": {
+						"keycode": "KeyCode_DOWN"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Simulate_Constrol",
+					"sid": 595401765849913,
+					"parameters": [
+						"Player.UID",
+						"C_DOWN"
+					]
+				}
+			],
+			"sid": 385018743398738
+		},
+		{
+			"functionName": "Simulate_Constrol",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 549470593365216
+				},
+				{
+					"name": "Direction",
+					"type": "string",
+					"initialValue": "NONE",
+					"comment": "",
+					"sid": 720745144547354
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uid = localVars.UID;\nconst direction = localVars.Direction;\n\nSimulateControl(uid, direction);"
+				}
+			],
+			"sid": 956118499578154
+		}
+	],
+	"sid": 901622873055117
+}

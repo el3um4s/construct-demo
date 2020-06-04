@@ -22,6 +22,14 @@
 			],
 			"actions": [
 				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 553807269106332,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
 					"id": "set-css-style",
 					"objectClass": "btn",
 					"sid": 627573738522905,
@@ -51,10 +59,10 @@
 				{
 					"id": "set-css-style",
 					"objectClass": "btn",
-					"sid": 143919677918642,
+					"sid": 934401916809468,
 					"parameters": {
 						"property-name": "\"background\"",
-						"value": "\"#8B9FA8\""
+						"value": "\"#252a34\""
 					}
 				},
 				{

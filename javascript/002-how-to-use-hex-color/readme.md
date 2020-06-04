@@ -1,6 +1,6 @@
 # How to use HEX color
 
-* **c3p** [how-to-use-hex-color-20.05.28.c3p](source/c3p/how-to-use-hex-color-20.05.28.c3p)
+* **c3p** [how-to-use-hex-color-20.06.05.c3p](source/c3p/how-to-use-hex-color-20.06.05.c3p)
 * **demo** [link](demo)
 
 ### global_runtime.js
@@ -65,7 +65,3 @@ function hexToRGBA(h,{ formatNumber = "0-1 Range", formatReturn = "array" } = {}
 	return {r:+r, g:+g, b:+b, a:+a}
  }
 ```
-
-### Event Sheet
-
-![screenshot](screenshot.png)

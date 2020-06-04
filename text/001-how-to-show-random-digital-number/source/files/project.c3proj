@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 20100,
+	"savedWithRelease": 20200,
 	"name": "How to show random digital number",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r201",
+			"version": "r202",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r201",
+			"version": "r202",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Button",
 			"name": "Button",
 			"author": "Scirra",
-			"version": "r201",
+			"version": "r202",
 			"bundled": false
 		}
 	],
@@ -36,7 +36,8 @@
 		"items": [
 			"Text",
 			"Sprite",
-			"btn"
+			"btn",
+			"Title"
 		],
 		"subfolders": []
 	},
@@ -173,15 +174,15 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0.5450980392156862,
-			0.6235294117647059,
-			0.6588235294117647,
+			0.1450980392156863,
+			0.16470588235294117,
+			0.20392156862745098,
 			0
 		],
 		"splashColor": [
-			0.5450980392156862,
-			0.6235294117647059,
-			0.6588235294117647,
+			0.1450980392156863,
+			0.16470588235294117,
+			0.20392156862745098,
 			0
 		],
 		"useThemeColor": false,
