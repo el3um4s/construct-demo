@@ -578,9 +578,19 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.projectname,
 		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Sprite.Acts.SetSolidCollisionFilter,
-		C3.Plugins.Keyboard.Cnds.OnKeyCode,
+		C3.ScriptsInEvents.EventSheet1_Event2_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event3_Act1,
+		C3.Plugins.Keyboard.Cnds.OnAnyKey,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Sprite.Exps.UID,
-		C3.ScriptsInEvents.EventSheet1_Event6_Act1
+		C3.Plugins.Keyboard.Exps.LastKeyCode,
+		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.System.Acts.WaitForPreviousActions,
+		C3.Plugins.System.Cnds.ForEach,
+		C3.Plugins.Sprite.Acts.SetInstanceVar,
+		C3.ScriptsInEvents.EventSheet1_Event9_Act1
 	];
 };
 self.C3_JsPropNameTable = [
@@ -590,16 +600,22 @@ self.C3_JsPropNameTable = [
 	{Player: 0},
 	{Keyboard: 0},
 	{Title: 0},
-	{KeyCode_LEFT: 0},
-	{KeyCode_UP: 0},
-	{KeyCode_RIGHT: 0},
-	{KeyCode_DOWN: 0},
-	{C_LEFT: 0},
-	{C_RIGHT: 0},
-	{C_UP: 0},
-	{C_DOWN: 0},
+	{LastDirection: 0},
+	{Priority: 0},
+	{Enemy: 0},
+	{player_Moved: 0},
+	{move_immediate: 0},
+	{codeUP: 0},
+	{codeRIGHT: 0},
+	{codeDOWN: 0},
+	{codeLEFT: 0},
 	{UID: 0},
-	{Direction: 0}
+	{Direction: 0},
+	{inputCode: 0},
+	{targetUID: 0},
+	{priority: 0},
+	{lastDirection: 0},
+	{immediate: 0}
 ];
 
 "use strict";
@@ -704,18 +720,25 @@ self.C3_JsPropNameTable = [
 			return () => (((("[b]" + f0()) + "[/b]  [size=8][i](version: ") + f1()) + ")[/i][/size]");
 		},
 		() => "wall",
+		() => "enemy",
+		() => 0,
 		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => v0.GetValue();
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => f0(n1.ExpObject(), f2());
 		},
+		() => 1,
+		() => 0.1,
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
-		},
-		() => "left",
-		() => "up",
-		() => "right",
-		() => "down"
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			const n4 = p._GetNode(4);
+			const v5 = p._GetNode(5).GetVar();
+			return () => f0(n1.ExpObject(), n2.ExpObject(), n3.ExpInstVar(), n4.ExpInstVar(), v5.GetValue());
+		}
 	];
 }
 
@@ -725,12 +748,20 @@ self.C3_JsPropNameTable = [
 {
 	const scriptsInEvents = {
 
-		async EventSheet1_Event6_Act1(runtime, localVars)
+		async EventSheet1_Event2_Act1(runtime, localVars)
 		{
-			const uid = localVars.UID;
-			const direction = localVars.Direction;
-			
-			SimulateControl(uid, direction);
+			SimulateControl_WithDirection(localVars.UID, localVars.Direction);
+		},
+
+		async EventSheet1_Event3_Act1(runtime, localVars)
+		{
+			const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);
+			g_runtime.setReturnValue(result ? 1 : 0);
+		},
+
+		async EventSheet1_Event9_Act1(runtime, localVars)
+		{
+			g_runtime.setReturnValue(SimulateControl_PointToTarget (localVars.UID, localVars.targetUID, localVars.priority, localVars.lastDirection, localVars.immediate));
 		}
 
 	};
@@ -757,39 +788,175 @@ runOnStartup(async  runtime =>  {  globalThis.g_runtime  =  runtime })
  *
 */
 
-function SimulateControl(uid, direction) {
+
+function SimulateControl_WithInputCode(uid, inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 40, codeLEFT = 37} = {}) {
+	const direction = GetInputDirection(inputCode, {codeUP,codeRIGHT, codeDOWN, codeLEFT});
+	const result = SimulateControl_WithDirection(uid, direction);
+	return result
+}
+
+function SimulateControl_WithDirection(uid, direction) {
 	const objectUID = g_runtime.getInstanceByUid(uid).behaviors.TileMovement;
 	const canMove = CanMoveTo(uid, direction)
-	if (canMove) objectUID.simulateControl(direction);
-	return canMove;
+	if (canMove.canMove) objectUID.simulateControl(direction);
+	return canMove.canMove;
+}
+
+
+function SetGridPosition_WithInputCode(uid, inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 40, codeLEFT = 37} = {}, immediate = true) {
+	const direction = GetInputDirection(inputCode, {codeUP,codeRIGHT, codeDOWN, codeLEFT});
+	const result = SetGridPosition_WithDirection(uid, direction, immediate);
+	return result
+}
+
+function SetGridPosition_WithDirection(uid, direction, immediate = true) {
+	const objectUID = g_runtime.getInstanceByUid(uid).behaviors.TileMovement;
+	const canMove = CanMoveTo(uid, direction)
+	if (canMove.canMove) objectUID.setGridPosition(canMove.x, canMove.y, immediate);
+	return canMove.canMove;
+}
+
+function SimulateControl_PointToTarget (uid, targetUID, priority, lastDirection, immediate) {
+	const objectUID = g_runtime.getInstanceByUid(uid);
+	
+	let newDirection = "NONE";
+	
+	let directions = GetDirectionsPossible(uid);
+
+	if (directions.possibilities > 1) {
+		directions = DeleteOppositeLastDirectionFromDirectionPossible(directions, lastDirection);
+		} 	
+	newDirection = GetRandomDirectionPossible(directions);
+
+	const target = g_runtime.getInstanceByUid(targetUID);
+
+	switch (priority.toLowerCase()) {
+		case "vertical":
+			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
+			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
+			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
+			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
+		break;
+		case "horizontal":
+			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
+			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
+			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
+			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
+		break;
+	}
+	
+	SetGridPosition_WithDirection(uid, newDirection, immediate);
+	return newDirection;
 }
 
 function CanMoveTo(uid, direction) {
 	const objectUID = g_runtime.getInstanceByUid(uid).behaviors.TileMovement;
 	const position = objectUID.getGridPosition();
-	const x = position[0];
-	const y = position[1];
+	let x = position[0];
+	let y = position[1];
 	
 	let canMove = false;
 
 	switch (direction.toLowerCase()) {
-		case "left":
-			canMove =  objectUID.canMoveTo(x-1,y);
+		case "up":
+			//x = x;
+			y = y-1;
+			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "right":
-			canMove =  objectUID.canMoveTo(x+1,y);
-		break;
-		case "up":
-			canMove =  objectUID.canMoveTo(x,y-1);
+			x = x+1;
+			//y = y;
+			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "down":
-			canMove =  objectUID.canMoveTo(x,y+1);
+			//x = x;
+			y = y+1;
+			canMove =  objectUID.canMoveTo(x,y);
+		break;
+		case "left":
+			x = x-1;
+			//y = y;
+			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		default:
 			canMove = false;
 		break;
 	}
 	
-	return canMove;
+	return {canMove, x, y};
 }
+
+function GetInputDirection(inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 40, codeLEFT = 37} = {}) {
+	let result = "NONE";
+	switch (inputCode) {
+		case codeUP:
+			result = "up"
+		break;
+		case codeRIGHT:
+			result = "right"
+		break;
+		case codeDOWN:
+			result = "down"
+		break;
+		case codeLEFT:
+			result = "left"
+		break;
+	}
+	
+	return result;
+}
+
+
+function GetDirectionsPossible(uid) {
+	const directions = {
+		"up": CanMoveTo(uid, "up").canMove ? 1 : 0,
+		"right": CanMoveTo(uid, "right").canMove ? 1 : 0,
+		"down": CanMoveTo(uid, "down").canMove ? 1 : 0,
+		"left": CanMoveTo(uid, "left").canMove ? 1 : 0,
+		"possibilities": 0
+	};
+	directions.possibilities = directions.up + directions.right + directions.down + directions.left;
+	return directions;
+}
+
+function DeleteOppositeLastDirectionFromDirectionPossible(directions, lastDirection) {
+	switch (lastDirection.toLowerCase()) {
+		case "up":
+			directions.down = 0;
+			break;
+		case "right":
+			directions.left = 0;
+			break;
+		case "down":
+			directions.up = 0;
+			break;
+		case "left":
+			directions.right = 0;
+			break;
+	}
+	directions.possibilities = directions.up + directions.right + directions.down + directions.left;
+	return directions;
+}
+
+function ArrayDirectionsPossile(directions) {
+	const directionsArray =[];
+	if (directions.up > 0) directionsArray.push("up");
+	if (directions.right > 0) directionsArray.push("right");
+	if (directions.down > 0) directionsArray.push("down");
+	if (directions.left > 0) directionsArray.push("left");
+	return directionsArray;
+}
+
+function GetRandomDirectionPossible(directions) {
+	const randomArray = ArrayDirectionsPossile(directions);
+	let result = "NONE";
+	if (randomArray.length == 1) {
+		result = randomArray[0];
+	} else {
+		result = randomArray[Math.random() * randomArray.length | 0];
+	}
+	return result;	
+}
+
+
 

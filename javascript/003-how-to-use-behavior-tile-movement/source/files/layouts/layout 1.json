@@ -63,7 +63,7 @@
 							"height": 14,
 							"max-width": 35,
 							"max-height": 20,
-							"data": "14x2,6x0,2,12x1,2,6x0,2,12x1,2,6x0,2,2x1,5x2,1,2,3x1,2,6x0,2x2,1,2,5x1,2,3x1,2,6x0,2x2,1,2,3x1,2,1,2,1,2,1,2,6x0,2x2,1,2,3x1,2,1,2,1,2,1,2,6x0,2x2,1,2,3x1,2,3x1,2,1,2,6x0,2x2,1,2,3x1,2,3x1,2,1,2,6x0,2x2,1,2x2,2x1,2,3x1,2,1,2,6x0,2,6x1,2,2x1,2x2,1,2,6x0,2,1,3x2,2x1,2,5x1,2,6x0,2,1,2,4x1,2,5x1,2,6x0,2,1,2,10x1,2,6x0,2,1,2,10x1,2,6x0,2,1,2,10x1,2,6x0,2,1,2x2,5x1,2,3x1,2,6x0,2,2x1,7x2,3x1,2,6x0,2,12x1,2,6x0,14x2,306x0"
+							"data": "14x2,6x0,2,12x1,2,6x0,2,1,3x2,1,3x2,1,2x2,1,2,6x0,2,1,2x2,2x1,3x2,1,2x2,1,2,6x0,2,1,2x2,1,4x2,1,2x2,1,2,6x0,2,1,2x2,1,7x2,1,2,6x0,2,4x1,4x2,4x1,2,6x0,2,1,2x2,1,4x2,1,2x2,1,2,6x0,2,1,2x2,6x1,2x2,1,2,6x0,2,1,10x2,1,2,6x0,2,1,10x2,1,2,6x0,2,1,2x2,6x1,2x2,1,2,6x0,2,1,2x2,1,4x2,1,2x2,1,2,6x0,2,4x1,4x2,4x1,2,6x0,2,1,2x2,1,7x2,1,2,6x0,2,1,2x2,1,4x2,1,2x2,1,2,6x0,2,1,2x2,2x1,3x2,1,2x2,1,2,6x0,2,1,3x2,1,3x2,1,2x2,1,2,6x0,2,12x1,2,6x0,14x2,306x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -115,8 +115,216 @@
 						}
 					},
 					"world": {
-						"x": 256,
-						"y": 160,
+						"x": 288,
+						"y": 224,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6,
+					"instanceVariables": {
+						"LastDirection": "NONE",
+						"Priority": "vertical"
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 0,
+								"grid-offset-y": 0,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": "enemy"
+							}
+						}
+					},
+					"world": {
+						"x": 608,
+						"y": 64,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 7,
+					"instanceVariables": {
+						"LastDirection": "NONE",
+						"Priority": "horizontal"
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 0,
+								"grid-offset-y": 0,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": "enemy"
+							}
+						}
+					},
+					"world": {
+						"x": 608,
+						"y": 416,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"LastDirection": "NONE",
+						"Priority": "horizontal"
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 0,
+								"grid-offset-y": 0,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": "enemy"
+							}
+						}
+					},
+					"world": {
+						"x": 64,
+						"y": 64,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Enemy",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {
+						"LastDirection": "NONE",
+						"Priority": "vertical"
+					},
+					"behaviors": {
+						"TileMovement": {
+							"properties": {
+								"grid-width": 32,
+								"grid-height": 32,
+								"grid-offset-x": 0,
+								"grid-offset-y": 0,
+								"speed-x": 100,
+								"speed-y": 100,
+								"enabled": true,
+								"default-controls": false,
+								"isometric": false
+							}
+						},
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": "enemy"
+							}
+						}
+					},
+					"world": {
+						"x": 64,
+						"y": 416,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,

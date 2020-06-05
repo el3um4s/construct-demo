@@ -61,7 +61,8 @@
 			"Tilemap",
 			"Player",
 			"Keyboard",
-			"Title"
+			"Title",
+			"Enemy"
 		],
 		"subfolders": []
 	},

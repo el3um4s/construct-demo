@@ -3,17 +3,27 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "KeyCode_LEFT",
+			"name": "player_Moved",
 			"type": "number",
-			"initialValue": "37",
+			"initialValue": "0",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 302975805730708
+			"sid": 912029115233356
 		},
 		{
 			"eventType": "variable",
-			"name": "KeyCode_UP",
+			"name": "move_immediate",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 624890405201225
+		},
+		{
+			"eventType": "variable",
+			"name": "codeUP",
 			"type": "number",
 			"initialValue": "38",
 			"comment": "",
@@ -23,7 +33,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "KeyCode_RIGHT",
+			"name": "codeRIGHT",
 			"type": "number",
 			"initialValue": "39",
 			"comment": "",
@@ -33,7 +43,7 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "KeyCode_DOWN",
+			"name": "codeDOWN",
 			"type": "number",
 			"initialValue": "40",
 			"comment": "",
@@ -43,43 +53,13 @@
 		},
 		{
 			"eventType": "variable",
-			"name": "C_LEFT",
-			"type": "string",
-			"initialValue": "left",
+			"name": "codeLEFT",
+			"type": "number",
+			"initialValue": "37",
 			"comment": "",
 			"isStatic": false,
-			"isConstant": true,
-			"sid": 559898927674719
-		},
-		{
-			"eventType": "variable",
-			"name": "C_RIGHT",
-			"type": "string",
-			"initialValue": "right",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 626744082202751
-		},
-		{
-			"eventType": "variable",
-			"name": "C_UP",
-			"type": "string",
-			"initialValue": "up",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 428330522861819
-		},
-		{
-			"eventType": "variable",
-			"name": "C_DOWN",
-			"type": "string",
-			"initialValue": "down",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": true,
-			"sid": 136513146457673
+			"isConstant": false,
+			"sid": 773216974192514
 		},
 		{
 			"eventType": "block",
@@ -107,108 +87,21 @@
 						"mode": "inclusive",
 						"tags": "\"wall\""
 					}
+				},
+				{
+					"id": "set-solid-collision-filter",
+					"objectClass": "Player",
+					"sid": 819218193455468,
+					"parameters": {
+						"mode": "exclusive",
+						"tags": "\"enemy\""
+					}
 				}
 			],
 			"sid": 162361243033593
 		},
 		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-code-pressed",
-					"objectClass": "Keyboard",
-					"sid": 133769704079021,
-					"parameters": {
-						"keycode": "KeyCode_LEFT"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Simulate_Constrol",
-					"sid": 362289446505372,
-					"parameters": [
-						"Player.UID",
-						"C_LEFT"
-					]
-				}
-			],
-			"sid": 120934129584320
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-code-pressed",
-					"objectClass": "Keyboard",
-					"sid": 816144566091667,
-					"parameters": {
-						"keycode": "KeyCode_UP"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Simulate_Constrol",
-					"sid": 806747728425148,
-					"parameters": [
-						"Player.UID",
-						"C_UP"
-					]
-				}
-			],
-			"sid": 682874681513171
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-code-pressed",
-					"objectClass": "Keyboard",
-					"sid": 566407922533797,
-					"parameters": {
-						"keycode": "KeyCode_RIGHT"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Simulate_Constrol",
-					"sid": 145993128192639,
-					"parameters": [
-						"Player.UID",
-						"C_RIGHT"
-					]
-				}
-			],
-			"sid": 755967519607986
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-key-code-pressed",
-					"objectClass": "Keyboard",
-					"sid": 457400315662868,
-					"parameters": {
-						"keycode": "KeyCode_DOWN"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Simulate_Constrol",
-					"sid": 595401765849913,
-					"parameters": [
-						"Player.UID",
-						"C_DOWN"
-					]
-				}
-			],
-			"sid": 385018743398738
-		},
-		{
-			"functionName": "Simulate_Constrol",
+			"functionName": "Simulate_Control",
 			"functionDescription": "",
 			"functionCategory": "",
 			"functionReturnType": "none",
@@ -234,10 +127,215 @@
 			"actions": [
 				{
 					"type": "script",
-					"script": "const uid = localVars.UID;\nconst direction = localVars.Direction;\n\nSimulateControl(uid, direction);"
+					"script": "SimulateControl_WithDirection(localVars.UID, localVars.Direction);"
 				}
 			],
 			"sid": 956118499578154
+		},
+		{
+			"functionName": "Simulate_Control_Player",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 744507609240487
+				},
+				{
+					"name": "inputCode",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 482531443435425
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);\ng_runtime.setReturnValue(result ? 1 : 0);"
+				}
+			],
+			"sid": 786282088818935
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 441648708695196
+				}
+			],
+			"actions": [],
+			"sid": 504015288757959,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 924309748603568,
+							"parameters": {
+								"variable": "player_Moved",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 471054392783365,
+							"parameters": {
+								"variable": "player_Moved",
+								"value": "Functions.Simulate_Control_Player(Player.UID, Keyboard.LastKeyCode)"
+							}
+						}
+					],
+					"sid": 724418833799304
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 797455328476078,
+					"parameters": {
+						"variable": "player_Moved",
+						"comparison": 0,
+						"value": "1"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 909084888700217
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 640979700664571,
+					"parameters": {
+						"seconds": "0.1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 246861900333864
+				}
+			],
+			"sid": 352535072248129,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 309219361093029,
+							"parameters": {
+								"object": "Enemy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Enemy",
+							"sid": 405561269145834,
+							"parameters": {
+								"instance-variable": "LastDirection",
+								"value": "Functions.Simulate_Control_Enemy(Enemy.UID, Player.UID, Enemy.Priority, Enemy.LastDirection, move_immediate)"
+							}
+						}
+					],
+					"sid": 666353181295978
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 303551673494347,
+							"parameters": {
+								"variable": "player_Moved",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 790824802704377
+				}
+			]
+		},
+		{
+			"functionName": "Simulate_Control_Enemy",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "string",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 359792216629410
+				},
+				{
+					"name": "targetUID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 970626835725314
+				},
+				{
+					"name": "priority",
+					"type": "string",
+					"initialValue": "vertical",
+					"comment": "",
+					"sid": 471992950630990
+				},
+				{
+					"name": "lastDirection",
+					"type": "string",
+					"initialValue": "NONE",
+					"comment": "",
+					"sid": 473596366862953
+				},
+				{
+					"name": "immediate",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 830962299095570
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "g_runtime.setReturnValue(SimulateControl_PointToTarget (localVars.UID, localVars.targetUID, localVars.priority, localVars.lastDirection, localVars.immediate));"
+				}
+			],
+			"sid": 254524230800315
 		}
 	],
 	"sid": 901622873055117

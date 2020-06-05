@@ -1,0 +1,61 @@
+{
+	"name": "Enemy",
+	"plugin-id": "Sprite",
+	"sid": 414439424714968,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "LastDirection",
+			"type": "string",
+			"desc": "",
+			"sid": 637059108333461
+		},
+		{
+			"name": "Priority",
+			"type": "string",
+			"desc": "",
+			"sid": 587165502881680
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 141928241628373
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 472678892625901
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4627262,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 207907327979538,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
