@@ -1,6 +1,6 @@
 # How to use behavior TileMovement
 
-* **c3p** [how-to-use-behavior-tile-movement-20.06.05.c3p](source/c3p/how-to-use-behavior-tile-movement-20.06.05.c3p)
+* **c3p** [how-to-use-behavior-tile-movement-20.06.07.c3p](source/c3p/how-to-use-behavior-tile-movement-20.06.07.c3p)
 * **demo** [link](demo)
 
 ### global_runtime.js

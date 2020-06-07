@@ -3,13 +3,13 @@
 	"events": [
 		{
 			"eventType": "variable",
-			"name": "player_Moved",
-			"type": "number",
-			"initialValue": "0",
+			"name": "status",
+			"type": "string",
+			"initialValue": "THE PLAYER CAN MOVE",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
-			"sid": 912029115233356
+			"sid": 651679865933683
 		},
 		{
 			"eventType": "variable",
@@ -62,6 +62,26 @@
 			"sid": 773216974192514
 		},
 		{
+			"eventType": "variable",
+			"name": "code_SHOW_COMPANION",
+			"type": "number",
+			"initialValue": "83",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 306170789982260
+		},
+		{
+			"eventType": "variable",
+			"name": "code_RESTART_THE_GAME",
+			"type": "number",
+			"initialValue": "82",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 386629367528367
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -101,70 +121,6 @@
 			"sid": 162361243033593
 		},
 		{
-			"functionName": "Simulate_Control",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 549470593365216
-				},
-				{
-					"name": "Direction",
-					"type": "string",
-					"initialValue": "NONE",
-					"comment": "",
-					"sid": 720745144547354
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "SimulateControl_WithDirection(localVars.UID, localVars.Direction);"
-				}
-			],
-			"sid": 956118499578154
-		},
-		{
-			"functionName": "Simulate_Control_Player",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "number",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 744507609240487
-				},
-				{
-					"name": "inputCode",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 482531443435425
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);\ng_runtime.setReturnValue(result ? 1 : 0);"
-				}
-			],
-			"sid": 786282088818935
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -182,26 +138,165 @@
 						{
 							"id": "compare-eventvar",
 							"objectClass": "System",
-							"sid": 924309748603568,
+							"sid": 432427911259906,
 							"parameters": {
-								"variable": "player_Moved",
+								"variable": "code_SHOW_COMPANION",
 								"comparison": 0,
-								"value": "0"
+								"value": "Keyboard.LastKeyCode"
 							}
 						}
 					],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 471054392783365,
+							"id": "set-visible",
+							"objectClass": "Companion",
+							"sid": 220412377428179,
 							"parameters": {
-								"variable": "player_Moved",
-								"value": "Functions.Simulate_Control_Player(Player.UID, Keyboard.LastKeyCode)"
+								"visibility": "toggle"
 							}
 						}
 					],
-					"sid": 724418833799304
+					"sid": 579026694034398
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 775269528330919,
+							"parameters": {
+								"variable": "code_RESTART_THE_GAME",
+								"comparison": 0,
+								"value": "Keyboard.LastKeyCode"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 179514472574996
+						}
+					],
+					"sid": 103902796542586
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 315858906634652,
+							"parameters": {
+								"variable": "status",
+								"comparison": 0,
+								"value": "\"THE PLAYER CAN MOVE\""
+							}
+						}
+					],
+					"actions": [],
+					"sid": 724418833799304,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "positionX",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 954599049885066
+						},
+						{
+							"eventType": "variable",
+							"name": "positionY",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 729068632961858
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 227393505874421,
+									"parameters": {
+										"variable": "positionX",
+										"value": "Player.TileMovement.GridX"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 901326441153506,
+									"parameters": {
+										"variable": "positionY",
+										"value": "Player.TileMovement.GridY"
+									}
+								},
+								{
+									"callFunction": "Move_Player",
+									"sid": 100836784215593,
+									"parameters": [
+										"Player.UID",
+										"Keyboard.LastKeyCode"
+									]
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 744190285737656
+								}
+							],
+							"sid": 456600925625429,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 932018842612518,
+											"parameters": {
+												"variable": "status",
+												"comparison": 0,
+												"value": "\"THE PLAYER HAS JUST MOVED\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-grid-position",
+											"objectClass": "Companion",
+											"sid": 347472860338985,
+											"behaviorType": "TileMovement",
+											"parameters": {
+												"x": "positionX",
+												"y": "positionY",
+												"instant": "instant"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 291261549662944,
+											"parameters": {
+												"variable": "status",
+												"value": "\"THE ENEMY CAN MOVE\"\r\n"
+											}
+										}
+									],
+									"sid": 749186921404993
+								}
+							]
+						}
+					]
 				}
 			]
 		},
@@ -211,11 +306,56 @@
 				{
 					"id": "compare-eventvar",
 					"objectClass": "System",
-					"sid": 797455328476078,
+					"sid": 381388433917903,
 					"parameters": {
-						"variable": "player_Moved",
+						"variable": "status",
 						"comparison": 0,
-						"value": "1"
+						"value": "\"THE PLAYER ATTACKED AN ENEMY\""
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 987002880233860
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 392125986834673,
+					"parameters": {
+						"seconds": "0.5"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 355586837055586
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 314716223987752,
+					"parameters": {
+						"variable": "status",
+						"value": "\"THE PLAYER CAN MOVE\"\r\n"
+					}
+				}
+			],
+			"sid": 691489548808530
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 642466301521716,
+					"parameters": {
+						"variable": "status",
+						"comparison": 0,
+						"value": "\"THE ENEMY CAN MOVE\""
 					}
 				},
 				{
@@ -226,116 +366,284 @@
 			],
 			"actions": [
 				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 640979700664571,
-					"parameters": {
-						"seconds": "0.1"
-					}
+					"callFunction": "Move_Enemies",
+					"sid": 717418233584411,
+					"parameters": [
+						"Player.UID",
+						"move_immediate"
+					]
 				},
 				{
-					"id": "wait-for-previous-actions",
+					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 246861900333864
+					"sid": 791649355800544,
+					"parameters": {
+						"variable": "status",
+						"value": "\"THE PLAYER CAN MOVE\"\r\n"
+					}
 				}
 			],
-			"sid": 352535072248129,
+			"sid": 352535072248129
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MOVEMENT",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
+					"functionName": "Move_Enemies",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
 						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 309219361093029,
-							"parameters": {
-								"object": "Enemy"
-							}
+							"name": "targetUID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 259922397258513
+						},
+						{
+							"name": "immediate",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 125499193990187
 						}
 					],
+					"eventType": "function-block",
+					"conditions": [],
 					"actions": [
 						{
-							"id": "set-instvar-value",
-							"objectClass": "Enemy",
-							"sid": 405561269145834,
+							"type": "script",
+							"script": "Move_Enemies(localVars.targetUID, localVars.immediate == 1);"
+						}
+					],
+					"sid": 785986331701650
+				},
+				{
+					"functionName": "Move_Player",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 751500091347108
+						},
+						{
+							"name": "inputCode",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 531624878786690
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "MovePlayer(localVars.UID, localVars.inputCode)"
+						}
+					],
+					"sid": 512039097032360
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "DEPRECATED",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Simulate_Control_Player",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "string",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 744507609240487
+								},
+								{
+									"name": "inputCode",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 482531443435425
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);\n\n\ng_runtime.setReturnValue(result ? \"THE PLAYER HAS JUST MOVED\" : \"THE PLAYER CAN MOVE\");"
+								}
+							],
+							"sid": 748752285579955
+						},
+						{
+							"functionName": "Simulate_Control",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 549470593365216
+								},
+								{
+									"name": "Direction",
+									"type": "string",
+									"initialValue": "NONE",
+									"comment": "",
+									"sid": 720745144547354
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "SimulateControl_WithDirection(localVars.UID, localVars.Direction);"
+								}
+							],
+							"sid": 566704065647289
+						},
+						{
+							"functionName": "Simulate_Control_Enemy",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "string",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 359792216629410
+								},
+								{
+									"name": "targetUID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 970626835725314
+								},
+								{
+									"name": "priority",
+									"type": "string",
+									"initialValue": "vertical",
+									"comment": "",
+									"sid": 471992950630990
+								},
+								{
+									"name": "lastDirection",
+									"type": "string",
+									"initialValue": "NONE",
+									"comment": "",
+									"sid": 473596366862953
+								},
+								{
+									"name": "immediate",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 830962299095570
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "g_runtime.setReturnValue(SimulateControl_PointToTarget (localVars.UID, localVars.targetUID, localVars.priority, localVars.lastDirection, localVars.immediate));"
+								}
+							],
+							"sid": 755391433836723
+						}
+					],
+					"sid": 643335035235698
+				}
+			],
+			"sid": 251007811925116
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FUNCTIONS GENERAL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ShakeScreen",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Center",
+							"sid": 333141909633756,
+							"behaviorType": "ScrollTo",
 							"parameters": {
-								"instance-variable": "LastDirection",
-								"value": "Functions.Simulate_Control_Enemy(Enemy.UID, Player.UID, Enemy.Priority, Enemy.LastDirection, move_immediate)"
+								"magnitude": "20",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
 							}
 						}
 					],
-					"sid": 666353181295978
-				},
+					"sid": 436068419773058
+				}
+			],
+			"sid": 327399252300331
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "DEBUG",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 303551673494347,
+							"id": "set-text",
+							"objectClass": "txt_DEBUG",
+							"sid": 123062425064482,
 							"parameters": {
-								"variable": "player_Moved",
-								"value": "0"
+								"text": "lowercase(status)"
 							}
 						}
 					],
-					"sid": 790824802704377
-				}
-			]
-		},
-		{
-			"functionName": "Simulate_Control_Enemy",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "string",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 359792216629410
-				},
-				{
-					"name": "targetUID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 970626835725314
-				},
-				{
-					"name": "priority",
-					"type": "string",
-					"initialValue": "vertical",
-					"comment": "",
-					"sid": 471992950630990
-				},
-				{
-					"name": "lastDirection",
-					"type": "string",
-					"initialValue": "NONE",
-					"comment": "",
-					"sid": 473596366862953
-				},
-				{
-					"name": "immediate",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 830962299095570
+					"sid": 315263825397315
 				}
 			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "g_runtime.setReturnValue(SimulateControl_PointToTarget (localVars.UID, localVars.targetUID, localVars.priority, localVars.lastDirection, localVars.immediate));"
-				}
-			],
-			"sid": 254524230800315
+			"sid": 772546471882619
 		}
 	],
 	"sid": 901622873055117

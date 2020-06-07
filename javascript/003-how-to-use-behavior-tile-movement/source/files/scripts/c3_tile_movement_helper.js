@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT
  *
  * Github:  https://github.com/el3um4s/construct-demo
- * Version: 20.06.05
+ * Version: 20.06.07
  *
 */
 
@@ -23,7 +23,6 @@ function SimulateControl_WithDirection(uid, direction) {
 	if (canMove.canMove) objectUID.simulateControl(direction);
 	return canMove.canMove;
 }
-
 
 function SetGridPosition_WithInputCode(uid, inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 40, codeLEFT = 37} = {}, immediate = true) {
 	const direction = GetInputDirection(inputCode, {codeUP,codeRIGHT, codeDOWN, codeLEFT});
@@ -52,18 +51,28 @@ function SimulateControl_PointToTarget (uid, targetUID, priority, lastDirection,
 
 	const target = g_runtime.getInstanceByUid(targetUID);
 
+	const objX = objectUID.x;
+	const objY = objectUID.y;
+	const targetX = target.x;
+	const targetY = target.y;
+	const directionHorizontalToTarget = objX <= targetX ? "left" : "right";
+	const directionVerticalToTarget = objY >= targetY ? "top" : "down";
 	switch (priority.toLowerCase()) {
 		case "vertical":
-			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
-			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
-			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
-			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
+			if (objX > targetX && directions.left == 1) newDirection = "left";
+			if (objX < targetX && directions.right == 1) newDirection = "right";
+			if (directions.left == 1 && directions.right == 1) newDirection = directionHorizontalToTarget;
+			if (objY > targetY && directions.top == 1) newDirection = "top";
+			if (objY < targetY && directions.down == 1) newDirection = "down";
+			if (directions.top == 1 && directions.down == 1) newDirection = directionVerticalToTarget;
 		break;
 		case "horizontal":
-			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
-			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
-			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
-			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
+			if (objY > targetY && directions.top == 1) newDirection = "top";
+			if (objY < targetY && directions.down == 1) newDirection = "down";
+			if (directions.top == 1 && directions.down == 1) newDirection = directionVerticalToTarget;
+			if (objX > targetX && directions.left == 1) newDirection = "left";
+			if (objX < targetX && directions.right == 1) newDirection = "right";
+			if (directions.left == 1 && directions.right == 1) newDirection = directionHorizontalToTarget;
 		break;
 	}
 	
@@ -81,23 +90,19 @@ function CanMoveTo(uid, direction) {
 
 	switch (direction.toLowerCase()) {
 		case "up":
-			//x = x;
 			y = y-1;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "right":
 			x = x+1;
-			//y = y;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "down":
-			//x = x;
 			y = y+1;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "left":
 			x = x-1;
-			//y = y;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		default:
@@ -127,7 +132,6 @@ function GetInputDirection(inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 4
 	
 	return result;
 }
-
 
 function GetDirectionsPossible(uid) {
 	const directions = {
@@ -174,9 +178,19 @@ function GetRandomDirectionPossible(directions) {
 	let result = "NONE";
 	if (randomArray.length == 1) {
 		result = randomArray[0];
-	} else {
+	} else if (randomArray.length > 1)  {
 		result = randomArray[Math.random() * randomArray.length | 0];
 	}
 	return result;	
 }
 
+function AreTwoObjectsInTheSamePlace(uidFirst, uidSecond) {
+	const first = g_runtime.getInstanceByUid(uidFirst).behaviors.TileMovement.getGridPosition();
+	const second = g_runtime.getInstanceByUid(uidSecond).behaviors.TileMovement.getGridPosition();
+	return (first[0] == second[0] && first[1]==second[1]);
+}
+
+async function MoveToPositionWithWait(uid, x, y, returnImmediate = true, waitForNextMovement = 500) { // 3
+  g_runtime.getInstanceByUid(uid).behaviors.TileMovement.setGridPosition(x, y, returnImmediate)
+  await waitForMillisecond(waitForNextMovement);
+}

@@ -53,6 +53,14 @@
 			"author": "Scirra",
 			"version": "r202",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r202",
+			"bundled": false
 		}
 	],
 	"uniqueId": "r1ikiupszhh",
@@ -62,7 +70,11 @@
 			"Player",
 			"Keyboard",
 			"Title",
-			"Enemy"
+			"Enemy",
+			"Companion",
+			"Info",
+			"Center",
+			"txt_DEBUG"
 		],
 		"subfolders": []
 	},
@@ -96,6 +108,21 @@
 					"name": "c3_tile_movement_helper.js",
 					"type": "application/javascript",
 					"sid": 339156730839674
+				},
+				{
+					"name": "c3_enemy_movement_helper.js",
+					"type": "application/javascript",
+					"sid": 669209957049205
+				},
+				{
+					"name": "c3_functions_general.js",
+					"type": "application/javascript",
+					"sid": 453709802566619
+				},
+				{
+					"name": "c3_player_movement_helper.js",
+					"type": "application/javascript",
+					"sid": 891254325121571
 				}
 			],
 			"subfolders": []
@@ -118,6 +145,11 @@
 					"name": "roboto-regular.ttf",
 					"type": "application/font-sfnt",
 					"sid": 676951826699782
+				},
+				{
+					"name": "monotalic-regular.woff2",
+					"type": "font/woff2",
+					"sid": 698183941495031
 				}
 			],
 			"subfolders": []
@@ -184,7 +216,13 @@
 			"subfolders": []
 		},
 		"general": {
-			"items": [],
+			"items": [
+				{
+					"name": "STATUS.txt",
+					"type": "text/plain",
+					"sid": 263227418078071
+				}
+			],
 			"subfolders": []
 		}
 	},
@@ -199,7 +237,7 @@
 	},
 	"properties": {
 		"description": "How to use behavior tile movement",
-		"version": "demo-20.06.05",
+		"version": "demo-20.06.07",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

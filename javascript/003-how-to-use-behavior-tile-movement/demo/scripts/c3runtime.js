@@ -564,6 +564,18 @@ self["C3_Shaders"] = {};
 
 "use strict";C3.Behaviors.TileMovement.Exps={GridX(){const a=this.GetWorldInfo();return this._GridX(a.GetX(),a.GetY())},GridY(){const a=this.GetWorldInfo();return this._GridY(a.GetX(),a.GetY())},SpeedX(){return this._speedX},SpeedY(){return this._speedY},TargetX(){return this._targetX},TargetY(){return this._targetY},GridTargetX(){return this._targetGridX},GridTargetY(){return this._targetGridY}};
 
+"use strict";C3.Behaviors.scrollto=class extends C3.SDKBehaviorBase{constructor(a){super(a),this._shakeMag=0,this._shakeStart=0,this._shakeEnd=0,this._shakeMode=0}Release(){super.Release()}SetShakeMagnitude(a){this._shakeMag=a}GetShakeMagnitude(){return this._shakeMag}SetShakeStart(a){this._shakeStart=a}GetShakeStart(){return this._shakeStart}SetShakeEnd(a){this._shakeEnd=a}GetShakeEnd(){return this._shakeEnd}SetShakeMode(a){this._shakeMode=a}GetShakeMode(){return this._shakeMode}};
+
+"use strict";C3.Behaviors.scrollto.Type=class extends C3.SDKBehaviorTypeBase{constructor(a){super(a)}Release(){super.Release()}OnCreate(){}};
+
+"use strict";{C3.Behaviors.scrollto.Instance=class extends C3.SDKBehaviorInstanceBase{constructor(a,b){super(a),this._isEnabled=!0,b&&(this._isEnabled=b[0]),this._isEnabled&&this._StartTicking2()}Release(){super.Release()}SaveToJson(){const a=this.GetBehavior();return{"e":this._isEnabled,"smg":a.GetShakeMagnitude(),"ss":a.GetShakeStart(),"se":a.GetShakeEnd(),"smd":a.GetShakeMode()}}LoadFromJson(a){const b=this.GetBehavior();b.SetShakeMagnitude(a["smg"]),b.SetShakeStart(a["ss"]),b.SetShakeEnd(a["se"]),b.SetShakeMode(a["smd"]),this._isEnabled=a["e"],this._isEnabled?this._StartTicking2():this._StopTicking2()}IsEnabled(){return this._isEnabled}Tick2(){if(!this.IsEnabled())return;const a=this._runtime.GetDt(this._inst),b=this.GetBehavior(),c=b.GetInstances();let d=0,e=0,f=0;for(const a of c){const b=a.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!b||!b.GetSdkInstance().IsEnabled())continue;const c=a.GetWorldInfo();d+=c.GetX(),e+=c.GetY(),++f}const g=this._inst.GetWorldInfo().GetLayout(),h=this._runtime.GetGameTime();let i=0,j=0;if(h>=b.GetShakeStart()&&h<b.GetShakeEnd()){let c=b.GetShakeMagnitude()*Math.min(this._runtime.GetTimeScale(),1);0===b.GetShakeMode()&&(c*=1-(h-b.GetShakeStart())/(b.GetShakeEnd()-b.GetShakeStart()));const e=2*(this._runtime.Random()*Math.PI),a=this._runtime.Random()*c;i=Math.cos(e)*a,j=Math.sin(e)*a}g.SetScrollX(d/f+i),g.SetScrollY(e/f+j)}GetPropertyValueByIndex(a){return a===0?this._isEnabled:void 0}SetPropertyValueByIndex(a,b){a===0?(this._isEnabled=!!b,this._isEnabled?this._StartTicking2():this._StopTicking2()):void 0}}}
+
+"use strict";C3.Behaviors.scrollto.Cnds={IsEnabled(){return this._isEnabled}};
+
+"use strict";C3.Behaviors.scrollto.Acts={Shake(a,b,c){const d=this.GetBehavior();d.SetShakeMagnitude(a),d.SetShakeStart(this._runtime.GetGameTime()),d.SetShakeEnd(this._runtime.GetGameTime()+b),d.SetShakeMode(c)},SetEnabled(a){this._isEnabled=0!==a,this._isEnabled?this._StartTicking2():this._StopTicking2()}};
+
+"use strict";C3.Behaviors.scrollto.Exps={};
+
 "use strict"
 self.C3_GetObjectRefTable = function () {
 	return [
@@ -573,24 +585,33 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.TileMovement,
 		C3.Plugins.Keyboard,
 		C3.Plugins.Text,
+		C3.Behaviors.scrollto,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Exps.projectname,
 		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Sprite.Acts.SetSolidCollisionFilter,
-		C3.ScriptsInEvents.EventSheet1_Event2_Act1,
-		C3.ScriptsInEvents.EventSheet1_Event3_Act1,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.Sprite.Exps.UID,
 		C3.Plugins.Keyboard.Exps.LastKeyCode,
+		C3.Plugins.Sprite.Acts.SetVisible,
+		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Behaviors.TileMovement.Exps.GridX,
+		C3.Behaviors.TileMovement.Exps.GridY,
+		C3.Plugins.Sprite.Exps.UID,
+		C3.Plugins.System.Acts.WaitForPreviousActions,
+		C3.Behaviors.TileMovement.Acts.SetGridPosition,
 		C3.Plugins.System.Cnds.TriggerOnce,
 		C3.Plugins.System.Acts.Wait,
-		C3.Plugins.System.Acts.WaitForPreviousActions,
-		C3.Plugins.System.Cnds.ForEach,
-		C3.Plugins.Sprite.Acts.SetInstanceVar,
-		C3.ScriptsInEvents.EventSheet1_Event9_Act1
+		C3.Plugins.System.Cnds.IsGroupActive,
+		C3.ScriptsInEvents.EventSheet1_Event11_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event12_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event14_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event15_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event16_Act1,
+		C3.Behaviors.scrollto.Acts.Shake,
+		C3.Plugins.System.Exps.lowercase
 	];
 };
 self.C3_JsPropNameTable = [
@@ -603,19 +624,28 @@ self.C3_JsPropNameTable = [
 	{LastDirection: 0},
 	{Priority: 0},
 	{Enemy: 0},
-	{player_Moved: 0},
+	{Companion: 0},
+	{Info: 0},
+	{ScrollTo: 0},
+	{Center: 0},
+	{txt_DEBUG: 0},
+	{status: 0},
 	{move_immediate: 0},
 	{codeUP: 0},
 	{codeRIGHT: 0},
 	{codeDOWN: 0},
 	{codeLEFT: 0},
-	{UID: 0},
-	{Direction: 0},
-	{inputCode: 0},
+	{code_SHOW_COMPANION: 0},
+	{code_RESTART_THE_GAME: 0},
+	{positionX: 0},
+	{positionY: 0},
 	{targetUID: 0},
+	{immediate: 0},
+	{UID: 0},
+	{inputCode: 0},
+	{Direction: 0},
 	{priority: 0},
-	{lastDirection: 0},
-	{immediate: 0}
+	{lastDirection: 0}
 ];
 
 "use strict";
@@ -721,23 +751,37 @@ self.C3_JsPropNameTable = [
 		},
 		() => "wall",
 		() => "enemy",
-		() => 0,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const f2 = p._GetNode(2).GetBoundMethod();
-			return () => f0(n1.ExpObject(), f2());
+			return () => f0();
 		},
-		() => 1,
-		() => 0.1,
+		() => "THE PLAYER CAN MOVE",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpBehavior();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		() => "THE PLAYER HAS JUST MOVED",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		() => "THE ENEMY CAN MOVE",
+		() => "THE PLAYER ATTACKED AN ENEMY",
+		() => 0.5,
+		() => "MOVEMENT",
+		() => "DEPRECATED",
+		() => "FUNCTIONS GENERAL",
+		() => 20,
+		() => 0.2,
+		() => "DEBUG",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			const n3 = p._GetNode(3);
-			const n4 = p._GetNode(4);
-			const v5 = p._GetNode(5).GetVar();
-			return () => f0(n1.ExpObject(), n2.ExpObject(), n3.ExpInstVar(), n4.ExpInstVar(), v5.GetValue());
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(v1.GetValue());
 		}
 	];
 }
@@ -748,18 +792,30 @@ self.C3_JsPropNameTable = [
 {
 	const scriptsInEvents = {
 
-		async EventSheet1_Event2_Act1(runtime, localVars)
+		async EventSheet1_Event11_Act1(runtime, localVars)
+		{
+			Move_Enemies(localVars.targetUID, localVars.immediate == 1);
+		},
+
+		async EventSheet1_Event12_Act1(runtime, localVars)
+		{
+			MovePlayer(localVars.UID, localVars.inputCode)
+		},
+
+		async EventSheet1_Event14_Act1(runtime, localVars)
+		{
+			const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);
+			
+			
+			g_runtime.setReturnValue(result ? "THE PLAYER HAS JUST MOVED" : "THE PLAYER CAN MOVE");
+		},
+
+		async EventSheet1_Event15_Act1(runtime, localVars)
 		{
 			SimulateControl_WithDirection(localVars.UID, localVars.Direction);
 		},
 
-		async EventSheet1_Event3_Act1(runtime, localVars)
-		{
-			const result = SetGridPosition_WithInputCode(localVars.UID, localVars.inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);
-			g_runtime.setReturnValue(result ? 1 : 0);
-		},
-
-		async EventSheet1_Event9_Act1(runtime, localVars)
+		async EventSheet1_Event16_Act1(runtime, localVars)
 		{
 			g_runtime.setReturnValue(SimulateControl_PointToTarget (localVars.UID, localVars.targetUID, localVars.priority, localVars.lastDirection, localVars.immediate));
 		}
@@ -771,9 +827,9 @@ self.C3_JsPropNameTable = [
 
 
 // User script c3_global_runtime.js
-
 runOnStartup(async  runtime =>  {  globalThis.g_runtime  =  runtime })
 
+function waitForMillisecond(ms) { return new Promise(res => setTimeout(res, ms)); }
 
 // User script c3_tile_movement_helper.js
 /*
@@ -784,7 +840,7 @@ runOnStartup(async  runtime =>  {  globalThis.g_runtime  =  runtime })
  * https://opensource.org/licenses/MIT
  *
  * Github:  https://github.com/el3um4s/construct-demo
- * Version: 20.06.05
+ * Version: 20.06.07
  *
 */
 
@@ -801,7 +857,6 @@ function SimulateControl_WithDirection(uid, direction) {
 	if (canMove.canMove) objectUID.simulateControl(direction);
 	return canMove.canMove;
 }
-
 
 function SetGridPosition_WithInputCode(uid, inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 40, codeLEFT = 37} = {}, immediate = true) {
 	const direction = GetInputDirection(inputCode, {codeUP,codeRIGHT, codeDOWN, codeLEFT});
@@ -830,18 +885,28 @@ function SimulateControl_PointToTarget (uid, targetUID, priority, lastDirection,
 
 	const target = g_runtime.getInstanceByUid(targetUID);
 
+	const objX = objectUID.x;
+	const objY = objectUID.y;
+	const targetX = target.x;
+	const targetY = target.y;
+	const directionHorizontalToTarget = objX <= targetX ? "left" : "right";
+	const directionVerticalToTarget = objY >= targetY ? "top" : "down";
 	switch (priority.toLowerCase()) {
 		case "vertical":
-			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
-			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
-			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
-			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
+			if (objX > targetX && directions.left == 1) newDirection = "left";
+			if (objX < targetX && directions.right == 1) newDirection = "right";
+			if (directions.left == 1 && directions.right == 1) newDirection = directionHorizontalToTarget;
+			if (objY > targetY && directions.top == 1) newDirection = "top";
+			if (objY < targetY && directions.down == 1) newDirection = "down";
+			if (directions.top == 1 && directions.down == 1) newDirection = directionVerticalToTarget;
 		break;
 		case "horizontal":
-			if (objectUID.y > target.y && directions.top == 1) newDirection = "top";
-			if (objectUID.y < target.y && directions.down == 1) newDirection = "down";
-			if (objectUID.x > target.x && directions.left == 1) newDirection = "left";
-			if (objectUID.x < target.x && directions.right == 1) newDirection = "right";
+			if (objY > targetY && directions.top == 1) newDirection = "top";
+			if (objY < targetY && directions.down == 1) newDirection = "down";
+			if (directions.top == 1 && directions.down == 1) newDirection = directionVerticalToTarget;
+			if (objX > targetX && directions.left == 1) newDirection = "left";
+			if (objX < targetX && directions.right == 1) newDirection = "right";
+			if (directions.left == 1 && directions.right == 1) newDirection = directionHorizontalToTarget;
 		break;
 	}
 	
@@ -859,23 +924,19 @@ function CanMoveTo(uid, direction) {
 
 	switch (direction.toLowerCase()) {
 		case "up":
-			//x = x;
 			y = y-1;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "right":
 			x = x+1;
-			//y = y;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "down":
-			//x = x;
 			y = y+1;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		case "left":
 			x = x-1;
-			//y = y;
 			canMove =  objectUID.canMoveTo(x,y);
 		break;
 		default:
@@ -905,7 +966,6 @@ function GetInputDirection(inputCode, {codeUP = 38, codeRIGHT = 39, codeDOWN = 4
 	
 	return result;
 }
-
 
 function GetDirectionsPossible(uid) {
 	const directions = {
@@ -952,11 +1012,76 @@ function GetRandomDirectionPossible(directions) {
 	let result = "NONE";
 	if (randomArray.length == 1) {
 		result = randomArray[0];
-	} else {
+	} else if (randomArray.length > 1)  {
 		result = randomArray[Math.random() * randomArray.length | 0];
 	}
 	return result;	
 }
 
+function AreTwoObjectsInTheSamePlace(uidFirst, uidSecond) {
+	const first = g_runtime.getInstanceByUid(uidFirst).behaviors.TileMovement.getGridPosition();
+	const second = g_runtime.getInstanceByUid(uidSecond).behaviors.TileMovement.getGridPosition();
+	return (first[0] == second[0] && first[1]==second[1]);
+}
+
+async function MoveToPositionWithWait(uid, x, y, returnImmediate = true, waitForNextMovement = 500) { // 3
+  g_runtime.getInstanceByUid(uid).behaviors.TileMovement.setGridPosition(x, y, returnImmediate)
+  await waitForMillisecond(waitForNextMovement);
+}
+
+// User script c3_enemy_movement_helper.js
+async function Move_Enemies(targetUID, immediate = true, returnImmediate = false, waitForNextMovement = 500) {
+	const enemies = g_runtime.objects.Enemy.getAllInstances();
+
+	for (let index = 0; index < enemies.length; index++) { 
+    	const enemy = enemies[index];
+		await MoveEnemy(enemy, targetUID, immediate, returnImmediate, waitForNextMovement);
+ 	}
+}
+
+async function MoveEnemy(enemy, targetUID, immediate = true, returnImmediate = false, waitForNextMovement = 500) { 
+	const uid = enemy.uid;
+	const priority = enemy.instVars.Priority;
+	const lastDirection = enemy.instVars.LastDirection;
+	const originalPosition = enemy.behaviors.TileMovement.getGridPosition();
+	const tempLastDirection = SimulateControl_PointToTarget(uid, targetUID, priority, lastDirection, immediate);
+	
+	// se il nemico si è mosso e il nemico è nella stessa posizione del giocatore
+	if (tempLastDirection != "NONE" && AreTwoObjectsInTheSamePlace(enemy.uid, targetUID)) {
+		ShakeScreen();
+		await MoveToPositionWithWait(enemy.uid, originalPosition[0], originalPosition[1], returnImmediate, waitForNextMovement);
+	} else {
+		enemy.instVars.LastDirection = tempLastDirection;
+	}
+}
+
+// User script c3_functions_general.js
+function ShakeScreen() {g_runtime.callFunction("ShakeScreen");}
+
+function SetStatus(status) { g_runtime.globalVars.status = status};
+
+// User script c3_player_movement_helper.js
+async function MovePlayer(uid, inputCode, returnImmediate = false, waitForNextMovement = 500 ) {
+	const player = g_runtime.getInstanceByUid(uid);
+	const originalPosition = player.behaviors.TileMovement.getGridPosition();
+
+	const playerMoved = SetGridPosition_WithInputCode(uid, inputCode, {codeUP: g_runtime.globalVars.codeUP, codeRIGHT: g_runtime.globalVars.codeRIGHT, codeDOWN: g_runtime.globalVars.codeDOWN, codeLEFT: g_runtime.globalVars.codeLEFT}, g_runtime.globalVars.move_immediate == 1);
+	
+	const status = playerMoved ? "THE PLAYER HAS JUST MOVED" : "THE PLAYER CAN MOVE";
+	SetStatus(status);
+	
+	if (status == "THE PLAYER CAN MOVE") return;
+	
+	const enemies = g_runtime.objects.Enemy.getAllInstances();
+
+	for (let index = 0; index < enemies.length; index++) { 
+    	const enemy = enemies[index];
+		if (AreTwoObjectsInTheSamePlace(uid, enemy.uid)) {
+			SetStatus("THE PLAYER ATTACKED AN ENEMY");
+			ShakeScreen();
+			await MoveToPositionWithWait(uid, originalPosition[0], originalPosition[1], returnImmediate, waitForNextMovement);
+		}
+ 	}
+}
 
 

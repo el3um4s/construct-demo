@@ -42,3 +42,8 @@ html, body, canvas {
 	src: url('fonts/roboto-regular.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'monotalic-regular';
+	src: url('fonts/monotalic-regular.woff2') format('woff2');
+}
+
