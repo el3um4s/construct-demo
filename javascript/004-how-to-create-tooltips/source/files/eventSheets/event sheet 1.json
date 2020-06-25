@@ -1,0 +1,88 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 831604739200351
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "runtime.assets.loadStyleSheet(\"tooltip.css\");"
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 877076657140334,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				}
+			],
+			"sid": 242540721735129
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-click",
+					"objectClass": "Mouse",
+					"sid": 822990593305184,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "tooltip",
+					"sid": 132537303460123,
+					"parameters": [
+						"Mouse.X(0)",
+						"Mouse.Y(0)"
+					]
+				}
+			],
+			"sid": 763693668971095
+		},
+		{
+			"functionName": "tooltip",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 722830138309491
+				},
+				{
+					"name": "y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 514473811983454
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const x =  runtime.layout.getLayer(0).layerToCssPx(localVars.x, localVars.y)[0];\nconst y =  runtime.layout.getLayer(0).layerToCssPx(localVars.x, localVars.y)[1];\n\ncreateTooltip({\n\ttext: `x: ${Math.trunc(x)}; y: ${Math.trunc(y)}`,\n\tuseInlinePosition: true,\n\tx,\n\ty,\n\twidth: 192,\n\theight: 32,\n\tcssClass: \"hideMe\",\n\talign: \"center\"\n});"
+				}
+			],
+			"sid": 769595395589249
+		}
+	],
+	"sid": 352742333012552
+}
