@@ -1,11 +1,14 @@
-# How to create tooltips
+/*
+ * c3_tooltips_helper.js
+ *
+ * Copyright 2020, Samuele (Strani Anelli) De Tomasi - https://blog.stranianelli.com/
+ * Released under the MIT Licence
+ * https://opensource.org/licenses/MIT
+ *
+ * Github:  https://github.com/el3um4s/construct-demo
+ * Version: 20.06.26
+*/
 
-* **c3p** [004-how-to-create-tooltips-20.06.26.c3p](source/c3p/004-how-to-create-tooltips-20.06.26.c3p)
-* **demo** [link](demo)
-
-### c3_tooltips_helper.js
-
-```javascript
 class Tooltip extends HTMLElement {
 
 	constructor() {
@@ -61,9 +64,3 @@ class Tooltip extends HTMLElement {
 }
 
 customElements.define(`deto-tooltip`, Tooltip);
-```
-
-### Event Sheet
-
-![event sheet](event.png)
-
