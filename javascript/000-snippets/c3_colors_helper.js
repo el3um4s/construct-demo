@@ -65,3 +65,4 @@ function hexToRGBA(h,{ formatNumber = "0-1 Range", formatReturn = "array" } = {}
 	return {r:+r, g:+g, b:+b, a:+a}
  }
 
+export { hexToRGBA }
