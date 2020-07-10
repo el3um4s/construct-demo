@@ -1,0 +1,2 @@
+'use strict';{class b{constructor(){this._broadcastChannel="undefined"===typeof BroadcastChannel?null:new BroadcastChannel("offline");this._queuedMessages=[];this._onMessageCallback=null;this._broadcastChannel&&(this._broadcastChannel.onmessage=a=>this._OnBroadcastChannelMessage(a))}_OnBroadcastChannelMessage(a){this._onMessageCallback?this._onMessageCallback(a):this._queuedMessages.push(a)}SetMessageCallback(a){this._onMessageCallback=a;for(let a of this._queuedMessages)this._onMessageCallback(a);
+this._queuedMessages.length=0}}window.OfflineClientInfo=new b};

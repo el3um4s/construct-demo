@@ -1,0 +1,242 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "wikiURL",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 633978809043618
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 457000637104181
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 488339888512871,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Button",
+					"sid": 305957352725813,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"monotalic\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Button",
+					"sid": 260585090761742,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"#252a34\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Button",
+					"sid": 752242275717868,
+					"parameters": {
+						"property-name": "\"background-color\"",
+						"value": "\"#f5f5f4\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Button",
+					"sid": 720568260877099,
+					"parameters": {
+						"property-name": "\"border\"",
+						"value": "\"none\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Button",
+					"sid": 648595944674061,
+					"parameters": {
+						"property-name": "\"border-radius\"",
+						"value": "\"8px\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 220080039604588,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"monotalic\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 683016175575465,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"#252a34\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 441112622550914,
+					"parameters": {
+						"property-name": "\"background-color\"",
+						"value": "\"#f5f5f4\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 562245829879848,
+					"parameters": {
+						"property-name": "\"border-style\"",
+						"value": "\"dashed\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 389318238405928,
+					"parameters": {
+						"property-name": "\"border-width\"",
+						"value": "\"4px\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 196571252175487,
+					"parameters": {
+						"property-name": "\"border-color\"",
+						"value": "\"orange\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "TextInput",
+					"sid": 937752676724504,
+					"parameters": {
+						"property-name": "\"border-radius\"",
+						"value": "\"8px\""
+					}
+				},
+				{
+					"callFunction": "Change_Color",
+					"sid": 391737103141953,
+					"parameters": [
+						"Sprite.UID",
+						"\"#f5f5f4\""
+					]
+				}
+			],
+			"sid": 770031436053359
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 919632488491892
+				}
+			],
+			"actions": [],
+			"sid": 110849134672489,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "srsearch",
+					"type": "string",
+					"initialValue": "Hello World",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 864297737007092
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 212180677414858,
+							"parameters": {
+								"variable": "srsearch",
+								"value": "TextInput.Text"
+							}
+						},
+						{
+							"type": "script",
+							"script": "const srsearch = localVars.srsearch;\nconst wikiSearchResult = await wiki.wikiSearchQuery(\n  { language: \"en\", srsearch: srsearch, srlimit: 15 },\n);\n\nruntime.globalVars.wikiURL = wikiSearchResult;\n"
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 288137089193468
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 977505043534697,
+							"parameters": {
+								"text": "wikiURL"
+							}
+						}
+					],
+					"sid": 540349014886731
+				}
+			]
+		},
+		{
+			"functionName": "Change_Color",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 227245733550534
+				},
+				{
+					"name": "Color",
+					"type": "string",
+					"initialValue": "#6493bd",
+					"comment": "",
+					"sid": 638114295093431
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uid = localVars.UID;\nconst color = localVars.Color;\nconst text = g_runtime.getInstanceByUid(uid);\n\ntext.colorRgb = c3_colorjs.hexToRGBA(color, {formatNumber: \"0-1 Range\", formatReturn: \"Array\"});"
+				}
+			],
+			"sid": 554495092560397
+		}
+	],
+	"sid": 761008033141995
+}
