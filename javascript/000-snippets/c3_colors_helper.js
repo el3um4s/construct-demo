@@ -6,16 +6,17 @@
  * https://opensource.org/licenses/MIT
  *
  * Github:  https://github.com/el3um4s/construct-demo
- * Version: 20.05.28
+ * Version: 20.07.17
  *
  * Based on Converting Color Spaces in JavaScript by Jon Kantner
  *  -  https://css-tricks.com/converting-color-spaces-in-javascript/
 */
 
-function hexToRGBA(h,{ formatNumber = "0-1 Range", formatReturn = "array" } = {}) {
+function hexToRGBA(hex,{ formatNumber = "0-1 Range", formatReturn = "array" } = {}) {
 	// formatNumber = "0-1 Range" or "Percentage" or "0-255 Range"
 	// formatReturn = "array" or "object"
 	let r = 0, g = 0, b = 0, a = 255;
+	const h = hex.replace(/"/g, "").replace(/'/g, "");
 
 	switch (h.length) {
 		case 4:
