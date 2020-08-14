@@ -1,0 +1,35 @@
+{
+	"name": "player_laser_sight",
+	"plugin-id": "TiledBg",
+	"sid": 480496202019734,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 306290034890045
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "glowhorizontal",
+			"name": "GlowHorizontal"
+		},
+		{
+			"effectId": "glowvertical",
+			"name": "GlowVertical"
+		}
+	],
+	"image": {
+		"width": 2,
+		"height": 2,
+		"originX": 62.5,
+		"originY": 62.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6088585,
+		"useCollisionPoly": true
+	}
+}

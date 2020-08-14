@@ -1,0 +1,26 @@
+{
+	"name": "skins",
+	"plugin-id": "Sprite",
+	"sid": 549951892779589,
+	"instanceVariables": [
+		{
+			"name": "obj_UID",
+			"type": "number",
+			"desc": "",
+			"sid": 460769339431837
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 156877640623236
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"player_skin_laserman",
+		"player_skin_tank",
+		"player_skin_spaceship"
+	]
+}

@@ -1,0 +1,65 @@
+{
+	"name": "player",
+	"plugin-id": "Sprite",
+	"sid": 154820882944013,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 847816677409149
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 567261128571347
+		},
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 801117778158258
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9225345,
+						"collisionPoly": {
+							"points": [
+								0.0625,
+								0.0625,
+								0.9375,
+								0.0625,
+								0.9375,
+								0.9375,
+								0.0625,
+								0.9375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 548328015895817,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

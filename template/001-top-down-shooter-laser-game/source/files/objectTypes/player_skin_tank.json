@@ -1,0 +1,64 @@
+{
+	"name": "player_skin_tank",
+	"plugin-id": "Sprite",
+	"sid": 777744446849682,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8732717,
+						"collisionPoly": {
+							"points": [
+								0.78125,
+								0.21875,
+								1,
+								0.5,
+								0.78125,
+								0.75,
+								0.5,
+								0.84375,
+								0.15625,
+								0.84375,
+								0.09375,
+								0.5,
+								0.15625,
+								0.125,
+								0.5,
+								0.125
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "laser_a",
+								"x": 0.96875,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 788232365771752,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

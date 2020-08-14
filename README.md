@@ -13,3 +13,7 @@ My collection of demo projects
 ### Text
 
   1. [How to show random digital number](text/001-how-to-show-random-digital-number)
+
+### Template
+
+  1. [Top Down Shooter: Laser Game](template/001-top-down-shooter-laser-game)

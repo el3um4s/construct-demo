@@ -1,0 +1,20 @@
+{
+	"name": "grid",
+	"plugin-id": "TiledBg",
+	"sid": 575221276784405,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 32,
+		"height": 32,
+		"originX": 3.40625,
+		"originY": 3.40625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6040420,
+		"useCollisionPoly": true
+	}
+}

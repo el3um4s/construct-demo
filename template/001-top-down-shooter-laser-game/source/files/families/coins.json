@@ -1,0 +1,18 @@
+{
+	"name": "coins",
+	"plugin-id": "Sprite",
+	"sid": 239669175315615,
+	"instanceVariables": [
+		{
+			"name": "value",
+			"type": "number",
+			"desc": "",
+			"sid": 502756754783456
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"coin"
+	]
+}

@@ -1,0 +1,66 @@
+{
+	"name": "constant",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LAY_CHARS",
+			"type": "string",
+			"initialValue": "LAY_CHARS",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 440068972274286
+		},
+		{
+			"eventType": "variable",
+			"name": "LAY_WORLD_TILEMAP",
+			"type": "string",
+			"initialValue": "LAY_WORLD_TILEMAP",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 474318416851029
+		},
+		{
+			"eventType": "variable",
+			"name": "LAY_WORLD_OBJECTS",
+			"type": "string",
+			"initialValue": "LAY_WORLD_OBJECTS",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 149418185423579
+		},
+		{
+			"eventType": "variable",
+			"name": "LAY_WORLD_CANVAS",
+			"type": "string",
+			"initialValue": "LAY_WORLD_CANVAS",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 755352772036042
+		},
+		{
+			"eventType": "variable",
+			"name": "LAY_ITEMS",
+			"type": "string",
+			"initialValue": "LAY_ITEMS",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 786873882087752
+		},
+		{
+			"eventType": "variable",
+			"name": "score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 769604592659055
+		}
+	],
+	"sid": 662683406860739
+}
