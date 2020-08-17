@@ -17,3 +17,5 @@ My collection of demo projects
 ### Template
 
   1. [Top Down Shooter: Laser Game](template/001-top-down-shooter-laser-game)
+  2. [Wheel of Fortune](template/002-wheel-of-fortune)
+  
