@@ -1,0 +1,723 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 162991327049305
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 865222507596463,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 272641196551255
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 727951318159876
+				},
+				{
+					"callFunction": "InitializeJson:wedges_settings",
+					"sid": 384005777272007
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 887277624400841
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 159436487631212,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 864054439283821,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 143458390021492,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Initialize wheel",
+					"sid": 162048284386197
+				}
+			],
+			"sid": 573528022141876
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 982791373163234
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "Wedges",
+					"sid": 447071644721802,
+					"parameters": {
+						"object": "Wheel_Center",
+						"image-point-optional": "0"
+					}
+				},
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Wedges",
+					"sid": 426245647245295,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Wheel_Center",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "set-acceleration",
+					"objectClass": "Wheel_Center",
+					"sid": 147597957184990,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"acceleration": "0"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Wheel_Center",
+					"sid": 755840931758407,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "0"
+					}
+				}
+			],
+			"sid": 459298569123848
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 500004593391841,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-acceleration",
+					"objectClass": "Wheel_Center",
+					"sid": 979336682441483,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"acceleration": "0"
+					}
+				},
+				{
+					"id": "set-speed",
+					"objectClass": "Wheel_Center",
+					"sid": 616790762503686,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "0"
+					}
+				}
+			],
+			"sid": 694808920021070,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Arrow",
+							"sid": 150950737534076,
+							"parameters": {
+								"object": "Wedges"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 767615895267806
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-top",
+							"objectClass": "Wedges",
+							"sid": 563466633855152
+						}
+					],
+					"sid": 753008277352440
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Arrow",
+							"sid": 358734484431898,
+							"parameters": {
+								"object": "Wedges"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Wedges",
+							"sid": 290465402462447
+						}
+					],
+					"sid": 574532378441659
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 417062920558124,
+					"parameters": {
+						"object": "Button_Spin"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 493732708089624,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-speed",
+					"objectClass": "Wheel_Center",
+					"sid": 145470002869322,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"speed": "random(80,200)"
+					}
+				},
+				{
+					"id": "set-acceleration",
+					"objectClass": "Wheel_Center",
+					"sid": 870989974564723,
+					"behaviorType": "Rotate",
+					"parameters": {
+						"acceleration": "random(-30,-10)"
+					}
+				}
+			],
+			"sid": 469398146937370,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 160871307276401,
+							"parameters": {
+								"object": "Wedges"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Wedges",
+							"sid": 519889281548405
+						}
+					],
+					"sid": 993859637987376
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Arrow",
+					"sid": 143294301765655,
+					"parameters": {
+						"object": "Wedges"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 745675830705039,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 139837492228089,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 380393236294317,
+							"parameters": {
+								"value": "Wedges.PickedCount > 1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-speed",
+							"objectClass": "Wheel_Center",
+							"sid": 165958766854196,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"speed": "random(5,20)"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "Wheel_Center",
+							"sid": 523547634500960,
+							"behaviorType": "Rotate",
+							"parameters": {
+								"acceleration": "random(-2,-1)"
+							}
+						}
+					],
+					"sid": 180613892924197
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 219178292516975,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 277457096602386,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 426610660724870,
+							"parameters": {
+								"object": "Wedges"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 953414967701507,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Arrow",
+									"sid": 203267904956958,
+									"parameters": {
+										"object": "Wedges"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-bottom",
+									"objectClass": "Wedges",
+									"sid": 190570911901101
+								}
+							],
+							"sid": 345338442320994
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Arrow",
+									"sid": 901949249998793,
+									"parameters": {
+										"object": "Wedges"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "Wedges",
+									"sid": 797260830050390
+								}
+							],
+							"sid": 404435070634464
+						}
+					]
+				}
+			]
+		},
+		{
+			"functionName": "Initialize wheel",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 470856099781126,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 983754542739291,
+							"parameters": {
+								"name": "\"i\"",
+								"start-index": "0",
+								"end-index": "23"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Wheel_Center",
+							"sid": 903250308526646,
+							"parameters": {
+								"object": "Wedge_Round",
+								"layer": "\"LAY_WHEEL\"",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Wedge_Round",
+							"sid": 724691528556673,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 109722730407859,
+							"parameters": {
+								"instance-variable": "position",
+								"value": "loopindex(\"i\")"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "Wedge_Round",
+							"sid": 363697397212759,
+							"parameters": {
+								"angle": "loopindex(\"i\") * 15"
+							}
+						},
+						{
+							"id": "move-to-bottom",
+							"objectClass": "Wedge_Round",
+							"sid": 614147424383056
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Wedge_Round",
+							"sid": 829479725065107,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "Wheel_Center",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 451461740207577,
+							"parameters": {
+								"instance-variable": "color",
+								"value": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".color\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 889092665753376,
+							"parameters": {
+								"instance-variable": "action",
+								"value": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".action\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 388478082086578,
+							"parameters": {
+								"instance-variable": "label",
+								"value": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".label\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 899887443070598,
+							"parameters": {
+								"instance-variable": "font_color",
+								"value": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".font_color\")"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Wedge_Round",
+							"sid": 205248436502096,
+							"parameters": {
+								"instance-variable": "value",
+								"value": "int(Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".value\"))"
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 432073624459880,
+							"parameters": [
+								"Wedge_Round.UID",
+								"Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".color\")"
+							]
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Wedge_label",
+							"sid": 423379532944084,
+							"parameters": {
+								"text": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".label\")"
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 338202546951607,
+							"parameters": [
+								"Wedge_label.UID",
+								"Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & loopindex(\"i\")&\".font_color\")"
+							]
+						}
+					],
+					"sid": 893988942634630
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Wedge_label",
+					"sid": 322650315165678
+				}
+			],
+			"actions": [
+				{
+					"id": "pin-to-object-properties",
+					"objectClass": "Wedge_label",
+					"sid": 171010012760327,
+					"behaviorType": "Pin",
+					"parameters": {
+						"pin-to": "Wedge_Round",
+						"x": true,
+						"y": true,
+						"angle": true,
+						"width-type": "no",
+						"height-type": "no",
+						"z": false
+					}
+				},
+				{
+					"id": "move-to-layer",
+					"objectClass": "Wedge_label",
+					"sid": 130699160520915,
+					"parameters": {
+						"layer": "\"LAY_LABELS\""
+					}
+				}
+			],
+			"sid": 731949958248666
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 449855082058934,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 3,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 978060469949084,
+					"parameters": {
+						"layer": "\"LAY_SPIN\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 764981345671919
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 595383344248907,
+					"parameters": {
+						"first-value": "Wheel_Center.Rotate.Speed",
+						"comparison": 4,
+						"second-value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 366191195260737,
+					"parameters": {
+						"layer": "\"LAY_SPIN\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 120099423032507
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 121799695175969,
+					"parameters": {
+						"object": "Wedges"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 942011140848505,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Arrow",
+							"sid": 982107729141035,
+							"parameters": {
+								"object": "Wedges"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "txt_result",
+							"sid": 360402112283505,
+							"parameters": {
+								"text": "Functions.getValue(\"wedges_settings\",\"wedge_15g.\" &Wedges.position&\".label\")"
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 742256382375239,
+							"parameters": [
+								"txt_result.UID",
+								"Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & Wedges.position&\".font_color\")"
+							]
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 170740901086514,
+							"parameters": [
+								"result_background.UID",
+								"Functions.getValue(\"wedges_settings\",\"wedge_15g.\" & Wedges.position&\".color\")"
+							]
+						}
+					],
+					"sid": 453838358080301
+				}
+			]
+		}
+	],
+	"sid": 353809346757022
+}

@@ -1,0 +1,54 @@
+{
+	"name": "Wedges",
+	"plugin-id": "Sprite",
+	"sid": 983326779358450,
+	"instanceVariables": [
+		{
+			"name": "position",
+			"type": "number",
+			"desc": "",
+			"sid": 946044277792264
+		},
+		{
+			"name": "label",
+			"type": "string",
+			"desc": "",
+			"sid": 765722933500892
+		},
+		{
+			"name": "value",
+			"type": "number",
+			"desc": "",
+			"sid": 168304446254978
+		},
+		{
+			"name": "action",
+			"type": "string",
+			"desc": "",
+			"sid": 532028545428592
+		},
+		{
+			"name": "color",
+			"type": "string",
+			"desc": "",
+			"sid": 555534963028308
+		},
+		{
+			"name": "font_color",
+			"type": "string",
+			"desc": "",
+			"sid": 246829038959248
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 627718569708042
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Wedge_Round"
+	]
+}

@@ -1,0 +1,49 @@
+{
+	"name": "Button_Spin",
+	"plugin-id": "Sprite",
+	"sid": 650329063216548,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 258,
+						"height": 66,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2550184,
+						"collisionPoly": {
+							"points": [
+								0.003875968992248062,
+								0.015151515151515152,
+								0.9922480620155039,
+								0.015151515151515152,
+								0.9922480620155039,
+								0.9848484848484849,
+								0.003875968992248062,
+								0.9848484848484849
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 898040791489890,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

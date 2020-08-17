@@ -1,0 +1,15 @@
+{
+	"name": "Wedge_label",
+	"plugin-id": "Text",
+	"sid": 538711302017258,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 553031489839188
+		}
+	],
+	"effectTypes": []
+}

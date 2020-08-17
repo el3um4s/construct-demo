@@ -1,0 +1,172 @@
+{
+	"wedge_15g": {
+		"0": {
+			"label": "500",
+			"value": "500",
+			"action": "ADD",
+			"color": "#AA78DA",
+			"font_color": "#0E0E0E"
+		},
+		"1": {
+			"label": "700",
+			"value": "700",
+			"action": "ADD",
+			"color": "#FEF100",
+			"font_color": "#0E0E0E"
+		},
+		"2": {
+			"label": "BANKRUPT",
+			"value": "0",
+			"action": "BANKRUPT",
+			"color": "#0E0E0E",
+			"font_color": "#f0f0f0"
+		},
+		"3": {
+			"label": "600",
+			"value": "600",
+			"action": "ADD",
+			"color": "#F40000",
+			"font_color": "#0E0E0E"
+		},
+		"4": {
+			"label": "550",
+			"value": "550",
+			"action": "ADD",
+			"color": "#3AB9FE",
+			"font_color": "#0E0E0E"
+		},
+		"5": {
+			"label": "500",
+			"value": "500",
+			"action": "ADD",
+			"color": "#3BB777",
+			"font_color": "#0E0E0E"
+		},
+		"6": {
+			"label": "600",
+			"value": "600",
+			"action": "ADD",
+			"color": "#F5989D",
+			"font_color": "#0E0E0E"
+		},
+		"7": {
+			"label": "BANKRUPT",
+			"value": "0",
+			"action": "BANKRUPT",
+			"color": "#0E0E0E",
+			"font_color": "#f0f0f0"
+		},
+		"8": {
+			"label": "650",
+			"value": "650",
+			"action": "ADD",
+			"color": "#AA78DA",
+			"font_color": "#0E0E0E"
+		},
+		"9": {
+			"label": "FREE",
+			"value": "0",
+			"action": "FREE",
+			"color": "#72FCFC",
+			"font_color": "#FBFB00"
+		},
+		"10": {
+			"label": "700",
+			"value": "700",
+			"action": "ADD",
+			"color": "#3AB9FE",
+			"font_color": "#0E0E0E"
+		},
+		"11": {
+			"label": "Lose a Turn",
+			"value": "0",
+			"action": "LOSE_A_TURN",
+			"color": "#E8E8DC",
+			"font_color": "#0E0E0E"
+		},
+		"12": {
+			"label": "800",
+			"value": "800",
+			"action": "ADD",
+			"color": "#FE0000",
+			"font_color": "#0E0E0E"
+		},
+		"13": {
+			"label": "500",
+			"value": "500",
+			"action": "ADD",
+			"color": "#AA78DA",
+			"font_color": "#0E0E0E"
+		},
+		"14": {
+			"label": "650",
+			"value": "650",
+			"action": "ADD",
+			"color": "#F5989D",
+			"font_color": "#0E0E0E"
+		},
+		"15": {
+			"label": "500",
+			"value": "500",
+			"action": "ADD",
+			"color": "#3BB777",
+			"font_color": "#0E0E0E"
+		},
+		"16": {
+			"label": "900",
+			"value": "900",
+			"action": "ADD",
+			"color": "#FE690D",
+			"font_color": "#0E0E0E"
+		},
+		"17": {
+			"label": "BANKRUPT",
+			"value": "0",
+			"action": "BANKRUPT",
+			"color": "#0E0E0E",
+			"font_color": "#f0f0f0"
+		},
+		"18": {
+			"label": "2500",
+			"value": "2500",
+			"action": "ADD",
+			"color": "#66D3F6",
+			"font_color": "#0E0E0E"
+		},
+		"19": {
+			"label": "WILD",
+			"value": "100",
+			"action": "WILD",
+			"color": "#3BB777",
+			"font_color": "#D31489"
+		},
+		"20": {
+			"label": "900",
+			"value": "900",
+			"action": "ADD",
+			"color": "#FFF200",
+			"font_color": "#0E0E0E"
+		},
+		"21": {
+			"label": "700",
+			"value": "700",
+			"action": "ADD",
+			"color": "#FE0000",
+			"font_color": "#0E0E0E"
+		},
+		"22": {
+			"label": "600",
+			"value": "600",
+			"action": "ADD",
+			"color": "#3AB9FE",
+			"font_color": "#0E0E0E"
+		},
+		"23": {
+			"label": "650",
+			"value": "650",
+			"action": "ADD",
+			"color": "#FE690D",
+			"font_color": "#0E0E0E"
+		}
+	}
+}

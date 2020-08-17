@@ -1,0 +1,206 @@
+{
+	"name": "c3_json_helper",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json HELPER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "getValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 951598129018496
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 316177254099184
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst result = json_getKey(json_name,key);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 483600901433894
+				},
+				{
+					"functionName": "setValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 731185672265125
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 107177790046482
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 223190028221220
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst value = localVars.value;\nconst json_name = localVars.jsonName;\njson_changeKey(json_name, key, value)"
+						}
+					],
+					"sid": 919399102186454
+				},
+				{
+					"functionName": "initializeJSON",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 242169390244202
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\njson_initialize(name);"
+						}
+					],
+					"sid": 565277230107712
+				}
+			],
+			"sid": 771433269211111
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json INITIALIZE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "InitializeJson:colors",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 217247732735788,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "colors.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 479696196788005
+						},
+						{
+							"id": "parse",
+							"objectClass": "colors",
+							"sid": 337695408225222,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 479841912633495,
+							"parameters": [
+								"\"colors\""
+							]
+						}
+					],
+					"sid": 578524120582657
+				},
+				{
+					"functionName": "InitializeJson:wedges_settings",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 422657777867745,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "wedges_settings.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 123678950302654
+						},
+						{
+							"id": "parse",
+							"objectClass": "wedges_settings",
+							"sid": 374427910580869,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 584985401767856,
+							"parameters": [
+								"\"wedges_settings\""
+							]
+						}
+					],
+					"sid": 580791521901973
+				}
+			],
+			"sid": 143545687955143
+		}
+	],
+	"sid": 143555207262419
+}
