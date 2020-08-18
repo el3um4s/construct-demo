@@ -1,0 +1,55 @@
+{
+	"name": "Tilemap_Sand",
+	"plugin-id": "Tilemap",
+	"sid": 809293360604477,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 141075841874803
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4945830,
+		"collisionPoly": {
+			"points": [
+				0.002824858757062147,
+				0.004424778761061947,
+				0.9971751412429378,
+				0.004424778761061947,
+				0.9971751412429378,
+				0.995575221238938,
+				0.002824858757062147,
+				0.995575221238938
+			]
+		},
+		"useCollisionPoly": true
+	},
+	"tile-collision-polys": {
+		"0": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": false
+		}
+	}
+}

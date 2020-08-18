@@ -1,0 +1,16 @@
+{
+	"demo":  {
+		"background": "#252A34",
+		"primary": "#f5f5f5",
+		"red": "#ff0000"
+	},
+	"sand_road": {
+		"colors": {
+			"sand": "#B6BB00",
+			"background": "#082F7D",
+			"obstacle": "#082F7D",
+			"ball": "#FF0202",
+			"particles": "#6088d7"
+		}
+	}
+}

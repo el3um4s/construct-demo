@@ -1,0 +1,17 @@
+{
+	"name": "Obstacles",
+	"plugin-id": "Sprite",
+	"sid": 828876005168825,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 841386763739706
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Obstacle"
+	]
+}

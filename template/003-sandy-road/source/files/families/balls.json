@@ -1,0 +1,17 @@
+{
+	"name": "Balls",
+	"plugin-id": "Sprite",
+	"sid": 676447101666045,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 675474501772656
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Ball"
+	]
+}

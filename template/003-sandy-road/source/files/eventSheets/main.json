@@ -1,0 +1,397 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 162991327049305
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 935525705591103,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=24][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 272641196551255
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 727951318159876
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 159436487631212,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 864054439283821,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 143458390021492,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 466274697126787,
+					"parameters": [
+						"Tiled_Background.UID",
+						"Functions.getValue(\"colors\", \"sand_road.colors.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 609304379771711,
+					"parameters": [
+						"Tilemap_Sand.UID",
+						"Functions.getValue(\"colors\", \"sand_road.colors.sand\")"
+					]
+				}
+			],
+			"sid": 573528022141876,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 832492787006745,
+							"parameters": {
+								"object": "Obstacles"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 358395988644213,
+							"parameters": [
+								"Obstacles.UID",
+								"Functions.getValue(\"colors\", \"sand_road.colors.obstacle\")"
+							]
+						}
+					],
+					"sid": 826505010293731
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 692059767855493,
+							"parameters": {
+								"object": "Balls"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 564129403834915,
+							"parameters": [
+								"Balls.UID",
+								"Functions.getValue(\"colors\", \"sand_road.colors.ball\")"
+							]
+						}
+					],
+					"sid": 894408637254667
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 244512499597539,
+							"parameters": {
+								"object": "Tiled_Margin"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 666865764372905,
+							"parameters": [
+								"Tiled_Margin.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 188168809759841
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "ERASE SAND"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-in-touch",
+					"objectClass": "Touch",
+					"sid": 201456732709563
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "finger",
+					"sid": 294613260440218,
+					"parameters": {
+						"x": "Touch.X",
+						"y": "Touch.Y"
+					}
+				}
+			],
+			"sid": 103459881621441,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "radius",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 154232954107429
+				},
+				{
+					"eventType": "variable",
+					"name": "d",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 593901111442022
+				},
+				{
+					"eventType": "variable",
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 567391659569932
+				},
+				{
+					"eventType": "variable",
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 222867237060770
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 691780620768467,
+							"parameters": {
+								"variable": "radius",
+								"value": "(finger.Width/8)/2"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 148509878167122,
+							"parameters": {
+								"variable": "X",
+								"value": "finger.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 255878312231289,
+							"parameters": {
+								"variable": "Y",
+								"value": "finger.Y"
+							}
+						}
+					],
+					"sid": 564775198979430
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 344431302152371,
+							"parameters": {
+								"name": "\"\"",
+								"start-index": "-radius",
+								"end-index": "radius"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 125760062160618,
+							"parameters": {
+								"variable": "d",
+								"value": "sqrt(radius^2-loopindex^2)"
+							}
+						},
+						{
+							"id": "erase-tile-range",
+							"objectClass": "Tilemap_Sand",
+							"sid": 875078589644593,
+							"parameters": {
+								"tile-x": "-d+Tilemap_Sand.PositionToTilex(X)",
+								"tile-y": "loopindex+Tilemap_Sand.PositionToTileY(Y)",
+								"width": "2*d",
+								"height": "1"
+							}
+						}
+					],
+					"sid": 417252722671272
+				}
+			]
+		},
+		{
+			"eventType": "comment",
+			"text": "CAMERA"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 600126263289192
+				}
+			],
+			"actions": [],
+			"sid": 722260456088915,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-nearestfurthest",
+							"objectClass": "Balls",
+							"sid": 497650614767953,
+							"parameters": {
+								"which": "furthest",
+								"x": "Starter.X",
+								"y": "Starter.Y"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Camera",
+							"sid": 647687779388126,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Starter.X",
+								"end-y": "Balls.Y < Top_Limit.Y ? Top_Limit.Y : ( Balls.Y > Bottom_Limit.Y ? Bottom_Limit.Y : Balls.Y )",
+								"time": "0.7",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 389995848294214
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Balls",
+					"sid": 724783227818088,
+					"parameters": {
+						"object": "Obstacles"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "shake",
+					"objectClass": "Camera",
+					"sid": 434244216098369,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "5",
+						"duration": "0.1",
+						"mode": "reducing-magnitude"
+					}
+				}
+			],
+			"sid": 661456697764819,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 582479870674090,
+							"parameters": {
+								"object-to-create": "Particles",
+								"layer": "\"LAY_BALLS\"",
+								"x": "Obstacles.Physics.ContactXAt(0)",
+								"y": "Obstacles.Physics.ContactYAt(0)"
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 910879982608157,
+							"parameters": [
+								"Particles.UID",
+								"Functions.getValue(\"colors\", \"sand_road.colors.particles\")"
+							]
+						}
+					],
+					"sid": 647363424597471
+				}
+			]
+		}
+	],
+	"sid": 353809346757022
+}

@@ -1,0 +1,26 @@
+{
+	"name": "Tiled_Margin",
+	"plugin-id": "TiledBg",
+	"sid": 172224554793228,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 851588670689559
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6824957,
+		"useCollisionPoly": true
+	}
+}
