@@ -1,0 +1,184 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 162991327049305
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 865222507596463,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 272641196551255
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 727951318159876
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 159436487631212,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 236031646946309,
+					"parameters": [
+						"Text_Position.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 864054439283821,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 143458390021492,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				}
+			],
+			"sid": 573528022141876,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 288854301028268,
+							"parameters": {
+								"object": "TiledBar"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 104721949064302,
+							"parameters": [
+								"TiledBar.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 978591508744834
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 292337307600408
+				}
+			],
+			"actions": [
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 835500778516133,
+					"parameters": {
+						"width": "PlatformInfo.WindowInnerWidth",
+						"height": "PlatformInfo.WindowInnerHeight"
+					}
+				}
+			],
+			"sid": 674065267253571
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-resized",
+					"objectClass": "Browser",
+					"sid": 719639035384299
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 587308601651971,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 147293898314555
+				},
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 961755406044452,
+					"parameters": {
+						"width": "Browser.WindowInnerWidth",
+						"height": "Browser.WindowInnerHeight"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 606288432824237,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 942536603749799
+				}
+			],
+			"sid": 996764692849728
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 242585108190026
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Position",
+					"sid": 680175727090763,
+					"parameters": {
+						"text": "\"Window: \" & PlatformInfo.WindowInnerWidth& \" x \" & PlatformInfo.WindowInnerHeight &  \" - Viewport: \" & round(ViewportRight(0) - ViewportLeft(0)) & \" x \" & round(ViewportBottom(0) - ViewportTop(0))"
+					}
+				}
+			],
+			"sid": 227253437024052
+		}
+	],
+	"sid": 353809346757022
+}

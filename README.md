@@ -10,13 +10,16 @@ My collection of demo projects
   4. [How to create tooltips](javascript/004-how-to-create-tooltips)
   5. [How to dynamically import a module in Construct 3](javascript/005-how-to-dynamically-import-a-module)
 
-### Text
-
-  1. [How to show random digital number](text/001-how-to-show-random-digital-number)
-
 ### Template
 
   1. [Top Down Shooter: Laser Game](template/001-top-down-shooter-laser-game)
   2. [Wheel of Fortune](template/002-wheel-of-fortune)
   3. [Sandy Road](template/003-sandy-road)
+
+### User Interface
+
+  1. [Emulated Crop Scale](user-interface/001-emulated-crop-scale)
   
+### Text
+
+  1. [How to show random digital number](text/001-how-to-show-random-digital-number)

@@ -1,0 +1,152 @@
+{
+	"name": "c3_colors_helper",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Colors Helper",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Change_Color_Object",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 555473816800577
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "#6493bd",
+							"comment": "",
+							"sid": 955755563771433
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uid = localVars.UID;\nconst color = localVars.Color;\nconst element = g_runtime.getInstanceByUid(uid);\n\nelement.colorRgb = hexToRGBA(color, {formatNumber: \"0-1 Range\", formatReturn: \"Array\"});"
+						}
+					],
+					"sid": 866719892201517
+				},
+				{
+					"functionName": "Change_Color_Layer",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "nameLayer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 284947128778058
+						},
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "#6493bd",
+							"comment": "",
+							"sid": 623182893121368
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 774350409326206,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "r",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 626945888798439
+						},
+						{
+							"eventType": "variable",
+							"name": "g",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 354625225316827
+						},
+						{
+							"eventType": "variable",
+							"name": "b",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 986717331606328
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const color = localVars.Color;\nconst rgb = hexToRGBA(color, {formatNumber: \"0-255 Range\", formatReturn: \"Array\"});\nlocalVars.r = rgb[0];\nlocalVars.g = rgb[1];\nlocalVars.b = rgb[2];"
+								},
+								{
+									"id": "set-layer-background-color",
+									"objectClass": "System",
+									"sid": 408610023250444,
+									"parameters": {
+										"layer": "nameLayer",
+										"color": "rgbEx255(r, g, b)"
+									}
+								}
+							],
+							"sid": 686025739052449
+						}
+					]
+				},
+				{
+					"functionName": "Change_Color_Body",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Color",
+							"type": "string",
+							"initialValue": "#6493bd",
+							"comment": "",
+							"sid": 323631067865961
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "document.body.style.backgroundColor = localVars.Color;"
+						}
+					],
+					"sid": 841105235443126
+				}
+			],
+			"sid": 626024011538441
+		}
+	],
+	"sid": 700373519112164
+}
