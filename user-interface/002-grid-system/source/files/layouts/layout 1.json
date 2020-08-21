@@ -1,0 +1,1191 @@
+{
+	"name": "Layout 1",
+	"layers": [
+		{
+			"name": "background",
+			"overriden": 0,
+			"instances": [],
+			"sid": 780339663593971,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.1450980392156863,
+				0.16470588235294117,
+				0.20392156862745098,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "grid_large",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 35,
+					"instanceVariables": {
+						"Pin": "E",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": true,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 120,
+						"height": 480,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.2784313725490196,
+							0.45098039215686275,
+							0.5764705882352941,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 3,
+					"instanceVariables": {
+						"Pin": "A",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": true
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 8,
+						"width": 208,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"Pin": "B",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 80,
+						"width": 208,
+						"height": 320,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 9,
+					"instanceVariables": {
+						"Pin": "F",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": false,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 128,
+						"y": 408,
+						"width": 208,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 5,
+					"instanceVariables": {
+						"Pin": "G",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 344,
+						"y": 8,
+						"width": 136,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 4,
+					"instanceVariables": {
+						"Pin": "L",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 488,
+						"y": 8,
+						"width": 136,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"Pin": "H",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": false,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 344,
+						"y": 160,
+						"width": 280,
+						"height": 160,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 6,
+					"instanceVariables": {
+						"Pin": "I",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": false,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 344,
+						"y": 328,
+						"width": 280,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 7,
+					"instanceVariables": {
+						"Pin": "C",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": true
+					},
+					"behaviors": {},
+					"world": {
+						"x": 632,
+						"y": 8,
+						"width": 216,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.3058823529411765,
+							0.7098039215686275,
+							0.8352941176470589,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 10,
+					"instanceVariables": {
+						"Pin": "D",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 632,
+						"y": 80,
+						"width": 216,
+						"height": 392,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.3058823529411765,
+							0.7098039215686275,
+							0.8352941176470589,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 496503664432791,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "grid_big",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 11,
+					"instanceVariables": {
+						"Pin": "E",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": true,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 120,
+						"height": 480,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.2784313725490196,
+							0.45098039215686275,
+							0.5764705882352941,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {
+						"Pin": "B",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 136,
+						"y": 8,
+						"width": 232,
+						"height": 464,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 13,
+					"instanceVariables": {
+						"Pin": "H",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 376,
+						"y": 8,
+						"width": 232,
+						"height": 464,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 36,
+					"instanceVariables": {
+						"Pin": "D",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 616,
+						"y": 8,
+						"width": 232,
+						"height": 464,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.3058823529411765,
+							0.7098039215686275,
+							0.8352941176470589,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 757030170779198,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "grid",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"Pin": "B",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 8,
+						"y": 8,
+						"width": 840,
+						"height": 232,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 20,
+					"instanceVariables": {
+						"Pin": "H",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": false,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 8,
+						"y": 248,
+						"width": 416,
+						"height": 224,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.5607843137254902,
+							0.7254901960784313,
+							0.6666666666666666,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 37,
+					"instanceVariables": {
+						"Pin": "D",
+						"X_Top_Left_Absolute": false,
+						"Y_Top_Left_Absolute": false,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 432,
+						"y": 248,
+						"width": 416,
+						"height": 224,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.3058823529411765,
+							0.7098039215686275,
+							0.8352941176470589,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 266190924018111,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "grid_little",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "GridCell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"Pin": "B",
+						"X_Top_Left_Absolute": true,
+						"Y_Top_Left_Absolute": true,
+						"X_Bottom_Right_Absolute": false,
+						"Y_Bottom_Right_Absolute": false
+					},
+					"behaviors": {},
+					"world": {
+						"x": 8,
+						"y": 8,
+						"width": 840,
+						"height": 464,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.9294117647058824,
+							0.5372549019607843,
+							0.4588235294117647,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 134010653869887,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "elements",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "smileA",
+					"properties": {
+						"svg-file": 335234656380395,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 21,
+					"instanceVariables": {
+						"grid": "A"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 232,
+						"y": 40,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileB",
+					"properties": {
+						"svg-file": 500930896547901,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"grid": "F"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 232,
+						"y": 440,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileC",
+					"properties": {
+						"svg-file": 607849410278079,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 23,
+					"instanceVariables": {
+						"grid": "C"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 744,
+						"y": 40,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileD",
+					"properties": {
+						"svg-file": 136920366010240,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 24,
+					"instanceVariables": {
+						"grid": "D"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 752,
+						"y": 256,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileE",
+					"properties": {
+						"svg-file": 849008930081887,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 25,
+					"instanceVariables": {
+						"grid": "E"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 56,
+						"y": 224,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileF",
+					"properties": {
+						"svg-file": 130548088930617,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 26,
+					"instanceVariables": {
+						"grid": "EX_F"
+					},
+					"behaviors": {},
+					"world": {
+						"x": -48,
+						"y": 24,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileG",
+					"properties": {
+						"svg-file": 966708281347755,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 27,
+					"instanceVariables": {
+						"grid": "G"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 424,
+						"y": 80,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileH",
+					"properties": {
+						"svg-file": 945758285258812,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 28,
+					"instanceVariables": {
+						"grid": "H"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 496,
+						"y": 240,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileI",
+					"properties": {
+						"svg-file": 722744985898961,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 29,
+					"instanceVariables": {
+						"grid": "I"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 488,
+						"y": 400,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "smileL",
+					"properties": {
+						"svg-file": 659984519482225,
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 30,
+					"instanceVariables": {
+						"grid": "L"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 568,
+						"y": 80,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 455395772765208,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "title",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Title",
+					"properties": {
+						"text": "Title",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 32,
+					"instanceVariables": {
+						"grid": "B"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 232,
+						"y": 240,
+						"width": 208,
+						"height": 320,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 212175248392801,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 351146056564015,
+	"nonworld-instances": [
+		{
+			"type": "colors",
+			"properties": {},
+			"uid": 34,
+			"instanceVariables": {}
+		},
+		{
+			"type": "media_query",
+			"properties": {},
+			"uid": 16,
+			"instanceVariables": {}
+		}
+	],
+	"effectTypes": [],
+	"width": 856,
+	"height": 480,
+	"unboundedScrolling": false,
+	"eventSheet": "main"
+}

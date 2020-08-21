@@ -1,0 +1,910 @@
+{
+	"name": "es-grid-system-for-construct-3",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 564011795111053
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 262646577433810,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]\" & newline & \"[size=12][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 237630088859130
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 758376051791650
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 411960337829967,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 101411605978508,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 754507694370472,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				}
+			],
+			"sid": 473994027893964
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Grid_System",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "VIEWPORT_SIZE_WIDTH",
+					"type": "number",
+					"initialValue": "856",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 412333874542849
+				},
+				{
+					"eventType": "variable",
+					"name": "VIEWPORT_SIZE_HEIGHT",
+					"type": "number",
+					"initialValue": "480",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 934714834247673
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Grid_System :: SETTINGS",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 819528837125619
+								}
+							],
+							"actions": [],
+							"sid": 867553240897357,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 188361064316018,
+											"parameters": {
+												"object": "GRID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Grid_System :: Set GRID Coordinates",
+											"sid": 910213652024919,
+											"parameters": [
+												"GRID.UID"
+											]
+										}
+									],
+									"sid": 698535830668064
+								}
+							]
+						}
+					],
+					"sid": 590665847061569
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Grid_System :: EVERY TICK",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-resized",
+									"objectClass": "Browser",
+									"sid": 133449817642748
+								},
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 509934792435357
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 846680725864174,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 589241590446911
+								},
+								{
+									"id": "scroll-to-position",
+									"objectClass": "System",
+									"sid": 878959929507050,
+									"parameters": {
+										"x": "VIEWPORT_SIZE_WIDTH/ 2",
+										"y": "VIEWPORT_SIZE_HEIGHT/ 2"
+									}
+								},
+								{
+									"callFunction": "Grid_System :: Resize Canvas",
+									"sid": 184279248071652
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 481308024231983
+								},
+								{
+									"callFunction": "Grid_System :: Resize Grid",
+									"sid": 940086433792290
+								}
+							],
+							"sid": 173371365142065,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 680871622575262,
+											"parameters": {
+												"object": "TITLES"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Grid_System :: Pin To UID",
+											"sid": 545857587190444,
+											"parameters": [
+												"TITLES.UID",
+												"\"GRID\""
+											]
+										}
+									],
+									"sid": 652885888282561
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 787862238310082,
+											"parameters": {
+												"object": "SMILE"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Grid_System :: Pin To UID",
+											"sid": 123889411680476,
+											"parameters": [
+												"SMILE.UID",
+												"\"GRID\""
+											]
+										}
+									],
+									"sid": 718053346200073
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"functionName": "Grid_System :: Pin To UID",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 452095197544216
+								},
+								{
+									"name": "FamilyGrid",
+									"type": "string",
+									"initialValue": "GRID",
+									"comment": "",
+									"sid": 316081485603216
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 670228817084926,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const uid = localVars.UID;\nconst familyGrid = localVars.FamilyGrid;\nconst element = g_runtime.getInstanceByUid(uid);\n\nelement.isVisible = false;\n\nfor (const gridInstance of runtime.objects[familyGrid].instances()) {\n\n\tconst gridIsPinnedWithElement = gridInstance.instVars.Pin == element.instVars.grid;\n\tconst layerIsVisible = gridInstance.layer.isVisible;\n\tif (gridIsPinnedWithElement && layerIsVisible) {\n\t\telement.isVisible = true;\n\t\telement.x = gridInstance.getImagePointX(\"center\");\n\t\telement.y = gridInstance.getImagePointY(\"center\");\n\t\telement.width = gridInstance.width;\n\t\telement.height = gridInstance.height;\n\t}\n}"
+										}
+									],
+									"sid": 490539235675242
+								}
+							]
+						}
+					],
+					"sid": 181325402018987
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Grid_System :: FUNCTIONS",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Grid_System :: Resize Canvas",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": true,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-canvas-size",
+									"objectClass": "System",
+									"sid": 833542310324755,
+									"parameters": {
+										"width": "PlatformInfo.WindowInnerWidth  > VIEWPORT_SIZE_WIDTH ?  PlatformInfo.WindowInnerWidth  :  VIEWPORT_SIZE_WIDTH ",
+										"height": "PlatformInfo.WindowInnerHeight > VIEWPORT_SIZE_HEIGHT ? PlatformInfo.WindowInnerHeight : VIEWPORT_SIZE_HEIGHT "
+									}
+								}
+							],
+							"sid": 229788621268043
+						},
+						{
+							"functionName": "Grid_System :: Resize Grid",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 560985640372277,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 156137810378523,
+											"parameters": {
+												"object": "GRID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 576809510927903,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "Window_Width",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 804493109706195
+										},
+										{
+											"eventType": "variable",
+											"name": "Window_Height",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 841676941797254
+										},
+										{
+											"eventType": "variable",
+											"name": "X_Top_Left",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 110702596473732
+										},
+										{
+											"eventType": "variable",
+											"name": "Y_Top_Left",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 651606652856827
+										},
+										{
+											"eventType": "variable",
+											"name": "X_Bottom_Right",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 742176850819468
+										},
+										{
+											"eventType": "variable",
+											"name": "Y_Bottom_Right",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 977168570769620
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 166675648748101,
+													"parameters": {
+														"variable": "Window_Width",
+														"value": "PlatformInfo.WindowInnerWidth"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 877814850471426,
+													"parameters": {
+														"variable": "Window_Height",
+														"value": "PlatformInfo.WindowInnerHeight"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 304300893356567,
+													"parameters": {
+														"variable": "X_Top_Left",
+														"value": "GRID.X_Top_Left"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 638030963890459,
+													"parameters": {
+														"variable": "Y_Top_Left",
+														"value": "GRID.Y_Top_Left"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 768250631186881,
+													"parameters": {
+														"variable": "X_Bottom_Right",
+														"value": "GRID.X_Bottom_Right"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 245592231165802,
+													"parameters": {
+														"variable": "Y_Bottom_Right",
+														"value": "GRID.Y_Bottom_Right"
+													}
+												}
+											],
+											"sid": 951664286752523,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "GRID",
+															"sid": 219473514928336,
+															"parameters": {
+																"instance-variable": "X_Top_Left_Absolute"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 186746498965432,
+															"parameters": {
+																"variable": "X_Top_Left",
+																"value": "(X_Top_Left / VIEWPORT_SIZE_WIDTH) * Window_Width"
+															}
+														}
+													],
+													"sid": 169441087937280
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "GRID",
+															"sid": 122616838010809,
+															"parameters": {
+																"instance-variable": "Y_Top_Left_Absolute"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 774809460577467,
+															"parameters": {
+																"variable": "Y_Top_Left",
+																"value": "(Y_Top_Left / VIEWPORT_SIZE_HEIGHT) * Window_Height"
+															}
+														}
+													],
+													"sid": 780119788722569
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "GRID",
+															"sid": 158439982406762,
+															"parameters": {
+																"instance-variable": "X_Bottom_Right_Absolute"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 438884537752391,
+															"parameters": {
+																"variable": "X_Bottom_Right",
+																"value": "(X_Bottom_Right / VIEWPORT_SIZE_WIDTH) * Window_Width"
+															}
+														}
+													],
+													"sid": 244360145539591
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "GRID",
+															"sid": 628880503919238,
+															"parameters": {
+																"instance-variable": "Y_Bottom_Right_Absolute"
+															},
+															"isInverted": true
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 708364600305866,
+															"parameters": {
+																"variable": "Y_Bottom_Right",
+																"value": "(Y_Bottom_Right/ VIEWPORT_SIZE_HEIGHT) * Window_Height"
+															}
+														}
+													],
+													"sid": 168814000297970
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-position",
+															"objectClass": "GRID",
+															"sid": 766622287808691,
+															"parameters": {
+																"x": "X_Top_Left",
+																"y": "Y_Top_Left"
+															}
+														},
+														{
+															"id": "set-size",
+															"objectClass": "GRID",
+															"sid": 187150668171041,
+															"parameters": {
+																"width": "X_Bottom_Right - X_Top_Left",
+																"height": "Y_Bottom_Right - Y_Top_Left"
+															}
+														}
+													],
+													"sid": 555644177770099
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Grid_System :: Set GRID Coordinates",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 790244465332514
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 130917062485916,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "GRID",
+											"sid": 195103782821766,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GRID",
+											"sid": 634655782859134,
+											"parameters": {
+												"instance-variable": "X_Top_Left",
+												"value": "GRID.X"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GRID",
+											"sid": 815724370170796,
+											"parameters": {
+												"instance-variable": "Y_Top_Left",
+												"value": "GRID.Y"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GRID",
+											"sid": 232433494278494,
+											"parameters": {
+												"instance-variable": "X_Bottom_Right",
+												"value": "GRID.X + GRID.Width"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "GRID",
+											"sid": 242429375071610,
+											"parameters": {
+												"instance-variable": "Y_Bottom_Right",
+												"value": "GRID.Y + GRID.Height"
+											}
+										}
+									],
+									"sid": 256640350939200
+								}
+							]
+						}
+					],
+					"sid": 311442542284500
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Grid_System :: MEDIA QUERY",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 448932711692086,
+									"parameters": {
+										"first-value": "PlatformInfo.WindowInnerWidth",
+										"comparison": 3,
+										"second-value": "500"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 316636810519579,
+									"parameters": {
+										"layer": "\"grid_little\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 818299047226334,
+									"parameters": {
+										"layer": "\"grid\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 142494851669554,
+									"parameters": {
+										"layer": "\"grid_big\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 753183464553632,
+									"parameters": {
+										"layer": "\"grid_large\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 888428305433357
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 921567104003642
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 252813230880159,
+									"parameters": {
+										"first-value": "PlatformInfo.WindowInnerWidth",
+										"comparison": 2,
+										"second-value": "768"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 369319129471369,
+									"parameters": {
+										"layer": "\"grid_little\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 448559840686629,
+									"parameters": {
+										"layer": "\"grid\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 873971857966442,
+									"parameters": {
+										"layer": "\"grid_big\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 606916413450578,
+									"parameters": {
+										"layer": "\"grid_large\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 727089265955361
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 191362813258481
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 773593310550932,
+									"parameters": {
+										"first-value": "PlatformInfo.WindowInnerWidth",
+										"comparison": 2,
+										"second-value": "1024"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 880837778190295,
+									"parameters": {
+										"layer": "\"grid_little\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 344553029767307,
+									"parameters": {
+										"layer": "\"grid\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 127959590346039,
+									"parameters": {
+										"layer": "\"grid_big\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 868278845763290,
+									"parameters": {
+										"layer": "\"grid_large\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 593552793610479
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 221230834672229
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 546056743664032,
+									"parameters": {
+										"layer": "\"grid_little\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 780566935069495,
+									"parameters": {
+										"layer": "\"grid\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 874231489220399,
+									"parameters": {
+										"layer": "\"grid_big\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 142057011620404,
+									"parameters": {
+										"layer": "\"grid_large\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 889985009862857
+						}
+					],
+					"sid": 960359831177478
+				}
+			],
+			"sid": 369056512110660
+		}
+	],
+	"sid": 652272351617021
+}

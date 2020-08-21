@@ -1,0 +1,256 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 592585606290916
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 815294025939826
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 701695995765681
+				},
+				{
+					"callFunction": "InitializeJson:media_query",
+					"sid": 477053324969699
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 631163520709684
+				}
+			],
+			"sid": 794609705943192,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Title",
+							"sid": 831278339702366,
+							"parameters": {
+								"text": "\"[b]\" &projectname & \"[/b]\" & newline & \"[size=12][i](version: \" & projectversion & \")[/i][/size]\""
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 950209773304090,
+							"parameters": [
+								"Title.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						},
+						{
+							"callFunction": "Change_Color_Layer",
+							"sid": 157775639665691,
+							"parameters": [
+								"\"background\"",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						},
+						{
+							"callFunction": "Change_Color_Body",
+							"sid": 169548097866270,
+							"parameters": [
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 373399541951747
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Grid_System :: Media Query",
+							"sid": 903760894976736
+						}
+					],
+					"sid": 795082194436633
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 902278669950016,
+							"parameters": {
+								"object": "GRID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Grid_System :: Initialize Grid Cell",
+							"sid": 324387060163337,
+							"parameters": [
+								"GRID.UID"
+							]
+						}
+					],
+					"sid": 715501816613791
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "OnResized",
+							"sid": 822539084492243
+						}
+					],
+					"sid": 833906409228633
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-resized",
+					"objectClass": "Browser",
+					"sid": 937818840583585
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 788636807313553,
+					"parameters": {
+						"seconds": "0"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 695985060096069
+				},
+				{
+					"callFunction": "OnResized",
+					"sid": 510779171252882
+				}
+			],
+			"sid": 652426106556605
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 337652212708557
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Grid_System :: Media Query",
+					"sid": 789168458852208
+				}
+			],
+			"sid": 324999362295851
+		},
+		{
+			"functionName": "OnResized",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": true,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "scroll-to-position",
+					"objectClass": "System",
+					"sid": 719327272111130,
+					"parameters": {
+						"x": "OriginalViewportWidth/ 2",
+						"y": "OriginalViewportHeight/ 2"
+					}
+				},
+				{
+					"callFunction": "Grid_System :: Resize Canvas",
+					"sid": 809468954121593
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 480497953499023
+				},
+				{
+					"callFunction": "Grid_System :: Resize Grid",
+					"sid": 893067599822344
+				}
+			],
+			"sid": 111103727160448,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 811762628313378,
+							"parameters": {
+								"object": "TITLES"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Grid_System :: Pin To UID",
+							"sid": 568165596213792,
+							"parameters": [
+								"TITLES.UID",
+								"\"GRID\"",
+								"\"center\""
+							]
+						}
+					],
+					"sid": 164089476900445
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 470163713005691,
+							"parameters": {
+								"object": "SMILE"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Grid_System :: Pin To UID",
+							"sid": 851222271822285,
+							"parameters": [
+								"SMILE.UID",
+								"\"GRID\"",
+								"\"center\""
+							]
+						}
+					],
+					"sid": 577618337230239
+				}
+			]
+		}
+	],
+	"sid": 652272351617021
+}

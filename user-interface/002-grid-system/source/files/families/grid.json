@@ -1,0 +1,42 @@
+{
+	"name": "GRID",
+	"plugin-id": "Sprite",
+	"sid": 169082411116589,
+	"instanceVariables": [
+		{
+			"name": "Pin",
+			"type": "string",
+			"desc": "",
+			"sid": 462275923286235
+		},
+		{
+			"name": "X_Top_Left_Absolute",
+			"type": "boolean",
+			"desc": "",
+			"sid": 905257206023383
+		},
+		{
+			"name": "Y_Top_Left_Absolute",
+			"type": "boolean",
+			"desc": "",
+			"sid": 311251792416605
+		},
+		{
+			"name": "X_Bottom_Right_Absolute",
+			"type": "boolean",
+			"desc": "",
+			"sid": 860139377017663
+		},
+		{
+			"name": "Y_Bottom_Right_Absolute",
+			"type": "boolean",
+			"desc": "",
+			"sid": 400153882306158
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"GridCell"
+	]
+}

@@ -1,0 +1,27 @@
+{
+	"name": "SMILE",
+	"plugin-id": "SVGPicture",
+	"sid": 203687182692788,
+	"instanceVariables": [
+		{
+			"name": "grid",
+			"type": "string",
+			"desc": "",
+			"sid": 783195683488929
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"smileL",
+		"smileI",
+		"smileH",
+		"smileG",
+		"smileF",
+		"smileE",
+		"smileD",
+		"smileC",
+		"smileB",
+		"smileA"
+	]
+}

@@ -1,0 +1,206 @@
+{
+	"name": "c3_json_helper",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json HELPER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "getValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 139805483316499
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 198460906989787
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst result = json_getKey(json_name,key);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 346260004509526
+				},
+				{
+					"functionName": "setValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 750114321338952
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 506061806093704
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 470645102269028
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst value = localVars.value;\nconst json_name = localVars.jsonName;\njson_changeKey(json_name, key, value)"
+						}
+					],
+					"sid": 874717864638526
+				},
+				{
+					"functionName": "initializeJSON",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 287814064875145
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\njson_initialize(name);\n"
+						}
+					],
+					"sid": 710334322759425
+				}
+			],
+			"sid": 112774518877060
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json INITIALIZE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "InitializeJson:colors",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 161803300522996,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "colors.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 705546625476579
+						},
+						{
+							"id": "parse",
+							"objectClass": "colors",
+							"sid": 717525095223959,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 299640231256300,
+							"parameters": [
+								"\"colors\""
+							]
+						}
+					],
+					"sid": 122819957966361
+				},
+				{
+					"functionName": "InitializeJson:media_query",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 622926963117196,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "media_query.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 845712861175855
+						},
+						{
+							"id": "parse",
+							"objectClass": "media_query",
+							"sid": 524882534450814,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 533639104720307,
+							"parameters": [
+								"\"media_query\""
+							]
+						}
+					],
+					"sid": 830564746601386
+				}
+			],
+			"sid": 715223920452817
+		}
+	],
+	"sid": 216877339285041
+}

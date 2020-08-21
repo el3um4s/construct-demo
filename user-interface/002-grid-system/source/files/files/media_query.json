@@ -1,0 +1,18 @@
+{
+	"grid_little": {
+		"visible": ["grid_little"],
+		"invisible": ["grid", "grid_big", "grid_large"]
+	},
+	"grid": {
+		"visible": ["grid"],
+		"invisible": ["grid_little", "grid_big", "grid_large"]
+	},
+	"grid_big": {
+		"visible": ["grid_big"],
+		"invisible": ["grid_little", "grid", "grid_large"]
+	},
+	"grid_large": {
+		"visible": ["grid_large"],
+		"invisible": ["grid_little", "grid", "grid_big"]	
+	}
+}

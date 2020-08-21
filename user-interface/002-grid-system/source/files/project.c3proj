@@ -1,0 +1,394 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 21200,
+	"name": "Grid System",
+	"runtime": "c3",
+	"useWorker": "dom",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "SVGPicture",
+			"name": "SVG Picture",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		}
+	],
+	"uniqueId": "fqkzlpq5cx0",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"GridCell"
+				],
+				"subfolders": [],
+				"name": "GRID"
+			},
+			{
+				"items": [
+					"smileA",
+					"smileB",
+					"smileC",
+					"smileD",
+					"smileE",
+					"smileF",
+					"smileG",
+					"smileH",
+					"smileI",
+					"smileL"
+				],
+				"subfolders": [],
+				"name": "SMILES"
+			},
+			{
+				"items": [
+					"AJAX",
+					"Browser",
+					"PlatformInfo"
+				],
+				"subfolders": [],
+				"name": "SYSTEM"
+			},
+			{
+				"items": [
+					"Title"
+				],
+				"subfolders": [],
+				"name": "TEXT"
+			},
+			{
+				"items": [
+					"colors",
+					"media_query"
+				],
+				"subfolders": [],
+				"name": "JSON"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"GRID",
+			"SMILE",
+			"TITLES"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Layout 1"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"main",
+			"c3_json_helper",
+			"c3_colors_helper",
+			"c3_grid_helper"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "RunOnStartup.js",
+					"type": "application/javascript",
+					"sid": 965639313037605
+				},
+				{
+					"name": "c3_json_helper.js",
+					"type": "application/javascript",
+					"sid": 969932621665049
+				},
+				{
+					"name": "c3_colors_helper.js",
+					"type": "application/javascript",
+					"sid": 149875926318569
+				},
+				{
+					"name": "c3_grid_system.js",
+					"type": "application/javascript",
+					"sid": 428305274408981
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "roboto-regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 134436077833254
+				},
+				{
+					"name": "monotalic.woff2",
+					"type": "font/woff2",
+					"sid": 625975636044200
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 751421846203033,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 264408590618039,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 814289962101869,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 807741291751063,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 465592350559168,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 480323956858081,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 395991295368412,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "smileB.svg",
+							"type": "image/svg+xml",
+							"sid": 500930896547901
+						},
+						{
+							"name": "smileC.svg",
+							"type": "image/svg+xml",
+							"sid": 607849410278079
+						},
+						{
+							"name": "smileD.svg",
+							"type": "image/svg+xml",
+							"sid": 136920366010240
+						},
+						{
+							"name": "smileE.svg",
+							"type": "image/svg+xml",
+							"sid": 849008930081887
+						},
+						{
+							"name": "smileF.svg",
+							"type": "image/svg+xml",
+							"sid": 130548088930617
+						},
+						{
+							"name": "smileG.svg",
+							"type": "image/svg+xml",
+							"sid": 966708281347755
+						},
+						{
+							"name": "smileH.svg",
+							"type": "image/svg+xml",
+							"sid": 945758285258812
+						},
+						{
+							"name": "smileI.svg",
+							"type": "image/svg+xml",
+							"sid": 722744985898961
+						},
+						{
+							"name": "smileL.svg",
+							"type": "image/svg+xml",
+							"sid": 659984519482225
+						},
+						{
+							"name": "unhappy.svg",
+							"type": "image/svg+xml",
+							"sid": 335234656380395
+						}
+					],
+					"subfolders": [],
+					"name": "SVG"
+				},
+				{
+					"items": [
+						{
+							"name": "colors.json",
+							"type": "application/json",
+							"sid": 718964199851460
+						},
+						{
+							"name": "media_query.json",
+							"type": "application/json",
+							"sid": 923519340304388
+						}
+					],
+					"subfolders": [],
+					"name": "JSON"
+				}
+			]
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "grid-system-for-construct-3.c3p",
+		"version": "demo-20.08.21",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": true,
+		"useLoaderLayout": false,
+		"fullscreenMode": "off",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.1450980392156863,
+			0.16470588235294117,
+			0.20392156862745098,
+			0
+		],
+		"splashColor": [
+			0.1450980392156863,
+			0.16470588235294117,
+			0.20392156862745098,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "file"
+	},
+	"viewportWidth": 856,
+	"viewportHeight": 480,
+	"firstLayout": null
+}
