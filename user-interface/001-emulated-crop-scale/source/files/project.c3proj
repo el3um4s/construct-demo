@@ -63,6 +63,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r212",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Anchor",
 			"name": "Anchor",
@@ -98,7 +106,9 @@
 			"Text_Position",
 			"TiledBackground",
 			"center",
-			"TiledBar"
+			"TiledBar",
+			"Keyboard",
+			"Text_FullScreen"
 		],
 		"subfolders": []
 	},
@@ -253,7 +263,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20-08.20",
+		"version": "demo-20-08.23",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",
@@ -283,7 +293,7 @@
 			0
 		],
 		"useHighDpi": true,
-		"orientations": "landscape",
+		"orientations": "any",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
 		"framerateMode": "vsync",

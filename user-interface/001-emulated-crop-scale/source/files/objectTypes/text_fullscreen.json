@@ -1,0 +1,15 @@
+{
+	"name": "Text_FullScreen",
+	"plugin-id": "Text",
+	"sid": 295295072880889,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 408218534974606
+		}
+	],
+	"effectTypes": []
+}

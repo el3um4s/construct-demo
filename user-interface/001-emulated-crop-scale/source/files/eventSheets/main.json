@@ -45,6 +45,14 @@
 					]
 				},
 				{
+					"callFunction": "Change_Color_Object",
+					"sid": 531385166089908,
+					"parameters": [
+						"Text_Position.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
 					"callFunction": "Change_Color_Layer",
 					"sid": 864054439283821,
 					"parameters": [
@@ -99,64 +107,11 @@
 			],
 			"actions": [
 				{
-					"id": "set-canvas-size",
-					"objectClass": "System",
-					"sid": 835500778516133,
-					"parameters": {
-						"width": "PlatformInfo.WindowInnerWidth",
-						"height": "PlatformInfo.WindowInnerHeight"
-					}
+					"callFunction": "onResized",
+					"sid": 533197974836749
 				}
 			],
 			"sid": 674065267253571
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-resized",
-					"objectClass": "Browser",
-					"sid": 719639035384299
-				}
-			],
-			"actions": [
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 587308601651971,
-					"parameters": {
-						"seconds": "0"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 147293898314555
-				},
-				{
-					"id": "set-canvas-size",
-					"objectClass": "System",
-					"sid": 961755406044452,
-					"parameters": {
-						"width": "Browser.WindowInnerWidth",
-						"height": "Browser.WindowInnerHeight"
-					}
-				},
-				{
-					"id": "wait",
-					"objectClass": "System",
-					"sid": 606288432824237,
-					"parameters": {
-						"seconds": "0"
-					}
-				},
-				{
-					"id": "wait-for-previous-actions",
-					"objectClass": "System",
-					"sid": 942536603749799
-				}
-			],
-			"sid": 996764692849728
 		},
 		{
 			"eventType": "block",
@@ -178,6 +133,74 @@
 				}
 			],
 			"sid": 227253437024052
+		},
+		{
+			"functionName": "onResized",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 914566797019640,
+					"parameters": {
+						"width": "PlatformInfo.WindowInnerWidth",
+						"height": "PlatformInfo.WindowInnerHeight"
+					}
+				}
+			],
+			"sid": 292793472700916
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 559335556972896,
+					"parameters": {
+						"key": 70
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "request-fullscreen",
+					"objectClass": "Browser",
+					"sid": 762506086282408,
+					"parameters": {
+						"mode": "stretch-scale-inner",
+						"navigation-ui": "auto"
+					}
+				}
+			],
+			"sid": 570171101025106
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 189242044476420,
+					"parameters": {
+						"key": 87
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "cancel-fullscreen",
+					"objectClass": "Browser",
+					"sid": 211821540993468
+				}
+			],
+			"sid": 457111050435113
 		}
 	],
 	"sid": 353809346757022
