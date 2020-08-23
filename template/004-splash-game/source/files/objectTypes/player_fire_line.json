@@ -1,0 +1,40 @@
+{
+	"name": "player_fire_line",
+	"plugin-id": "TiledBg",
+	"sid": 580017645114458,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 771110152542843
+		},
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 993820556419892
+		}
+	],
+	"effectTypes": [
+		{
+			"effectId": "glowhorizontal",
+			"name": "GlowHorizontal"
+		},
+		{
+			"effectId": "glowvertical",
+			"name": "GlowVertical"
+		}
+	],
+	"image": {
+		"width": 2,
+		"height": 2,
+		"originX": 62.5,
+		"originY": 62.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2058335,
+		"useCollisionPoly": true
+	}
+}

@@ -1,0 +1,1243 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 657900135236240
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 510819023306257,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 122504094213748
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 447934681739291
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 835140116165005,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 332187916871431,
+					"parameters": [
+						"title_background.UID",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 400897454433434,
+					"parameters": [
+						"txt_Score.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 721588905157758,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 724278598907185,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				}
+			],
+			"sid": 145070312203849,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 358460348812139,
+							"parameters": {
+								"object": "obstacles"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 509318071785603,
+							"parameters": [
+								"obstacles.UID",
+								"Functions.getValue(\"colors\", \"laser_tank.obstacle.100\")"
+							]
+						}
+					],
+					"sid": 537068455772134
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 414595843023167,
+							"parameters": {
+								"object": "coins"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "coins",
+							"sid": 665433918544498,
+							"parameters": {
+								"instance-variable": "value",
+								"value": "choose(1,2,3,4,5)"
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 330418152735045,
+							"parameters": [
+								"coins.UID",
+								"Functions.getValue(\"colors\", \"laser_tank.coins.color_\"&coins.value)"
+							]
+						}
+					],
+					"sid": 586018997678722
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "chars",
+					"sid": 443157586154435
+				}
+			],
+			"actions": [
+				{
+					"id": "create-object-by-name",
+					"objectClass": "System",
+					"sid": 931115629858772,
+					"parameters": {
+						"object-name": "chars.skin",
+						"layer": "LAY_CHARS",
+						"x": "chars.X",
+						"y": "chars.Y"
+					}
+				}
+			],
+			"sid": 117623872790197,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-last-created",
+							"objectClass": "System",
+							"sid": 891641195713101,
+							"parameters": {
+								"object": "skins"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "chars",
+							"sid": 842185500659881,
+							"parameters": {
+								"instance-variable": "skin_UID",
+								"value": "skins.UID"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "skins",
+							"sid": 451243823318801,
+							"parameters": {
+								"instance-variable": "obj_UID",
+								"value": "chars.UID"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "skins",
+							"sid": 312695190694187,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "chars",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "pin-to-object-imagepoint",
+							"objectClass": "player_laser_sight",
+							"sid": 302351011801102,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "skins",
+								"image-point": "\"laser_a\"",
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 529385931814442
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "txt_Score",
+					"sid": 594404775854427,
+					"parameters": {
+						"text": "\"Score: \" & score"
+					}
+				}
+			],
+			"sid": 458848783547475
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Splash",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 562534648010392,
+							"parameters": {
+								"object": "obstacles"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 688413606803234,
+							"parameters": {
+								"object": "Tilemap"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "bullets",
+							"sid": 387918289980669,
+							"parameters": {
+								"object": "Par_Splah",
+								"layer": "LAY_WORLD_TILEMAP",
+								"image-point": "\"hit\""
+							}
+						}
+					],
+					"sid": 108076166767644,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 247021122874473,
+							"parameters": {
+								"object": "obstacles"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 897579333136376,
+							"parameters": {
+								"object": "Tilemap"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "paste-object",
+							"objectClass": "Canvas_Splash",
+							"sid": 584400234246489,
+							"parameters": {
+								"object": "Par_Splah",
+								"effects": "with-effects"
+							}
+						}
+					],
+					"sid": 349017688044512,
+					"isOrBlock": true
+				}
+			],
+			"sid": 849228297798256
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "player",
+							"sid": 513315067868015,
+							"parameters": {
+								"angle": "angle(Self.X,Self.Y,Mouse.X,Mouse.Y)"
+							}
+						}
+					],
+					"sid": 958483281759097
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "player_reference_laser",
+							"sid": 360368301659825,
+							"parameters": {
+								"object": "player",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "move-at-angle",
+							"objectClass": "player_reference_laser",
+							"sid": 909694582824811,
+							"parameters": {
+								"angle": "angle(self.X,Self.Y,mouse.X,mouse.Y)",
+								"distance": "2048"
+							}
+						},
+						{
+							"id": "cast-ray",
+							"objectClass": "player",
+							"sid": 502672432046982,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Self.X",
+								"from-y": "Self.Y",
+								"to-x": "player_reference_laser.X",
+								"to-y": "player_reference_laser.Y",
+								"use-collision-cells": true
+							}
+						}
+					],
+					"sid": 944218655606166
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ray-intersected",
+							"objectClass": "player",
+							"sid": 955800981475951,
+							"behaviorType": "LineOfSight"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "player_laser_sight",
+							"sid": 799788981268322,
+							"parameters": {
+								"width": "distance(Self.X,Self.Y,player.LineOfSight.HitX, player.LineOfSight.HitY)",
+								"height": "2"
+							}
+						}
+					],
+					"sid": 156839896827585
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 464025579643493,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "player",
+							"sid": 421173034026170,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "player",
+							"sid": 555629135197909,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "angle(Self.X,Self.Y,Mouse.X,Mouse.Y)"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "player",
+							"sid": 802020030058250,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "128"
+							}
+						},
+						{
+							"id": "set-acceleration",
+							"objectClass": "player",
+							"sid": 445154242356096,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"acceleration": "-40"
+							}
+						}
+					],
+					"sid": 687701301414262
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 432651565101516,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "player",
+							"sid": 780809411329700,
+							"parameters": {
+								"object": "player_fire_line",
+								"layer": "player.LayerName",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 330503479236719,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "skins",
+									"sid": 828698758728135,
+									"parameters": {
+										"unique-id": "player.skin_UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "player_fire_line",
+									"sid": 443114782121543,
+									"parameters": {
+										"object": "skins",
+										"image-point-optional": "\"laser_a\""
+									}
+								},
+								{
+									"id": "pin-to-object-imagepoint",
+									"objectClass": "player_fire_line",
+									"sid": 823542095411637,
+									"behaviorType": "Pin",
+									"parameters": {
+										"pin-to": "skins",
+										"image-point": "\"laser_a\"",
+										"angle": true,
+										"width-type": "no",
+										"height-type": "no",
+										"z": false
+									}
+								},
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "player_reference_laser",
+									"sid": 662175185629766,
+									"parameters": {
+										"object": "player",
+										"image-point-optional": "0"
+									}
+								},
+								{
+									"id": "move-at-angle",
+									"objectClass": "player_reference_laser",
+									"sid": 868606476206655,
+									"parameters": {
+										"angle": "angle(self.X,Self.Y,mouse.X,mouse.Y)",
+										"distance": "2048"
+									}
+								},
+								{
+									"id": "cast-ray",
+									"objectClass": "player",
+									"sid": 699712722746834,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"from-x": "Self.X",
+										"from-y": "Self.Y",
+										"to-x": "player_reference_laser.X",
+										"to-y": "player_reference_laser.Y",
+										"use-collision-cells": true
+									}
+								},
+								{
+									"id": "create-object-by-name",
+									"objectClass": "System",
+									"sid": 409577412251174,
+									"parameters": {
+										"object-name": "player.bullet_name",
+										"layer": "player.LayerName",
+										"x": "skins.ImagePointX(\"laser_a\")",
+										"y": "skins.ImagePointY(\"laser_a\")"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "bullet",
+									"sid": 673158047639134,
+									"parameters": {
+										"angle": "skins.Angle"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "bullet",
+									"sid": 674268319328006,
+									"parameters": {
+										"instance-variable": "power",
+										"value": "player.bullet_power"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "bullet",
+									"sid": 165839442550347,
+									"parameters": {
+										"width": "16",
+										"height": "16"
+									}
+								}
+							],
+							"sid": 893076598283216,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "ray-intersected",
+											"objectClass": "player",
+											"sid": 795438054671149,
+											"behaviorType": "LineOfSight"
+										}
+									],
+									"actions": [
+										{
+											"id": "set-size",
+											"objectClass": "player_fire_line",
+											"sid": 179623050590274,
+											"parameters": {
+												"width": "distance(Self.X,Self.Y,player.LineOfSight.HitX, player.LineOfSight.HitY)",
+												"height": "2"
+											}
+										}
+									],
+									"sid": 755759345367910
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 911182213777643
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Shoot",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 158382710316195,
+							"parameters": {
+								"object": "Tilemap"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 849725666738764
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "bullets",
+							"sid": 542974239270993
+						}
+					],
+					"sid": 701817604734256
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "bullets",
+							"sid": 720000499001472,
+							"parameters": {
+								"object": "obstacles"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 118387692019818
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "player",
+							"sid": 239065371885533,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "bullets",
+							"sid": 752923307918313
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "obstacles",
+							"sid": 903193370965393,
+							"parameters": {
+								"instance-variable": "integrity",
+								"value": "bullets.power"
+							}
+						}
+					],
+					"sid": 363993653894591,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "obstacles",
+									"sid": 790782551161438,
+									"parameters": {
+										"instance-variable": "integrity",
+										"comparison": 5,
+										"value": "60"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 454068659523916,
+									"parameters": [
+										"obstacles.UID",
+										"Functions.getValue(\"colors\", \"laser_tank.obstacle.100\")"
+									]
+								}
+							],
+							"sid": 859196687373858
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 857261070663896
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "obstacles",
+									"sid": 231152003198649,
+									"parameters": {
+										"instance-variable": "integrity",
+										"comparison": 5,
+										"value": "30"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 510053735207980,
+									"parameters": [
+										"obstacles.UID",
+										"Functions.getValue(\"colors\", \"laser_tank.obstacle.60\")"
+									]
+								}
+							],
+							"sid": 879961711935416
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 411285263374816
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "obstacles",
+									"sid": 343833823221408,
+									"parameters": {
+										"instance-variable": "integrity",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 494870555854386,
+									"parameters": [
+										"obstacles.UID",
+										"Functions.getValue(\"colors\", \"laser_tank.obstacle.30\")"
+									]
+								}
+							],
+							"sid": 825295340456651
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 823410060353789
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "obstacles",
+									"sid": 519487004840331,
+									"parameters": {
+										"instance-variable": "integrity",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "obstacles",
+									"sid": 471936954711569
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "obstacles",
+									"sid": 281603665762432,
+									"parameters": {
+										"object": "Par_Destroyed",
+										"layer": "player.LayerName",
+										"image-point": "\"center\""
+									}
+								}
+							],
+							"sid": 726053972586023
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-destroyed",
+							"objectClass": "bullets",
+							"sid": 747800583117413
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "bullets",
+							"sid": 286493475017337,
+							"parameters": {
+								"object": "spot",
+								"layer": "LAY_WORLD_CANVAS",
+								"image-point": "\"hit\""
+							}
+						},
+						{
+							"id": "set-scale",
+							"objectClass": "spot",
+							"sid": 976138740113370,
+							"parameters": {
+								"scale": "random(0.2,0.6)"
+							}
+						},
+						{
+							"id": "set-angle",
+							"objectClass": "spot",
+							"sid": 658921006976229,
+							"parameters": {
+								"angle": "random(1,360)"
+							}
+						}
+					],
+					"sid": 976644074665629,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "spot",
+									"sid": 252566660590621,
+									"parameters": {
+										"object": "Tilemap"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 478315851109766,
+									"parameters": [
+										"spot.UID",
+										"Functions.getValue(\"colors\", \"laser_tank.spot.color_solid\")"
+									]
+								},
+								{
+									"id": "set-opacity",
+									"objectClass": "spot",
+									"sid": 587165246907394,
+									"parameters": {
+										"opacity": "25"
+									}
+								}
+							],
+							"sid": 661795023667534
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 933536279665012
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 148291922511673,
+									"parameters": [
+										"spot.UID",
+										"Functions.getValue(\"colors\", \"laser_tank.spot.color_destroyed\")"
+									]
+								}
+							],
+							"sid": 286586031077717
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "paste-object",
+									"objectClass": "DrawingCanvas",
+									"sid": 804516256745309,
+									"parameters": {
+										"object": "spot",
+										"effects": "with-effects"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 169948981653521,
+									"parameters": {
+										"seconds": "0"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 997538372817733
+								},
+								{
+									"id": "destroy",
+									"objectClass": "spot",
+									"sid": 480372205833464
+								}
+							],
+							"sid": 573287810248800
+						}
+					]
+				}
+			],
+			"sid": 661279420960066
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Coins",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "player",
+							"sid": 555717734366971,
+							"parameters": {
+								"object": "coins"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 253338098016958
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 733105967729308,
+							"parameters": {
+								"variable": "score",
+								"value": "coins.value"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "player",
+							"sid": 399954566223168,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "5",
+								"duration": "0.1",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "coins",
+							"sid": 186514316184185,
+							"parameters": {
+								"object": "Par_Coins",
+								"layer": "LAY_CHARS",
+								"image-point": "\"center\""
+							}
+						},
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 878789287896718,
+							"parameters": [
+								"Par_Coins.UID",
+								"Functions.getValue(\"colors\", \"laser_tank.coins.color_\"&coins.value)"
+							]
+						},
+						{
+							"id": "destroy",
+							"objectClass": "coins",
+							"sid": 308536203289390
+						}
+					],
+					"sid": 934777517908091
+				}
+			],
+			"sid": 817944996757931
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Radar",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "radar",
+							"sid": 722238354184038
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "radar",
+							"sid": 343340630080843,
+							"parameters": {
+								"object": "player",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "radar",
+							"sid": 944372145864867,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "player",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						}
+					],
+					"sid": 148432735725531
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "coins",
+							"sid": 342761322892133,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "obstacles",
+							"sid": 580387203808962,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 153960313099315,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "radar",
+									"sid": 804241627376168,
+									"parameters": {
+										"object": "coins"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "coins",
+									"sid": 271333699415571,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 694571508525228
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "radar",
+									"sid": 963306992904383,
+									"parameters": {
+										"object": "obstacles"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "obstacles",
+									"sid": 900997170173841,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 250276030616036
+						}
+					]
+				}
+			],
+			"sid": 787230958737742
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Game Over",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "player",
+							"sid": 985040371855729,
+							"parameters": {
+								"object": "flag"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-acceleration",
+							"objectClass": "player",
+							"sid": 499065169235462,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"acceleration": "0"
+							}
+						},
+						{
+							"id": "set-speed",
+							"objectClass": "player",
+							"sid": 753385586340983,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"speed": "0"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "player",
+							"sid": 470103174092032,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "player_laser_sight",
+							"sid": 619719535626821
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "confetti",
+							"sid": 169580266810309,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "confetti",
+							"sid": 351241956002892,
+							"parameters": {
+								"object": "Par_Confetti",
+								"layer": "\"title\"",
+								"image-point": "\"confetti\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 611116325510134,
+							"parameters": {
+								"seconds": "5"
+							}
+						},
+						{
+							"id": "reset-global-variables",
+							"objectClass": "System",
+							"sid": 631456252299142
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 978591191035415
+						}
+					],
+					"sid": 541498639425716
+				}
+			],
+			"sid": 921584853129046
+		}
+	],
+	"sid": 353809346757022
+}

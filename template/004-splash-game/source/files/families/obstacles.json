@@ -1,0 +1,24 @@
+{
+	"name": "obstacles",
+	"plugin-id": "Sprite",
+	"sid": 354337724946646,
+	"instanceVariables": [
+		{
+			"name": "integrity",
+			"type": "number",
+			"desc": "",
+			"sid": 610805321654747
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 245536947713095
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"obstacle_barrier"
+	]
+}

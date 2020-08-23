@@ -1,0 +1,36 @@
+{
+	"name": "chars",
+	"plugin-id": "Sprite",
+	"sid": 547255623023939,
+	"instanceVariables": [
+		{
+			"name": "skin",
+			"type": "string",
+			"desc": "",
+			"sid": 790479345098810
+		},
+		{
+			"name": "skin_UID",
+			"type": "number",
+			"desc": "",
+			"sid": 865921614503769
+		},
+		{
+			"name": "bullet_name",
+			"type": "string",
+			"desc": "",
+			"sid": 155491558644527
+		},
+		{
+			"name": "bullet_power",
+			"type": "number",
+			"desc": "",
+			"sid": 515252529301036
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"player"
+	]
+}

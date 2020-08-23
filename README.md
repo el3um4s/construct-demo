@@ -15,6 +15,7 @@ My collection of demo projects
   1. [Top Down Shooter: Laser Game](template/001-top-down-shooter-laser-game)
   2. [Wheel of Fortune](template/002-wheel-of-fortune)
   3. [Sandy Road](template/003-sandy-road)
+  4. [Splash Game](template/004-splash-game)
 
 ### User Interface
 

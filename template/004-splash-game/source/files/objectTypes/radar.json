@@ -1,0 +1,64 @@
+{
+	"name": "radar",
+	"plugin-id": "Sprite",
+	"sid": 319186145509097,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 962826347586589
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 403076924081607
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 256,
+						"height": 256,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8581289,
+						"collisionPoly": {
+							"points": [
+								0.578125,
+								0.390625,
+								0.828125,
+								0.109375,
+								0.99609375,
+								0.5,
+								0.828125,
+								0.859375,
+								0.546875,
+								0.609375,
+								0.390625,
+								0.484375
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 114941200175286,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
