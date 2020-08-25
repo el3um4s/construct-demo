@@ -1,0 +1,12 @@
+{
+	"name": "Color_Primary_Sprite",
+	"plugin-id": "Sprite",
+	"sid": 561096494206771,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Shape",
+		"Power_Button"
+	]
+}

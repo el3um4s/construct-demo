@@ -1,0 +1,21 @@
+{
+	"name": "Power_Texts",
+	"plugin-id": "Text",
+	"sid": 187278790646924,
+	"instanceVariables": [
+		{
+			"name": "Name",
+			"type": "string",
+			"desc": "",
+			"sid": 372027936210313
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Power_Text_Name",
+		"Power_Text_Quantity",
+		"Power_Text_Price",
+		"Power_Text_Effect"
+	]
+}

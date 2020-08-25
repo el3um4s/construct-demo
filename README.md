@@ -16,6 +16,7 @@ My collection of demo projects
   2. [Wheel of Fortune](template/002-wheel-of-fortune)
   3. [Sandy Road](template/003-sandy-road)
   4. [Splash Game](template/004-splash-game)
+  5. **WIP**: [One Color Idle Game](template/005-one-color-idle-game)
 
 ### User Interface
 

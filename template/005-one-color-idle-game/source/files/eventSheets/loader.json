@@ -1,0 +1,100 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 644566227016701
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Loading",
+					"sid": 683632168066518,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\" & newline &\n\"Loading...\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 101555240742325
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 531793890806863
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 147176117299226,
+					"parameters": [
+						"Loading.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 434281964885966,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 835539394501053,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				}
+			],
+			"sid": 343965802472268,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "InitializeJson:powers",
+							"sid": 927136145930334
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 944034929274775
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 848494202187340,
+							"disabled": true,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 693453571245626,
+							"disabled": true
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 327859603286381,
+							"parameters": {
+								"layout": "Main"
+							}
+						}
+					],
+					"sid": 324346976153104
+				}
+			]
+		}
+	],
+	"sid": 127893008881664
+}

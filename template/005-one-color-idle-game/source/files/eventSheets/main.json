@@ -1,0 +1,1404 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 802438876587682
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxPoints",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 134022695902350
+		},
+		{
+			"eventType": "variable",
+			"name": "Value_Click",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 329746279100450
+		},
+		{
+			"eventType": "variable",
+			"name": "PPS",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 280703599361900
+		},
+		{
+			"eventType": "variable",
+			"name": "MULTIPLIER",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 202792142294722
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 162991327049305
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 865222507596463,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 159436487631212,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 864054439283821,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 143458390021492,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				}
+			],
+			"sid": 573528022141876,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 618500820917261,
+							"parameters": {
+								"object": "Color_Primary_Sprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 801861095180606,
+							"parameters": [
+								"Color_Primary_Sprite.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 943427391526076
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 828415111249033,
+							"parameters": {
+								"object": "Color_Primary_Text"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 225431167496776,
+							"parameters": [
+								"Color_Primary_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 171008076677754
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 447767487703318,
+							"parameters": {
+								"object": "Colors_Background_Text"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 277612240836715,
+							"parameters": [
+								"Colors_Background_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 819510954828023
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Set PowerButtons",
+							"sid": 907392529428525
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 900963636210222,
+							"parameters": {
+								"variable": "PPS",
+								"value": "Functions.CalculatePPS_TotalPowers"
+							}
+						}
+					],
+					"sid": 485768567809593
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BUTTONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 312020538734998
+						}
+					],
+					"actions": [],
+					"sid": 692937689139197,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 267943582350073,
+									"parameters": {
+										"object": "Shapes"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Shapes",
+									"sid": 633919411743062,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Touched\"",
+										"property": "scale",
+										"end-x": "1.1",
+										"end-y": "1.1",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 155476088310278,
+									"parameters": {
+										"variable": "Points",
+										"value": "Value_Click"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 801069180438396,
+									"parameters": {
+										"audio-file": "click",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Shapes",
+									"sid": 835560083752321,
+									"parameters": {
+										"object": "Particles",
+										"layer": "Shapes.LayerName",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Shapes",
+									"sid": 884025533303549,
+									"parameters": {
+										"object": "Txt_ValueClick",
+										"layer": "Shapes.LayerName",
+										"image-point": "0"
+									}
+								}
+							],
+							"sid": 369883472856619
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Shapes",
+							"sid": 937534956897690
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 539350707336026,
+							"parameters": [
+								"Shapes.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 500223065465481
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Particles",
+							"sid": 379844487248742
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 428585086392001,
+							"parameters": [
+								"Particles.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 749149759317803
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Color_Primary_Text",
+							"sid": 381974407765200
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 939659537343966,
+							"parameters": [
+								"Color_Primary_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 678302226997119
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-font-size",
+							"objectClass": "Txt_ValueClicks",
+							"sid": 310454589216052,
+							"parameters": {
+								"size-pt": "Txt_ValueClicks.Tween.Value(\"font-\"&Txt_ValueClicks.UID)"
+							}
+						}
+					],
+					"sid": 121506615777411
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Txt_ValueClicks",
+							"sid": 790217716556231
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Txt_ValueClicks",
+							"sid": 236562311981063,
+							"parameters": {
+								"text": "\"+\"&Value_Click"
+							}
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Txt_ValueClicks",
+							"sid": 862586863534184,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"position\"",
+								"property": "offsetY",
+								"end-value": "Txt_Point.Y",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "Txt_ValueClicks",
+							"sid": 976229562144202,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"font-\" & Txt_ValueClicks.UID",
+								"start-value": "24",
+								"end-value": "8",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 598318749227050
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Shapes",
+							"sid": 365045213923769,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Touched\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-scale",
+							"objectClass": "Shapes",
+							"sid": 830891886193286,
+							"parameters": {
+								"scale": "1"
+							}
+						}
+					],
+					"sid": 667137454730671
+				}
+			],
+			"sid": 105876932381809
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "POINTS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Txt_Point",
+							"sid": 905846151254023,
+							"parameters": {
+								"text": "\"Points: \" & Points"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Txt_PPS",
+							"sid": 130400321303767,
+							"parameters": {
+								"text": "\"PPS: \" & PPS"
+							}
+						}
+					],
+					"sid": 893502377666138
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 752619062289615,
+							"parameters": {
+								"variable": "Points",
+								"comparison": 4,
+								"value": "MaxPoints"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 902963130007798,
+							"parameters": {
+								"variable": "MaxPoints",
+								"value": "Points"
+							}
+						},
+						{
+							"callFunction": "Set PowerButtons",
+							"sid": 442558513247884
+						}
+					],
+					"sid": 605073228068304
+				}
+			],
+			"sid": 985386072706156
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "POWERS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Colors_Background_Text",
+							"sid": 105534444656955
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 617209107379370,
+							"parameters": [
+								"Colors_Background_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 809844672231985
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Power_Texts",
+							"sid": 970852538263907
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Power_Texts",
+							"sid": 295847006205342,
+							"parameters": {
+								"object": "Power_Buttons",
+								"image-point-optional": "Power_Texts.Name"
+							}
+						}
+					],
+					"sid": 361179755969834
+				},
+				{
+					"functionName": "PowerButton :: Set texts",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 920333615605205
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 894131525572114,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Power_Button",
+									"sid": 775493118918957,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Power_Text_Name",
+									"sid": 245540023809654,
+									"parameters": {
+										"text": "Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"name\")"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Power_Text_Price",
+									"sid": 205700353165629,
+									"parameters": {
+										"text": "\"$\" & Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\")"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Power_Text_Quantity",
+									"sid": 154202133820649,
+									"parameters": {
+										"text": "Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\")"
+									}
+								}
+							],
+							"sid": 825567908136749,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Power_Button",
+											"sid": 647537314727482,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"autoclickers\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Power_Text_Effect",
+											"sid": 700569284769539,
+											"parameters": {
+												"text": "\"+\" & Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"pps\") & \" PPS\" "
+											}
+										}
+									],
+									"sid": 794813628997367
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Power_Button",
+											"sid": 240148897344385,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"upgrades\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Power_Text_Effect",
+											"sid": 442744552868768,
+											"parameters": {
+												"text": "\"x\" & Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multipler\") & \" PPS\" "
+											}
+										}
+									],
+									"sid": 909668281615157
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "PowerButton :: Show",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 781157686967887
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 634977560916018,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Power_Button",
+									"sid": 690993831719645,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 958188587955268,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 628086167268824,
+											"parameters": {
+												"variable": "MaxPoints",
+												"comparison": 5,
+												"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"show on point\"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Power_Button",
+											"sid": 757941354308745,
+											"parameters": {
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 757607304000886,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"show on point\"))"
+											}
+										}
+									],
+									"sid": 567382594742016
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 403853350402728
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Power_Button",
+											"sid": 855752711933069,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "log",
+											"objectClass": "Browser",
+											"sid": 813175053035411,
+											"disabled": true,
+											"parameters": {
+												"type": "log",
+												"message": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"show on point\"))"
+											}
+										}
+									],
+									"sid": 918125994851437
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "PowerButton :: Clickable",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 919809133771227
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 362334663453017,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Power_Button",
+									"sid": 159510444861039,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 157558285149685,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 944601388088348,
+											"parameters": {
+												"variable": "Points",
+												"comparison": 5,
+												"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Power_Button",
+											"sid": 783111773706282,
+											"parameters": {
+												"instance-variable": "Clickable",
+												"value": "true"
+											}
+										},
+										{
+											"callFunction": "Change_Color_Object",
+											"sid": 665518540577205,
+											"parameters": [
+												"Power_Button.UID",
+												"Functions.getValue(\"colors\", \"demo.primary\")"
+											]
+										}
+									],
+									"sid": 789198320822810
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 171130794506020
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Power_Button",
+											"sid": 433009490597819,
+											"parameters": {
+												"instance-variable": "Clickable",
+												"value": "false"
+											}
+										},
+										{
+											"callFunction": "Change_Color_Object",
+											"sid": 321644979938409,
+											"parameters": [
+												"Power_Button.UID",
+												"Functions.getValue(\"colors\", \"demo\"&\".\"&\"primary light\")"
+											]
+										}
+									],
+									"sid": 412025941822053
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "Set PowerButtons",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 179375866588278,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 555745091246003,
+									"parameters": {
+										"object": "Power_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "PowerButton :: Set texts",
+									"sid": 918404827013057,
+									"parameters": [
+										"Power_Button.UID"
+									]
+								},
+								{
+									"callFunction": "PowerButton :: Show",
+									"sid": 269340318648544,
+									"parameters": [
+										"Power_Button.UID"
+									]
+								},
+								{
+									"callFunction": "PowerButton :: Clickable",
+									"sid": 450451240256685,
+									"parameters": [
+										"Power_Button.UID"
+									]
+								}
+							],
+							"sid": 582480547955405
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 170319516170203
+						}
+					],
+					"actions": [],
+					"sid": 398319462003499,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 952403522623122,
+									"parameters": {
+										"object": "Power_Button"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Power_Button",
+									"sid": 292009178894215,
+									"parameters": {
+										"instance-variable": "Clickable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Power_Button",
+									"sid": 851536236889590,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Touched\"",
+										"property": "scale",
+										"end-x": "1.1",
+										"end-y": "1.1",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 227420763223592,
+									"parameters": {
+										"audio-file": "click",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Power_Button",
+									"sid": 244442976621171,
+									"parameters": {
+										"object": "Particles",
+										"layer": "Power_Button.LayerName",
+										"image-point": "0"
+									}
+								}
+							],
+							"sid": 983373146889554,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Power_Button",
+											"sid": 958568163442524,
+											"parameters": {
+												"instance-variable": "Type",
+												"comparison": 0,
+												"value": "\"autoclickers\""
+											}
+										}
+									],
+									"actions": [],
+									"sid": 920620394569600,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "price",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 863670204684127
+										},
+										{
+											"eventType": "variable",
+											"name": "buy",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 273771127866407
+										},
+										{
+											"eventType": "variable",
+											"name": "quantity",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 137686299628019
+										},
+										{
+											"eventType": "variable",
+											"name": "multiplier_price",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 644838865889778
+										},
+										{
+											"eventType": "variable",
+											"name": "id",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 818037230469553
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 536197598426124,
+													"parameters": {
+														"variable": "id",
+														"value": "Power_Button.ID"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 772370283800177,
+													"parameters": {
+														"variable": "price",
+														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 473883533116284,
+													"parameters": {
+														"variable": "buy",
+														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"buy\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 298080956215632,
+													"parameters": {
+														"variable": "quantity",
+														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 561181077050326,
+													"parameters": {
+														"variable": "multiplier_price",
+														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multiplier price\"))"
+													}
+												},
+												{
+													"callFunction": "setValue",
+													"sid": 654453065368629,
+													"parameters": [
+														"\"powers\"",
+														"Power_Button.Type & \".\" & Power_Button.ID & \".\" &  \"price\"",
+														"str(price*multiplier_price)"
+													]
+												},
+												{
+													"callFunction": "setValue",
+													"sid": 946360707583563,
+													"parameters": [
+														"\"powers\"",
+														"Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"",
+														"str(quantity+buy)"
+													]
+												},
+												{
+													"callFunction": "Set PowerButtons",
+													"sid": 611480219546598
+												}
+											],
+											"sid": 541313868125175
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 325668245196630,
+											"parameters": {
+												"variable": "PPS",
+												"value": "Functions.CalculatePPS_TotalPowers"
+											}
+										}
+									],
+									"sid": 612259579273818
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Power_Button",
+							"sid": 716573980702492,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Touched\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-scale",
+							"objectClass": "Power_Button",
+							"sid": 369100287069124,
+							"parameters": {
+								"scale": "1"
+							}
+						}
+					],
+					"sid": 409202509207599
+				},
+				{
+					"functionName": "CalculatePPS_SinglePower",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "power",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 668614349048530
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 654332389595708,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "point_per_second",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 450193457887932
+						},
+						{
+							"eventType": "variable",
+							"name": "quantity",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 803113490081832
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 791959950395102,
+									"parameters": {
+										"variable": "point_per_second",
+										"value": "int(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" & \"pps\"))"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 741254985834687,
+									"parameters": {
+										"variable": "quantity",
+										"value": "int(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" &  \"quantity\"))"
+									}
+								},
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 944142557685905,
+									"parameters": {
+										"value": "point_per_second*quantity"
+									}
+								}
+							],
+							"sid": 878450817629600
+						}
+					]
+				},
+				{
+					"functionName": "CalculatePPS_TotalPowers",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 508844004821228,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "point_per_second",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 579899575312174
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 699791650461796,
+									"parameters": {
+										"object": "Power_Button"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 549196981044690,
+									"parameters": {
+										"variable": "point_per_second",
+										"value": "Functions.CalculatePPS_SinglePower(Power_Button.ID)"
+									}
+								}
+							],
+							"sid": 306284231706449
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 661217190534383,
+									"parameters": {
+										"value": "point_per_second"
+									}
+								}
+							],
+							"sid": 292828048680522
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 513781831489599,
+							"parameters": {
+								"interval-seconds": "1.0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 521615990767940,
+							"parameters": {
+								"variable": "PPS",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 535400274500299,
+							"parameters": {
+								"variable": "Points",
+								"value": "PPS"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Shape",
+							"sid": 540118863389684,
+							"parameters": {
+								"object": "Particles",
+								"layer": "Shape.LayerName",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Shape",
+							"sid": 312194142139249,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Touched\"",
+								"property": "scale",
+								"end-x": "1.1",
+								"end-y": "1.1",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 644409817227566
+				}
+			],
+			"sid": 153320784165189
+		}
+	],
+	"sid": 353809346757022
+}

@@ -1,0 +1,15 @@
+{
+	"name": "Txt_ValueClick",
+	"plugin-id": "Text",
+	"sid": 822725032670732,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 117752468638423
+		}
+	],
+	"effectTypes": []
+}

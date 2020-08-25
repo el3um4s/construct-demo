@@ -1,0 +1,371 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 21300,
+	"name": "One Color Idle Game",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r213",
+			"bundled": false
+		}
+	],
+	"uniqueId": "fg2q48wybme",
+	"objectTypes": {
+		"items": [
+			"Title",
+			"colors",
+			"AJAX",
+			"TiledBackground",
+			"Shape",
+			"Touch",
+			"Txt_Point",
+			"Particles",
+			"Txt_ValueClick",
+			"Audio",
+			"Txt_PPS",
+			"Txt_Title_Auto_Clickers",
+			"Txt_Title_Upgrades",
+			"powers",
+			"Loading",
+			"Browser"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Power_Button",
+					"Power_Text_Effect",
+					"Power_Text_Name",
+					"Power_Text_Price",
+					"Power_Text_Quantity"
+				],
+				"subfolders": [],
+				"name": "Power Button"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [
+		{
+			"members": [
+				"Power_Button",
+				"Power_Text_Effect",
+				"Power_Text_Name",
+				"Power_Text_Price",
+				"Power_Text_Quantity"
+			],
+			"selectMode": "normal"
+		}
+	],
+	"families": {
+		"items": [
+			"Shapes",
+			"Color_Primary_Sprite",
+			"Color_Primary_Text",
+			"Txt_ValueClicks",
+			"Colors_Background_Text",
+			"Power_Texts",
+			"Power_Buttons"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Loader",
+			"Main",
+			"Bank"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"c3_colors_helper",
+			"c3_json_helper",
+			"Loader"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "RunOnStartup.js",
+					"type": "application/javascript",
+					"sid": 598721724048426
+				},
+				{
+					"name": "c3_json_helper.js",
+					"type": "application/javascript",
+					"sid": 751545712582441
+				},
+				{
+					"name": "c3_colors_helper.js",
+					"type": "application/javascript",
+					"sid": 713429149075335
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [
+				{
+					"name": "click.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 213977431333817
+				}
+			],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "roboto-regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 131475865738469
+				},
+				{
+					"name": "monotalic.woff2",
+					"type": "font/woff2",
+					"sid": 117764379282112
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 363465710959880,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 439136454465359,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 836128851120276,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 920490551508833,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 793390529276499,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 548976901434152,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 742151047692955,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "colors.json",
+					"type": "application/json",
+					"sid": 756462737529564
+				},
+				{
+					"name": "powers.json",
+					"type": "application/json",
+					"sid": 185890500315635
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "demo-20.08.25",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": true,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.9254901960784314,
+			0.9176470588235294,
+			0.9098039215686274,
+			0
+		],
+		"splashColor": [
+			0.9254901960784314,
+			0.9176470588235294,
+			0.9098039215686274,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 640,
+	"viewportHeight": 480,
+	"firstLayout": "Loader"
+}

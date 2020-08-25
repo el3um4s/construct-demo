@@ -1,0 +1,17 @@
+{
+	"name": "Txt_ValueClicks",
+	"plugin-id": "Text",
+	"sid": 403362100835239,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 826326710728179
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Txt_ValueClick"
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"name": "Power_Buttons",
+	"plugin-id": "Sprite",
+	"sid": 164984251535576,
+	"instanceVariables": [
+		{
+			"name": "Type",
+			"type": "string",
+			"desc": "",
+			"sid": 723237688139464
+		},
+		{
+			"name": "ID",
+			"type": "string",
+			"desc": "",
+			"sid": 195839813849135
+		},
+		{
+			"name": "Clickable",
+			"type": "boolean",
+			"desc": "",
+			"sid": 114863922153976
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 990012818959815
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Power_Button"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"name": "Loading",
+	"plugin-id": "Text",
+	"sid": 437878888932410,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 646110538411964
+		}
+	],
+	"effectTypes": []
+}

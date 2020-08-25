@@ -1,0 +1,17 @@
+{
+	"name": "Shapes",
+	"plugin-id": "Sprite",
+	"sid": 259790294841681,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 320063787589722
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Shape"
+	]
+}

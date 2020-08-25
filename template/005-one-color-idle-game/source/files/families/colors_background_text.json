@@ -1,0 +1,14 @@
+{
+	"name": "Colors_Background_Text",
+	"plugin-id": "Text",
+	"sid": 112915660304959,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Power_Text_Name",
+		"Power_Text_Quantity",
+		"Power_Text_Price",
+		"Power_Text_Effect"
+	]
+}

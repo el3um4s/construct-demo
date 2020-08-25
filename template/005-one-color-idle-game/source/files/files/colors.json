@@ -1,0 +1,8 @@
+{
+	"demo":  {
+		"background": "#ECEAE8",
+		"primary": "#E84243",
+		"primary dark" : "#290000",
+		"primary light": "#FFCCCC"
+	}
+}

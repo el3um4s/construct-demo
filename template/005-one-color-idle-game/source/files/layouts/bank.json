@@ -1,0 +1,359 @@
+{
+	"name": "Bank",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Particles",
+					"properties": {
+						"rate": 24,
+						"spray-cone": 360,
+						"type": "one-shot",
+						"object": -1,
+						"live-preview": false,
+						"speed": 200,
+						"size": 8,
+						"opacity": 100,
+						"grow-rate": 0,
+						"x-randomiser": 0,
+						"y-randomiser": 0,
+						"initial-speed-randomiser": 0,
+						"size-randomiser": 0,
+						"grow-rate-randomiser": 0,
+						"acceleration": -150,
+						"gravity": 0,
+						"angle-randomiser": 0,
+						"life-speed-randomiser": 800,
+						"opacity-randomiser": 0,
+						"destroy-mode": "fade-to-invisible",
+						"timeout": 1
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 542,
+						"y": 75,
+						"width": 100,
+						"height": 100,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Txt_ValueClick",
+					"properties": {
+						"text": "Points:",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 14,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Fade": {
+							"properties": {
+								"fade-in-time": 0,
+								"wait-time": 0,
+								"fade-out-time": 1.2,
+								"destroy": true,
+								"enabled": true,
+								"live-preview": false
+							}
+						}
+					},
+					"world": {
+						"x": 319,
+						"y": 17,
+						"width": 640,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Power_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 12,
+					"instanceVariables": {
+						"Type": "",
+						"ID": "",
+						"Clickable": false
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 110.83109698170142,
+						"y": 83.24184264611831,
+						"width": 128,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Power_Text_Name",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "roboto-regular",
+						"size": 6,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 13,
+					"instanceVariables": {
+						"Name": "PowerName"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 61.5748551701014,
+						"y": 60.897790141011285,
+						"width": 33,
+						"height": 12.13723603082255,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Power_Text_Quantity",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "roboto-regular",
+						"size": 6,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "center"
+					},
+					"uid": 14,
+					"instanceVariables": {
+						"Name": "PowerQuantity"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 61.4388934981866,
+						"y": 109.5468625660326,
+						"width": 33,
+						"height": 12.13723603082255,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Power_Text_Price",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "roboto-regular",
+						"size": 6,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "right"
+					},
+					"uid": 15,
+					"instanceVariables": {
+						"Name": "PowerPrice"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 168.2373610643613,
+						"y": 109.85732322756215,
+						"width": 33,
+						"height": 16.483685292236615,
+						"originX": 1,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Power_Text_Effect",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "roboto-regular",
+						"size": 6,
+						"line-height": -2,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "left"
+					},
+					"uid": 16,
+					"instanceVariables": {
+						"Name": "PowerBuy"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 83.79206112831622,
+						"y": 109.54686256603257,
+						"width": 46.03934778424224,
+						"height": 16.483685292236615,
+						"originX": 0,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 816974113944953,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.10980392156862745,
+				0.10980392156862745,
+				0.10980392156862745,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 838707628269007,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 1280,
+	"height": 960,
+	"unboundedScrolling": false,
+	"eventSheet": null
+}
