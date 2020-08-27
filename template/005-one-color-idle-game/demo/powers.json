@@ -55,22 +55,22 @@
 	"upgrades": {
 		"yeet": {
 			"name": "Yeet",
-			"price": "1000",
+			"price": "100",
 			"buy": "1",
 			"quantity": "0",
-			"multipler": "2",
+			"multiplier": "2",
 			"description": "",
-			"show on point": "700",
+			"show on point": "70",
 			"multiplier price": "5"
 		},
 		"dab": {
 			"name": "Dab",
-			"price": "5000",
+			"price": "500",
 			"buy": "1",
 			"quantity": "0",
-			"multipler": "3",
+			"multiplier": "3",
 			"description": "",
-			"show on point": "3500",
+			"show on point": "350",
 			"multiplier price": "10"
 		},
 		"fbi": {
@@ -78,7 +78,7 @@
 			"price": "10000",
 			"buy": "1",
 			"quantity": "0",
-			"multipler": "4",
+			"multiplier": "4",
 			"description": "",
 			"show on point": "5000",
 			"multiplier price": "15"
@@ -88,7 +88,7 @@
 			"price": "15000",
 			"buy": "1",
 			"quantity": "0",
-			"multipler": "5",
+			"multiplier": "5",
 			"description": "",
 			"show on point": "10000",
 			"multiplier price": "20"
@@ -98,7 +98,7 @@
 			"price": "20000",
 			"buy": "1",
 			"quantity": "0",
-			"multipler": "10",
+			"multiplier": "10",
 			"description": "",
 			"show on point": "15000",
 			"multiplier price": "30"

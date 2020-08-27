@@ -3049,16 +3049,16 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
 		C3.Plugins.Sprite.Acts.SetScale,
 		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.Text.Acts.SetPosToObject,
-		C3.Plugins.Sprite.Cnds.PickByUID,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.System.Exps.int,
+		C3.Plugins.Text.Acts.SetPosToObject,
+		C3.Plugins.Sprite.Cnds.PickByUID,
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
-		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.System.Acts.SetFunctionReturnValue,
-		C3.Plugins.System.Cnds.Every,
 		C3.ScriptsInEvents.C3_colors_helper_Event2_Act1,
 		C3.ScriptsInEvents.C3_colors_helper_Event4_Act1,
 		C3.Plugins.System.Acts.SetLayerBackground,
@@ -3114,15 +3114,16 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		{MaxPoints: 0},
 		{Value_Click: 0},
 		{PPS: 0},
-		{MULTIPLIER: 0},
-		{UID: 0},
+		{Multiplier: 0},
 		{price: 0},
 		{buy: 0},
 		{quantity: 0},
 		{multiplier_price: 0},
 		{id: 0},
+		{UID: 0},
 		{point_per_second: 0},
 		{power: 0},
+		{multiplier_single: 0},
 		{Color: 0},
 		{r: 0},
 		{g: 0},
@@ -3292,48 +3293,10 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			return () => and("PPS: ", v0.GetValue());
 		},
 		() => "POWERS",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar_Family();
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "name"));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => and("$", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "price")));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "quantity"));
-		},
 		() => "autoclickers",
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => (and("+", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "pps"))) + " PPS");
-		},
-		() => "upgrades",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			return () => (and("x", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "multipler"))) + " PPS");
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const n2 = p._GetNode(2);
-			const n3 = p._GetNode(3);
-			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "show on point")));
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3341,14 +3304,6 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
 			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "price")));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("colors", (("demo" + ".") + "primary light"));
-		},
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3392,6 +3347,61 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			const v1 = p._GetNode(1).GetVar();
 			return () => ((v0.GetValue() + v1.GetValue())).toString();
 		},
+		() => "upgrades",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			return () => (f0() * ((((f1()) > (0) ? 1 : 0)) ? (f2()) : (1)));
+		},
+		() => "POWERS :: INITIALIZE",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar_Family();
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "name"));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => and("$", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "price")));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "quantity"));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => (and("+", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "pps"))) + " PPS");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			const n2 = p._GetNode(2);
+			return () => (and("x", f0("powers", ((((n1.ExpInstVar() + ".") + n2.ExpInstVar()) + ".") + "multiplier"))) + " PPS");
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "show on point")));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0("colors", (("demo" + ".") + "primary light"));
+		},
+		() => "POWERS :: CALCULATE",
+		() => "POWERS :: CALCULATE :: PPS",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -3413,6 +3423,19 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
 			return () => f0(n1.ExpInstVar());
+		},
+		() => "POWERS :: CALCULATE :: MULTIPIER",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(f1("powers", (((("upgrades" + ".") + v2.GetValue()) + ".") + "multiplier")));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const v2 = p._GetNode(2).GetVar();
+			return () => f0(f1("powers", (((("upgrades" + ".") + v2.GetValue()) + ".") + "quantity")));
 		},
 		() => "Colors Helper",
 		p => {
