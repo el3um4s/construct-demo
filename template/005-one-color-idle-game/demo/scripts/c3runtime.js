@@ -3052,9 +3052,11 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		C3.Plugins.System.Cnds.Every,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Plugins.System.Exps.int,
+		C3.Plugins.System.Acts.SubVar,
+		C3.Plugins.System.Exps.float,
 		C3.Plugins.Text.Acts.SetPosToObject,
 		C3.Plugins.Sprite.Cnds.PickByUID,
+		C3.Plugins.System.Exps.int,
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
@@ -3115,15 +3117,16 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		{Value_Click: 0},
 		{PPS: 0},
 		{Multiplier: 0},
+		{startingCost: 0},
 		{price: 0},
 		{buy: 0},
 		{quantity: 0},
 		{multiplier_price: 0},
-		{id: 0},
 		{UID: 0},
 		{point_per_second: 0},
 		{power: 0},
 		{multiplier_single: 0},
+		{x: 0},
 		{Color: 0},
 		{r: 0},
 		{g: 0},
@@ -3254,7 +3257,10 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const f2 = p._GetNode(2).GetBoundMethod();
+			const f3 = p._GetNode(3).GetBoundMethod();
+			return () => f0((f1() * ((((f2()) > (0) ? 1 : 0)) ? (f3()) : (1))));
 		},
 		() => "BUTTONS",
 		() => "Touched",
@@ -3285,8 +3291,9 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		() => 8,
 		() => "POINTS",
 		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => and("Points: ", v0.GetValue());
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => and("Points: ", f0(v1.GetValue()));
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -3295,15 +3302,18 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		() => "POWERS",
 		() => "autoclickers",
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			const n2 = p._GetNode(2);
+			const n3 = p._GetNode(3);
+			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "price")));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			const n2 = p._GetNode(2);
 			const n3 = p._GetNode(3);
-			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "price")));
+			return () => f0(f1("powers", ((((n2.ExpInstVar() + ".") + n3.ExpInstVar()) + ".") + "starting cost")));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3333,9 +3343,11 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			return () => ((((n0.ExpInstVar() + ".") + n1.ExpInstVar()) + ".") + "price");
 		},
 		p => {
-			const v0 = p._GetNode(0).GetVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
-			return () => ((v0.GetValue() * v1.GetValue())).toString();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			return () => (f0((v1.GetValue() * Math.pow(v2.GetValue(), v3.GetValue())))).toString();
 		},
 		p => {
 			const n0 = p._GetNode(0);
@@ -3343,17 +3355,12 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			return () => ((((n0.ExpInstVar() + ".") + n1.ExpInstVar()) + ".") + "quantity");
 		},
 		p => {
-			const v0 = p._GetNode(0).GetVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
-			return () => ((v0.GetValue() + v1.GetValue())).toString();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (f0((v1.GetValue() + v2.GetValue()))).toString();
 		},
 		() => "upgrades",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			const f2 = p._GetNode(2).GetBoundMethod();
-			return () => (f0() * ((((f1()) > (0) ? 1 : 0)) ? (f2()) : (1)));
-		},
 		() => "POWERS :: INITIALIZE",
 		p => {
 			const n0 = p._GetNode(0);
@@ -3424,6 +3431,11 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			const n1 = p._GetNode(1);
 			return () => f0(n1.ExpInstVar());
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => f0(v1.GetValue());
+		},
 		() => "POWERS :: CALCULATE :: MULTIPIER",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3437,6 +3449,15 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 			const v2 = p._GetNode(2).GetVar();
 			return () => f0(f1("powers", (((("upgrades" + ".") + v2.GetValue()) + ".") + "quantity")));
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			return () => (Math.round((f0(v1.GetValue()) * 10)) / 10);
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (Math.round((v0.GetValue() * 10)) / 10);
+		},
 		() => "Colors Helper",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3447,6 +3468,10 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 		},
 		() => "Json HELPER",
 		() => "Json INITIALIZE",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
 		() => "colors",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();

@@ -178,10 +178,10 @@
 						{
 							"id": "set-eventvar-value",
 							"objectClass": "System",
-							"sid": 900963636210222,
+							"sid": 584353981426975,
 							"parameters": {
 								"variable": "PPS",
-								"value": "Functions.CalculatePPS_TotalPowers"
+								"value": "Functions.roundTenth(Functions.CalculatePPS_TotalPowers * ( Functions.CalculateMultiplier_TotalPowers > 0 ?Functions.CalculateMultiplier_TotalPowers : 1))"
 							}
 						}
 					],
@@ -456,15 +456,15 @@
 						{
 							"id": "set-text",
 							"objectClass": "Txt_Point",
-							"sid": 905846151254023,
+							"sid": 303117577242396,
 							"parameters": {
-								"text": "\"Points: \" & Points"
+								"text": "\"Points: \" & Functions.roundTenth(Points)"
 							}
 						},
 						{
 							"id": "set-text",
 							"objectClass": "Txt_PPS",
-							"sid": 130400321303767,
+							"sid": 785877844457215,
 							"parameters": {
 								"text": "\"PPS: \" & PPS"
 							}
@@ -544,6 +544,10 @@
 								"variable": "Points",
 								"value": "PPS"
 							}
+						},
+						{
+							"callFunction": "Set PowerButtons",
+							"sid": 818264176096047
 						},
 						{
 							"id": "spawn-another-object",
@@ -668,6 +672,16 @@
 									"children": [
 										{
 											"eventType": "variable",
+											"name": "startingCost",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 643516903554752
+										},
+										{
+											"eventType": "variable",
 											"name": "price",
 											"type": "number",
 											"initialValue": "0",
@@ -707,80 +721,79 @@
 											"sid": 779040864177099
 										},
 										{
-											"eventType": "variable",
-											"name": "id",
-											"type": "string",
-											"initialValue": "",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 409023008286508
-										},
-										{
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 516055321045924,
-													"parameters": {
-														"variable": "id",
-														"value": "Power_Button.ID"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 806789159881355,
+													"sid": 351951602523326,
 													"parameters": {
 														"variable": "price",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 801535345976701,
+													"parameters": {
+														"variable": "Points",
+														"value": "price"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 559994959068634,
+													"sid": 796165859648196,
+													"parameters": {
+														"variable": "startingCost",
+														"value": "Functions.roundStringTenth((Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"starting cost\")))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 343270741696506,
 													"parameters": {
 														"variable": "buy",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"buy\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"buy\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 117313638442643,
+													"sid": 377676608875049,
 													"parameters": {
 														"variable": "quantity",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 356831491658729,
+													"sid": 457392945051769,
 													"parameters": {
 														"variable": "multiplier_price",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multiplier price\"))"
+														"value": "float(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multiplier price\"))"
 													}
 												},
 												{
 													"callFunction": "setValue",
-													"sid": 768757111272713,
+													"sid": 840031992285698,
 													"parameters": [
 														"\"powers\"",
 														"Power_Button.Type & \".\" & Power_Button.ID & \".\" &  \"price\"",
-														"str(price*multiplier_price)"
+														"str(Functions.roundTenth(startingCost * multiplier_price ^ quantity))"
 													]
 												},
 												{
 													"callFunction": "setValue",
-													"sid": 845425794089562,
+													"sid": 189494119355415,
 													"parameters": [
 														"\"powers\"",
 														"Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"",
-														"str(quantity+buy)"
+														"str(Functions.roundTenth(quantity+buy))"
 													]
 												},
 												{
@@ -809,6 +822,16 @@
 									"actions": [],
 									"sid": 826166466265127,
 									"children": [
+										{
+											"eventType": "variable",
+											"name": "startingCost",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 839391134596423
+										},
 										{
 											"eventType": "variable",
 											"name": "price",
@@ -850,80 +873,79 @@
 											"sid": 196343530426237
 										},
 										{
-											"eventType": "variable",
-											"name": "id",
-											"type": "string",
-											"initialValue": "",
-											"comment": "",
-											"isStatic": false,
-											"isConstant": false,
-											"sid": 965109096448188
-										},
-										{
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 253999550479127,
-													"parameters": {
-														"variable": "id",
-														"value": "Power_Button.ID"
-													}
-												},
-												{
-													"id": "set-eventvar-value",
-													"objectClass": "System",
-													"sid": 548203060880383,
+													"sid": 390361912820094,
 													"parameters": {
 														"variable": "price",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+													}
+												},
+												{
+													"id": "subtract-from-eventvar",
+													"objectClass": "System",
+													"sid": 382548226219072,
+													"parameters": {
+														"variable": "Points",
+														"value": "price"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 925163168265012,
+													"sid": 488057702270779,
+													"parameters": {
+														"variable": "startingCost",
+														"value": "Functions.roundStringTenth((Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"starting cost\")))"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 366399200188834,
 													"parameters": {
 														"variable": "buy",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"buy\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"buy\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 671453274781525,
+													"sid": 701848628930202,
 													"parameters": {
 														"variable": "quantity",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 345249906659336,
+													"sid": 754493326662203,
 													"parameters": {
 														"variable": "multiplier_price",
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multiplier price\"))"
+														"value": "Functions.roundStringTenth(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"multiplier price\"))"
 													}
 												},
 												{
 													"callFunction": "setValue",
-													"sid": 232694903843206,
+													"sid": 971022507204286,
 													"parameters": [
 														"\"powers\"",
 														"Power_Button.Type & \".\" & Power_Button.ID & \".\" &  \"price\"",
-														"str(price*multiplier_price)"
+														"str(Functions.roundTenth(startingCost * multiplier_price ^ quantity))"
 													]
 												},
 												{
 													"callFunction": "setValue",
-													"sid": 122461390757571,
+													"sid": 585234487659664,
 													"parameters": [
 														"\"powers\"",
 														"Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"quantity\"",
-														"str(quantity+buy)"
+														"str(Functions.roundTenth(quantity+buy))"
 													]
 												},
 												{
@@ -942,10 +964,10 @@
 										{
 											"id": "set-eventvar-value",
 											"objectClass": "System",
-											"sid": 281480653358755,
+											"sid": 856915124638295,
 											"parameters": {
 												"variable": "PPS",
-												"value": "Functions.CalculatePPS_TotalPowers * ( Functions.CalculateMultiplier_TotalPowers > 0 ?Functions.CalculateMultiplier_TotalPowers : 1)"
+												"value": "Functions.roundTenth(Functions.CalculatePPS_TotalPowers * ( Functions.CalculateMultiplier_TotalPowers > 0 ?Functions.CalculateMultiplier_TotalPowers : 1))"
 											}
 										}
 									],
@@ -1293,11 +1315,11 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 724734170347213,
+													"sid": 308567897613886,
 													"parameters": {
 														"variable": "Points",
 														"comparison": 5,
-														"value": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
+														"value": "float(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"price\"))"
 													}
 												}
 											],
@@ -1471,25 +1493,25 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 720839820304338,
+													"sid": 223920902338047,
 													"parameters": {
 														"variable": "point_per_second",
-														"value": "int(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" & \"pps\"))"
+														"value": "float(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" & \"pps\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 651478558519170,
+													"sid": 371813974497486,
 													"parameters": {
 														"variable": "quantity",
-														"value": "int(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" &  \"quantity\"))"
+														"value": "float(Functions.getValue(\"powers\", \"autoclickers\" & \".\" & power & \".\" &  \"quantity\"))"
 													}
 												},
 												{
 													"id": "set-function-return-value",
 													"objectClass": "Functions",
-													"sid": 392981531654356,
+													"sid": 704266239750596,
 													"parameters": {
 														"value": "point_per_second*quantity"
 													}
@@ -1531,6 +1553,16 @@
 													"parameters": {
 														"object": "Power_Button"
 													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Power_Button",
+													"sid": 179722285643305,
+													"parameters": {
+														"instance-variable": "Type",
+														"comparison": 0,
+														"value": "\"autoclickers\""
+													}
 												}
 											],
 											"actions": [
@@ -1553,9 +1585,9 @@
 												{
 													"id": "set-function-return-value",
 													"objectClass": "Functions",
-													"sid": 497825805964895,
+													"sid": 524527832440678,
 													"parameters": {
-														"value": "point_per_second"
+														"value": "Functions.roundTenth(point_per_second)"
 													}
 												}
 											],
@@ -1620,25 +1652,25 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 333483937636012,
+													"sid": 942723304491678,
 													"parameters": {
 														"variable": "multiplier_single",
-														"value": "int(Functions.getValue(\"powers\", \"upgrades\" & \".\" & power & \".\" & \"multiplier\"))"
+														"value": "float(Functions.getValue(\"powers\", \"upgrades\" & \".\" & power & \".\" & \"multiplier\"))"
 													}
 												},
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 342611444869373,
+													"sid": 466072402524605,
 													"parameters": {
 														"variable": "quantity",
-														"value": "int(Functions.getValue(\"powers\", \"upgrades\" & \".\" & power & \".\" &  \"quantity\"))"
+														"value": "float(Functions.getValue(\"powers\", \"upgrades\" & \".\" & power & \".\" &  \"quantity\"))"
 													}
 												},
 												{
 													"id": "set-function-return-value",
 													"objectClass": "Functions",
-													"sid": 274079025519666,
+													"sid": 413719833699323,
 													"parameters": {
 														"value": "multiplier_single*quantity"
 													}
@@ -1680,6 +1712,16 @@
 													"parameters": {
 														"object": "Power_Button"
 													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Power_Button",
+													"sid": 419778691329902,
+													"parameters": {
+														"instance-variable": "Type",
+														"comparison": 0,
+														"value": "\"upgrades\""
+													}
 												}
 											],
 											"actions": [
@@ -1702,9 +1744,9 @@
 												{
 													"id": "set-function-return-value",
 													"objectClass": "Functions",
-													"sid": 847400691581109,
+													"sid": 360543021384178,
 													"parameters": {
-														"value": "multiplier_single"
+														"value": "Functions.roundTenth(multiplier_single)"
 													}
 												}
 											],
@@ -1720,6 +1762,64 @@
 				}
 			],
 			"sid": 153320784165189
+		},
+		{
+			"functionName": "roundStringTenth",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"sid": 128182208215570
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 128728607506186,
+					"parameters": {
+						"value": "round(float(x)*10)/10"
+					}
+				}
+			],
+			"sid": 727437296703132
+		},
+		{
+			"functionName": "roundTenth",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "number",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "x",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 410995364707556
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-function-return-value",
+					"objectClass": "Functions",
+					"sid": 455395563630996,
+					"parameters": {
+						"value": "round(x*10)/10"
+					}
+				}
+			],
+			"sid": 781550618888376
 		}
 	],
 	"sid": 353809346757022
