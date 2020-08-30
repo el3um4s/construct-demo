@@ -1225,16 +1225,6 @@
 													"parameters": {
 														"visibility": "visible"
 													}
-												},
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 484615941042418,
-													"disabled": true,
-													"parameters": {
-														"type": "log",
-														"message": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"show on point\"))"
-													}
 												}
 											],
 											"sid": 477038795556333
@@ -1255,16 +1245,6 @@
 													"sid": 590246569971445,
 													"parameters": {
 														"visibility": "invisible"
-													}
-												},
-												{
-													"id": "log",
-													"objectClass": "Browser",
-													"sid": 802588333896705,
-													"disabled": true,
-													"parameters": {
-														"type": "log",
-														"message": "int(Functions.getValue(\"powers\", Power_Button.Type & \".\" & Power_Button.ID & \".\" & \"show on point\"))"
 													}
 												}
 											],
@@ -1782,12 +1762,8 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-function-return-value",
-					"objectClass": "Functions",
-					"sid": 128728607506186,
-					"parameters": {
-						"value": "round(float(x)*10)/10"
-					}
+					"type": "script",
+					"script": "runtime.setReturnValue(roundTenth(localVars.x));"
 				}
 			],
 			"sid": 727437296703132
@@ -1811,12 +1787,8 @@
 			"conditions": [],
 			"actions": [
 				{
-					"id": "set-function-return-value",
-					"objectClass": "Functions",
-					"sid": 455395563630996,
-					"parameters": {
-						"value": "round(x*10)/10"
-					}
+					"type": "script",
+					"script": "runtime.setReturnValue(roundTenth(localVars.x));"
 				}
 			],
 			"sid": 781550618888376

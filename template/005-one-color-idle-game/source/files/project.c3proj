@@ -121,7 +121,8 @@
 			"Txt_Title_Upgrades",
 			"powers",
 			"Loading",
-			"Browser"
+			"Browser",
+			"idle_rules"
 		],
 		"subfolders": [
 			{
@@ -196,6 +197,16 @@
 					"name": "c3_colors_helper.js",
 					"type": "application/javascript",
 					"sid": 713429149075335
+				},
+				{
+					"name": "c3_idle_count_helper.js",
+					"type": "application/javascript",
+					"sid": 586213505729279
+				},
+				{
+					"name": "c3_idle_interface_helper.js",
+					"type": "application/javascript",
+					"sid": 113916044905492
 				}
 			],
 			"subfolders": []
@@ -305,6 +316,11 @@
 					"name": "powers.json",
 					"type": "application/json",
 					"sid": 185890500315635
+				},
+				{
+					"name": "idle_rules.json",
+					"type": "application/json",
+					"sid": 478334342971013
 				}
 			],
 			"subfolders": []
@@ -321,7 +337,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20.08.28",
+		"version": "demo-20.08.30",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

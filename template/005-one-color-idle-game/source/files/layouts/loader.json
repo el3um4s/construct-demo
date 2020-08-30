@@ -89,7 +89,14 @@
 		}
 	],
 	"sid": 430822503563144,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "idle_rules",
+			"properties": {},
+			"uid": 33,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 640,
 	"height": 480,

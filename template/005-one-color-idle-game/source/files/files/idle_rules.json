@@ -1,0 +1,98 @@
+{
+	"currencies": {
+		"primary": {
+			"label": "Points",
+			"quantity": "0"
+		}
+	},
+	"generators": {
+		"generator_a": {
+			"name": "Scrlong",
+			"label": "Scrlong",
+			"description": "A lazy troll. Generate 1 point every second",
+			"quantity": "0",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "5"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting cost": "1",
+					"cost multi factor": "1.06"
+				}
+			],
+			"effects": [{
+					"action": "add",
+					"currency": "primary",
+					"base income": "1",
+					"timer_seconds": "1" 
+				}]
+			
+		},
+		"generator_b": {
+			"name": "Morrihugia",
+			"label": "Morrihugia",
+			"description": "A gentle giant. Generate 20 points every 10 seconds",
+			"quantity": "0",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "50"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting cost": "100",
+					"cost multi factor": "1.03"
+				}
+			],
+			"effects": [{
+					"action": "add",
+					"currency": "primary",
+					"base income": "20",
+					"timer_seconds": "10"
+				}]
+			
+		},
+		"generator_c": {
+			"name": "",
+			"label": "",
+			"description": "A lazy troll. Generate 200 point every minute",
+			"quantity": "",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "700"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting cost": "1000",
+					"cost multi factor": "1.02"
+				}
+			],
+			"effects": [{
+					"action": "add",
+					"currency": "primary",
+					"base income": "200",
+					"timer_seconds": "60"
+				}]
+			
+		}
+	}
+	}
+}

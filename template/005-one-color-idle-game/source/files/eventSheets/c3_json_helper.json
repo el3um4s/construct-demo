@@ -197,6 +197,48 @@
 						}
 					],
 					"sid": 642401174787709
+				},
+				{
+					"functionName": "InitializeJson:idle_rules",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 753681443810408,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "idle_rules.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 515570638927051
+						},
+						{
+							"id": "parse",
+							"objectClass": "idle_rules",
+							"sid": 676814375892938,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 795547294041338,
+							"parameters": [
+								"\"idle_rules\""
+							]
+						}
+					],
+					"sid": 195474335420725
 				}
 			],
 			"sid": 143545687955143
