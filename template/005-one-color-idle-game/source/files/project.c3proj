@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 21300,
+	"savedWithRelease": 21400,
 	"name": "One Color Idle Game",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -35,31 +35,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r213",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "TiledBg",
-			"name": "Tiled Background",
-			"author": "Scirra",
-			"version": "r213",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Touch",
-			"name": "Touch",
-			"author": "Scirra",
-			"version": "r213",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Particles",
-			"name": "Particles",
-			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -67,7 +43,7 @@
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -75,7 +51,31 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r214",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r214",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -83,7 +83,7 @@
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -91,7 +91,7 @@
 			"id": "Sin",
 			"name": "Sine",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		},
 		{
@@ -99,7 +99,7 @@
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
-			"version": "r213",
+			"version": "r214",
 			"bundled": false
 		}
 	],
@@ -107,22 +107,15 @@
 	"objectTypes": {
 		"items": [
 			"Title",
-			"colors",
-			"AJAX",
 			"TiledBackground",
 			"Shape",
-			"Touch",
 			"Txt_Point",
 			"Particles",
 			"Txt_ValueClick",
-			"Audio",
 			"Txt_PPS",
 			"Txt_Title_Auto_Clickers",
 			"Txt_Title_Upgrades",
-			"powers",
-			"Loading",
-			"Browser",
-			"idle_rules"
+			"Loading"
 		],
 		"subfolders": [
 			{
@@ -135,6 +128,26 @@
 				],
 				"subfolders": [],
 				"name": "Power Button"
+			},
+			{
+				"items": [
+					"colors",
+					"idle_rules",
+					"idle_stats",
+					"powers"
+				],
+				"subfolders": [],
+				"name": "JSON"
+			},
+			{
+				"items": [
+					"AJAX",
+					"Audio",
+					"Browser",
+					"Touch"
+				],
+				"subfolders": [],
+				"name": "system"
 			}
 		]
 	},
@@ -207,6 +220,11 @@
 					"name": "c3_idle_interface_helper.js",
 					"type": "application/javascript",
 					"sid": 113916044905492
+				},
+				{
+					"name": "c3_idle_const.js",
+					"type": "application/javascript",
+					"sid": 528335771191061
 				}
 			],
 			"subfolders": []
@@ -321,6 +339,11 @@
 					"name": "idle_rules.json",
 					"type": "application/json",
 					"sid": 478334342971013
+				},
+				{
+					"name": "idle_stats.json",
+					"type": "application/json",
+					"sid": 245139438978825
 				}
 			],
 			"subfolders": []

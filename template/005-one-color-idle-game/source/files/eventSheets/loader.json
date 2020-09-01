@@ -66,32 +66,50 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 944034929274775
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 848494202187340,
-							"disabled": true,
-							"parameters": {
-								"seconds": "3"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 693453571245626,
-							"disabled": true
-						},
-						{
-							"id": "go-to-layout",
-							"objectClass": "System",
-							"sid": 327859603286381,
-							"parameters": {
-								"layout": "Main"
-							}
 						}
 					],
-					"sid": 324346976153104
+					"sid": 324346976153104,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "InitializeJson:idle_rules",
+									"sid": 535541441482256
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 261393695951039
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 699244474222871,
+									"disabled": true,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 418886457084809,
+									"disabled": true
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 322020404163365,
+									"parameters": {
+										"layout": "Main"
+									}
+								}
+							],
+							"sid": 522051304759347
+						}
+					]
 				}
 			]
 		}

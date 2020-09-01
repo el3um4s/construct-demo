@@ -1,0 +1,18 @@
+{
+	"resources": {
+		"primary": {
+			"quantity": "0"
+		}
+	},
+	"generators": {
+		"generator_a": {
+			"quantity": "0"
+		},
+		"generator_b": {
+			"quantity": "0"
+		},
+		"generator_c": {
+			"quantity": "0"
+		}
+	}
+}

@@ -95,6 +95,12 @@
 			"properties": {},
 			"uid": 33,
 			"instanceVariables": {}
+		},
+		{
+			"type": "idle_stats",
+			"properties": {},
+			"uid": 34,
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],
