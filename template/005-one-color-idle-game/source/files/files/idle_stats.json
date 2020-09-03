@@ -1,12 +1,12 @@
 {
-	"resources": {
+	"currencies": {
 		"primary": {
 			"quantity": "0"
 		}
 	},
 	"generators": {
 		"generator_a": {
-			"quantity": "0"
+			"quantity": "1"
 		},
 		"generator_b": {
 			"quantity": "0"

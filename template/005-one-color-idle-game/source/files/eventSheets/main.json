@@ -799,6 +799,10 @@
 												{
 													"callFunction": "Set PowerButtons",
 													"sid": 709012485820119
+												},
+												{
+													"type": "script",
+													"script": "calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);"
 												}
 											],
 											"sid": 805008107951765

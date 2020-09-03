@@ -22,14 +22,14 @@
 			"cost": [
 				{
 					"currency": "primary",
-					"starting cost": "1",
-					"cost multi factor": "1.06"
+					"starting_cost": "1",
+					"cost_multi_factor": "1.06"
 				}
 			],
 			"effects": [{
 					"action": "add",
 					"currency": "primary",
-					"base income": "1",
+					"base_income": "1",
 					"timer_seconds": "1" 
 				}]
 			
@@ -50,14 +50,14 @@
 			"cost": [
 				{
 					"currency": "primary",
-					"starting cost": "100",
-					"cost multi factor": "1.03"
+					"starting_cost": "100",
+					"cost_multi_factor": "1.03"
 				}
 			],
 			"effects": [{
 					"action": "add",
 					"currency": "primary",
-					"base income": "20",
+					"base_income": "20",
 					"timer_seconds": "10"
 				}]
 			
@@ -78,18 +78,17 @@
 			"cost": [
 				{
 					"currency": "primary",
-					"starting cost": "1000",
-					"cost multi factor": "1.02"
+					"starting_cost": "1000",
+					"cost_multi_factor": "1.02"
 				}
 			],
 			"effects": [{
 					"action": "add",
 					"currency": "primary",
-					"base income": "200",
+					"base_income": "200",
 					"timer_seconds": "60"
 				}]
 			
 		}
-	}
 	}
 }
