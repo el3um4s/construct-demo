@@ -89,6 +89,42 @@
 					"timer_seconds": "60"
 				}]
 			
+		},
+		"multiplier_a": {
+			"name": "xyz",
+			"label": "XYZ",
+			"description": "A tiny sprite. 2x generator_a and generator_b income",
+			"require": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity": "1000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "generator_a",
+						"quantity": "10"
+					},
+						{
+						"generator": "generator_b",
+						"quantity": "1"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000",
+					"cost_multi_factor": "2"
+				}
+			],
+			"effects": [{
+					"action": "multiple",
+					"currency": "primary",
+					"base_income": "2",
+					"timer_seconds": "60"
+			}]
 		}
 	}
 }

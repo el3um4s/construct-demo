@@ -6,13 +6,16 @@
 	},
 	"generators": {
 		"generator_a": {
-			"quantity": "1"
+			"quantity": "1",
+			"multiplier_income": "2"
 		},
 		"generator_b": {
-			"quantity": "0"
+			"quantity": "0",
+			"multiplier_income": "1"
 		},
 		"generator_c": {
-			"quantity": "0"
+			"quantity": "0",
+			"multiplier_income": "1"
 		}
 	}
 }

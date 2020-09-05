@@ -801,6 +801,16 @@
 													"sid": 709012485820119
 												},
 												{
+													"callFunction": "setValue",
+													"sid": 439182819754595,
+													"disabled": true,
+													"parameters": [
+														"\"idle_stats\"",
+														"\"ciao.mondo.xyz\"",
+														"\"abc\""
+													]
+												},
+												{
 													"type": "script",
 													"script": "calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);"
 												}
