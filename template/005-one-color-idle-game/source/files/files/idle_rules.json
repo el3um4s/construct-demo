@@ -30,7 +30,8 @@
 					"action": "add",
 					"currency": "primary",
 					"base_income": "1",
-					"timer_seconds": "1" 
+					"timer_seconds": "1",
+					"generators": ["generator_a"]
 				}]
 			
 		},
@@ -58,7 +59,8 @@
 					"action": "add",
 					"currency": "primary",
 					"base_income": "20",
-					"timer_seconds": "10"
+					"timer_seconds": "10",
+					"generators": ["generator_b"]
 				}]
 			
 		},
@@ -86,7 +88,8 @@
 					"action": "add",
 					"currency": "primary",
 					"base_income": "200",
-					"timer_seconds": "60"
+					"timer_seconds": "60",
+					"generators": ["generator_c"]
 				}]
 			
 		},
@@ -123,7 +126,49 @@
 					"action": "multiple",
 					"currency": "primary",
 					"base_income": "2",
-					"timer_seconds": "60"
+					"timer_seconds": "60",
+					"generators": ["generator_a"]
+			}]
+		},
+		"multiplier_b": {
+			"name": "xyz",
+			"label": "XYZ",
+			"description": "A tiny sprite. 2x generator_a and generator_b income",
+			"require": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity": "2000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "generator_a",
+						"quantity": "20"
+					},
+						{
+						"generator": "generator_b",
+						"quantity": "20"
+					},
+					{
+						"generator": "generator_c",
+						"quantity": "20"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000",
+					"cost_multi_factor": "2"
+				}
+			],
+			"effects": [{
+					"action": "multiple",
+					"currency": "primary",
+					"base_income": "2",
+					"timer_seconds": "60",
+					"generators": ["ALL"]
 			}]
 		}
 	}

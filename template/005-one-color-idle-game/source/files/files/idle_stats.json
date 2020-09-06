@@ -6,16 +6,19 @@
 	},
 	"generators": {
 		"generator_a": {
-			"quantity": "1",
-			"multiplier_income": "2"
+			"quantity": "1"
 		},
 		"generator_b": {
-			"quantity": "0",
-			"multiplier_income": "1"
+			"quantity": "0"
 		},
 		"generator_c": {
-			"quantity": "0",
-			"multiplier_income": "1"
+			"quantity": "0"
+		},
+		"multiplier_a": {
+			"quantity": "1"
+		},
+		"multiplier_b": {
+			"quantity": "2"
 		}
 	}
 }
