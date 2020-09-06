@@ -575,6 +575,11 @@
 								"loop": "no",
 								"ping-pong": "no"
 							}
+						},
+						{
+							"type": "script",
+							"script": "const temporaryBankCurrencies = calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);\nruntime.globalVars.Points += temporaryBankCurrencies.primary;",
+							"disabled": true
 						}
 					],
 					"sid": 799401224582394
@@ -801,18 +806,8 @@
 													"sid": 709012485820119
 												},
 												{
-													"callFunction": "setValue",
-													"sid": 439182819754595,
-													"disabled": true,
-													"parameters": [
-														"\"idle_stats\"",
-														"\"ciao.mondo.xyz\"",
-														"\"abc\""
-													]
-												},
-												{
 													"type": "script",
-													"script": "calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);"
+													"script": "const temporaryBankCurrencies = calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);\nruntime.globalVars.Points += temporaryBankCurrencies.primary;"
 												}
 											],
 											"sid": 805008107951765

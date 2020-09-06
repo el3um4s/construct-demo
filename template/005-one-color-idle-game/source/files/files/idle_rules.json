@@ -7,9 +7,9 @@
 	},
 	"generators": {
 		"generator_a": {
-			"name": "Scrlong",
-			"label": "Scrlong",
-			"description": "A lazy troll. Generate 1 point every second",
+			"name": "Witch",
+			"label": "Witch",
+			"description": "A lazy witch. Generate 1 point every second",
 			"requires": {
 				"currencies": [
 					{
@@ -36,9 +36,9 @@
 			
 		},
 		"generator_b": {
-			"name": "Morrihugia",
-			"label": "Morrihugia",
-			"description": "A gentle giant. Generate 20 points every 10 seconds",
+			"name": "Minotaur",
+			"label": "Minotaur",
+			"description": "A gentle minotaur. Generate 20 points every 10 seconds",
 			"requires": {
 				"currencies": [
 					{
@@ -65,9 +65,9 @@
 			
 		},
 		"generator_c": {
-			"name": "Jagiaja",
+			"name": "Yeti",
 			"label": "Jagiaja",
-			"description": "A lazy troll. Generate 200 point every minute",
+			"description": "A yeti. Generate 200 point every minute",
 			"requires": {
 				"currencies": [
 					{
@@ -94,9 +94,9 @@
 			
 		},
 		"multiplier_a": {
-			"name": "xyz",
-			"label": "XYZ",
-			"description": "A tiny sprite. 2x generator_a and generator_b income",
+			"name": "Crystal",
+			"label": "Crystal",
+			"description": "2x generator_a",
 			"require": {
 				"currencies": [
 					{
@@ -131,9 +131,9 @@
 			}]
 		},
 		"multiplier_b": {
-			"name": "xyz",
-			"label": "XYZ",
-			"description": "A tiny sprite. 2x generator_a and generator_b income",
+			"name": "Magic",
+			"label": "Magic",
+			"description": "2x points for all",
 			"require": {
 				"currencies": [
 					{

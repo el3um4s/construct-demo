@@ -1,0 +1,80 @@
+{
+	"name": "Button_Generator",
+	"plugin-id": "Sprite",
+	"sid": 802751314692525,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "generator_name",
+			"type": "string",
+			"desc": "",
+			"sid": 710533845150686
+		},
+		{
+			"name": "visible",
+			"type": "boolean",
+			"desc": "",
+			"sid": 575784306939617
+		},
+		{
+			"name": "name",
+			"type": "string",
+			"desc": "",
+			"sid": 388004415709365
+		},
+		{
+			"name": "icons",
+			"type": "string",
+			"desc": "",
+			"sid": 419429543371249
+		},
+		{
+			"name": "quantity",
+			"type": "string",
+			"desc": "",
+			"sid": 524303529026064
+		},
+		{
+			"name": "effect",
+			"type": "string",
+			"desc": "",
+			"sid": 538866452428344
+		},
+		{
+			"name": "cost",
+			"type": "string",
+			"desc": "",
+			"sid": 848315304529753
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 256,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5677801,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 337907964311818,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

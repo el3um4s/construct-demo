@@ -1,8 +1,8 @@
 {
 	"demo":  {
-		"background": "#ECEAE8",
-		"primary": "#E84243",
-		"primary dark" : "#290000",
-		"primary light": "#FFCCCC"
+		"background": "#242323",
+		"primary": "#DBDBDB",
+		"primary dark" : "#6B6B6B",
+		"primary light": "#3D3D3D"
 	}
 }

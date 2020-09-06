@@ -65,10 +65,6 @@ function calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGe
 	return temporaryBankCurrencies;
 }
 
-function calculateEffectGlobal_Currencies(effect, currency) {
-	
-}
-
 function calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON) {
 	const arrayNameGenerators = getArrayNameGenerators(idle_rules_JSON);
 	const arrayNameCurrencies = getArrayNameCurrencies(idle_rules_JSON);
@@ -86,38 +82,41 @@ function calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON) {
 		const effects =json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`);
 		const action = effects[0].action;
 		
-		temporaryBankGenerators[nameGenerator].multiplier_income = 1;
+		arrayNameCurrencies.forEach( nameCurrency => {
+			temporaryBankGenerators[nameGenerator] = {};
+			temporaryBankGenerators[nameGenerator][nameCurrency] = {};
+			temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income = 1;
+		});
+	
 		const effectGenerators = effects[0].generators[0];
-		
+
 		if (action == "multiple") {
 			const singleGeneratorIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action);
 			const nameCurrency = Object.keys(singleGeneratorIncome)[0];
-			temporaryBankGenerators[nameGenerator].currency = nameCurrency;
-			temporaryBankGenerators[nameGenerator].multiplier_income = singleGeneratorIncome[nameCurrency];
-			//temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income += singleGeneratorIncome[nameCurrency];
 			temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income += effectGenerators == "ALL" ? singleGeneratorIncome[nameCurrency] : 0;
+			if (effectGenerators != "ALL"){
+				const income = temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income;
+				temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income += income > 1 ? singleGeneratorIncome[nameCurrency] : (singleGeneratorIncome[nameCurrency])-1 ;
+			}
 		}
 	});
-	
-	console.log(temporaryBankGenerators);
-		
+			
 	arrayNameGenerators.forEach( nameGenerator => {
 		const effects =json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`);
 		const nameCurrency = effects[0].currency;
 		const action = effects[0].action;
 		if (action == "add"){
 			const singleGeneratorIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action);
-// 			const generatorMultiplicator =  temporaryBankGenerators[nameGenerator].multiplier_income;
 			const income = addObjPropertyToProperty(temporaryBankCurrencies, singleGeneratorIncome);
-			const incomeMultiplier = temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income;
+			const incomeMultiplierGlobal = temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income;
+			const incomeMultiplierGenerator = temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income;
+			const incomeMultiplier = incomeMultiplierGlobal + (incomeMultiplierGenerator > 1 ? incomeMultiplierGenerator : 0 );
 			temporaryBankCurrencies = multipleObjPropertyToProperty(income, incomeMultiplier);
 			
 		}
 	});
-	console.log("end addObjPropertyToProperty");
-	console.log(temporaryBankCurrencies);
+	return temporaryBankCurrencies;
 }
-
 
 
 
