@@ -1,0 +1,398 @@
+{
+	"name": "idle_game",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 742113175037306
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 680431399952612,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 108309223888713,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 768217673078930,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 390432594760399,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\")"
+					]
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Magic_TXT_Hints",
+					"sid": 112884719502797,
+					"parameters": {
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 452345187662795,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 384161124999114,
+							"parameters": {
+								"object": "Color_Primary_Sprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 526440978248785,
+							"parameters": [
+								"Color_Primary_Sprite.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 499572981610455
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 946972317863322,
+							"parameters": {
+								"object": "Colors_Background_Sprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 758256557646102,
+							"parameters": [
+								"Colors_Background_Sprite.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 265570776119701
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 409760669905087,
+							"parameters": {
+								"object": "Color_Primary_Text"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 788182565017301,
+							"parameters": [
+								"Color_Primary_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 890978389293870
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 311960650404463,
+							"parameters": {
+								"object": "Colors_Background_Text"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 580700297091102,
+							"parameters": [
+								"Colors_Background_Text.UID",
+								"Functions.getValue(\"colors\", \"demo.background\")"
+							]
+						}
+					],
+					"sid": 240500511972428
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Set PowerButtons",
+							"sid": 791450396592113
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 849850284182425,
+							"parameters": {
+								"variable": "PPS",
+								"value": "Functions.roundTenth(Functions.CalculatePPS_TotalPowers * ( Functions.CalculateMultiplier_TotalPowers > 0 ?Functions.CalculateMultiplier_TotalPowers : 1))"
+							}
+						}
+					],
+					"sid": 531172724926028
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 223165381668915
+				}
+			],
+			"actions": [],
+			"sid": 305898168991307,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 306964752812674,
+							"parameters": {
+								"object": "Magic"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "start-fade",
+							"objectClass": "Magic_TXT_Hints",
+							"sid": 915854212902901,
+							"behaviorType": "Fade"
+						},
+						{
+							"id": "tween-one-property",
+							"objectClass": "Magic",
+							"sid": 156428137935889,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "offsetAngle",
+								"end-value": "45",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 179110889036359,
+							"parameters": {
+								"variable": "Points",
+								"value": "Value_Click"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Magic",
+							"sid": 860097521654344,
+							"parameters": {
+								"object": "Magic_Particles",
+								"layer": "Magic.LayerName",
+								"image-point": "1"
+							}
+						}
+					],
+					"sid": 507976616485934
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Magic_Particles",
+					"sid": 573417612662482
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 740079429343870,
+					"parameters": [
+						"Magic_Particles.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\")"
+					]
+				}
+			],
+			"sid": 604635450653877
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-between-angles",
+					"objectClass": "Magic",
+					"sid": 523250900032843,
+					"parameters": {
+						"first-angle": "0",
+						"second-angle": "45"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "Magic",
+					"sid": 170836679644221,
+					"parameters": {
+						"angle": "0"
+					}
+				}
+			],
+			"sid": 961175125211429
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Magic_TXT_Points",
+					"sid": 137607606297857,
+					"parameters": {
+						"text": "Points"
+					}
+				}
+			],
+			"sid": 990998353020692
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 289271763847722,
+					"parameters": {
+						"object": "Button_Generator"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Button_Generator_SetVal",
+					"sid": 394973250733163,
+					"parameters": [
+						"Button_Generator.UID"
+					]
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Button_TXT_Name",
+					"sid": 479966560468920,
+					"parameters": {
+						"text": "Button_Generator.name"
+					}
+				},
+				{
+					"id": "set-animation",
+					"objectClass": "Button_Icons",
+					"sid": 158342780115032,
+					"parameters": {
+						"animation": "Button_Generator.icon",
+						"from": "beginning"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Button_TXT_Quantity",
+					"sid": 532224292955629,
+					"parameters": {
+						"text": "Button_Generator.quantity"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Button_TXT_Effect",
+					"sid": 594041800591901,
+					"parameters": {
+						"text": "Button_Generator.effect"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Button_TXT_Cost",
+					"sid": 852583622311820,
+					"parameters": {
+						"text": "Button_Generator.cost"
+					}
+				}
+			],
+			"sid": 808210385871572
+		},
+		{
+			"functionName": "Button_Generator_SetVal",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 314330246426630
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.effect;\nelement.instVars.cost = variables.cost;"
+				}
+			],
+			"sid": 710051944104244
+		}
+	],
+	"sid": 861877163176371
+}

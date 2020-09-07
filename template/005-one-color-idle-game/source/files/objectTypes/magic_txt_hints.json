@@ -1,0 +1,15 @@
+{
+	"name": "Magic_TXT_Hints",
+	"plugin-id": "Text",
+	"sid": 668693239261139,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 409620827726121
+		}
+	],
+	"effectTypes": []
+}

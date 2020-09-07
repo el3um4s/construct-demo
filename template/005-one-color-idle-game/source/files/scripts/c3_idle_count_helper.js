@@ -54,6 +54,11 @@ function calculateIncome(quantity = 0, { currency = "primary", base_income = "1"
 
 function typeOfGeneratorEffect({action = "add"} = {}) { return action; }
 
+function calculateSellCost(startingCost, multiplier_price, quantity) {
+	const result = parseFloat(quantity) == 0 ? parseFloat(startingCost) : parseFloat(startingCost) * parseFloat(multiplier_price) ^ parseFloat(quantity)
+	return result;
+}
+
 function calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action = "add") {
 	const baseIncome_Array = json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`).filter( el => el.action == action);
 	const generatorsQuantity = json_getKey(idle_stats_JSON, `generators.${nameGenerator}.quantity`);

@@ -9,6 +9,13 @@
 		"Power_Text_Name",
 		"Power_Text_Quantity",
 		"Power_Text_Price",
-		"Power_Text_Effect"
+		"Power_Text_Effect",
+		"Button_TXT_Cost",
+		"Button_TXT_Effect",
+		"Button_TXT_Name",
+		"Button_TXT_Quantity",
+		"Magic_TXT_Labels",
+		"Magic_TXT_Points",
+		"Magic_TXT_PPS"
 	]
 }

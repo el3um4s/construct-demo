@@ -64,6 +64,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r214",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
@@ -71,9 +79,9 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "Particles",
-			"name": "Particles",
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
 			"author": "Scirra",
 			"version": "r214",
 			"bundled": false
@@ -90,14 +98,6 @@
 			"type": "behavior",
 			"id": "Sin",
 			"name": "Sine",
-			"author": "Scirra",
-			"version": "r214",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Tween",
-			"name": "Tween",
 			"author": "Scirra",
 			"version": "r214",
 			"bundled": false
@@ -147,19 +147,59 @@
 					"Touch"
 				],
 				"subfolders": [],
-				"name": "system"
+				"name": "System"
+			},
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Button_Icons",
+							"Button_Generator"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Button_TXT_Cost",
+							"Button_TXT_Effect",
+							"Button_TXT_Name",
+							"Button_TXT_Quantity"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					}
+				],
+				"name": "Button"
 			},
 			{
 				"items": [
-					"Button_Icons",
-					"Button_Generator",
-					"Button_Name",
-					"Button_Quantity",
-					"Button_Cost",
-					"Button_Effect"
+					"Magic_Particles"
 				],
-				"subfolders": [],
-				"name": "Button"
+				"subfolders": [
+					{
+						"items": [
+							"Magic",
+							"Magic_SPR_Box",
+							"Magic_SPR_Points",
+							"Magic_SPR_PPS"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Magic_TXT_Labels",
+							"Magic_TXT_Points",
+							"Magic_TXT_PPS",
+							"Magic_TXT_Hints"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					}
+				],
+				"name": "Magic"
 			}
 		]
 	},
@@ -177,14 +217,14 @@
 		},
 		{
 			"members": [
+				"Button_TXT_Cost",
+				"Button_TXT_Effect",
 				"Button_Generator",
-				"Button_Cost",
-				"Button_Effect",
 				"Button_Icons",
-				"Button_Name",
-				"Button_Quantity"
+				"Button_TXT_Name",
+				"Button_TXT_Quantity"
 			],
-			"selectMode": "wrap"
+			"selectMode": "normal"
 		}
 	],
 	"families": {
@@ -195,7 +235,8 @@
 			"Txt_ValueClicks",
 			"Colors_Background_Text",
 			"Power_Texts",
-			"Power_Buttons"
+			"Power_Buttons",
+			"Colors_Background_Sprite"
 		],
 		"subfolders": []
 	},
@@ -203,7 +244,8 @@
 		"items": [
 			"Loader",
 			"Main",
-			"Bank"
+			"Bank",
+			"IdleGame"
 		],
 		"subfolders": []
 	},
@@ -212,7 +254,9 @@
 			"Main",
 			"c3_colors_helper",
 			"c3_json_helper",
-			"Loader"
+			"Loader",
+			"idle_game",
+			"global_vars"
 		],
 		"subfolders": []
 	},

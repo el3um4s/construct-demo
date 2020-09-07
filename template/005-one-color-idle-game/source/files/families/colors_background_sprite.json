@@ -1,0 +1,13 @@
+{
+	"name": "Colors_Background_Sprite",
+	"plugin-id": "Sprite",
+	"sid": 637662021269466,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Button_Icons",
+		"Magic_SPR_Points",
+		"Magic_SPR_PPS"
+	]
+}

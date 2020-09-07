@@ -9,6 +9,7 @@
 		"generator_a": {
 			"name": "Witch",
 			"label": "Witch",
+			"icon": "witch",
 			"description": "A lazy witch. Generate 1 point every second",
 			"requires": {
 				"currencies": [
@@ -22,7 +23,7 @@
 			"cost": [
 				{
 					"currency": "primary",
-					"starting_cost": "1",
+					"starting_cost": "10",
 					"cost_multi_factor": "1.06"
 				}
 			],
@@ -38,6 +39,7 @@
 		"generator_b": {
 			"name": "Minotaur",
 			"label": "Minotaur",
+			"icon": "minotaur",
 			"description": "A gentle minotaur. Generate 20 points every 10 seconds",
 			"requires": {
 				"currencies": [
@@ -66,7 +68,8 @@
 		},
 		"generator_c": {
 			"name": "Yeti",
-			"label": "Jagiaja",
+			"label": "yeti",
+			"icon": "yeti",
 			"description": "A yeti. Generate 200 point every minute",
 			"requires": {
 				"currencies": [
@@ -96,6 +99,7 @@
 		"multiplier_a": {
 			"name": "Crystal",
 			"label": "Crystal",
+			"icon": "crystal",
 			"description": "2x generator_a",
 			"require": {
 				"currencies": [
@@ -133,6 +137,7 @@
 		"multiplier_b": {
 			"name": "Magic",
 			"label": "Magic",
+			"icon": "magic",
 			"description": "2x points for all",
 			"require": {
 				"currencies": [
@@ -159,8 +164,8 @@
 			"cost": [
 				{
 					"currency": "primary",
-					"starting_cost": "1000",
-					"cost_multi_factor": "2"
+					"starting_cost": "5000",
+					"cost_multi_factor": "4"
 				}
 			],
 			"effects": [{

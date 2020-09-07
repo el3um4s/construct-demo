@@ -117,9 +117,9 @@
 										{
 											"id": "go-to-layout",
 											"objectClass": "System",
-											"sid": 126708271846710,
+											"sid": 693625874784197,
 											"parameters": {
-												"layout": "Main"
+												"layout": "IdleGame"
 											}
 										}
 									],

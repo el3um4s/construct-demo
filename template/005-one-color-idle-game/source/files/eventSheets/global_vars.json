@@ -1,0 +1,56 @@
+{
+	"name": "global_vars",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 372352911786746
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxPoints",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 414676355743782
+		},
+		{
+			"eventType": "variable",
+			"name": "Value_Click",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 293440712921061
+		},
+		{
+			"eventType": "variable",
+			"name": "PPS",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 405125643939524
+		},
+		{
+			"eventType": "variable",
+			"name": "Multiplier",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 469254624100786
+		}
+	],
+	"sid": 543407814925409
+}

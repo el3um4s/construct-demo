@@ -2,56 +2,6 @@
 	"name": "Main",
 	"events": [
 		{
-			"eventType": "variable",
-			"name": "Points",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 802438876587682
-		},
-		{
-			"eventType": "variable",
-			"name": "MaxPoints",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 134022695902350
-		},
-		{
-			"eventType": "variable",
-			"name": "Value_Click",
-			"type": "number",
-			"initialValue": "1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 329746279100450
-		},
-		{
-			"eventType": "variable",
-			"name": "PPS",
-			"type": "number",
-			"initialValue": "0",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 280703599361900
-		},
-		{
-			"eventType": "variable",
-			"name": "Multiplier",
-			"type": "number",
-			"initialValue": "1",
-			"comment": "",
-			"isStatic": false,
-			"isConstant": false,
-			"sid": 202792142294722
-		},
-		{
 			"eventType": "block",
 			"conditions": [
 				{
