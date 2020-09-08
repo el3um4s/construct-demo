@@ -49,6 +49,15 @@
 					"parameters": {
 						"visibility": "visible"
 					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 611105114753884,
+					"parameters": {
+						"variable": "Points",
+						"value": "float(Functions.getValue(\"idle_stats\", \"currencies.primary.quantity\"))"
+					}
 				}
 			],
 			"sid": 452345187662795,
@@ -148,250 +157,1026 @@
 						}
 					],
 					"sid": 240500511972428
+				}
+			]
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CLICKER MAGIC",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 406392714134730
+						}
+					],
+					"actions": [],
+					"sid": 347256263522883,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 573738614933962,
+									"parameters": {
+										"object": "Magic"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "start-fade",
+									"objectClass": "Magic_TXT_Hints",
+									"sid": 932201946665999,
+									"behaviorType": "Fade"
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Magic",
+									"sid": 471074216918952,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetAngle",
+										"end-value": "45",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 951847252417209,
+									"parameters": {
+										"variable": "Points",
+										"value": "Value_Click"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 723278757166821,
+									"parameters": {
+										"audio-file": "click",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Magic",
+									"sid": 186194893311254,
+									"parameters": {
+										"object": "Magic_Particles",
+										"layer": "Magic.LayerName",
+										"image-point": "1"
+									}
+								},
+								{
+									"callFunction": "setValue",
+									"sid": 709490942724550,
+									"parameters": [
+										"\"idle_stats\"",
+										"\"currencies.primary.quantity\"",
+										"str(Points)"
+									]
+								}
+							],
+							"sid": 704995975144924
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-created",
+							"objectClass": "Magic_Particles",
+							"sid": 536530821107466
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 109379696402400,
+							"parameters": [
+								"Magic_Particles.UID",
+								"Functions.getValue(\"colors\", \"demo.primary\")"
+							]
+						}
+					],
+					"sid": 667215932760274
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-between-angles",
+							"objectClass": "Magic",
+							"sid": 248253221104406,
+							"parameters": {
+								"first-angle": "0",
+								"second-angle": "45"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle",
+							"objectClass": "Magic",
+							"sid": 953396695635445,
+							"parameters": {
+								"angle": "0"
+							}
+						}
+					],
+					"sid": 129577458214249
 				},
 				{
 					"eventType": "block",
 					"conditions": [],
 					"actions": [
 						{
-							"callFunction": "Set PowerButtons",
-							"sid": 791450396592113
-						},
-						{
-							"id": "set-eventvar-value",
-							"objectClass": "System",
-							"sid": 849850284182425,
+							"id": "set-text",
+							"objectClass": "Magic_TXT_Points",
+							"sid": 736463501345982,
 							"parameters": {
-								"variable": "PPS",
-								"value": "Functions.roundTenth(Functions.CalculatePPS_TotalPowers * ( Functions.CalculateMultiplier_TotalPowers > 0 ?Functions.CalculateMultiplier_TotalPowers : 1))"
+								"text": "Points"
 							}
 						}
 					],
-					"sid": 531172724926028
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-any-touch-start",
-					"objectClass": "Touch",
-					"sid": 223165381668915
+					"sid": 806173644693736
 				}
 			],
-			"actions": [],
-			"sid": 305898168991307,
+			"sid": 589625849322340
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GENERATORS",
+			"description": "",
+			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "GENERATORS :: on click",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "is-touching-object",
-							"objectClass": "Touch",
-							"sid": 306964752812674,
-							"parameters": {
-								"object": "Magic"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 663841805891417
+								}
+							],
+							"actions": [],
+							"sid": 960043515909756,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 361725593705166,
+											"parameters": {
+												"object": "Button_Generator"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 222815916831146,
+											"parameters": {
+												"layer": "Button_Generator.LayerName"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button_Generator",
+											"sid": 636770866702733,
+											"parameters": {
+												"instance-variable": "isPurchasable",
+												"comparison": 1,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button_Generator",
+											"sid": 547819768730116,
+											"parameters": {
+												"instance-variable": "visible",
+												"comparison": 1,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 823291199475777,
+											"parameters": {
+												"audio-file": "click",
+												"loop": "not-looping",
+												"volume": "0",
+												"tag-optional": "\"\""
+											}
+										},
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 368534561208237,
+											"parameters": {
+												"variable": "Points",
+												"value": "float(Button_Generator.cost)"
+											}
+										},
+										{
+											"callFunction": "addValue",
+											"sid": 640737100668635,
+											"parameters": [
+												"\"idle_stats\"",
+												"\"generators.\"&Button_Generator.generator_name&\".quantity\"",
+												"\"1\""
+											]
+										}
+									],
+									"sid": 748592068371392
+								}
+							]
 						}
 					],
-					"actions": [
+					"sid": 548759864777786
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "GENERATORS :: on timer",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "start-fade",
-							"objectClass": "Magic_TXT_Hints",
-							"sid": 915854212902901,
-							"behaviorType": "Fade"
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-timer",
+									"objectClass": "Button_Generator",
+									"sid": 352779188503425,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"every_x_seconds\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Button_Generator",
+									"sid": 157358270511253,
+									"parameters": {
+										"object": "Button_Particles",
+										"layer": "Button_Generator.LayerName",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 708164903129759,
+									"parameters": {
+										"variable": "Points",
+										"value": "Functions.Button_Generator_ActivateEffect(Button_Generator.UID)"
+									}
+								},
+								{
+									"callFunction": "setValue",
+									"sid": 145065360901698,
+									"parameters": [
+										"\"idle_stats\"",
+										"\"currencies.primary.quantity\"",
+										"str(Points)"
+									]
+								}
+							],
+							"sid": 121432541881693
 						},
 						{
-							"id": "tween-one-property",
-							"objectClass": "Magic",
-							"sid": 156428137935889,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "offsetAngle",
-								"end-value": "45",
-								"time": "0.1",
-								"ease": "default",
-								"destroy-on-complete": "no",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						},
-						{
-							"id": "add-to-eventvar",
-							"objectClass": "System",
-							"sid": 179110889036359,
-							"parameters": {
-								"variable": "Points",
-								"value": "Value_Click"
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Magic",
-							"sid": 860097521654344,
-							"parameters": {
-								"object": "Magic_Particles",
-								"layer": "Magic.LayerName",
-								"image-point": "1"
-							}
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Button_Particles",
+									"sid": 586954152704505
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 301354315887116,
+									"parameters": [
+										"Button_Particles.UID",
+										"Functions.getValue(\"colors\", \"demo.primary\")"
+									]
+								}
+							],
+							"sid": 456915878695732
 						}
 					],
-					"sid": 507976616485934
-				}
-			]
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "on-created",
-					"objectClass": "Magic_Particles",
-					"sid": 573417612662482
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Change_Color_Object",
-					"sid": 740079429343870,
-					"parameters": [
-						"Magic_Particles.UID",
-						"Functions.getValue(\"colors\", \"demo.primary\")"
-					]
-				}
-			],
-			"sid": 604635450653877
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "is-between-angles",
-					"objectClass": "Magic",
-					"sid": 523250900032843,
-					"parameters": {
-						"first-angle": "0",
-						"second-angle": "45"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-angle",
-					"objectClass": "Magic",
-					"sid": 170836679644221,
-					"parameters": {
-						"angle": "0"
-					}
-				}
-			],
-			"sid": 961175125211429
-		},
-		{
-			"eventType": "block",
-			"conditions": [],
-			"actions": [
-				{
-					"id": "set-text",
-					"objectClass": "Magic_TXT_Points",
-					"sid": 137607606297857,
-					"parameters": {
-						"text": "Points"
-					}
-				}
-			],
-			"sid": 990998353020692
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "for-each",
-					"objectClass": "System",
-					"sid": 289271763847722,
-					"parameters": {
-						"object": "Button_Generator"
-					}
-				}
-			],
-			"actions": [
-				{
-					"callFunction": "Button_Generator_SetVal",
-					"sid": 394973250733163,
-					"parameters": [
-						"Button_Generator.UID"
-					]
+					"sid": 401751498362341
 				},
 				{
-					"id": "set-text",
-					"objectClass": "Button_TXT_Name",
-					"sid": 479966560468920,
-					"parameters": {
-						"text": "Button_Generator.name"
-					}
+					"eventType": "group",
+					"disabled": false,
+					"title": "GENERATORS :: interface",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 379588947698237,
+									"parameters": {
+										"object": "Button_Generator"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Button_Generator_SetVal",
+									"sid": 805614662191200,
+									"parameters": [
+										"Button_Generator.UID"
+									]
+								},
+								{
+									"callFunction": "Button_Generator_SetInterface",
+									"sid": 487196816674508,
+									"parameters": [
+										"Button_Generator.UID"
+									]
+								},
+								{
+									"callFunction": "Button_Generator_Set_Is_Visible",
+									"sid": 259713667543959,
+									"parameters": [
+										"Button_Generator.UID"
+									]
+								},
+								{
+									"callFunction": "Button_Generator_Set_Is_Purchasable",
+									"sid": 169398646134583,
+									"parameters": [
+										"Button_Generator.UID",
+										"Points"
+									]
+								},
+								{
+									"callFunction": "ButtonGenerato_SetShow",
+									"sid": 345120943823628,
+									"parameters": [
+										"Button_Generator.UID"
+									]
+								}
+							],
+							"sid": 735171543827265
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 891894310609640
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "Button_Generator",
+									"sid": 782608820166352,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"every_x_seconds\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-width",
+									"objectClass": "Button_SPR_Timer",
+									"sid": 780575020479766,
+									"parameters": {
+										"width": "(Button_Generator.Timer.CurrentTime(\"every_x_seconds\")/Button_Generator.Timer.Duration(\"every_x_seconds\"))*Button_SPR_Timer.ImageWidth"
+									}
+								}
+							],
+							"sid": 550107471049110,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 929991611718136,
+											"parameters": {
+												"first-value": "float(Button_Generator.every_x_seconds)",
+												"comparison": 3,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-timer",
+											"objectClass": "Button_Generator",
+											"sid": 909406944535152,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"every_x_seconds\""
+											}
+										}
+									],
+									"sid": 871917751484445
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button_Generator",
+									"sid": 119023148070703,
+									"parameters": {
+										"instance-variable": "quantity",
+										"comparison": 1,
+										"value": "\"0\""
+									}
+								},
+								{
+									"id": "is-timer-running",
+									"objectClass": "Button_Generator",
+									"sid": 320132422623946,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"every_x_seconds\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "start-timer",
+									"objectClass": "Button_Generator",
+									"sid": 436075640084958,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "float(Button_Generator.every_x_seconds)",
+										"type": "regular",
+										"tag": "\"every_x_seconds\""
+									}
+								}
+							],
+							"sid": 255383683836686,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 721066734598580,
+											"parameters": {
+												"first-value": "float(Button_Generator.every_x_seconds)",
+												"comparison": 3,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "stop-timer",
+											"objectClass": "Button_Generator",
+											"sid": 623344292853371,
+											"behaviorType": "Timer",
+											"parameters": {
+												"tag": "\"every_x_seconds\""
+											}
+										}
+									],
+									"sid": 269913246206004
+								}
+							]
+						},
+						{
+							"functionName": "ButtonGenerato_SetShow",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 390586457517885
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 119035283098109,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Button_Generator",
+											"sid": 760045525142660,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 172460118084041,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button_Generator",
+													"sid": 669981303114977,
+													"parameters": {
+														"instance-variable": "visible",
+														"comparison": 1,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Button_Generator",
+													"sid": 967817863047788,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Effect",
+													"sid": 653953204729990,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Icons",
+													"sid": 540375724609096,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Obfuscate",
+													"sid": 294743558053289,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Price",
+													"sid": 527092505773738,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Timer",
+													"sid": 763652408138754,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Cost",
+													"sid": 153756293266343,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Effect",
+													"sid": 685441161728356,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Name",
+													"sid": 699848381103225,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Quantity",
+													"sid": 119515884285739,
+													"parameters": {
+														"visibility": "visible"
+													}
+												}
+											],
+											"sid": 593347918928412
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 591880126036041
+												}
+											],
+											"actions": [
+												{
+													"id": "set-visible",
+													"objectClass": "Button_Generator",
+													"sid": 773136288346112,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Effect",
+													"sid": 912413565688910,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Icons",
+													"sid": 807725929816980,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Obfuscate",
+													"sid": 396813884310179,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Price",
+													"sid": 886496619141882,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_SPR_Timer",
+													"sid": 849310876593861,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Cost",
+													"sid": 191605642343696,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Effect",
+													"sid": 402515372380422,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Name",
+													"sid": 173692625276992,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_Quantity",
+													"sid": 361076094827779,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												}
+											],
+											"sid": 594542581989361
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button_Generator",
+													"sid": 357304854756153,
+													"parameters": {
+														"instance-variable": "isPurchasable",
+														"comparison": 1,
+														"value": "0"
+													}
+												},
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button_Generator",
+													"sid": 581201758546379,
+													"parameters": {
+														"instance-variable": "visible",
+														"comparison": 1,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Button_SPR_Obfuscate",
+													"sid": 567711289748989,
+													"parameters": {
+														"opacity": "0"
+													}
+												}
+											],
+											"sid": 672111763680113
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 365685740818325
+												}
+											],
+											"actions": [
+												{
+													"id": "set-opacity",
+													"objectClass": "Button_SPR_Obfuscate",
+													"sid": 563298240947983,
+													"parameters": {
+														"opacity": "75"
+													}
+												}
+											],
+											"sid": 774851544466411
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 992953579018583
 				},
 				{
-					"id": "set-animation",
-					"objectClass": "Button_Icons",
-					"sid": 158342780115032,
-					"parameters": {
-						"animation": "Button_Generator.icon",
-						"from": "beginning"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Button_TXT_Quantity",
-					"sid": 532224292955629,
-					"parameters": {
-						"text": "Button_Generator.quantity"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Button_TXT_Effect",
-					"sid": 594041800591901,
-					"parameters": {
-						"text": "Button_Generator.effect"
-					}
-				},
-				{
-					"id": "set-text",
-					"objectClass": "Button_TXT_Cost",
-					"sid": 852583622311820,
-					"parameters": {
-						"text": "Button_Generator.cost"
-					}
+					"eventType": "group",
+					"disabled": false,
+					"title": "GENERATORS :: functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Button_Generator_ActivateEffect",
+							"functionDescription": "",
+							"functionCategory": "Button Generator",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 364663648580496
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst result = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);\n\nruntime.setReturnValue(roundTenth(result));"
+								}
+							],
+							"sid": 963383514341722
+						},
+						{
+							"functionName": "Button_Generator_SetVal",
+							"functionDescription": "",
+							"functionCategory": "Button Generator",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 314330246426630
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.description;\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
+								}
+							],
+							"sid": 756917445724091
+						},
+						{
+							"functionName": "Button_Generator_SetInterface",
+							"functionDescription": "",
+							"functionCategory": "Button Generator",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 678289232302415
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 214991753151722,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "Button_Generator",
+											"sid": 466819252302771,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Button_TXT_Name",
+											"sid": 939872473239242,
+											"parameters": {
+												"text": "Button_Generator.name"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "Button_SPR_Icons",
+											"sid": 538396229890445,
+											"parameters": {
+												"animation": "Button_Generator.icon",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Button_TXT_Quantity",
+											"sid": 324467848475989,
+											"parameters": {
+												"text": "Button_Generator.quantity"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Button_TXT_Effect",
+											"sid": 524864459775046,
+											"parameters": {
+												"text": "Button_Generator.effect"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Button_TXT_Cost",
+											"sid": 333570154717780,
+											"parameters": {
+												"text": "Button_Generator.cost & \" $\""
+											}
+										}
+									],
+									"sid": 481010597490745
+								}
+							]
+						},
+						{
+							"functionName": "Button_Generator_Set_Is_Visible",
+							"functionDescription": "",
+							"functionCategory": "Button Generator",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 881823624281039
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isVisible = buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.visible = isVisible ? 1 : 0;\n\njson_changeKey(idle_stats_JSON, `generators.${nameGenerator}.visible`, isVisible ? 1 : 0);"
+								}
+							],
+							"sid": 774057375566240
+						},
+						{
+							"functionName": "Button_Generator_Set_Is_Purchasable",
+							"functionDescription": "",
+							"functionCategory": "Button Generator",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 756753180241356
+								},
+								{
+									"name": "money",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 902630846031632
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst money = localVars.money;\n\nconst isPurchasable = buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON);\nelement.instVars.isPurchasable = isPurchasable ? 1 : 0;"
+								}
+							],
+							"sid": 192834035820290
+						}
+					],
+					"sid": 250976548306893
 				}
 			],
-			"sid": 808210385871572
-		},
-		{
-			"functionName": "Button_Generator_SetVal",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 314330246426630
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.effect;\nelement.instVars.cost = variables.cost;"
-				}
-			],
-			"sid": 710051944104244
+			"sid": 905074632784043
 		}
 	],
 	"sid": 861877163176371

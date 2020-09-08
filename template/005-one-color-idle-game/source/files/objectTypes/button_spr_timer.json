@@ -1,35 +1,41 @@
 {
-	"name": "Magic_SPR_Box",
+	"name": "Button_SPR_Timer",
 	"plugin-id": "Sprite",
-	"sid": 790599358183771,
+	"sid": 378384260488819,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 970479125409900
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
 			{
 				"frames": [
 					{
-						"width": 392,
-						"height": 96,
+						"width": 184,
+						"height": 32,
 						"originX": 0,
-						"originY": 0,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9720799,
+						"imageSpriteId": 1321058,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 486405079940009,
+				"sid": 403259747670298,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
 				"repeatTo": 0,
-				"speed": 0
+				"speed": 5
 			}
 		],
 		"subfolders": []

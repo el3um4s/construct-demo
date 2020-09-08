@@ -5,20 +5,20 @@
 		}
 	},
 	"generators": {
-		"generator_a": {
-			"quantity": "1"
-		},
-		"generator_b": {
+		"witch": {
 			"quantity": "0"
 		},
-		"generator_c": {
+		"minotaur": {
 			"quantity": "0"
 		},
-		"multiplier_a": {
-			"quantity": "1"
+		"yeti": {
+			"quantity": "0"
 		},
-		"multiplier_b": {
-			"quantity": "2"
+		"crystal": {
+			"quantity": "0"
+		},
+		"magic": {
+			"quantity": "0"
 		}
 	}
 }

@@ -1,7 +1,7 @@
 {
-	"name": "Magic_SPR_Box",
+	"name": "Button_SPR_Obfuscate",
 	"plugin-id": "Sprite",
-	"sid": 790599358183771,
+	"sid": 538801065431429,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 392,
+						"width": 256,
 						"height": 96,
-						"originX": 0,
-						"originY": 0,
+						"originX": 0.5,
+						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9720799,
+						"imageSpriteId": 436369,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 486405079940009,
+				"sid": 366078504870454,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

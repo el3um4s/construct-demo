@@ -213,7 +213,7 @@
 									"objectClass": "Shapes",
 									"sid": 835560083752321,
 									"parameters": {
-										"object": "Particles",
+										"object": "Button_Particles",
 										"layer": "Shapes.LayerName",
 										"image-point": "0"
 									}
@@ -259,7 +259,7 @@
 					"conditions": [
 						{
 							"id": "on-created",
-							"objectClass": "Particles",
+							"objectClass": "Button_Particles",
 							"sid": 379844487248742
 						}
 					],
@@ -268,7 +268,7 @@
 							"callFunction": "Change_Color_Object",
 							"sid": 428585086392001,
 							"parameters": [
-								"Particles.UID",
+								"Button_Particles.UID",
 								"Functions.getValue(\"colors\", \"demo.primary\")"
 							]
 						}
@@ -504,7 +504,7 @@
 							"objectClass": "Shape",
 							"sid": 245801177214425,
 							"parameters": {
-								"object": "Particles",
+								"object": "Button_Particles",
 								"layer": "Shape.LayerName",
 								"image-point": "0"
 							}
@@ -600,7 +600,7 @@
 									"objectClass": "Power_Button",
 									"sid": 607591675167289,
 									"parameters": {
-										"object": "Particles",
+										"object": "Button_Particles",
 										"layer": "Power_Button.LayerName",
 										"image-point": "0"
 									}
@@ -757,7 +757,7 @@
 												},
 												{
 													"type": "script",
-													"script": "const temporaryBankCurrencies = calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);\nruntime.globalVars.Points += temporaryBankCurrencies.primary;"
+													"script": "const temporaryBankCurrencies = calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON);\nruntime.globalVars.Points += temporaryBankCurrencies.primary;\n\nconst single = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, \"generator_a\");"
 												}
 											],
 											"sid": 805008107951765

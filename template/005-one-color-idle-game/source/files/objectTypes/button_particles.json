@@ -1,0 +1,32 @@
+{
+	"name": "Button_Particles",
+	"plugin-id": "Particles",
+	"sid": 779922111926063,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4866858,
+		"collisionPoly": {
+			"points": [
+				0.25,
+				0.25,
+				0.75,
+				0.25,
+				0.75,
+				0.75,
+				0.25,
+				0.75
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

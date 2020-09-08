@@ -11,7 +11,7 @@
 				{
 					"functionName": "getValue",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON",
 					"functionReturnType": "any",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -43,7 +43,7 @@
 				{
 					"functionName": "setValue",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -74,15 +74,54 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const key = localVars.key;\nconst value = localVars.value;\nconst json_name = localVars.jsonName;\njson_changeKey(json_name, key, value)"
+							"script": "const key = localVars.key;\nconst value = localVars.value;\nconst json_name = localVars.jsonName;\njson_changeKey(json_name, key, value);"
 						}
 					],
 					"sid": 919399102186454
 				},
 				{
+					"functionName": "addValue",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 174626455310022
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 897970525483273
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 526657974381525
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst origin = json_getKey(json_name,key);\nconst value = localVars.value;\n\nconst result = parseFloat(origin) + parseFloat(value);\n\njson_changeKey(json_name, key, result);"
+						}
+					],
+					"sid": 831638345707471
+				},
+				{
 					"functionName": "initializeJSON",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -117,7 +156,7 @@
 				{
 					"functionName": "InitializeJson:colors",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON :: initialize",
 					"functionReturnType": "none",
 					"functionIsAsync": true,
 					"functionParameters": [],
@@ -159,7 +198,7 @@
 				{
 					"functionName": "InitializeJson:powers",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON :: initialize",
 					"functionReturnType": "none",
 					"functionIsAsync": true,
 					"functionParameters": [],
@@ -201,7 +240,7 @@
 				{
 					"functionName": "InitializeJson:idle_rules",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON :: initialize",
 					"functionReturnType": "none",
 					"functionIsAsync": true,
 					"functionParameters": [],
@@ -243,7 +282,7 @@
 				{
 					"functionName": "InitializeJson:idle_stats",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "JSON :: initialize",
 					"functionReturnType": "none",
 					"functionIsAsync": true,
 					"functionParameters": [],

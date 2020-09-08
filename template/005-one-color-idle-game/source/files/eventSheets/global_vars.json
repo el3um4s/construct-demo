@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "Points",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "1995",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,

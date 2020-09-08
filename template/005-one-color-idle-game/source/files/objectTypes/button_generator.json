@@ -12,7 +12,7 @@
 		},
 		{
 			"name": "visible",
-			"type": "boolean",
+			"type": "number",
 			"desc": "",
 			"sid": 575784306939617
 		},
@@ -45,9 +45,27 @@
 			"type": "string",
 			"desc": "",
 			"sid": 848315304529753
+		},
+		{
+			"name": "every_x_seconds",
+			"type": "string",
+			"desc": "",
+			"sid": 110426192966919
+		},
+		{
+			"name": "isPurchasable",
+			"type": "number",
+			"desc": "",
+			"sid": 207113026259003
 		}
 	],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Timer",
+			"name": "Timer",
+			"sid": 765115786483071
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -61,7 +79,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5677801,
+						"imageSpriteId": 9185574,
 						"useCollisionPoly": true,
 						"duration": 1
 					}

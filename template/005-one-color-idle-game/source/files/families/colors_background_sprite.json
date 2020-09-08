@@ -6,8 +6,10 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"Button_Icons",
+		"Button_SPR_Icons",
 		"Magic_SPR_Points",
-		"Magic_SPR_PPS"
+		"Magic_SPR_PPS",
+		"Button_SPR_Effect",
+		"Button_SPR_Price"
 	]
 }

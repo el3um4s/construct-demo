@@ -59,6 +59,18 @@ function calculateSellCost(startingCost, multiplier_price, quantity) {
 	return result;
 }
 
+function calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator) {
+	const singleIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator);
+	const multipiers = calculateGeneratorsMultiplier (idle_rules_JSON, idle_stats_JSON);
+	//console.log(multipiers);
+	const singleMultiplier = multipiers[nameGenerator];
+	const nameCurrency = Object.keys(singleIncome)[0];
+	const income = singleIncome[nameCurrency];
+	const multiplier = singleMultiplier[nameCurrency].multiplier_income;
+	const result = parseFloat(income) * parseFloat(multiplier);
+	return result;
+}
+
 function calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action = "add") {
 	const baseIncome_Array = json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`).filter( el => el.action == action);
 	const generatorsQuantity = json_getKey(idle_stats_JSON, `generators.${nameGenerator}.quantity`);
@@ -70,19 +82,12 @@ function calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGe
 	return temporaryBankCurrencies;
 }
 
-function calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON) {
+
+function calculateGeneratorsMultiplier (idle_rules_JSON, idle_stats_JSON) {
 	const arrayNameGenerators = getArrayNameGenerators(idle_rules_JSON);
 	const arrayNameCurrencies = getArrayNameCurrencies(idle_rules_JSON);
-
-	let temporaryBankCurrencies = createTemporaryObject(arrayNameCurrencies);
 	const temporaryBankGenerators = createTemporaryObject_WithObjects(arrayNameGenerators);
-	
-	const temporaryGlobalEffectCurrencies = createTemporaryObject_WithObjects(arrayNameCurrencies);
-	
-	arrayNameCurrencies.forEach( nameCurrency => {
-		temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income = 1;
-	});
-	
+
 	arrayNameGenerators.forEach( nameGenerator => {
 		const effects =json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`);
 		const action = effects[0].action;
@@ -98,30 +103,59 @@ function calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON) {
 		if (action == "multiple") {
 			const singleGeneratorIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action);
 			const nameCurrency = Object.keys(singleGeneratorIncome)[0];
-			temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income += effectGenerators == "ALL" ? singleGeneratorIncome[nameCurrency] : 0;
+			if (effectGenerators == "ALL") {
+				arrayNameGenerators.forEach ((nameGenerator) => {
+					temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income +=  singleGeneratorIncome[nameCurrency];
+				});
+			}
+			
 			if (effectGenerators != "ALL"){
-				const income = temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income;
-				temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income += income > 1 ? singleGeneratorIncome[nameCurrency] : (singleGeneratorIncome[nameCurrency])-1 ;
+				temporaryBankGenerators[effectGenerators][nameCurrency].multiplier_income +=  singleGeneratorIncome[nameCurrency];
 			}
 		}
 	});
-			
-	arrayNameGenerators.forEach( nameGenerator => {
-		const effects =json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`);
-		const nameCurrency = effects[0].currency;
-		const action = effects[0].action;
-		if (action == "add"){
-			const singleGeneratorIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action);
-			const income = addObjPropertyToProperty(temporaryBankCurrencies, singleGeneratorIncome);
-			const incomeMultiplierGlobal = temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income;
-			const incomeMultiplierGenerator = temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income;
-			const incomeMultiplier = incomeMultiplierGlobal + (incomeMultiplierGenerator > 1 ? incomeMultiplierGenerator : 0 );
-			temporaryBankCurrencies = multipleObjPropertyToProperty(income, incomeMultiplier);
-			
-		}
+	
+	arrayNameGenerators.forEach(nameGenerator => {
+		arrayNameCurrencies.forEach( nameCurrency => {
+			const income = temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income;
+			temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income -= income > 1 ? 1 : 0;
+		});
 	});
-	return temporaryBankCurrencies;
+	
+	return temporaryBankGenerators;
 }
+
+// function calculateTotalGeneratorIncome(idle_rules_JSON, idle_stats_JSON) {
+//  	const arrayNameGenerators = getArrayNameGenerators(idle_rules_JSON);
+//  	const arrayNameCurrencies = getArrayNameCurrencies(idle_rules_JSON);
+
+// 	let temporaryBankCurrencies = createTemporaryObject(arrayNameCurrencies);
+	
+// 	const temporaryBankGenerators = calculateGeneratorsMultiplier(idle_rules_JSON, idle_stats_JSON);
+	
+// 	const temporaryGlobalEffectCurrencies = createTemporaryObject_WithObjects(arrayNameCurrencies);
+	
+// 	arrayNameCurrencies.forEach( nameCurrency => {
+// 		temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income = 1;
+// 	});
+	
+			
+// 	arrayNameGenerators.forEach( nameGenerator => {
+// 		const effects =json_getKey(idle_rules_JSON, `generators.${nameGenerator}.effects`);
+// 		const nameCurrency = effects[0].currency;
+// 		const action = effects[0].action;
+// 		if (action == "add"){
+// 			const singleGeneratorIncome = calculateSingleGeneratorIncome(idle_rules_JSON, idle_stats_JSON, nameGenerator, action);
+// 			const income = addObjPropertyToProperty(temporaryBankCurrencies, singleGeneratorIncome);
+// 			const incomeMultiplierGlobal = temporaryGlobalEffectCurrencies[nameCurrency].multiplier_income;
+// 			const incomeMultiplierGenerator = temporaryBankGenerators[nameGenerator][nameCurrency].multiplier_income;
+// 			const incomeMultiplier = incomeMultiplierGlobal + (incomeMultiplierGenerator > 1 ? incomeMultiplierGenerator : 0 );
+// 			temporaryBankCurrencies = multipleObjPropertyToProperty(income, incomeMultiplier);
+			
+// 		}
+// 	});
+// 	return temporaryBankCurrencies;
+// }
 
 
 
