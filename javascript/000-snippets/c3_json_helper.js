@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT
  *
  * Github:  https://github.com/el3um4s/construct-demo
- * Version: 20.09.05
+ * Version: 20.09.08
  *
 */
 
@@ -69,7 +69,10 @@ function json_changeKey(json_name, json_key, value) {
 	
 	const obj = jsonObj[json_name];
 	const key = json_key.split('.')
+
 	const result = assegnaChiave(obj, key, value);
+	jsonObj[json_name] = { ...result };
+	
 	json[json_name].setJsonDataCopy(result);
 	return result;
 }
