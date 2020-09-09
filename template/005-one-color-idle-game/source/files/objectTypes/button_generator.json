@@ -64,6 +64,11 @@
 			"behaviorId": "Timer",
 			"name": "Timer",
 			"sid": 765115786483071
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 803582224616283
 		}
 	],
 	"effectTypes": [],
@@ -79,7 +84,7 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9185574,
+						"imageSpriteId": 5196850,
 						"useCollisionPoly": true,
 						"duration": 1
 					}

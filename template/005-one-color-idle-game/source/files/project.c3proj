@@ -72,6 +72,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r215",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
@@ -122,9 +130,7 @@
 			"Txt_PPS",
 			"Txt_Title_Auto_Clickers",
 			"Txt_Title_Upgrades",
-			"Loading",
-			"Select_Window_SPR",
-			"Select_Window_TXT_Labels"
+			"Loading"
 		],
 		"subfolders": [
 			{
@@ -214,6 +220,22 @@
 					}
 				],
 				"name": "Magic"
+			},
+			{
+				"items": [
+					"Select_Page_SPR",
+					"Select_Page_TXT_Labels"
+				],
+				"subfolders": [],
+				"name": "Windows"
+			},
+			{
+				"items": [
+					"Settings_TXT_Label",
+					"ChooseTheme"
+				],
+				"subfolders": [],
+				"name": "Settings"
 			}
 		]
 	},
@@ -445,14 +467,14 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20.09.08",
+		"version": "demo-20.09.09",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",
 		"appId": "",
 		"pixelRounding": true,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [

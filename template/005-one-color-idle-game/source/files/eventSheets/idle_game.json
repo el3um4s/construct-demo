@@ -20,32 +20,9 @@
 					}
 				},
 				{
-					"callFunction": "Change_Color_Object",
-					"sid": 108309223888713,
-					"parameters": [
-						"Title.UID",
-						"Functions.getValue(\"colors\", \"demo.primary\")"
-					]
-				},
-				{
-					"callFunction": "Change_Color_Layer",
-					"sid": 768217673078930,
-					"parameters": [
-						"\"background\"",
-						"Functions.getValue(\"colors\", \"demo.background\")"
-					]
-				},
-				{
-					"callFunction": "Change_Color_Body",
-					"sid": 390432594760399,
-					"parameters": [
-						"Functions.getValue(\"colors\", \"demo.background\")"
-					]
-				},
-				{
 					"id": "set-visible",
 					"objectClass": "Magic_TXT_Hints",
-					"sid": 112884719502797,
+					"sid": 736043964298492,
 					"parameters": {
 						"visibility": "visible"
 					}
@@ -53,112 +30,42 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 611105114753884,
+					"sid": 453741491711815,
 					"parameters": {
 						"variable": "Points",
 						"value": "float(Functions.getValue(\"idle_stats\", \"currencies.primary.quantity\"))"
 					}
+				},
+				{
+					"callFunction": "GenerateThemeList",
+					"sid": 695562192844228,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
+					]
+				},
+				{
+					"callFunction": "ShowAndHidePages",
+					"sid": 845897039612810,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.page\")"
+					]
+				},
+				{
+					"callFunction": "Theme :: Colorize",
+					"sid": 940137376948954,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
+					]
+				},
+				{
+					"callFunction": "Theme :: Colorize Theme List",
+					"sid": 458094087266232,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
+					]
 				}
 			],
-			"sid": 452345187662795,
-			"children": [
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 384161124999114,
-							"parameters": {
-								"object": "Color_Primary_Sprite"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Change_Color_Object",
-							"sid": 526440978248785,
-							"parameters": [
-								"Color_Primary_Sprite.UID",
-								"Functions.getValue(\"colors\", \"demo.primary\")"
-							]
-						}
-					],
-					"sid": 499572981610455
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 946972317863322,
-							"parameters": {
-								"object": "Colors_Background_Sprite"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Change_Color_Object",
-							"sid": 758256557646102,
-							"parameters": [
-								"Colors_Background_Sprite.UID",
-								"Functions.getValue(\"colors\", \"demo.background\")"
-							]
-						}
-					],
-					"sid": 265570776119701
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 409760669905087,
-							"parameters": {
-								"object": "Color_Primary_Text"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Change_Color_Object",
-							"sid": 788182565017301,
-							"parameters": [
-								"Color_Primary_Text.UID",
-								"Functions.getValue(\"colors\", \"demo.primary\")"
-							]
-						}
-					],
-					"sid": 890978389293870
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "for-each",
-							"objectClass": "System",
-							"sid": 311960650404463,
-							"parameters": {
-								"object": "Colors_Background_Text"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Change_Color_Object",
-							"sid": 580700297091102,
-							"parameters": [
-								"Colors_Background_Text.UID",
-								"Functions.getValue(\"colors\", \"demo.background\")"
-							]
-						}
-					],
-					"sid": 240500511972428
-				}
-			]
+			"sid": 452345187662795
 		},
 		{
 			"eventType": "group",
@@ -201,10 +108,10 @@
 								{
 									"id": "tween-one-property",
 									"objectClass": "Magic",
-									"sid": 471074216918952,
+									"sid": 677074049959849,
 									"behaviorType": "Tween",
 									"parameters": {
-										"tags": "\"\"",
+										"tags": "\"click\"",
 										"property": "offsetAngle",
 										"end-value": "45",
 										"time": "0.1",
@@ -267,17 +174,44 @@
 							"sid": 536530821107466
 						}
 					],
-					"actions": [
+					"actions": [],
+					"sid": 667215932760274,
+					"children": [
 						{
-							"callFunction": "Change_Color_Object",
-							"sid": 109379696402400,
-							"parameters": [
-								"Magic_Particles.UID",
-								"Functions.getValue(\"colors\", \"demo.primary\")"
-							]
+							"eventType": "variable",
+							"name": "theme",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 654265556016866
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 536367314437246,
+									"parameters": {
+										"variable": "theme",
+										"value": "Functions.getValue(\"idle_stats\", \"settings.theme\")"
+									}
+								},
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 977533795968113,
+									"parameters": [
+										"Magic_Particles.UID",
+										"Functions.getValue(\"colors\", theme&\".primary\")"
+									]
+								}
+							],
+							"sid": 716380820760455
 						}
-					],
-					"sid": 667215932760274
+					]
 				},
 				{
 					"eventType": "block",
@@ -307,18 +241,66 @@
 				},
 				{
 					"eventType": "block",
-					"conditions": [],
+					"conditions": [
+						{
+							"id": "is-playing",
+							"objectClass": "Magic",
+							"sid": 657845561167401,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"click\""
+							},
+							"isInverted": true
+						}
+					],
 					"actions": [
 						{
-							"id": "set-text",
-							"objectClass": "Magic_TXT_Points",
-							"sid": 736463501345982,
+							"id": "set-angle",
+							"objectClass": "Magic",
+							"sid": 595634828722292,
 							"parameters": {
-								"text": "Points"
+								"angle": "0"
 							}
 						}
 					],
-					"sid": 806173644693736
+					"sid": 100808424713127
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 806173644693736,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "tempPoint",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 953054767131880
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "localVars.tempPoint = roundTenth(runtime.globalVars.Points);"
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Magic_TXT_Points",
+									"sid": 815025649449761,
+									"parameters": {
+										"text": "tempPoint"
+									}
+								}
+							],
+							"sid": 701253814431725
+						}
+					]
 				}
 			],
 			"sid": 589625849322340
@@ -343,19 +325,27 @@
 								{
 									"id": "on-any-touch-start",
 									"objectClass": "Touch",
-									"sid": 663841805891417
+									"sid": 944298670208948
 								}
 							],
 							"actions": [],
-							"sid": 960043515909756,
+							"sid": 190079073523961,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 884092599689429,
+											"parameters": {
+												"object": "Button_Generator"
+											}
+										},
+										{
 											"id": "is-touching-object",
 											"objectClass": "Touch",
-											"sid": 361725593705166,
+											"sid": 278529467268566,
 											"parameters": {
 												"object": "Button_Generator"
 											}
@@ -363,7 +353,7 @@
 										{
 											"id": "layer-is-visible",
 											"objectClass": "System",
-											"sid": 222815916831146,
+											"sid": 513247597518481,
 											"parameters": {
 												"layer": "Button_Generator.LayerName"
 											}
@@ -371,7 +361,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Button_Generator",
-											"sid": 636770866702733,
+											"sid": 954530114993404,
 											"parameters": {
 												"instance-variable": "isPurchasable",
 												"comparison": 1,
@@ -381,7 +371,7 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Button_Generator",
-											"sid": 547819768730116,
+											"sid": 876089066226978,
 											"parameters": {
 												"instance-variable": "visible",
 												"comparison": 1,
@@ -393,7 +383,7 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 823291199475777,
+											"sid": 459467395432827,
 											"parameters": {
 												"audio-file": "click",
 												"loop": "not-looping",
@@ -402,9 +392,26 @@
 											}
 										},
 										{
+											"id": "tween-two-properties",
+											"objectClass": "Button_Generator",
+											"sid": 623420410821975,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Touched\"",
+												"property": "scale",
+												"end-x": "1.1",
+												"end-y": "1.1",
+												"time": "0.1",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
 											"id": "subtract-from-eventvar",
 											"objectClass": "System",
-											"sid": 368534561208237,
+											"sid": 896396996505403,
 											"parameters": {
 												"variable": "Points",
 												"value": "float(Button_Generator.cost)"
@@ -412,7 +419,7 @@
 										},
 										{
 											"callFunction": "addValue",
-											"sid": 640737100668635,
+											"sid": 317328622894801,
 											"parameters": [
 												"\"idle_stats\"",
 												"\"generators.\"&Button_Generator.generator_name&\".quantity\"",
@@ -420,9 +427,50 @@
 											]
 										}
 									],
-									"sid": 748592068371392
+									"sid": 604139208605252
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tweens-finished",
+									"objectClass": "Button_Generator",
+									"sid": 394857965887891,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Touched\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-scale",
+									"objectClass": "Button_Generator",
+									"sid": 863321711245286,
+									"parameters": {
+										"scale": "1"
+									}
+								}
+							],
+							"sid": 523610793022606
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-size",
+									"objectClass": "Button_SPR_Obfuscate",
+									"sid": 500059511528306,
+									"parameters": {
+										"width": "Button_Generator.Width",
+										"height": "Button_Generator.Height"
+									}
+								}
+							],
+							"sid": 524131561603772
 						}
 					],
 					"sid": 548759864777786
@@ -488,17 +536,44 @@
 									"sid": 586954152704505
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 456915878695732,
+							"children": [
 								{
-									"callFunction": "Change_Color_Object",
-									"sid": 301354315887116,
-									"parameters": [
-										"Button_Particles.UID",
-										"Functions.getValue(\"colors\", \"demo.primary\")"
-									]
+									"eventType": "variable",
+									"name": "theme",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 233960695547368
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 204237635535523,
+											"parameters": {
+												"variable": "theme",
+												"value": "Functions.getValue(\"idle_stats\", \"settings.theme\")"
+											}
+										},
+										{
+											"callFunction": "Change_Color_Object",
+											"sid": 878839907577883,
+											"parameters": [
+												"Button_Particles.UID",
+												"Functions.getValue(\"colors\", theme&\".primary\")"
+											]
+										}
+									],
+									"sid": 114822716607748
 								}
-							],
-							"sid": 456915878695732
+							]
 						}
 					],
 					"sid": 401751498362341
@@ -566,9 +641,12 @@
 							"eventType": "block",
 							"conditions": [
 								{
-									"id": "every-tick",
+									"id": "for-each",
 									"objectClass": "System",
-									"sid": 891894310609640
+									"sid": 162879465843028,
+									"parameters": {
+										"object": "Button_Generator"
+									}
 								},
 								{
 									"id": "is-timer-running",
@@ -584,46 +662,25 @@
 								{
 									"id": "set-width",
 									"objectClass": "Button_SPR_Timer",
-									"sid": 780575020479766,
+									"sid": 667489442972706,
 									"parameters": {
 										"width": "(Button_Generator.Timer.CurrentTime(\"every_x_seconds\")/Button_Generator.Timer.Duration(\"every_x_seconds\"))*Button_SPR_Timer.ImageWidth"
 									}
 								}
 							],
-							"sid": 550107471049110,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 929991611718136,
-											"parameters": {
-												"first-value": "float(Button_Generator.every_x_seconds)",
-												"comparison": 3,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "stop-timer",
-											"objectClass": "Button_Generator",
-											"sid": 909406944535152,
-											"behaviorType": "Timer",
-											"parameters": {
-												"tag": "\"every_x_seconds\""
-											}
-										}
-									],
-									"sid": 871917751484445
-								}
-							]
+							"sid": 550107471049110
 						},
 						{
 							"eventType": "block",
 							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 784355739788111,
+									"parameters": {
+										"object": "Button_Generator"
+									}
+								},
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "Button_Generator",
@@ -637,19 +694,29 @@
 								{
 									"id": "is-timer-running",
 									"objectClass": "Button_Generator",
-									"sid": 320132422623946,
+									"sid": 530821997239592,
 									"behaviorType": "Timer",
 									"parameters": {
 										"tag": "\"every_x_seconds\""
 									},
 									"isInverted": true
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Button_Generator",
+									"sid": 664263253717161,
+									"parameters": {
+										"instance-variable": "every_x_seconds",
+										"comparison": 1,
+										"value": "\"0\""
+									}
 								}
 							],
 							"actions": [
 								{
 									"id": "start-timer",
 									"objectClass": "Button_Generator",
-									"sid": 436075640084958,
+									"sid": 207980379897774,
 									"behaviorType": "Timer",
 									"parameters": {
 										"duration": "float(Button_Generator.every_x_seconds)",
@@ -658,36 +725,7 @@
 									}
 								}
 							],
-							"sid": 255383683836686,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "compare-two-values",
-											"objectClass": "System",
-											"sid": 721066734598580,
-											"parameters": {
-												"first-value": "float(Button_Generator.every_x_seconds)",
-												"comparison": 3,
-												"second-value": "0"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "stop-timer",
-											"objectClass": "Button_Generator",
-											"sid": 623344292853371,
-											"behaviorType": "Timer",
-											"parameters": {
-												"tag": "\"every_x_seconds\""
-											}
-										}
-									],
-									"sid": 269913246206004
-								}
-							]
+							"sid": 255383683836686
 						},
 						{
 							"functionName": "ButtonGenerato_SetShow",
@@ -1031,7 +1069,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.description;\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = roundTenth(variables.quantity);\nelement.instVars.effect = variables.description;\nelement.instVars.cost = roundTenth(variables.cost);\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
 								}
 							],
 							"sid": 756917445724091
@@ -1177,6 +1215,567 @@
 				}
 			],
 			"sid": 905074632784043
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PAGE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-touch-start",
+							"objectClass": "Touch",
+							"sid": 699640703147011
+						}
+					],
+					"actions": [],
+					"sid": 768938662848352,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-touching-object",
+									"objectClass": "Touch",
+									"sid": 586729457157795,
+									"parameters": {
+										"object": "Select_Page_SPR"
+									}
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Select_Page_SPR",
+									"sid": 282208518921157
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Select_Page_SPR",
+									"sid": 168547785945903,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Touched\"",
+										"property": "scale",
+										"end-x": "1.1",
+										"end-y": "1.1",
+										"time": "0.1",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"callFunction": "ShowAndHidePages",
+									"sid": 812532312740603,
+									"parameters": [
+										"Select_Page_SPR.pageToShow"
+									]
+								}
+							],
+							"sid": 866278949471064
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tweens-finished",
+							"objectClass": "Select_Page_SPR",
+							"sid": 409090218852173,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"Touched\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-scale",
+							"objectClass": "Select_Page_SPR",
+							"sid": 838321453714972,
+							"parameters": {
+								"scale": "1"
+							}
+						}
+					],
+					"sid": 764351776870010
+				},
+				{
+					"functionName": "ShowAndHidePages",
+					"functionDescription": "",
+					"functionCategory": "Windows",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "namePageToShow",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 732071624683161
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 951837312269969,
+							"parameters": {
+								"layer": "\"LAY_MONSTERS\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 557838802264716,
+							"parameters": {
+								"layer": "\"LAY_SPELLS\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 641189372871509,
+							"parameters": {
+								"layer": "\"LAY_BUILDS\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 213762618937343,
+							"parameters": {
+								"layer": "\"LAY_MITOLOGY\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 634377138556891,
+							"parameters": {
+								"layer": "\"LAY_SETTINGS\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 903776702992811,
+							"parameters": {
+								"layer": "namePageToShow",
+								"visibility": "visible"
+							}
+						},
+						{
+							"callFunction": "setValue",
+							"sid": 317239449085078,
+							"parameters": [
+								"\"idle_stats\"",
+								"\"settings.page\"",
+								"namePageToShow"
+							]
+						}
+					],
+					"sid": 563712648959321
+				}
+			],
+			"sid": 226887395768862
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "THEME",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "ChooseTheme",
+							"sid": 972531483825356
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Theme :: Colorize",
+							"sid": 171031833189263,
+							"parameters": [
+								"ChooseTheme.SelectedText"
+							]
+						},
+						{
+							"callFunction": "Theme :: Colorize Theme List",
+							"sid": 320354556504764,
+							"parameters": [
+								"ChooseTheme.SelectedText"
+							]
+						},
+						{
+							"callFunction": "setValue",
+							"sid": 620048020244430,
+							"parameters": [
+								"\"idle_stats\"",
+								"\"setting.theme\"",
+								"ChooseTheme.SelectedText"
+							]
+						}
+					],
+					"sid": 607682327891591
+				},
+				{
+					"functionName": "Theme :: Colorize",
+					"functionDescription": "",
+					"functionCategory": "Theme",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "theme",
+							"type": "string",
+							"initialValue": "demo",
+							"comment": "",
+							"sid": 486979654316168
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "Change_Color_Object",
+							"sid": 887278828870738,
+							"parameters": [
+								"Title.UID",
+								"Functions.getValue(\"colors\", theme&\".primary\")"
+							]
+						},
+						{
+							"callFunction": "Change_Color_Layer",
+							"sid": 283338618284008,
+							"parameters": [
+								"\"background\"",
+								"Functions.getValue(\"colors\", theme&\".background\")"
+							]
+						},
+						{
+							"callFunction": "Change_Color_Body",
+							"sid": 941244642083719,
+							"parameters": [
+								"Functions.getValue(\"colors\", theme&\".background\")"
+							]
+						}
+					],
+					"sid": 130306586140312,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 255546757281272,
+									"parameters": {
+										"object": "Color_Primary_Sprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Color_Primary_Sprite",
+									"sid": 355439920781027,
+									"parameters": {
+										"color": "rgbEx(100,100, 100)"
+									}
+								},
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 723915505798113,
+									"parameters": [
+										"Color_Primary_Sprite.UID",
+										"Functions.getValue(\"colors\", theme&\".primary\")"
+									]
+								}
+							],
+							"sid": 675189279980259
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 499688790474513,
+									"parameters": {
+										"object": "Colors_Background_Sprite"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Colors_Background_Sprite",
+									"sid": 633668390971591,
+									"parameters": {
+										"color": "rgbEx(100,100, 100)"
+									}
+								},
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 597221465395778,
+									"parameters": [
+										"Colors_Background_Sprite.UID",
+										"Functions.getValue(\"colors\", theme&\".background\")"
+									]
+								}
+							],
+							"sid": 670829597674222
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 761270326448101,
+									"parameters": {
+										"object": "Color_Primary_Text"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Color_Primary_Text",
+									"sid": 566868529014182,
+									"parameters": {
+										"color": "rgbEx(100, 100, 100)"
+									}
+								},
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 524380151818746,
+									"parameters": [
+										"Color_Primary_Text.UID",
+										"Functions.getValue(\"colors\", theme&\".primary\")"
+									]
+								}
+							],
+							"sid": 369993864515266
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 791823659698773,
+									"parameters": {
+										"object": "Colors_Background_Text"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Colors_Background_Text",
+									"sid": 107614134832525,
+									"parameters": {
+										"color": "rgbEx(100, 100, 100)"
+									}
+								},
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 195914776786134,
+									"parameters": [
+										"Colors_Background_Text.UID",
+										"Functions.getValue(\"colors\", theme&\".background\")"
+									]
+								}
+							],
+							"sid": 726581842334277
+						}
+					]
+				},
+				{
+					"functionName": "GenerateThemeList",
+					"functionDescription": "",
+					"functionCategory": "Theme",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "theme",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 134870032467684
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 125718984430027,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "ListOriginal",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 861990012446416
+						},
+						{
+							"eventType": "variable",
+							"name": "ListWithThemes",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 921402350178078
+						},
+						{
+							"eventType": "variable",
+							"name": "ThemeSelected",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 594081119284410
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 500525099852970,
+									"parameters": {
+										"variable": "ListOriginal",
+										"value": "ChooseTheme.AsJSON"
+									}
+								},
+								{
+									"type": "script",
+									"script": "const listOriginal = localVars.ListOriginal;\nconst themes = json_getKey(\"colors\", ``);\nconst themesName = Array.from(Object.keys(themes));\nconst listThemes = themesName.join('\",\"');\nconst replace = `[\"themeA\",\"themeB\",\"themeC\"]`;\nlocalVars.ListWithThemes = listOriginal.replace(replace, `[\"${listThemes}\"]`);\n\nconst themeSelected = localVars.theme;\nlocalVars.ThemeSelected = themesName.indexOf(themeSelected);\n"
+								},
+								{
+									"id": "set-from-json",
+									"objectClass": "ChooseTheme",
+									"sid": 808687951053252,
+									"parameters": {
+										"json": "ListWithThemes"
+									}
+								},
+								{
+									"id": "set-selection",
+									"objectClass": "ChooseTheme",
+									"sid": 272596665046899,
+									"parameters": {
+										"index": "ThemeSelected"
+									}
+								}
+							],
+							"sid": 296644557161102
+						}
+					]
+				},
+				{
+					"functionName": "Theme :: Colorize Theme List",
+					"functionDescription": "",
+					"functionCategory": "Theme",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "theme",
+							"type": "string",
+							"initialValue": "demo",
+							"comment": "",
+							"sid": 274495608025694
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 368607063480661,
+							"parameters": {
+								"property-name": "\"border\"",
+								"value": "\"2px solid \" & Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 901950459713310,
+							"parameters": {
+								"property-name": "\"border-radius\"",
+								"value": "\"4px\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 320773900629144,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".background\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 888822215112120,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 304347427461077,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "Functions.getValue(\"idle_stats\", \"settings.font\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseTheme",
+							"sid": 748835025002162,
+							"parameters": {
+								"property-name": "\"font-weight\"",
+								"value": "\"bold\""
+							}
+						}
+					],
+					"sid": 717438411504857
+				}
+			],
+			"sid": 626309662872924
 		}
 	],
 	"sid": 861877163176371

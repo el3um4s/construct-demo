@@ -106,6 +106,6 @@
 	"effectTypes": [],
 	"width": 640,
 	"height": 480,
-	"unboundedScrolling": false,
+	"unboundedScrolling": true,
 	"eventSheet": "Loader"
 }

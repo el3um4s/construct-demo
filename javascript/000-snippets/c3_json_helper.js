@@ -6,7 +6,7 @@
  * https://opensource.org/licenses/MIT
  *
  * Github:  https://github.com/el3um4s/construct-demo
- * Version: 20.09.08
+ * Version: 20.09.09
  *
 */
 
@@ -20,16 +20,20 @@ function json_initialize(json_name) {
 
 function json_getKey(json_name, json_key, value_default = 0){
 	const obj = jsonObj[json_name];
-	
 	let result = value_default;
-	try {
-		result = json_key.split('.').reduce((o,i)=>o[i], obj);
-	} catch (e) {
-		json_changeKey(json_name, json_key, value_default);
+	
+	if (json_key.length == 0) {
+		result = obj;
+	}
+	else {
+		try {
+			result = json_key.split('.').reduce((o,i)=>o[i], obj);
+		} catch (e) {
+			json_changeKey(json_name, json_key, value_default);
+		}
 	}
 	return result;
 }
-
 
 function json_changeKey(json_name, json_key, value) {
 	
@@ -69,10 +73,9 @@ function json_changeKey(json_name, json_key, value) {
 	
 	const obj = jsonObj[json_name];
 	const key = json_key.split('.')
-
 	const result = assegnaChiave(obj, key, value);
-	jsonObj[json_name] = { ...result };
 	
+	jsonObj[json_name] = { ...result };
 	json[json_name].setJsonDataCopy(result);
 	return result;
 }

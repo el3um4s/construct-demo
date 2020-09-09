@@ -1,0 +1,50 @@
+{
+	"name": "Select_Page_SPR",
+	"plugin-id": "Sprite",
+	"sid": 474321515229865,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "pageToShow",
+			"type": "string",
+			"desc": "",
+			"sid": 925434250927593
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 987790041890623
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 72,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 3831468,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 701584338754091,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
