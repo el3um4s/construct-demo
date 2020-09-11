@@ -8,22 +8,6 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
-			"id": "Sprite",
-			"name": "Sprite",
-			"author": "Scirra",
-			"version": "r215",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
-			"author": "Scirra",
-			"version": "r215",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
@@ -64,8 +48,24 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r215",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Particles",
 			"name": "Particles",
+			"author": "Scirra",
+			"version": "r215",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
 			"author": "Scirra",
 			"version": "r215",
 			"bundled": false
@@ -124,32 +124,16 @@
 		"items": [
 			"Title",
 			"TiledBackground",
-			"Shape",
-			"Txt_Point",
-			"Txt_ValueClick",
-			"Txt_PPS",
-			"Txt_Title_Auto_Clickers",
-			"Txt_Title_Upgrades",
-			"Loading"
+			"Loading",
+			"Button_SPR_mystery",
+			"Button_SPR_PlaceHolder"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"Power_Button",
-					"Power_Text_Effect",
-					"Power_Text_Name",
-					"Power_Text_Price",
-					"Power_Text_Quantity"
-				],
-				"subfolders": [],
-				"name": "Power Button"
-			},
-			{
-				"items": [
 					"colors",
 					"idle_rules",
-					"idle_stats",
-					"powers"
+					"idle_stats"
 				],
 				"subfolders": [],
 				"name": "JSON"
@@ -223,34 +207,24 @@
 			},
 			{
 				"items": [
-					"Select_Page_SPR",
-					"Select_Page_TXT_Labels"
-				],
-				"subfolders": [],
-				"name": "Windows"
-			},
-			{
-				"items": [
 					"Settings_TXT_Label",
 					"ChooseTheme"
 				],
 				"subfolders": [],
 				"name": "Settings"
+			},
+			{
+				"items": [
+					"Select_Page_SPR",
+					"Select_Page_TXT_Labels"
+				],
+				"subfolders": [],
+				"name": "Pages"
 			}
 		]
 	},
 	"autosaveData": null,
 	"containers": [
-		{
-			"members": [
-				"Power_Button",
-				"Power_Text_Effect",
-				"Power_Text_Name",
-				"Power_Text_Price",
-				"Power_Text_Quantity"
-			],
-			"selectMode": "normal"
-		},
 		{
 			"members": [
 				"Button_Generator",
@@ -265,17 +239,20 @@
 				"Button_TXT_Quantity"
 			],
 			"selectMode": "normal"
+		},
+		{
+			"members": [
+				"Button_SPR_mystery",
+				"Button_SPR_PlaceHolder"
+			],
+			"selectMode": "all"
 		}
 	],
 	"families": {
 		"items": [
-			"Shapes",
 			"Color_Primary_Sprite",
 			"Color_Primary_Text",
-			"Txt_ValueClicks",
 			"Colors_Background_Text",
-			"Power_Texts",
-			"Power_Buttons",
 			"Colors_Background_Sprite"
 		],
 		"subfolders": []
@@ -283,7 +260,6 @@
 	"layouts": {
 		"items": [
 			"Loader",
-			"Main",
 			"Bank",
 			"IdleGame"
 		],
@@ -291,7 +267,6 @@
 	},
 	"eventSheets": {
 		"items": [
-			"Main",
 			"c3_colors_helper",
 			"c3_json_helper",
 			"Loader",
@@ -332,6 +307,11 @@
 					"name": "c3_idle_const.js",
 					"type": "application/javascript",
 					"sid": 528335771191061
+				},
+				{
+					"name": "c3_idle_number_formatter.js",
+					"type": "application/javascript",
+					"sid": 931249305005368
 				}
 			],
 			"subfolders": []
@@ -347,7 +327,13 @@
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "background.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 790629438417048
+				}
+			],
 			"subfolders": []
 		},
 		"video": {
@@ -467,7 +453,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20.09.09",
+		"version": "demo-20.09.12",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

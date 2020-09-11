@@ -6,10 +6,6 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"Power_Text_Name",
-		"Power_Text_Quantity",
-		"Power_Text_Price",
-		"Power_Text_Effect",
 		"Button_TXT_Cost",
 		"Button_TXT_Effect",
 		"Button_TXT_Name",

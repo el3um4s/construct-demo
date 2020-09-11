@@ -6,12 +6,12 @@
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"members": [
-		"Shape",
-		"Power_Button",
 		"Button_Generator",
 		"Magic",
 		"Magic_SPR_Box",
 		"Button_SPR_Timer",
-		"Select_Page_SPR"
+		"Select_Page_SPR",
+		"Button_SPR_mystery",
+		"Button_SPR_PlaceHolder"
 	]
 }

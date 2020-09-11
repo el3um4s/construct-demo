@@ -101,6 +101,12 @@
 			"properties": {},
 			"uid": 34,
 			"instanceVariables": {}
+		},
+		{
+			"type": "colors",
+			"properties": {},
+			"uid": 3,
+			"instanceVariables": {}
 		}
 	],
 	"effectTypes": [],

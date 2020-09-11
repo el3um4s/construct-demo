@@ -220,14 +220,6 @@
 							"sid": 988939513394779
 						},
 						{
-							"id": "parse",
-							"objectClass": "powers",
-							"sid": 564073644955289,
-							"parameters": {
-								"data": "AJAX.LastData"
-							}
-						},
-						{
 							"callFunction": "initializeJSON",
 							"sid": 188760021307518,
 							"parameters": [

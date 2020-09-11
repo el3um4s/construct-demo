@@ -12,6 +12,17 @@
 			],
 			"actions": [
 				{
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 729775632691030,
+					"parameters": {
+						"audio-file": "background",
+						"loop": "looping",
+						"volume": "-10",
+						"tag-optional": "\"background\""
+					}
+				},
+				{
 					"id": "set-text",
 					"objectClass": "Title",
 					"sid": 680431399952612,
@@ -274,8 +285,8 @@
 						{
 							"eventType": "variable",
 							"name": "tempPoint",
-							"type": "number",
-							"initialValue": "0",
+							"type": "string",
+							"initialValue": "",
 							"comment": "",
 							"isStatic": false,
 							"isConstant": false,
@@ -287,12 +298,12 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "localVars.tempPoint = roundTenth(runtime.globalVars.Points);"
+									"script": "localVars.tempPoint = convertNumberToIdleString(runtime.globalVars.Points);\n// localVars.tempPoint = roundTenth(runtime.globalVars.Points);"
 								},
 								{
 									"id": "set-text",
 									"objectClass": "Magic_TXT_Points",
-									"sid": 815025649449761,
+									"sid": 765871516856104,
 									"parameters": {
 										"text": "tempPoint"
 									}
@@ -1044,7 +1055,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst result = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);\n\nruntime.setReturnValue(roundTenth(result));"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst result = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);\n\n// runtime.setReturnValue(roundTenth(result));\nruntime.setReturnValue(result);"
 								}
 							],
 							"sid": 963383514341722
@@ -1069,7 +1080,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = roundTenth(variables.quantity);\nelement.instVars.effect = variables.description;\nelement.instVars.cost = roundTenth(variables.cost);\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\n// element.instVars.quantity = roundTenth(variables.quantity);\n// element.instVars.quantity = convertNumberToIdleString(variables.quantity);\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.description;\n// element.instVars.cost = roundTenth(variables.cost);\n// element.instVars.cost = convertNumberToIdleString(variables.cost);\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
 								}
 							],
 							"sid": 756917445724091
@@ -1126,30 +1137,95 @@
 										},
 										{
 											"id": "set-text",
-											"objectClass": "Button_TXT_Quantity",
-											"sid": 324467848475989,
-											"parameters": {
-												"text": "Button_Generator.quantity"
-											}
-										},
-										{
-											"id": "set-text",
 											"objectClass": "Button_TXT_Effect",
 											"sid": 524864459775046,
 											"parameters": {
 												"text": "Button_Generator.effect"
 											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Button_TXT_Cost",
-											"sid": 333570154717780,
-											"parameters": {
-												"text": "Button_Generator.cost & \" $\""
-											}
 										}
 									],
-									"sid": 481010597490745
+									"sid": 481010597490745,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "tempQuantity",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 347813378049425
+										},
+										{
+											"eventType": "variable",
+											"name": "tempCost",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 110963799735000
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 871776855497494,
+													"parameters": {
+														"variable": "tempQuantity",
+														"value": "Button_Generator.quantity"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 100302879252346,
+													"parameters": {
+														"variable": "tempCost",
+														"value": "Button_Generator.cost"
+													}
+												},
+												{
+													"type": "script",
+													"script": "localVars.tempQuantity = convertNumberToIdleString(localVars.tempQuantity);\nlocalVars.tempCost = convertNumberToIdleString(localVars.tempCost);\n// localVars.tempPoint = roundTenth(runtime.globalVars.Points);"
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Button_TXT_Quantity",
+													"sid": 452970682939891,
+													"parameters": {
+														"text": "tempQuantity"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Button_TXT_Cost",
+													"sid": 239021505667512,
+													"parameters": {
+														"text": "tempCost & \" $\""
+													}
+												}
+											],
+											"sid": 159244781226599,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [],
+													"sid": 435240494509764
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [],
+											"sid": 281400738683608
+										}
+									]
 								}
 							]
 						},
@@ -1373,6 +1449,15 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
+							"sid": 888647643479710,
+							"parameters": {
+								"layer": "\"LAY_BUTTONS\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
 							"sid": 903776702992811,
 							"parameters": {
 								"layer": "namePageToShow",
@@ -1389,7 +1474,36 @@
 							]
 						}
 					],
-					"sid": 563712648959321
+					"sid": 563712648959321,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 744713178268740,
+									"parameters": {
+										"variable": "namePageToShow",
+										"comparison": 1,
+										"value": "\"LAY_SETTINGS\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 513997331591235,
+									"parameters": {
+										"layer": "\"LAY_BUTTONS\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 829194044572836
+						}
+					]
 				}
 			],
 			"sid": 226887395768862
@@ -1427,10 +1541,10 @@
 						},
 						{
 							"callFunction": "setValue",
-							"sid": 620048020244430,
+							"sid": 228089947236115,
 							"parameters": [
 								"\"idle_stats\"",
-								"\"setting.theme\"",
+								"\"settings.theme\"",
 								"ChooseTheme.SelectedText"
 							]
 						}

@@ -1,0 +1,49 @@
+{
+	"name": "Button_SPR_PlaceHolder",
+	"plugin-id": "Sprite",
+	"sid": 261449891640427,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 256,
+						"height": 96,
+						"originX": 0.5078125,
+						"originY": 0.5208333333333334,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7029405,
+						"collisionPoly": {
+							"points": [
+								0.0078125,
+								0.010416666666666666,
+								1,
+								0.010416666666666666,
+								1,
+								1,
+								0.0078125,
+								1
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 757984724027065,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
