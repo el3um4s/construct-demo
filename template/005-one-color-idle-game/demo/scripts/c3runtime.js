@@ -3151,21 +3151,23 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Plugins.System.Cnds.Else,
 		C3.Plugins.Sprite.Acts.SetOpacity,
-		C3.ScriptsInEvents.Idle_game_Event32_Act1,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.Sprite.Acts.SetPosToObject,
 		C3.ScriptsInEvents.Idle_game_Event33_Act1,
+		C3.ScriptsInEvents.Idle_game_Event34_Act1,
 		C3.Plugins.Sprite.Acts.SetAnim,
-		C3.ScriptsInEvents.Idle_game_Event36_Act3,
+		C3.ScriptsInEvents.Idle_game_Event37_Act6,
+		C3.ScriptsInEvents.Idle_game_Event38_Act1,
 		C3.ScriptsInEvents.Idle_game_Event39_Act1,
-		C3.ScriptsInEvents.Idle_game_Event40_Act1,
 		C3.Plugins.Sprite.Cnds.IsVisible,
 		C3.Plugins.System.Acts.SetLayerVisible,
-		C3.Plugins.System.Cnds.CompareVar,
 		C3.Plugins.List.Cnds.OnSelectionChanged,
 		C3.Plugins.List.Exps.SelectedText,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.Text.Acts.SetFontColor,
+		C3.Plugins.TiledBg.Exps.UID,
 		C3.Plugins.List.Exps.AsJSON,
-		C3.ScriptsInEvents.Idle_game_Event55_Act2,
+		C3.ScriptsInEvents.Idle_game_Event54_Act2,
 		C3.Plugins.List.Acts.LoadFromJsonString,
 		C3.Plugins.List.Acts.Select,
 		C3.Plugins.List.Acts.SetCSSStyle
@@ -3189,6 +3191,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{cost: 0},
 		{every_x_seconds: 0},
 		{isPurchasable: 0},
+		{require: 0},
+		{nextEffect: 0},
 		{Timer: 0},
 		{Tween: 0},
 		{Button_Generator: 0},
@@ -3197,10 +3201,15 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{Button_SPR_Timer: 0},
 		{Button_Particles: 0},
 		{Button_SPR_Obfuscate: 0},
+		{Button_SPR_PlaceHolder: 0},
+		{Button_SPR_mystery: 0},
 		{Button_TXT_Cost: 0},
 		{Button_TXT_Effect: 0},
 		{Button_TXT_Name: 0},
 		{Button_TXT_Quantity: 0},
+		{Button_TXT_Require: 0},
+		{Button_TXT_NextEffect: 0},
+		{Button_TXT_NextEffect_background: 0},
 		{Magic: 0},
 		{Magic_SPR_Box: 0},
 		{Magic_SPR_Points: 0},
@@ -3220,8 +3229,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{TiledBackground: 0},
 		{Sine: 0},
 		{Loading: 0},
-		{Button_SPR_mystery: 0},
-		{Button_SPR_PlaceHolder: 0},
+		{tiled_margin: 0},
 		{Color_Primary_Sprite: 0},
 		{Color_Primary_Text: 0},
 		{Colors_Background_Text: 0},
@@ -3239,6 +3247,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{tempPoint: 0},
 		{tempQuantity: 0},
 		{tempCost: 0},
+		{tempNextEffect: 0},
+		{color: 0},
 		{money: 0},
 		{namePageToShow: 0},
 		{ListOriginal: 0},
@@ -3367,7 +3377,6 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			return () => f0();
 		},
 		() => "colors",
-		() => "powers",
 		() => "idle_rules",
 		() => "idle_stats",
 		p => {
@@ -3439,6 +3448,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		() => "1",
 		() => "GENERATORS :: on timer",
 		() => "every_x_seconds",
+		() => "Spawn_Particles",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const n1 = p._GetNode(1);
@@ -3462,13 +3472,23 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() + " $");
 		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => ((((n0.ExpInstVar()) === ("0") ? 1 : 0)) ? ("") : ((v1.GetValue() + " Generating")));
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => ((((n0.ExpInstVar()) === ("0") ? 1 : 0)) ? ("") : ((((("[background=" + v1.GetValue()) + "]") + v2.GetValue()) + " Generating[/background]")));
+		},
 		() => "PAGE",
 		() => "LAY_MONSTERS",
 		() => "LAY_SPELLS",
 		() => "LAY_BUILDS",
 		() => "LAY_MITOLOGY",
 		() => "LAY_SETTINGS",
-		() => "LAY_BUTTONS",
 		() => "settings.page",
 		() => "THEME",
 		() => "settings.theme",
@@ -3567,43 +3587,63 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			// localVars.tempPoint = roundTenth(runtime.globalVars.Points);
 		},
 
-		async Idle_game_Event32_Act1(runtime, localVars)
-		{
-			const uid = localVars.UID;
-			const element = g_runtime.getInstanceByUid(uid);
-			const nameGenerator = element.instVars.generator_name;
-			
-			const result = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);
-			
-			// runtime.setReturnValue(roundTenth(result));
-			runtime.setReturnValue(result);
-		},
-
 		async Idle_game_Event33_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const element = g_runtime.getInstanceByUid(uid);
 			const nameGenerator = element.instVars.generator_name;
 			
-			const variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);
+			const isGenerator = nameGenerator != "";
+			
+			const result = isGenerator ? calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator) : 0
+			
+			// runtime.setReturnValue(roundTenth(result));
+			runtime.setReturnValue(result);
+		},
+
+		async Idle_game_Event34_Act1(runtime, localVars)
+		{
+			const uid = localVars.UID;
+			const element = g_runtime.getInstanceByUid(uid);
+			const nameGenerator = element.instVars.generator_name;
+			
+			const isGenerator = nameGenerator != "";
+			
+			const variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : "", icon: "witch", quantity: "0", description: "", cost: "0", every_x_seconds:"0", next_effect:"0", effect: ""};
 			
 			element.instVars.name = variables.name;
 			element.instVars.icon = variables.icon;
-			// element.instVars.quantity = roundTenth(variables.quantity);
-			// element.instVars.quantity = convertNumberToIdleString(variables.quantity);
 			element.instVars.quantity = variables.quantity;
-			element.instVars.effect = variables.description;
-			// element.instVars.cost = roundTenth(variables.cost);
-			// element.instVars.cost = convertNumberToIdleString(variables.cost);
+			element.instVars.effect = variables.effect;
 			element.instVars.cost = variables.cost;
 			element.instVars.every_x_seconds = variables.every_x_seconds;
+			element.instVars.nextEffect = variables.next_effect;
 		},
 
-		async Idle_game_Event36_Act3(runtime, localVars)
+		async Idle_game_Event37_Act6(runtime, localVars)
 		{
 			localVars.tempQuantity = convertNumberToIdleString(localVars.tempQuantity);
 			localVars.tempCost = convertNumberToIdleString(localVars.tempCost);
-			// localVars.tempPoint = roundTenth(runtime.globalVars.Points);
+			localVars.tempNextEffect = convertNumberToIdleString(localVars.tempNextEffect);
+		},
+
+		async Idle_game_Event38_Act1(runtime, localVars)
+		{
+			const uid = localVars.UID;
+			const element = g_runtime.getInstanceByUid(uid);
+			const nameGenerator = (element.instVars.generator_name).trim();
+			
+			const isGenerator = nameGenerator != "";
+			element.instVars.visible = 0;
+			
+			if (isGenerator) {
+				const isVisible = buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JSON);
+			
+				element.instVars.visible = isVisible ? 1 : 0;
+			
+				json_changeKey(idle_stats_JSON, `generators.${nameGenerator}.visible`, isVisible ? 1 : 0);
+			};
+			
 		},
 
 		async Idle_game_Event39_Act1(runtime, localVars)
@@ -3612,26 +3652,16 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const element = g_runtime.getInstanceByUid(uid);
 			const nameGenerator = element.instVars.generator_name;
 			
-			const isVisible = buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JSON);
-			
-			element.instVars.visible = isVisible ? 1 : 0;
-			
-			json_changeKey(idle_stats_JSON, `generators.${nameGenerator}.visible`, isVisible ? 1 : 0);
-		},
-
-		async Idle_game_Event40_Act1(runtime, localVars)
-		{
-			const uid = localVars.UID;
-			const element = g_runtime.getInstanceByUid(uid);
-			const nameGenerator = element.instVars.generator_name;
+			const isGenerator = nameGenerator != "";
 			
 			const money = localVars.money;
 			
-			const isPurchasable = buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON);
+			const isPurchasable = isGenerator ?  buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) : false;
+			
 			element.instVars.isPurchasable = isPurchasable ? 1 : 0;
 		},
 
-		async Idle_game_Event55_Act2(runtime, localVars)
+		async Idle_game_Event54_Act2(runtime, localVars)
 		{
 			const listOriginal = localVars.ListOriginal;
 			const themes = json_getKey("colors", ``);
@@ -3853,7 +3883,6 @@ function isCurrencyInStats(idle_stats_JSON, currency) {
 	return Object.keys(idle_stats_JSON.currencies).includes(currency);
 }
 
-
 function calculateIncome(quantity = 0, { currency = "primary", base_income = "1"} = {}) {
 	const obj = {};
 	const result = quantity * parseFloat(base_income);
@@ -3863,7 +3892,6 @@ function calculateIncome(quantity = 0, { currency = "primary", base_income = "1"
 function typeOfGeneratorEffect({action = "add"} = {}) { return action; }
 
 function calculateSellCost(startingCost, multiplier_price, quantity) {
-// 	const result = parseFloat(quantity) == 0 ? parseFloat(startingCost) : parseFloat(startingCost) * (parseFloat(multiplier_price) ** parseFloat(quantity))
 	const result = parseFloat(startingCost) * (parseFloat(multiplier_price) ** parseFloat(quantity))
 	return result;
 }
@@ -3966,15 +3994,33 @@ function getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JS
 	const name = generatorsRules.name;
 	const icon = generatorsRules.icon;
 	const description = generatorsRules.description;
-	const labelEffect = generatorsRules.effects[0].action == "add" ?  "+" : "x";
-	const valueEffect = generatorsRules.effects[0].base_income + " point";
-	const effect = labelEffect + valueEffect;
+	
 	const quantity = json_getKey(idle_stats_JSON, `generators.${nameGenerator}.quantity`);
 	const startingCost = generatorsRules.cost[0].starting_cost;
 	const multiplier_price = generatorsRules.cost[0].cost_multi_factor;
 	const cost = calculateSellCost(startingCost, multiplier_price, quantity);
+	const next_effect = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);
 	const every_x_seconds = generatorsRules.effects[0].timer_seconds;
-	return {name, icon, description, quantity, effect, cost, every_x_seconds};
+
+	const action = generatorsRules.effects[0].action;
+	const actionCurrency = generatorsRules.effects[0].currency;
+	const labelCurrency = json_getKey(idle_rules_JSON, `currencies.${actionCurrency}.label`);
+	const base_income = generatorsRules.effects[0].base_income;
+	const actual_effect = parseFloat(quantity) > 0 ? parseFloat(next_effect) / parseFloat(quantity) : parseFloat(base_income);
+	
+	let effect = "";
+	
+	if (action == "add"){
+		effect = `${convertNumberToIdleString(actual_effect)} ${labelCurrency} every ${convertNumberToIdleString(every_x_seconds)}sec`
+	} else if (action == "multiple") {
+		
+		const generators = generatorsRules.effects[0].generators;
+		const listGenerators = generators[0] == "ALL" ? "All" : generators.join(", ");
+		effect = `x${convertNumberToIdleString(base_income)} ${labelCurrency} for ${listGenerators}`;
+	}
+
+
+	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect};
 }
 
 function buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) {
@@ -4009,10 +4055,13 @@ function buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JS
 	
 	requiresGenerators.forEach( req => {
 		const nameGenerator = req.generator;
-		const quantityGenerator =  parseFloat(req.quantity);
-		const money = generatorsQuantity[nameGenerator].quantity;
+		const quantityGenerator = parseFloat(req.quantity);
+
+		const hasMoney =  Object.keys(generatorsQuantity).includes(nameGenerator);
+
+		const money = hasMoney ? generatorsQuantity[nameGenerator].quantity : "0";
 		const isPurchasable = parseFloat(money) >= quantityGenerator;
-		isVisible = isVisible && isPurchasable;
+		isVisible = isVisible && isPurchasable;		
 	});
 	
 	const result = isVisible || purchased || yetVisible;

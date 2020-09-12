@@ -38,7 +38,6 @@ function isCurrencyInStats(idle_stats_JSON, currency) {
 	return Object.keys(idle_stats_JSON.currencies).includes(currency);
 }
 
-
 function calculateIncome(quantity = 0, { currency = "primary", base_income = "1"} = {}) {
 	const obj = {};
 	const result = quantity * parseFloat(base_income);
@@ -48,7 +47,6 @@ function calculateIncome(quantity = 0, { currency = "primary", base_income = "1"
 function typeOfGeneratorEffect({action = "add"} = {}) { return action; }
 
 function calculateSellCost(startingCost, multiplier_price, quantity) {
-// 	const result = parseFloat(quantity) == 0 ? parseFloat(startingCost) : parseFloat(startingCost) * (parseFloat(multiplier_price) ** parseFloat(quantity))
 	const result = parseFloat(startingCost) * (parseFloat(multiplier_price) ** parseFloat(quantity))
 	return result;
 }

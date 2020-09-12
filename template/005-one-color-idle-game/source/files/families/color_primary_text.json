@@ -7,6 +7,9 @@
 	"effectTypes": [],
 	"members": [
 		"Magic_TXT_Hints",
-		"Settings_TXT_Label"
+		"Settings_TXT_Label",
+		"Button_TXT_Require",
+		"Magic_TXT_Points",
+		"Button_TXT_NextEffect_background"
 	]
 }

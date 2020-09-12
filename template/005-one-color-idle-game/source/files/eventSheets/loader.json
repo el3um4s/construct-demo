@@ -59,73 +59,55 @@
 					"conditions": [],
 					"actions": [
 						{
-							"callFunction": "InitializeJson:powers",
-							"sid": 927136145930334
+							"callFunction": "InitializeJson:idle_rules",
+							"sid": 434126335149244
 						},
 						{
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
-							"sid": 944034929274775
+							"sid": 963726404375387
 						}
 					],
-					"sid": 324346976153104,
+					"sid": 663704584981939,
 					"children": [
 						{
 							"eventType": "block",
 							"conditions": [],
 							"actions": [
 								{
-									"callFunction": "InitializeJson:idle_rules",
-									"sid": 535541441482256
+									"callFunction": "InitializeJson:idle_stats",
+									"sid": 515298279345030
 								},
 								{
 									"id": "wait-for-previous-actions",
 									"objectClass": "System",
-									"sid": 261393695951039
+									"sid": 977821526352511
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 849300754822200,
+									"disabled": true,
+									"parameters": {
+										"seconds": "3"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 492516838170035,
+									"disabled": true
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 614283953738972,
+									"parameters": {
+										"layout": "IdleGame"
+									}
 								}
 							],
-							"sid": 522051304759347,
-							"children": [
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"callFunction": "InitializeJson:idle_stats",
-											"sid": 655882237152748
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 992562577338920
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 357172673516323,
-											"disabled": true,
-											"parameters": {
-												"seconds": "3"
-											}
-										},
-										{
-											"id": "wait-for-previous-actions",
-											"objectClass": "System",
-											"sid": 490872626547154,
-											"disabled": true
-										},
-										{
-											"id": "go-to-layout",
-											"objectClass": "System",
-											"sid": 197291846981971,
-											"parameters": {
-												"layout": "IdleGame"
-											}
-										}
-									],
-									"sid": 864352886333234
-								}
-							]
+							"sid": 832589910796946
 						}
 					]
 				}

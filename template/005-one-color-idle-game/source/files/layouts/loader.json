@@ -46,10 +46,10 @@
 						}
 					},
 					"world": {
-						"x": 320,
+						"x": 427,
 						"y": 240,
-						"width": 640,
-						"height": 448,
+						"width": 854,
+						"height": 480,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -110,7 +110,7 @@
 		}
 	],
 	"effectTypes": [],
-	"width": 640,
+	"width": 854,
 	"height": 480,
 	"unboundedScrolling": true,
 	"eventSheet": "Loader"

@@ -3,15 +3,33 @@ function getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JS
 	const name = generatorsRules.name;
 	const icon = generatorsRules.icon;
 	const description = generatorsRules.description;
-	const labelEffect = generatorsRules.effects[0].action == "add" ?  "+" : "x";
-	const valueEffect = generatorsRules.effects[0].base_income + " point";
-	const effect = labelEffect + valueEffect;
+	
 	const quantity = json_getKey(idle_stats_JSON, `generators.${nameGenerator}.quantity`);
 	const startingCost = generatorsRules.cost[0].starting_cost;
 	const multiplier_price = generatorsRules.cost[0].cost_multi_factor;
 	const cost = calculateSellCost(startingCost, multiplier_price, quantity);
+	const next_effect = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);
 	const every_x_seconds = generatorsRules.effects[0].timer_seconds;
-	return {name, icon, description, quantity, effect, cost, every_x_seconds};
+
+	const action = generatorsRules.effects[0].action;
+	const actionCurrency = generatorsRules.effects[0].currency;
+	const labelCurrency = json_getKey(idle_rules_JSON, `currencies.${actionCurrency}.label`);
+	const base_income = generatorsRules.effects[0].base_income;
+	const actual_effect = parseFloat(quantity) > 0 ? parseFloat(next_effect) / parseFloat(quantity) : parseFloat(base_income);
+	
+	let effect = "";
+	
+	if (action == "add"){
+		effect = `${convertNumberToIdleString(actual_effect)} ${labelCurrency} every ${convertNumberToIdleString(every_x_seconds)}sec`
+	} else if (action == "multiple") {
+		
+		const generators = generatorsRules.effects[0].generators;
+		const listGenerators = generators[0] == "ALL" ? "All" : generators.join(", ");
+		effect = `x${convertNumberToIdleString(base_income)} ${labelCurrency} for ${listGenerators}`;
+	}
+
+
+	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect};
 }
 
 function buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) {
@@ -46,10 +64,13 @@ function buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JS
 	
 	requiresGenerators.forEach( req => {
 		const nameGenerator = req.generator;
-		const quantityGenerator =  parseFloat(req.quantity);
-		const money = generatorsQuantity[nameGenerator].quantity;
+		const quantityGenerator = parseFloat(req.quantity);
+
+		const hasMoney =  Object.keys(generatorsQuantity).includes(nameGenerator);
+
+		const money = hasMoney ? generatorsQuantity[nameGenerator].quantity : "0";
 		const isPurchasable = parseFloat(money) >= quantityGenerator;
-		isVisible = isVisible && isPurchasable;
+		isVisible = isVisible && isPurchasable;		
 	});
 	
 	const result = isVisible || purchased || yetVisible;

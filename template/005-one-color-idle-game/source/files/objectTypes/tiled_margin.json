@@ -1,0 +1,20 @@
+{
+	"name": "tiled_margin",
+	"plugin-id": "TiledBg",
+	"sid": 131813781887143,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 1.953125,
+		"originY": 1.953125,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 9911164,
+		"useCollisionPoly": true
+	}
+}

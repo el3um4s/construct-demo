@@ -11,8 +11,8 @@
 		"Button_TXT_Name",
 		"Button_TXT_Quantity",
 		"Magic_TXT_Labels",
-		"Magic_TXT_Points",
 		"Magic_TXT_PPS",
-		"Select_Page_TXT_Labels"
+		"Select_Page_TXT_Labels",
+		"Button_TXT_NextEffect"
 	]
 }

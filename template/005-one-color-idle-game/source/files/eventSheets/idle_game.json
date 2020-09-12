@@ -372,6 +372,16 @@
 										{
 											"id": "compare-instance-variable",
 											"objectClass": "Button_Generator",
+											"sid": 240744549723201,
+											"parameters": {
+												"instance-variable": "generator_name",
+												"comparison": 1,
+												"value": "\"\""
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button_Generator",
 											"sid": 954530114993404,
 											"parameters": {
 												"instance-variable": "isPurchasable",
@@ -510,11 +520,11 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Button_Generator",
-									"sid": 157358270511253,
+									"sid": 112543513422725,
 									"parameters": {
 										"object": "Button_Particles",
 										"layer": "Button_Generator.LayerName",
-										"image-point": "0"
+										"image-point": "\"Spawn_Particles\""
 									}
 								},
 								{
@@ -867,6 +877,22 @@
 													"parameters": {
 														"visibility": "visible"
 													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_NextEffect",
+													"sid": 208629501023061,
+													"parameters": {
+														"visibility": "visible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_NextEffect_background",
+													"sid": 319932210810429,
+													"parameters": {
+														"visibility": "visible"
+													}
 												}
 											],
 											"sid": 593347918928412
@@ -960,6 +986,22 @@
 													"parameters": {
 														"visibility": "invisible"
 													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_NextEffect",
+													"sid": 830371004733160,
+													"parameters": {
+														"visibility": "invisible"
+													}
+												},
+												{
+													"id": "set-visible",
+													"objectClass": "Button_TXT_NextEffect_background",
+													"sid": 861382555107549,
+													"parameters": {
+														"visibility": "invisible"
+													}
 												}
 											],
 											"sid": 594542581989361
@@ -1024,6 +1066,28 @@
 									]
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "every-tick",
+									"objectClass": "System",
+									"sid": 494260095550911
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position-to-another-object",
+									"objectClass": "Button_SPR_Obfuscate",
+									"sid": 579884081847389,
+									"parameters": {
+										"object": "Button_Generator",
+										"image-point-optional": "0"
+									}
+								}
+							],
+							"sid": 708624711547121
 						}
 					],
 					"sid": 992953579018583
@@ -1055,7 +1119,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst result = calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator);\n\n// runtime.setReturnValue(roundTenth(result));\nruntime.setReturnValue(result);"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isGenerator = nameGenerator != \"\";\n\nconst result = isGenerator ? calculateSingleGeneratorIncome_WithMultipierApplied(idle_rules_JSON, idle_stats_JSON, nameGenerator) : 0\n\n// runtime.setReturnValue(roundTenth(result));\nruntime.setReturnValue(result);"
 								}
 							],
 							"sid": 963383514341722
@@ -1080,7 +1144,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst variables = getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\n// element.instVars.quantity = roundTenth(variables.quantity);\n// element.instVars.quantity = convertNumberToIdleString(variables.quantity);\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.description;\n// element.instVars.cost = roundTenth(variables.cost);\n// element.instVars.cost = convertNumberToIdleString(variables.cost);\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isGenerator = nameGenerator != \"\";\n\nconst variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : \"\", icon: \"witch\", quantity: \"0\", description: \"\", cost: \"0\", every_x_seconds:\"0\", next_effect:\"0\", effect: \"\"};\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.effect;\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;\nelement.instVars.nextEffect = variables.next_effect;"
 								}
 							],
 							"sid": 756917445724091
@@ -1167,6 +1231,36 @@
 											"sid": 110963799735000
 										},
 										{
+											"eventType": "variable",
+											"name": "tempNextEffect",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 123595319670513
+										},
+										{
+											"eventType": "variable",
+											"name": "theme",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 476026643092703
+										},
+										{
+											"eventType": "variable",
+											"name": "color",
+											"type": "string",
+											"initialValue": "",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 500218545841164
+										},
+										{
 											"eventType": "block",
 											"conditions": [],
 											"actions": [
@@ -1189,8 +1283,35 @@
 													}
 												},
 												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 841246494681987,
+													"parameters": {
+														"variable": "tempNextEffect",
+														"value": "Button_Generator.nextEffect"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 425521516287163,
+													"parameters": {
+														"variable": "theme",
+														"value": "Functions.getValue(\"idle_stats\", \"settings.theme\")"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 519081043998437,
+													"parameters": {
+														"variable": "color",
+														"value": "Functions.getValue(\"colors\", theme&\".primary\")"
+													}
+												},
+												{
 													"type": "script",
-													"script": "localVars.tempQuantity = convertNumberToIdleString(localVars.tempQuantity);\nlocalVars.tempCost = convertNumberToIdleString(localVars.tempCost);\n// localVars.tempPoint = roundTenth(runtime.globalVars.Points);"
+													"script": "localVars.tempQuantity = convertNumberToIdleString(localVars.tempQuantity);\nlocalVars.tempCost = convertNumberToIdleString(localVars.tempCost);\nlocalVars.tempNextEffect = convertNumberToIdleString(localVars.tempNextEffect);"
 												},
 												{
 													"id": "set-text",
@@ -1207,23 +1328,25 @@
 													"parameters": {
 														"text": "tempCost & \" $\""
 													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Button_TXT_NextEffect",
+													"sid": 372853684087172,
+													"parameters": {
+														"text": "Button_Generator.nextEffect = \"0\" ? \"\" :  tempNextEffect &\" Generating\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Button_TXT_NextEffect_background",
+													"sid": 509384302361282,
+													"parameters": {
+														"text": "Button_Generator.nextEffect = \"0\" ? \"\" :  \"[background=\"&color&\"]\"&tempNextEffect &\" Generating[/background]\""
+													}
 												}
 											],
-											"sid": 159244781226599,
-											"children": [
-												{
-													"eventType": "block",
-													"conditions": [],
-													"actions": [],
-													"sid": 435240494509764
-												}
-											]
-										},
-										{
-											"eventType": "block",
-											"conditions": [],
-											"actions": [],
-											"sid": 281400738683608
+											"sid": 159244781226599
 										}
 									]
 								}
@@ -1249,7 +1372,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isVisible = buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\nelement.instVars.visible = isVisible ? 1 : 0;\n\njson_changeKey(idle_stats_JSON, `generators.${nameGenerator}.visible`, isVisible ? 1 : 0);"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = (element.instVars.generator_name).trim();\n\nconst isGenerator = nameGenerator != \"\";\nelement.instVars.visible = 0;\n\nif (isGenerator) {\n\tconst isVisible = buttonGeneratorsIsVisible(nameGenerator, idle_rules_JSON, idle_stats_JSON);\n\n\telement.instVars.visible = isVisible ? 1 : 0;\n\n\tjson_changeKey(idle_stats_JSON, `generators.${nameGenerator}.visible`, isVisible ? 1 : 0);\n};\n"
 								}
 							],
 							"sid": 774057375566240
@@ -1281,7 +1404,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst money = localVars.money;\n\nconst isPurchasable = buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON);\nelement.instVars.isPurchasable = isPurchasable ? 1 : 0;"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isGenerator = nameGenerator != \"\";\n\nconst money = localVars.money;\n\nconst isPurchasable = isGenerator ?  buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) : false;\n\nelement.instVars.isPurchasable = isPurchasable ? 1 : 0;"
 								}
 							],
 							"sid": 192834035820290
@@ -1449,15 +1572,6 @@
 						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 888647643479710,
-							"parameters": {
-								"layer": "\"LAY_BUTTONS\"",
-								"visibility": "invisible"
-							}
-						},
-						{
-							"id": "set-layer-visible",
-							"objectClass": "System",
 							"sid": 903776702992811,
 							"parameters": {
 								"layer": "namePageToShow",
@@ -1474,36 +1588,7 @@
 							]
 						}
 					],
-					"sid": 563712648959321,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "compare-eventvar",
-									"objectClass": "System",
-									"sid": 744713178268740,
-									"parameters": {
-										"variable": "namePageToShow",
-										"comparison": 1,
-										"value": "\"LAY_SETTINGS\""
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "set-layer-visible",
-									"objectClass": "System",
-									"sid": 513997331591235,
-									"parameters": {
-										"layer": "\"LAY_BUTTONS\"",
-										"visibility": "visible"
-									}
-								}
-							],
-							"sid": 829194044572836
-						}
-					]
+					"sid": 563712648959321
 				}
 			],
 			"sid": 226887395768862
@@ -1722,6 +1807,30 @@
 								}
 							],
 							"sid": 726581842334277
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 196962206540703,
+									"parameters": {
+										"object": "tiled_margin"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Change_Color_Object",
+									"sid": 407507278898537,
+									"parameters": [
+										"tiled_margin.UID",
+										"Functions.getValue(\"colors\", theme&\".primary\")"
+									]
+								}
+							],
+							"sid": 329323824962578
 						}
 					]
 				},

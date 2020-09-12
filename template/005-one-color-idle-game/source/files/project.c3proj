@@ -125,8 +125,7 @@
 			"Title",
 			"TiledBackground",
 			"Loading",
-			"Button_SPR_mystery",
-			"Button_SPR_PlaceHolder"
+			"tiled_margin"
 		],
 		"subfolders": [
 			{
@@ -159,7 +158,9 @@
 							"Button_SPR_Effect",
 							"Button_SPR_Timer",
 							"Button_Particles",
-							"Button_SPR_Obfuscate"
+							"Button_SPR_Obfuscate",
+							"Button_SPR_PlaceHolder",
+							"Button_SPR_mystery"
 						],
 						"subfolders": [],
 						"name": "Sprites"
@@ -169,7 +170,10 @@
 							"Button_TXT_Cost",
 							"Button_TXT_Effect",
 							"Button_TXT_Name",
-							"Button_TXT_Quantity"
+							"Button_TXT_Quantity",
+							"Button_TXT_Require",
+							"Button_TXT_NextEffect",
+							"Button_TXT_NextEffect_background"
 						],
 						"subfolders": [],
 						"name": "Texts"
@@ -230,22 +234,20 @@
 				"Button_Generator",
 				"Button_SPR_Effect",
 				"Button_SPR_Icons",
+				"Button_SPR_mystery",
 				"Button_SPR_Obfuscate",
+				"Button_SPR_PlaceHolder",
 				"Button_SPR_Price",
 				"Button_SPR_Timer",
 				"Button_TXT_Cost",
 				"Button_TXT_Effect",
 				"Button_TXT_Name",
-				"Button_TXT_Quantity"
+				"Button_TXT_NextEffect",
+				"Button_TXT_NextEffect_background",
+				"Button_TXT_Quantity",
+				"Button_TXT_Require"
 			],
 			"selectMode": "normal"
-		},
-		{
-			"members": [
-				"Button_SPR_mystery",
-				"Button_SPR_PlaceHolder"
-			],
-			"selectMode": "all"
 		}
 	],
 	"families": {
@@ -497,7 +499,7 @@
 		"enhancedAccelerationPrecision": true,
 		"cordovaiOSScheme": "app"
 	},
-	"viewportWidth": 640,
+	"viewportWidth": 854,
 	"viewportHeight": 480,
 	"firstLayout": "Loader"
 }

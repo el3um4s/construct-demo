@@ -13,8 +13,8 @@
 					{
 						"width": 256,
 						"height": 96,
-						"originX": 0.5078125,
-						"originY": 0.5208333333333334,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,

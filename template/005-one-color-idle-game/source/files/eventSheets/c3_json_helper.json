@@ -196,40 +196,6 @@
 					"sid": 578524120582657
 				},
 				{
-					"functionName": "InitializeJson:powers",
-					"functionDescription": "",
-					"functionCategory": "JSON :: initialize",
-					"functionReturnType": "none",
-					"functionIsAsync": true,
-					"functionParameters": [],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"id": "request-project-file",
-							"objectClass": "AJAX",
-							"sid": 963828947547469,
-							"parameters": {
-								"tag": "\"\"",
-								"file": "powers.json"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 988939513394779
-						},
-						{
-							"callFunction": "initializeJSON",
-							"sid": 188760021307518,
-							"parameters": [
-								"\"powers\""
-							]
-						}
-					],
-					"sid": 642401174787709
-				},
-				{
 					"functionName": "InitializeJson:idle_rules",
 					"functionDescription": "",
 					"functionCategory": "JSON :: initialize",

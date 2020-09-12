@@ -57,6 +57,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 207113026259003
+		},
+		{
+			"name": "require",
+			"type": "string",
+			"desc": "",
+			"sid": 823326264213091
+		},
+		{
+			"name": "nextEffect",
+			"type": "string",
+			"desc": "",
+			"sid": 919988637059185
 		}
 	],
 	"behaviorTypes": [
@@ -79,13 +91,20 @@
 					{
 						"width": 256,
 						"height": 96,
-						"originX": 0.5,
-						"originY": 0.5,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
 						"imageSpriteId": 5196850,
 						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Spawn_Particles",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
 						"duration": 1
 					}
 				],
