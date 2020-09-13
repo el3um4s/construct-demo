@@ -28,8 +28,30 @@ function getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JS
 		effect = `x${convertNumberToIdleString(base_income)} ${labelCurrency} for ${listGenerators}`;
 	}
 
+	const listRequireCurrencies = generatorsRules.requires.currencies;
+	const listRequireGenerators = generatorsRules.requires.generators;
+	
+	let listRequires = ""
+	
+	if (listRequireCurrencies.length > 0) {
+		listRequireCurrencies.forEach( req => {
+			const quantity = req.quantity;
+			const currency = req.currency;
+			const name = json_getKey(idle_rules_JSON, `currencies.${currency}.label`);
+			listRequires = `${listRequires}\n${quantity} ${name}`;
+		})
+	}
+	
+	if (listRequireGenerators.length > 0) {
+		listRequireGenerators.forEach( req => {
+			const quantity = req.quantity;
+			const generator = req.generator;
+			const name = json_getKey(idle_rules_JSON, `generators.${generator}.label`);
+			listRequires = `${listRequires}\n${quantity} ${name}`;
+		})
+	}
 
-	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect};
+	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect, listRequires};
 }
 
 function buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) {

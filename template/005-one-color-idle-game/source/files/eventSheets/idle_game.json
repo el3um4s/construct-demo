@@ -895,7 +895,24 @@
 													}
 												}
 											],
-											"sid": 593347918928412
+											"sid": 593347918928412,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Button_TXT_Require",
+															"sid": 704911322422917,
+															"parameters": {
+																"visibility": "invisible"
+															}
+														}
+													],
+													"sid": 666599192871980
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -1004,7 +1021,24 @@
 													}
 												}
 											],
-											"sid": 594542581989361
+											"sid": 594542581989361,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-visible",
+															"objectClass": "Button_TXT_Require",
+															"sid": 351179263702687,
+															"parameters": {
+																"visibility": "visible"
+															}
+														}
+													],
+													"sid": 169368229634828
+												}
+											]
 										},
 										{
 											"eventType": "block",
@@ -1144,7 +1178,7 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isGenerator = nameGenerator != \"\";\n\nconst variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : \"\", icon: \"witch\", quantity: \"0\", description: \"\", cost: \"0\", every_x_seconds:\"0\", next_effect:\"0\", effect: \"\"};\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.effect;\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;\nelement.instVars.nextEffect = variables.next_effect;"
+									"script": "const uid = localVars.UID;\nconst element = g_runtime.getInstanceByUid(uid);\nconst nameGenerator = element.instVars.generator_name;\n\nconst isGenerator = nameGenerator != \"\";\n\nconst variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : \"\", icon: \"witch\", quantity: \"0\", description: \"\", cost: \"0\", every_x_seconds:\"0\", next_effect:\"0\", effect: \"\", listRequires: \"\"};\n\nelement.instVars.name = variables.name;\nelement.instVars.icon = variables.icon;\nelement.instVars.quantity = variables.quantity;\nelement.instVars.effect = variables.effect;\nelement.instVars.cost = variables.cost;\nelement.instVars.every_x_seconds = variables.every_x_seconds;\nelement.instVars.nextEffect = variables.next_effect;\nelement.instVars.require = variables.listRequires;"
 								}
 							],
 							"sid": 756917445724091
@@ -1343,6 +1377,14 @@
 													"sid": 509384302361282,
 													"parameters": {
 														"text": "Button_Generator.nextEffect = \"0\" ? \"\" :  \"[background=\"&color&\"]\"&tempNextEffect &\" Generating[/background]\""
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Button_TXT_Require",
+													"sid": 509518138210261,
+													"parameters": {
+														"text": "Button_Generator.require"
 													}
 												}
 											],

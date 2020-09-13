@@ -70,7 +70,7 @@
 		},
 		"yeti": {
 			"name": "Yeti",
-			"label": "yeti",
+			"label": "Yeti",
 			"icon": "yeti",
 			"description": "200 point every minute",
 			"requires": {
@@ -252,7 +252,7 @@
 				"generators": [
 					{
 						"generator": "witch",
-						"quantity": "1.5"
+						"quantity": "15"
 					},
 						{
 						"generator": "minotaur",
