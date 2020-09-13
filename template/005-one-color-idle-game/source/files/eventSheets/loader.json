@@ -66,52 +66,151 @@
 							"id": "wait-for-previous-actions",
 							"objectClass": "System",
 							"sid": 963726404375387
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 746059113132408,
+							"parameters": {
+								"key": "\"idle_stats\""
+							}
 						}
 					],
-					"sid": 663704584981939,
-					"children": [
-						{
-							"eventType": "block",
-							"conditions": [],
-							"actions": [
-								{
-									"callFunction": "InitializeJson:idle_stats",
-									"sid": 515298279345030
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 977821526352511
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 849300754822200,
-									"disabled": true,
-									"parameters": {
-										"seconds": "3"
-									}
-								},
-								{
-									"id": "wait-for-previous-actions",
-									"objectClass": "System",
-									"sid": 492516838170035,
-									"disabled": true
-								},
-								{
-									"id": "go-to-layout",
-									"objectClass": "System",
-									"sid": 614283953738972,
-									"parameters": {
-										"layout": "IdleGame"
-									}
-								}
-							],
-							"sid": 832589910796946
-						}
-					]
+					"sid": 663704584981939
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 683680517282896,
+					"parameters": {
+						"key": "\"idle_stats\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "InitializeJson:idle_stats",
+					"sid": 356353305461410
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 338643085382839
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 303092732645666,
+					"disabled": true,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 965262269939027,
+					"disabled": true
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 721149255013254,
+					"parameters": {
+						"layout": "IdleGame"
+					}
+				}
+			],
+			"sid": 873956414124937
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 659117105254891,
+					"parameters": {
+						"key": "\"idle_stats\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "get-item",
+					"objectClass": "LocalStorage",
+					"sid": 571284153641373,
+					"parameters": {
+						"key": "\"idle_stats\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 674854116817288
+				},
+				{
+					"id": "log",
+					"objectClass": "Browser",
+					"sid": 110853349786451,
+					"disabled": true,
+					"parameters": {
+						"type": "log",
+						"message": "LocalStorage.ItemValue"
+					}
+				},
+				{
+					"callFunction": "InitializeJson:idle_stats",
+					"sid": 961253674967546
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 586919702860538
+				},
+				{
+					"callFunction": "initializeJSON_fromBase64",
+					"sid": 847369058575918,
+					"parameters": [
+						"\"idle_stats\"",
+						"LocalStorage.ItemValue"
+					]
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 259935125848611
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 987839042970683,
+					"disabled": true,
+					"parameters": {
+						"seconds": "3"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 404290075627866,
+					"disabled": true
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 718014546023840,
+					"parameters": {
+						"layout": "IdleGame"
+					}
+				}
+			],
+			"sid": 620246097793818
 		}
 	],
 	"sid": 127893008881664

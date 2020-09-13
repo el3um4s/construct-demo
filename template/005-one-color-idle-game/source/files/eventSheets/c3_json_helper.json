@@ -142,6 +142,63 @@
 						}
 					],
 					"sid": 565277230107712
+				},
+				{
+					"functionName": "initializeJSON_fromBase64",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 259914082890139
+						},
+						{
+							"name": "json_base64",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 985987635393448
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\nconst json_base64 = localVars.json_base64;\njson_initialize_fromBase64(name, json_base64);"
+						}
+					],
+					"sid": 440961958044749
+				},
+				{
+					"functionName": "get_JSON_as_Base64",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 733091651988579
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\nconst result = json_getJSON_asBase64(name);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 541238556272680
 				}
 			],
 			"sid": 771433269211111

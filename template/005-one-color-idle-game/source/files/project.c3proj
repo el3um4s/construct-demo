@@ -48,6 +48,14 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r215",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -82,6 +90,14 @@
 			"type": "plugin",
 			"id": "TiledBg",
 			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r215",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
 			"author": "Scirra",
 			"version": "r215",
 			"bundled": false
@@ -125,7 +141,9 @@
 			"Title",
 			"TiledBackground",
 			"Loading",
-			"tiled_margin"
+			"tiled_margin",
+			"Button",
+			"Button2"
 		],
 		"subfolders": [
 			{
@@ -142,7 +160,8 @@
 					"AJAX",
 					"Audio",
 					"Browser",
-					"Touch"
+					"Touch",
+					"LocalStorage"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -212,7 +231,9 @@
 			{
 				"items": [
 					"Settings_TXT_Label",
-					"ChooseTheme"
+					"ChooseTheme",
+					"ChooseMusicOnOff",
+					"ChooseSoundOnOff"
 				],
 				"subfolders": [],
 				"name": "Settings"
@@ -455,7 +476,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20.09.12",
+		"version": "demo-20.09.13",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

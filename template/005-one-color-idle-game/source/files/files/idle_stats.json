@@ -2,7 +2,9 @@
 	"settings": {
 		"theme": "dark",
 		"page": "LAY_MONSTERS",
-		"font": "monotalic"
+		"font": "monotalic",
+		"music": "On",
+		"sound": "On"
 	},
 	"currencies": {
 		"primary": {

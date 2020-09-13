@@ -70,7 +70,7 @@
 		},
 		"yeti": {
 			"name": "Yeti",
-			"label": "yeti",
+			"label": "Yeti",
 			"icon": "yeti",
 			"description": "200 point every minute",
 			"requires": {
@@ -192,7 +192,7 @@
 		"cthulhu": {
 			"name": "Cthulhu",
 			"label": "Cthulhu",
-			"icon": "thulhu",
+			"icon": "cthulhu",
 			"description": "50000 point every 30 minutes",
 			"requires": {
 				"currencies": [
@@ -233,7 +233,91 @@
 					"currency": "primary",
 					"base_income": "50000",
 					"timer_seconds": "1800",
-					"generators": ["dragon"]
+					"generators": ["cthulhu"]
+				}]
+			
+		},
+		"unicorn": {
+			"name": "Unicorn",
+			"label": "Unicorn",
+			"icon": "unicorn",
+			"description": "500000 point every 1 hour",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "500000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "50"
+					},
+					{
+						"generator": "cthulhu",
+						"quantity": "10"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000000",
+					"cost_multi_factor": "1.10"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "500000",
+					"timer_seconds": "6000",
+					"generators": ["unicorn"]
+				}]
+			
+		},
+		"gingerbread": {
+			"name": "Gingerbread",
+			"label": "Gingerbread",
+			"icon": "gingerbread",
+			"description": "1000000 point every 30 minutes",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "1000000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "50"
+					},
+					{
+						"generator": "cthulhu",
+						"quantity": "50"
+					},
+					{
+						"generator": "unicorn",
+						"quantity": "10"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "2000000",
+					"cost_multi_factor": "1.05"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "1000000",
+					"timer_seconds": "1800",
+					"generators": ["gingerbread"]
 				}]
 			
 		},
@@ -252,7 +336,7 @@
 				"generators": [
 					{
 						"generator": "witch",
-						"quantity": "1.5"
+						"quantity": "15"
 					},
 						{
 						"generator": "minotaur",

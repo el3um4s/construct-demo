@@ -148,6 +148,52 @@
 						"repeatCount": 1,
 						"repeatTo": 0,
 						"speed": 0
+					},
+					{
+						"frames": [
+							{
+								"width": 64,
+								"height": 64,
+								"originX": 0.5,
+								"originY": 0.5,
+								"originalSource": "",
+								"exportFormat": "png",
+								"exportQuality": 0.8,
+								"imageSpriteId": 1512420,
+								"useCollisionPoly": true,
+								"duration": 1
+							}
+						],
+						"sid": 395740500662657,
+						"name": "unicorn",
+						"isLooping": false,
+						"isPingPong": false,
+						"repeatCount": 1,
+						"repeatTo": 0,
+						"speed": 0
+					},
+					{
+						"frames": [
+							{
+								"width": 64,
+								"height": 64,
+								"originX": 0.5,
+								"originY": 0.5,
+								"originalSource": "",
+								"exportFormat": "png",
+								"exportQuality": 0.8,
+								"imageSpriteId": 5397897,
+								"useCollisionPoly": true,
+								"duration": 1
+							}
+						],
+						"sid": 687004461132065,
+						"name": "gingerbread",
+						"isLooping": false,
+						"isPingPong": false,
+						"repeatCount": 1,
+						"repeatTo": 0,
+						"speed": 0
 					}
 				],
 				"subfolders": [],

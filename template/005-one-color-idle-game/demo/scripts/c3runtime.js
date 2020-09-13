@@ -2680,6 +2680,34 @@ this._x,this._y)<GESTURE_DOUBLETAP_THRESHOLD){lastTapX=-1E3;lastTapY=-1E3;lastTa
 this._y)[getx?0:1];else return 0}}}};
 
 
+'use strict';{const C3=self.C3;C3.Plugins.LocalStorage=class LocalStoragePlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.LocalStorage.Type=class LocalStorageType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.LocalStorage.Instance=class LocalStorageInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst);this._currentKey="";this._lastValue="";this._keyNamesList=[];this._errorMessage="";this._pendingGets=0;this._pendingSets=0;this._storage=this._runtime._GetProjectStorage();this._debugCache=new Map;this._isLoadingDebugCache=false}Release(){super.Release()}async _TriggerStorageError(err){this._errorMessage=this._GetErrorString(err);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnError)}_GetErrorString(err){if(!err)return"unknown error";
+else if(typeof err==="string")return err;else if(typeof err.message==="string")return err.message;else if(typeof err.name==="string")return err.name;else if(typeof err.data==="string")return err.data;else return"unknown error"}GetDebuggerProperties(){if(!this._isLoadingDebugCache)this._DebugCacheStorage();return[{title:"plugins.localstorage.name",properties:[...this._debugCache.entries()].map(entry=>({name:"$"+entry[0],value:entry[1],onedit:v=>this._storage.setItem(entry[0],v)}))}]}async _DebugCacheStorage(){this._isLoadingDebugCache=
+true;try{const keyList=await this._storage.keys();keyList.sort((a,b)=>{const la=a.toLowerCase();const lb=b.toLowerCase();if(la<lb)return-1;else if(lb<la)return 1;else return 0});const values=await Promise.all(keyList.map(key=>this._storage.getItem(key)));this._debugCache.clear();for(let i=0,len=keyList.length;i<len;++i)this._debugCache.set(keyList[i],values[i])}catch(err){console.warn("[C3 debugger] Error displaying local storage: ",err)}finally{this._isLoadingDebugCache=false}}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.LocalStorage.Cnds={OnItemSet(key){return this._currentKey===key},OnAnyItemSet(){return true},OnItemGet(key){return this._currentKey===key},OnAnyItemGet(){return true},OnItemRemoved(key){return this._currentKey===key},OnAnyItemRemoved(){return true},OnCleared(){return true},OnAllKeyNamesLoaded(){return true},OnError(){return true},OnItemExists(key){return this._currentKey===key},OnItemMissing(key){return this._currentKey===key},CompareKey(cmp,key){return C3.compare(this._currentKey,
+cmp,key)},CompareValue(cmp,v){return C3.compare(this._lastValue,cmp,v)},IsProcessingSets(){return this._pendingSets>0},IsProcessingGets(){return this._pendingGets>0},OnAllSetsComplete(){return true},OnAllGetsComplete(){return true}}};
+
+
+'use strict';{const C3=self.C3;function IsExpressionType(x){return typeof x==="string"||typeof x==="number"}C3.Plugins.LocalStorage.Acts={async SetItem(key,value){this._pendingSets++;try{const valueSet=await this._storage.setItem(key,value);await this.ScheduleTriggers(async()=>{this._currentKey=key;this._lastValue=valueSet;await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAnyItemSet);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemSet)})}catch(err){await this._TriggerStorageError(err)}finally{this._pendingSets--;
+if(this._pendingSets===0)await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAllSetsComplete)}},async SetBinaryItem(key,objectClass){if(!objectClass)return;const inst=objectClass.GetFirstPicked(this._inst);if(!inst)return;const sdkInst=inst.GetSdkInstance();if(!sdkInst)return;const buffer=sdkInst.GetArrayBufferReadOnly();this._pendingSets++;try{await this._storage.setItem(key,buffer);await this.ScheduleTriggers(async()=>{this._currentKey=key;this._lastValue="";await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAnyItemSet);
+await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemSet)})}catch(err){await this._TriggerStorageError(err)}finally{this._pendingSets--;if(this._pendingSets===0)await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAllSetsComplete)}},async GetItem(key){this._pendingGets++;try{const value=await this._storage.getItem(key);await this.ScheduleTriggers(async()=>{this._currentKey=key;this._lastValue=IsExpressionType(value)?value:"";await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAnyItemGet);
+await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemGet)})}catch(err){await this._TriggerStorageError(err)}finally{this._pendingGets--;if(this._pendingGets===0)await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAllGetsComplete)}},async GetBinaryItem(key,objectClass){if(!objectClass)return;const inst=objectClass.GetFirstPicked(this._inst);if(!inst)return;const sdkInst=inst.GetSdkInstance();this._pendingGets++;try{let value=await this._storage.getItem(key);value=value instanceof ArrayBuffer?
+value:new ArrayBuffer(0);await this.ScheduleTriggers(async()=>{this._lastValue="";this._currentKey=key;sdkInst.SetArrayBufferTransfer(value);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAnyItemGet);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemGet)})}catch(err){await this._TriggerStorageError(err)}finally{this._pendingGets--;if(this._pendingGets===0)await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAllGetsComplete)}},async CheckItemExists(key){try{const value=await this._storage.getItem(key);
+await this.ScheduleTriggers(async()=>{this._currentKey=key;if(typeof value==="undefined"||value===null){this._lastValue="";await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemMissing)}else{this._lastValue=IsExpressionType(value)?value:"";await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemExists)}})}catch(err){await this._TriggerStorageError(err)}},async RemoveItem(key){try{await this._storage.removeItem(key);await this.ScheduleTriggers(async()=>{this._currentKey=key;this._lastValue=
+"";await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAnyItemRemoved);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnItemRemoved)})}catch(err){await this._TriggerStorageError(err)}},async ClearStorage(){try{await this._storage.clear();await this.ScheduleTriggers(async()=>{this._currentKey="";this._lastValue="";C3.clearArray(this._keyNamesList);await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnCleared)})}catch(err){await this._TriggerStorageError(err)}},async GetAllKeyNames(){try{const keyList=
+await this._storage.keys();await this.ScheduleTriggers(async()=>{this._keyNamesList=keyList;await this.TriggerAsync(C3.Plugins.LocalStorage.Cnds.OnAllKeyNamesLoaded)})}catch(err){await this._TriggerStorageError(err)}}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.LocalStorage.Exps={ItemValue(){return this._lastValue},Key(){return this._currentKey},KeyCount(){return this._keyNamesList.length},KeyAt(i){i=Math.floor(i);if(i<0||i>=this._keyNamesList.length)return"";return this._keyNamesList[i]},ErrorMessage(){return this._errorMessage}}};
+
+
 'use strict';{const C3=self.C3;C3.Plugins.Sprite=class SpritePlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -2921,6 +2949,30 @@ await this.TriggerAsync(C3.Plugins.TiledBg.Cnds.OnURLLoaded)}}};
 'use strict';{const C3=self.C3;C3.Plugins.TiledBg.Exps={ImageWidth(){return this.GetCurrentImageInfo().GetWidth()},ImageHeight(){return this.GetCurrentImageInfo().GetHeight()},ImageOffsetX(){return this._imageOffsetX},ImageOffsetY(){return this._imageOffsetY},ImageScaleX(){return this._imageScaleX*100},ImageScaleY(){return this._imageScaleY*100},ImageAngle(){return C3.toDegrees(this._imageAngle)}}};
 
 
+'use strict';{const C3=self.C3;const DOM_COMPONENT_ID="button";C3.Plugins.Button=class ButtonPlugin extends C3.SDKDOMPluginBase{constructor(opts){super(opts,DOM_COMPONENT_ID);this.AddElementMessageHandler("click",(sdkInst,e)=>sdkInst._OnClick(e))}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Button.Type=class ButtonType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;const TYPE=0;const TEXT=1;const TOOLTIP=2;const INITIALLY_VISIBLE=3;const ENABLE=4;const AUTO_FONT_SIZE=5;const CHECKED=6;const ID=7;const DOM_COMPONENT_ID="button";C3.Plugins.Button.Instance=class ButtonInstance extends C3.SDKDOMInstanceBase{constructor(inst,properties){super(inst,DOM_COMPONENT_ID);this._text="OK";this._isCheckbox=false;this._isChecked=false;this._title="";this._id="";this._isEnabled=true;this._autoFontSize=true;if(properties){this._isCheckbox=properties[TYPE]===
+1;this._text=properties[TEXT];this._title=properties[TOOLTIP];this.GetWorldInfo().SetVisible(properties[INITIALLY_VISIBLE]);this._isEnabled=properties[ENABLE];this._autoFontSize=properties[AUTO_FONT_SIZE];this._isChecked=properties[CHECKED];this._id=properties[ID]}this.CreateElement({"id":this._id})}Release(){super.Release()}GetElementState(){return{"text":this._text,"isCheckbox":this._isCheckbox,"isChecked":this._isChecked,"title":this._title,"isVisible":this.GetWorldInfo().IsVisible(),"isEnabled":this._isEnabled}}async _OnClick(e){this._isChecked=
+e["isChecked"];this.GetScriptInterface().dispatchEvent(C3.New(C3.Event,"click",true));await this.TriggerAsync(C3.Plugins.Button.Cnds.OnClicked)}_SetText(text){if(this._text===text)return;this._text=text;this.UpdateElementState()}_GetText(){return this._text}_SetTooltip(title){if(this._title===title)return;this._title=title;this.UpdateElementState()}_GetTooltip(){return this._title}_SetEnabled(e){e=!!e;if(this._isEnabled===e)return;this._isEnabled=e;this.UpdateElementState()}_IsEnabled(){return this._isEnabled}_SetChecked(c){if(!this._isCheckbox)return;
+c=!!c;if(this._isChecked===c)return;this._isChecked=c;this.UpdateElementState()}_IsChecked(){return this._isChecked}Draw(renderer){}SaveToJson(){return{"text":this._text,"checked":this._isChecked,"title":this._title,"enabled":this._isEnabled}}LoadFromJson(o){this._text=o["text"];this._isChecked=o["checked"];this._title=o["title"];this._isEnabled=o["enabled"];this.UpdateElementState()}GetPropertyValueByIndex(index){switch(index){case TEXT:return this._text;case TOOLTIP:return this._title;case ENABLE:return this._isEnabled;
+case AUTO_FONT_SIZE:return this._autoFontSize;case CHECKED:return this._isChecked;case ID:return this._id}}SetPropertyValueByIndex(index,value){switch(index){case TEXT:if(this._text===value)return;this._text=value;this.UpdateElementState();break;case TOOLTIP:if(this._title===value)return;this._title=value;this.UpdateElementState();break;case ENABLE:if(this._isEnabled===!!value)return;this._isEnabled=!!value;this.UpdateElementState();break;case AUTO_FONT_SIZE:this._autoFontSize=!!value;break;case CHECKED:if(this._isChecked===
+!!value)return;this._isChecked=!!value;this.UpdateElementState();break;case ID:if(this._id===!!value)return;this._id=value;this.UpdateElementState();break}}GetDebuggerProperties(){const Acts=C3.Plugins.Button.Acts;const prefix="plugins.button";return[{title:prefix+".name",properties:[{name:prefix+".properties.text.name",value:this._text,onedit:v=>this.CallAction(Acts.SetText,v)},{name:prefix+".properties.enabled.name",value:this._isEnabled,onedit:v=>this.CallAction(Acts.SetEnabled,v)},{name:prefix+
+".properties.checked.name",value:this._isChecked,onedit:v=>this.CallAction(Acts.SetChecked,v)}]}]}GetScriptInterfaceClass(){return self.IButtonInstance}};const map=new WeakMap;self.IButtonInstance=class IButtonInstance extends self.IDOMInstance{constructor(){super();map.set(this,self.IInstance._GetInitInst().GetSdkInstance())}set text(str){map.get(this)._SetText(str)}get text(){return map.get(this)._GetText()}set tooltip(str){map.get(this)._SetTooltip(str)}get tooltip(){return map.get(this)._GetTooltip()}set isEnabled(e){map.get(this)._SetEnabled(e)}get isEnabled(){return map.get(this)._IsEnabled()}set isChecked(c){map.get(this)._SetChecked(c)}get isChecked(){return map.get(this)._IsChecked()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Button.Cnds={OnClicked(){return true},IsChecked(){return this._isChecked},CompareText(str,caseSensitive){if(caseSensitive)return this._text===str;else return C3.equalsNoCase(this._text,str)}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Button.Acts={SetText(text){this._SetText(text)},SetTooltip(title){this._SetTooltip(title)},SetChecked(c){this._SetChecked(c!==0)},ToggleChecked(){if(!this._isCheckbox)return;this._isChecked=!this._isChecked;this.UpdateElementState()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Button.Exps={Text(){return this._text}}};
+
+
 'use strict';{const C3=self.C3;C3.Behaviors.Timer=class TimerBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -3083,6 +3135,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.Audio,
 		C3.Plugins.Browser,
 		C3.Plugins.Touch,
+		C3.Plugins.LocalStorage,
 		C3.Plugins.Sprite,
 		C3.Behaviors.Timer,
 		C3.Behaviors.Tween,
@@ -3092,6 +3145,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.List,
 		C3.Plugins.TiledBg,
 		C3.Behaviors.Sin,
+		C3.Plugins.Button,
 		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.ScriptsInEvents.C3_colors_helper_Event2_Act1,
 		C3.ScriptsInEvents.C3_colors_helper_Event4_Act1,
@@ -3102,6 +3156,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.ScriptsInEvents.C3_json_helper_Event3_Act1,
 		C3.ScriptsInEvents.C3_json_helper_Event4_Act1,
 		C3.ScriptsInEvents.C3_json_helper_Event5_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event6_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event7_Act1,
 		C3.Plugins.AJAX.Acts.RequestFile,
 		C3.Plugins.System.Acts.WaitForPreviousActions,
 		C3.Plugins.Json.Acts.Parse,
@@ -3111,16 +3167,23 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.System.Exps.projectname,
 		C3.Plugins.System.Exps.projectversion,
 		C3.Plugins.Text.Exps.UID,
+		C3.Plugins.LocalStorage.Acts.CheckItemExists,
+		C3.Plugins.LocalStorage.Cnds.OnItemMissing,
 		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.LocalStorage.Cnds.OnItemExists,
+		C3.Plugins.LocalStorage.Acts.GetItem,
+		C3.Plugins.LocalStorage.Exps.ItemValue,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.Text.Acts.SetVisible,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.System.Exps.float,
+		C3.Plugins.List.Acts.Select,
 		C3.Plugins.Touch.Cnds.OnTouchStart,
 		C3.Plugins.Touch.Cnds.IsTouchingObject,
 		C3.Behaviors.Fade.Acts.StartFade,
 		C3.Behaviors.Tween.Acts.TweenOneProperty,
 		C3.Plugins.System.Acts.AddVar,
+		C3.Plugins.List.Exps.SelectedText,
 		C3.Plugins.Sprite.Acts.Spawn,
 		C3.Plugins.Sprite.Exps.LayerName,
 		C3.Plugins.Particles.Cnds.OnCreated,
@@ -3153,24 +3216,28 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.Sprite.Acts.SetOpacity,
 		C3.Plugins.System.Cnds.EveryTick,
 		C3.Plugins.Sprite.Acts.SetPosToObject,
-		C3.ScriptsInEvents.Idle_game_Event33_Act1,
-		C3.ScriptsInEvents.Idle_game_Event34_Act1,
+		C3.ScriptsInEvents.Idle_game_Event35_Act1,
+		C3.ScriptsInEvents.Idle_game_Event36_Act1,
 		C3.Plugins.Sprite.Acts.SetAnim,
-		C3.ScriptsInEvents.Idle_game_Event37_Act6,
-		C3.ScriptsInEvents.Idle_game_Event38_Act1,
-		C3.ScriptsInEvents.Idle_game_Event39_Act1,
+		C3.ScriptsInEvents.Idle_game_Event39_Act6,
+		C3.ScriptsInEvents.Idle_game_Event40_Act1,
+		C3.ScriptsInEvents.Idle_game_Event41_Act1,
 		C3.Plugins.Sprite.Cnds.IsVisible,
 		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.List.Cnds.OnSelectionChanged,
-		C3.Plugins.List.Exps.SelectedText,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.Text.Acts.SetFontColor,
 		C3.Plugins.TiledBg.Exps.UID,
 		C3.Plugins.List.Exps.AsJSON,
-		C3.ScriptsInEvents.Idle_game_Event54_Act2,
+		C3.ScriptsInEvents.Idle_game_Event56_Act2,
 		C3.Plugins.List.Acts.LoadFromJsonString,
-		C3.Plugins.List.Acts.Select,
-		C3.Plugins.List.Acts.SetCSSStyle
+		C3.Plugins.List.Acts.SetCSSStyle,
+		C3.Plugins.List.Cnds.CompareSelectedText,
+		C3.Plugins.Audio.Acts.SetVolume,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.LocalStorage.Acts.SetItem,
+		C3.Plugins.LocalStorage.Acts.ClearStorage,
+		C3.Plugins.Button.Cnds.OnClicked
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3181,6 +3248,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{Audio: 0},
 		{Browser: 0},
 		{Touch: 0},
+		{LocalStorage: 0},
 		{Button_SPR_Icons: 0},
 		{generator_name: 0},
 		{visible: 0},
@@ -3222,6 +3290,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{Magic_Particles: 0},
 		{Settings_TXT_Label: 0},
 		{ChooseTheme: 0},
+		{ChooseMusicOnOff: 0},
+		{ChooseSoundOnOff: 0},
 		{pageToShow: 0},
 		{Select_Page_SPR: 0},
 		{Select_Page_TXT_Labels: 0},
@@ -3230,6 +3300,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{Sine: 0},
 		{Loading: 0},
 		{tiled_margin: 0},
+		{Button: 0},
+		{Button2: 0},
 		{Color_Primary_Sprite: 0},
 		{Color_Primary_Text: 0},
 		{Colors_Background_Text: 0},
@@ -3243,6 +3315,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{jsonName: 0},
 		{key: 0},
 		{value: 0},
+		{json_base64: 0},
 		{theme: 0},
 		{tempPoint: 0},
 		{tempQuantity: 0},
@@ -3397,7 +3470,10 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("colors", "demo.background");
 		},
-		() => -10,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ((((f0("idle_stats", "settings.music")) === ("On") ? 1 : 0)) ? ((-10)) : ((-1000)));
+		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
@@ -3416,11 +3492,22 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0("idle_stats", "settings.page");
 		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ((((f0("idle_stats", "settings.music")) === ("On") ? 1 : 0)) ? (0) : (1));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => ((((f0("idle_stats", "settings.sound")) === ("On") ? 1 : 0)) ? (0) : (1));
+		},
 		() => "CLICKER MAGIC",
 		() => "click",
 		() => 45,
 		() => 0.1,
-		() => 0,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => ((((n0.ExpObject()) === ("On") ? 1 : 0)) ? (0) : ((-1000)));
+		},
 		() => 1,
 		() => "currencies.primary.quantity",
 		p => {
@@ -3432,6 +3519,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const v1 = p._GetNode(1).GetVar();
 			return () => f0("colors", (v1.GetValue() + ".primary"));
 		},
+		() => 0,
 		() => "GENERATORS",
 		() => "GENERATORS :: on click",
 		() => "Touched",
@@ -3514,7 +3602,20 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			return () => f0("idle_stats", "settings.font");
 		},
 		() => "font-weight",
-		() => "bold"
+		() => "bold",
+		() => "MUSIC & SOUND",
+		() => "settings.music",
+		() => "settings.sound",
+		() => "On",
+		() => -10,
+		() => "Off",
+		() => -1000,
+		() => "SAVE SYSTEM",
+		() => 30,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0("idle_stats");
+		}
 	];
 }
 
@@ -3581,13 +3682,27 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			json_initialize(name);
 		},
 
+		async C3_json_helper_Event6_Act1(runtime, localVars)
+		{
+			const name = localVars.name;
+			const json_base64 = localVars.json_base64;
+			json_initialize_fromBase64(name, json_base64);
+		},
+
+		async C3_json_helper_Event7_Act1(runtime, localVars)
+		{
+			const name = localVars.name;
+			const result = json_getJSON_asBase64(name);
+			runtime.setReturnValue(result);
+		},
+
 		async Idle_game_Event10_Act1(runtime, localVars)
 		{
 			localVars.tempPoint = convertNumberToIdleString(runtime.globalVars.Points);
 			// localVars.tempPoint = roundTenth(runtime.globalVars.Points);
 		},
 
-		async Idle_game_Event33_Act1(runtime, localVars)
+		async Idle_game_Event35_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const element = g_runtime.getInstanceByUid(uid);
@@ -3601,7 +3716,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			runtime.setReturnValue(result);
 		},
 
-		async Idle_game_Event34_Act1(runtime, localVars)
+		async Idle_game_Event36_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const element = g_runtime.getInstanceByUid(uid);
@@ -3609,7 +3724,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			
 			const isGenerator = nameGenerator != "";
 			
-			const variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : "", icon: "witch", quantity: "0", description: "", cost: "0", every_x_seconds:"0", next_effect:"0", effect: ""};
+			const variables = isGenerator ? getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JSON) : {name : "", icon: "witch", quantity: "0", description: "", cost: "0", every_x_seconds:"0", next_effect:"0", effect: "", listRequires: ""};
 			
 			element.instVars.name = variables.name;
 			element.instVars.icon = variables.icon;
@@ -3618,16 +3733,17 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			element.instVars.cost = variables.cost;
 			element.instVars.every_x_seconds = variables.every_x_seconds;
 			element.instVars.nextEffect = variables.next_effect;
+			element.instVars.require = variables.listRequires;
 		},
 
-		async Idle_game_Event37_Act6(runtime, localVars)
+		async Idle_game_Event39_Act6(runtime, localVars)
 		{
 			localVars.tempQuantity = convertNumberToIdleString(localVars.tempQuantity);
 			localVars.tempCost = convertNumberToIdleString(localVars.tempCost);
 			localVars.tempNextEffect = convertNumberToIdleString(localVars.tempNextEffect);
 		},
 
-		async Idle_game_Event38_Act1(runtime, localVars)
+		async Idle_game_Event40_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const element = g_runtime.getInstanceByUid(uid);
@@ -3646,7 +3762,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			
 		},
 
-		async Idle_game_Event39_Act1(runtime, localVars)
+		async Idle_game_Event41_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const element = g_runtime.getInstanceByUid(uid);
@@ -3661,7 +3777,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			element.instVars.isPurchasable = isPurchasable ? 1 : 0;
 		},
 
-		async Idle_game_Event54_Act2(runtime, localVars)
+		async Idle_game_Event56_Act2(runtime, localVars)
 		{
 			const listOriginal = localVars.ListOriginal;
 			const themes = json_getKey("colors", ``);
@@ -3710,7 +3826,7 @@ function json_initialize(json_name) {
 	jsonObj[json_name] = json[json_name].getJsonDataCopy();
 }
 
-function json_getKey(json_name, json_key, value_default = 0){
+function json_getKey(json_name, json_key = "", value_default = 0){
 	const obj = jsonObj[json_name];
 	let result = value_default;
 	
@@ -3770,6 +3886,27 @@ function json_changeKey(json_name, json_key, value) {
 	jsonObj[json_name] = { ...result };
 	json[json_name].setJsonDataCopy(result);
 	return result;
+}
+
+
+function json_getJSON_asString(json_name) {
+	const obj = json_getKey(json_name);
+	return JSON.stringify(obj);
+}
+
+function json_getJSON_asBase64(json_name) {
+	const obj = json_getKey(json_name);
+	return btoa(JSON.stringify(obj));
+}
+
+function json_getJSON_fromBase64(json_base64) {
+	return JSON.parse(atob(json_base64));
+}
+
+function json_initialize_fromBase64(json_name, json_base64) {
+	const result =  JSON.parse(atob(json_base64));
+	jsonObj[json_name] = { ...result };
+	json[json_name].setJsonDataCopy(result);
 }
 
 
@@ -4019,8 +4156,30 @@ function getVarForButtonGenerators(nameGenerator, idle_rules_JSON, idle_stats_JS
 		effect = `x${convertNumberToIdleString(base_income)} ${labelCurrency} for ${listGenerators}`;
 	}
 
+	const listRequireCurrencies = generatorsRules.requires.currencies;
+	const listRequireGenerators = generatorsRules.requires.generators;
+	
+	let listRequires = ""
+	
+	if (listRequireCurrencies.length > 0) {
+		listRequireCurrencies.forEach( req => {
+			const quantity = req.quantity;
+			const currency = req.currency;
+			const name = json_getKey(idle_rules_JSON, `currencies.${currency}.label`);
+			listRequires = `${listRequires}\n${quantity} ${name}`;
+		})
+	}
+	
+	if (listRequireGenerators.length > 0) {
+		listRequireGenerators.forEach( req => {
+			const quantity = req.quantity;
+			const generator = req.generator;
+			const name = json_getKey(idle_rules_JSON, `generators.${generator}.label`);
+			listRequires = `${listRequires}\n${quantity} ${name}`;
+		})
+	}
 
-	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect};
+	return {name, icon, description, quantity, effect, cost, every_x_seconds, next_effect, listRequires};
 }
 
 function buttonGeneratorsIsPurchasable(money, nameGenerator, idle_rules_JSON, idle_stats_JSON) {

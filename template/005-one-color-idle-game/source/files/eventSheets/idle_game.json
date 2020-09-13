@@ -14,11 +14,11 @@
 				{
 					"id": "play",
 					"objectClass": "Audio",
-					"sid": 729775632691030,
+					"sid": 277826889087185,
 					"parameters": {
 						"audio-file": "background",
 						"loop": "looping",
-						"volume": "-10",
+						"volume": "Functions.getValue(\"idle_stats\", \"settings.music\") = \"On\" ? -10 : -1000",
 						"tag-optional": "\"background\""
 					}
 				},
@@ -74,6 +74,36 @@
 					"parameters": [
 						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
 					]
+				},
+				{
+					"callFunction": "Theme :: Colorize MusicOnOff",
+					"sid": 418219377417290,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
+					]
+				},
+				{
+					"callFunction": "Theme :: Colorize SoundOnOff",
+					"sid": 740637302760567,
+					"parameters": [
+						"Functions.getValue(\"idle_stats\", \"settings.theme\")"
+					]
+				},
+				{
+					"id": "set-selection",
+					"objectClass": "ChooseMusicOnOff",
+					"sid": 976716957689396,
+					"parameters": {
+						"index": "Functions.getValue(\"idle_stats\", \"settings.music\") = \"On\" ? 0 : 1"
+					}
+				},
+				{
+					"id": "set-selection",
+					"objectClass": "ChooseSoundOnOff",
+					"sid": 548259162555275,
+					"parameters": {
+						"index": "Functions.getValue(\"idle_stats\", \"settings.sound\") = \"On\" ? 0 : 1"
+					}
 				}
 			],
 			"sid": 452345187662795
@@ -144,12 +174,12 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 723278757166821,
+									"sid": 311756359050068,
 									"parameters": {
 										"audio-file": "click",
 										"loop": "not-looping",
-										"volume": "0",
-										"tag-optional": "\"\""
+										"volume": "ChooseSoundOnOff.SelectedText = \"On\" ? 0 : -1000",
+										"tag-optional": "\"click\""
 									}
 								},
 								{
@@ -404,12 +434,12 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 459467395432827,
+											"sid": 365417420080504,
 											"parameters": {
 												"audio-file": "click",
 												"loop": "not-looping",
-												"volume": "0",
-												"tag-optional": "\"\""
+												"volume": "ChooseSoundOnOff.SelectedText = \"On\" ? 0 : -1000",
+												"tag-optional": "\"click\""
 											}
 										},
 										{
@@ -1667,6 +1697,20 @@
 							]
 						},
 						{
+							"callFunction": "Theme :: Colorize MusicOnOff",
+							"sid": 909743213952507,
+							"parameters": [
+								"ChooseTheme.SelectedText"
+							]
+						},
+						{
+							"callFunction": "Theme :: Colorize SoundOnOff",
+							"sid": 433433750897941,
+							"parameters": [
+								"ChooseTheme.SelectedText"
+							]
+						},
+						{
 							"callFunction": "setValue",
 							"sid": 228089947236115,
 							"parameters": [
@@ -2038,9 +2082,386 @@
 						}
 					],
 					"sid": 717438411504857
+				},
+				{
+					"functionName": "Theme :: Colorize MusicOnOff",
+					"functionDescription": "",
+					"functionCategory": "Theme",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "theme",
+							"type": "string",
+							"initialValue": "demo",
+							"comment": "",
+							"sid": 371474172162611
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 455741003072182,
+							"parameters": {
+								"property-name": "\"border\"",
+								"value": "\"2px solid \" & Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 985036770487901,
+							"parameters": {
+								"property-name": "\"border-radius\"",
+								"value": "\"4px\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 377325634486116,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".background\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 505652242415382,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 178232573823358,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "Functions.getValue(\"idle_stats\", \"settings.font\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 970774788306260,
+							"parameters": {
+								"property-name": "\"font-weight\"",
+								"value": "\"bold\""
+							}
+						}
+					],
+					"sid": 456003471529573
+				},
+				{
+					"functionName": "Theme :: Colorize SoundOnOff",
+					"functionDescription": "",
+					"functionCategory": "Theme",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "theme",
+							"type": "string",
+							"initialValue": "demo",
+							"comment": "",
+							"sid": 828770492485751
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 130140446187263,
+							"parameters": {
+								"property-name": "\"border\"",
+								"value": "\"2px solid \" & Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 470582166282417,
+							"parameters": {
+								"property-name": "\"border-radius\"",
+								"value": "\"4px\""
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 534420117271023,
+							"parameters": {
+								"property-name": "\"background-color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".background\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 744422232370825,
+							"parameters": {
+								"property-name": "\"color\"",
+								"value": "Functions.getValue(\"colors\", theme&\".primary\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 177387993279131,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "Functions.getValue(\"idle_stats\", \"settings.font\")"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 321081380178141,
+							"parameters": {
+								"property-name": "\"font-weight\"",
+								"value": "\"bold\""
+							}
+						}
+					],
+					"sid": 921172590767650
 				}
 			],
 			"sid": 626309662872924
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MUSIC & SOUND",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 666659444650167
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setValue",
+							"sid": 677026252325673,
+							"parameters": [
+								"\"idle_stats\"",
+								"\"settings.music\"",
+								"ChooseMusicOnOff.SelectedText"
+							]
+						}
+					],
+					"sid": 551819705983224
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "ChooseSoundOnOff",
+							"sid": 458091267743397
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "setValue",
+							"sid": 380235538616417,
+							"parameters": [
+								"\"idle_stats\"",
+								"\"settings.sound\"",
+								"ChooseSoundOnOff.SelectedText"
+							]
+						}
+					],
+					"sid": 650165567545594
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-selected-item-text",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 852627123295855,
+							"parameters": {
+								"text-to-compare": "\"On\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 599380222346857,
+							"parameters": {
+								"tag": "\"background\"",
+								"db": "-10"
+							}
+						}
+					],
+					"sid": 511270752461393
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-selected-item-text",
+							"objectClass": "ChooseMusicOnOff",
+							"sid": 887636700657155,
+							"parameters": {
+								"text-to-compare": "\"Off\"",
+								"case-sensitivity": "ignore-case"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-volume",
+							"objectClass": "Audio",
+							"sid": 446046223363389,
+							"parameters": {
+								"tag": "\"background\"",
+								"db": "-1000"
+							}
+						}
+					],
+					"sid": 186401745110135
+				}
+			],
+			"sid": 106607282602220
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SAVE SYSTEM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 613892975885226,
+							"parameters": {
+								"interval-seconds": "30"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Save Game To Local Storage",
+							"sid": 426231257618865
+						}
+					],
+					"sid": 961009521243823
+				},
+				{
+					"functionName": "Save Game To Local Storage",
+					"functionDescription": "",
+					"functionCategory": "SAVE SYSTEM",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 351175957271024,
+							"parameters": {
+								"key": "\"idle_stats\"",
+								"value": "Functions.get_JSON_as_Base64(\"idle_stats\")"
+							}
+						}
+					],
+					"sid": 477478074824493
+				},
+				{
+					"functionName": "Reset Game",
+					"functionDescription": "",
+					"functionCategory": "SAVE SYSTEM",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "clear-storage",
+							"objectClass": "LocalStorage",
+							"sid": 642259038340405
+						},
+						{
+							"callFunction": "InitializeJson:idle_stats",
+							"sid": 231893688014730
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 625420927463970
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 663559056133206,
+							"parameters": {
+								"layout": "IdleGame"
+							}
+						}
+					],
+					"sid": 439738390818916
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Button",
+							"sid": 135108015803612
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Save Game To Local Storage",
+							"sid": 189663598341446
+						}
+					],
+					"sid": 526926422460665
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Button2",
+							"sid": 756570744454400
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Reset Game",
+							"sid": 713077860015146
+						}
+					],
+					"sid": 115232923021524
+				}
+			],
+			"sid": 555413261617851
 		}
 	],
 	"sid": 861877163176371

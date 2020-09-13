@@ -18,7 +18,7 @@ function json_initialize(json_name) {
 	jsonObj[json_name] = json[json_name].getJsonDataCopy();
 }
 
-function json_getKey(json_name, json_key, value_default = 0){
+function json_getKey(json_name, json_key = "", value_default = 0){
 	const obj = jsonObj[json_name];
 	let result = value_default;
 	
@@ -78,4 +78,25 @@ function json_changeKey(json_name, json_key, value) {
 	jsonObj[json_name] = { ...result };
 	json[json_name].setJsonDataCopy(result);
 	return result;
+}
+
+
+function json_getJSON_asString(json_name) {
+	const obj = json_getKey(json_name);
+	return JSON.stringify(obj);
+}
+
+function json_getJSON_asBase64(json_name) {
+	const obj = json_getKey(json_name);
+	return btoa(JSON.stringify(obj));
+}
+
+function json_getJSON_fromBase64(json_base64) {
+	return JSON.parse(atob(json_base64));
+}
+
+function json_initialize_fromBase64(json_name, json_base64) {
+	const result =  JSON.parse(atob(json_base64));
+	jsonObj[json_name] = { ...result };
+	json[json_name].setJsonDataCopy(result);
 }
