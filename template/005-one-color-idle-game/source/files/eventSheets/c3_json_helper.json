@@ -28,6 +28,13 @@
 							"initialValue": "",
 							"comment": "",
 							"sid": 316177254099184
+						},
+						{
+							"name": "value_default",
+							"type": "string",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 434834782870115
 						}
 					],
 					"eventType": "function-block",
@@ -35,7 +42,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst result = json_getKey(json_name,key);\nruntime.setReturnValue(result);"
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst value_default = localVars.value_default;\nconst result = json_getKey(json_name, key, value_default);\nruntime.setReturnValue(result);"
 						}
 					],
 					"sid": 483600901433894

@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 21500,
+	"savedWithRelease": 21600,
 	"name": "One Color Idle Game",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "Json",
 			"name": "JSON",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "AJAX",
 			"name": "AJAX",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Audio",
 			"name": "Audio",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Browser",
 			"name": "Browser",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Touch",
 			"name": "Touch",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,15 @@
 			"id": "LocalStorage",
 			"name": "Local storage",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Date",
+			"name": "Date",
+			"author": "Scirra",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -59,7 +67,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -67,7 +75,7 @@
 			"id": "Particles",
 			"name": "Particles",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -75,7 +83,15 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -83,7 +99,7 @@
 			"id": "List",
 			"name": "List",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -91,15 +107,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r215",
-			"bundled": false
-		},
-		{
-			"type": "plugin",
-			"id": "Button",
-			"name": "Button",
-			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -107,7 +115,7 @@
 			"id": "Timer",
 			"name": "Timer",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -115,7 +123,7 @@
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -123,7 +131,7 @@
 			"id": "Fade",
 			"name": "Fade",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		},
 		{
@@ -131,7 +139,7 @@
 			"id": "Sin",
 			"name": "Sine",
 			"author": "Scirra",
-			"version": "r215",
+			"version": "r216",
 			"bundled": false
 		}
 	],
@@ -142,8 +150,7 @@
 			"TiledBackground",
 			"Loading",
 			"tiled_margin",
-			"Button",
-			"Button2"
+			"Logger_txt"
 		],
 		"subfolders": [
 			{
@@ -161,7 +168,8 @@
 					"Audio",
 					"Browser",
 					"Touch",
-					"LocalStorage"
+					"LocalStorage",
+					"Date"
 				],
 				"subfolders": [],
 				"name": "System"
@@ -229,13 +237,46 @@
 				"name": "Magic"
 			},
 			{
-				"items": [
-					"Settings_TXT_Label",
-					"ChooseTheme",
-					"ChooseMusicOnOff",
-					"ChooseSoundOnOff"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Settings_Button",
+							"Settings_Button_ConfirmImport"
+						],
+						"subfolders": [],
+						"name": "Sprites"
+					},
+					{
+						"items": [
+							"Settings_TXT_Background_Label",
+							"Settings_TXT_ConfirmImport",
+							"Settings_TXT_Label",
+							"Settings_TXT_Label_CopyThisText",
+							"Settings_TXT_Label_LastSave",
+							"Settings_TXT_Label_PasteTheSaveCode"
+						],
+						"subfolders": [],
+						"name": "Texts"
+					},
+					{
+						"items": [
+							"Input_ExportSave",
+							"Input_ImportSave"
+						],
+						"subfolders": [],
+						"name": "Input"
+					},
+					{
+						"items": [
+							"ChooseMusicOnOff",
+							"ChooseSoundOnOff",
+							"ChooseTheme"
+						],
+						"subfolders": [],
+						"name": "List"
+					}
 				],
-				"subfolders": [],
 				"name": "Settings"
 			},
 			{
@@ -476,7 +517,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-20.09.13",
+		"version": "demo-20.09.18",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

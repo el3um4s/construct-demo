@@ -30,25 +30,25 @@
 				},
 				{
 					"callFunction": "Change_Color_Object",
-					"sid": 147176117299226,
+					"sid": 991346740499342,
 					"parameters": [
 						"Loading.UID",
-						"Functions.getValue(\"colors\", \"demo.primary\")"
+						"Functions.getValue(\"colors\", \"demo.primary\", \"#DBDBDB\")"
 					]
 				},
 				{
 					"callFunction": "Change_Color_Layer",
-					"sid": 434281964885966,
+					"sid": 730325266880068,
 					"parameters": [
 						"\"background\"",
-						"Functions.getValue(\"colors\", \"demo.background\")"
+						"Functions.getValue(\"colors\", \"demo.background\", \"#242323\")"
 					]
 				},
 				{
 					"callFunction": "Change_Color_Body",
-					"sid": 835539394501053,
+					"sid": 326172653303928,
 					"parameters": [
-						"Functions.getValue(\"colors\", \"demo.background\")"
+						"Functions.getValue(\"colors\", \"demo.background\", \"#242323\")"
 					]
 				}
 			],

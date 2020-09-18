@@ -1,0 +1,50 @@
+{
+	"name": "Settings_Button",
+	"plugin-id": "Sprite",
+	"sid": 799871562534193,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "event",
+			"type": "string",
+			"desc": "",
+			"sid": 691701136229215
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 234049149079989
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7307698,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 247070376816269,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -13,6 +13,8 @@
 		"Select_Page_SPR",
 		"Button_SPR_mystery",
 		"Button_SPR_PlaceHolder",
-		"Magic_SPR_Points"
+		"Magic_SPR_Points",
+		"Settings_Button",
+		"Settings_Button_ConfirmImport"
 	]
 }

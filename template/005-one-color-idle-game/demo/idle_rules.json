@@ -11,6 +11,10 @@
 			"label": "Witch",
 			"icon": "witch",
 			"description": "1 point every 1 seconds",
+			"logger": {
+				"on_creation": "A witch appears",
+				"on_event" : "Witches created {quantity}{currency}"
+			},
 			"requires": {
 				"currencies": [
 					{

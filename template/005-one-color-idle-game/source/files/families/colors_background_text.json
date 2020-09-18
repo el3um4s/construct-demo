@@ -13,6 +13,8 @@
 		"Magic_TXT_Labels",
 		"Magic_TXT_PPS",
 		"Select_Page_TXT_Labels",
-		"Button_TXT_NextEffect"
+		"Button_TXT_NextEffect",
+		"Settings_TXT_Background_Label",
+		"Settings_TXT_ConfirmImport"
 	]
 }

@@ -5409,8 +5409,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 96,
+						"x": 104,
+						"y": 80,
 						"width": 152,
 						"height": 24,
 						"originX": 0,
@@ -5449,9 +5449,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 96,
-						"width": 56,
+						"x": 632,
+						"y": 80,
+						"width": 368,
 						"height": 24,
 						"originX": 1,
 						"originY": 0,
@@ -5491,9 +5491,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 128,
-						"width": 56,
+						"x": 632,
+						"y": 112,
+						"width": 368,
 						"height": 24,
 						"originX": 1,
 						"originY": 0,
@@ -5533,9 +5533,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 160,
-						"width": 56,
+						"x": 632,
+						"y": 144,
+						"width": 368,
 						"height": 24,
 						"originX": 1,
 						"originY": 0,
@@ -5565,9 +5565,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 128,
-						"width": 72,
+						"x": 104,
+						"y": 112,
+						"width": 152,
 						"height": 24,
 						"originX": 0,
 						"originY": 0,
@@ -5595,9 +5595,9 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 160,
-						"width": 72,
+						"x": 104,
+						"y": 144,
+						"width": 152,
 						"height": 24,
 						"originX": 0,
 						"originY": 0,
@@ -5610,25 +5610,427 @@
 					}
 				},
 				{
-					"type": "Button",
+					"type": "Settings_Button",
 					"properties": {
-						"type": "button",
-						"text": "SAVE GAME",
-						"tooltip": "",
 						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": ""
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 22,
+					"instanceVariables": {
+						"event": "Save"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 104,
+						"y": 208,
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Background_Label",
+					"properties": {
+						"text": "Save",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.1607843137254902,
+							0.1607843137254902,
+							0.1607843137254902,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 109,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 112,
+						"y": 208,
+						"width": 136,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 110,
+					"instanceVariables": {
+						"event": "Wipe Save"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 104,
+						"y": 176,
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Background_Label",
+					"properties": {
+						"text": "Wipe Save",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.1607843137254902,
+							0.1607843137254902,
+							0.1607843137254902,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 111,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 112,
+						"y": 176,
+						"width": 136,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 112,
+					"instanceVariables": {
+						"event": "Export Save"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 104,
+						"y": 240,
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Background_Label",
+					"properties": {
+						"text": "Export Save",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.1607843137254902,
+							0.1607843137254902,
+							0.1607843137254902,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 208,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 112,
+						"y": 240,
+						"width": 136,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_Button",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 209,
+					"instanceVariables": {
+						"event": "Import Save"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 104,
+						"y": 272,
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Background_Label",
+					"properties": {
+						"text": "Import Save",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.1607843137254902,
+							0.1607843137254902,
+							0.1607843137254902,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 210,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 112,
+						"y": 272,
+						"width": 136,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Label",
+					"properties": {
+						"text": "Warning: This cannot be undone!",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-right"
 					},
 					"uid": 20,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 192,
-						"width": 152,
+						"x": 632,
+						"y": 176,
+						"width": 368,
 						"height": 24,
+						"originX": 1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Label_LastSave",
+					"properties": {
+						"text": "Last save time: None",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-right"
+					},
+					"uid": 21,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 632,
+						"y": 208,
+						"width": 368,
+						"height": 24,
+						"originX": 1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Input_ExportSave",
+					"properties": {
+						"text": "",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": false,
+						"enabled": true,
+						"read-only": true,
+						"spell-check": false,
+						"type": "textarea",
+						"auto-font-size": true,
+						"id": "Input_ExportSave"
+					},
+					"uid": 212,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 264,
+						"y": 272,
+						"width": 368,
+						"height": 200,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -5640,25 +6042,111 @@
 					}
 				},
 				{
-					"type": "Button2",
+					"type": "Settings_TXT_Label_CopyThisText",
 					"properties": {
-						"type": "button",
-						"text": "RESET GAME",
-						"tooltip": "",
-						"initially-visible": true,
-						"enabled": true,
-						"auto-font-size": true,
-						"checked": false,
-						"id": ""
+						"text": "Copy this text:",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-right"
 					},
-					"uid": 21,
+					"uid": 213,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 160,
-						"y": 224,
-						"width": 152,
+						"x": 632,
+						"y": 240,
+						"width": 368,
 						"height": 24,
+						"originX": 1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_Label_PasteTheSaveCode",
+					"properties": {
+						"text": "Paste here the save code:",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": false,
+						"origin": "top-right"
+					},
+					"uid": 214,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 632,
+						"y": 272,
+						"width": 368,
+						"height": 24,
+						"originX": 1,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Input_ImportSave",
+					"properties": {
+						"text": "",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": false,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "textarea",
+						"auto-font-size": true,
+						"id": ""
+					},
+					"uid": 215,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 104,
+						"y": 304,
+						"width": 528,
+						"height": 128,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -5668,9 +6156,159 @@
 							1
 						]
 					}
+				},
+				{
+					"type": "Settings_Button_ConfirmImport",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 216,
+					"instanceVariables": {
+						"event": "Import Save"
+					},
+					"behaviors": {
+						"Tween": {
+							"properties": {
+								"enabled": true
+							}
+						}
+					},
+					"world": {
+						"x": 472,
+						"y": 440,
+						"width": 152,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Settings_TXT_ConfirmImport",
+					"properties": {
+						"text": "Import!",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.1607843137254902,
+							0.1607843137254902,
+							0.1607843137254902,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 217,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 480,
+						"y": 440,
+						"width": 136,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 434671495433719,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.3686274509803922,
+				0.3686274509803922,
+				0.3686274509803922,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "LAY_LOGGER",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Logger_txt",
+					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "monotalic",
+						"size": 8,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 219,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 648,
+						"y": 32,
+						"width": 200,
+						"height": 440,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 783561233775669,
 			"effectTypes": [],
 			"isInitiallyVisible": false,
 			"color": [
@@ -6077,9 +6715,9 @@
 					"behaviors": {},
 					"world": {
 						"x": 88,
-						"y": -176,
+						"y": -512,
 						"width": 2,
-						"height": 1616,
+						"height": 1952,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -6452,6 +7090,39 @@
 						"y": 0,
 						"width": 346,
 						"height": 2,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "tiled_margin",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 218,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 640,
+						"y": -600,
+						"width": 2,
+						"height": 600,
 						"originX": 0,
 						"originY": 0,
 						"color": [
