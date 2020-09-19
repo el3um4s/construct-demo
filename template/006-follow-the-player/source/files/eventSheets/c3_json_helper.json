@@ -1,0 +1,267 @@
+{
+	"name": "c3_json_helper",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json HELPER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "getValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "any",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 951598129018496
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 316177254099184
+						},
+						{
+							"name": "value_default",
+							"type": "string",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 127569597951863
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst value_default = localVars.value_default;\nconst result = json_getKey(json_name, key, value_default);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 483600901433894
+				},
+				{
+					"functionName": "setValue",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 731185672265125
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 107177790046482
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 223190028221220
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst value = localVars.value;\nconst json_name = localVars.jsonName;\njson_changeKey(json_name, key, value)"
+						}
+					],
+					"sid": 919399102186454
+				},
+				{
+					"functionName": "addValue",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 597119220621660
+						},
+						{
+							"name": "key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 625084693206144
+						},
+						{
+							"name": "value",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 381559148106078
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.key;\nconst json_name = localVars.jsonName;\nconst origin = json_getKey(json_name,key);\nconst value = localVars.value;\nconst result = parseFloat(origin) + parseFloat(value);\njson_changeKey(json_name, key, result);"
+						}
+					],
+					"sid": 412654523102250
+				},
+				{
+					"functionName": "initializeJSON",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 242169390244202
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\njson_initialize(name);"
+						}
+					],
+					"sid": 565277230107712
+				},
+				{
+					"functionName": "initializeJSON_fromBase64",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 507199863546782
+						},
+						{
+							"name": "json_base64",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 891249151805211
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\nconst json_base64 = localVars.json_base64;\njson_initialize_fromBase64(name, json_base64);"
+						}
+					],
+					"sid": 927295503012683
+				},
+				{
+					"functionName": "get_JSON_as_Base64",
+					"functionDescription": "",
+					"functionCategory": "JSON",
+					"functionReturnType": "string",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 661523314718309
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const name = localVars.name;\nconst result = json_getJSON_asBase64(name);\nruntime.setReturnValue(result);"
+						}
+					],
+					"sid": 586995831513967
+				}
+			],
+			"sid": 771433269211111
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Json INITIALIZE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "InitializeJson:colors",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "request-project-file",
+							"objectClass": "AJAX",
+							"sid": 217247732735788,
+							"parameters": {
+								"tag": "\"\"",
+								"file": "colors.json"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 479696196788005
+						},
+						{
+							"id": "parse",
+							"objectClass": "colors",
+							"sid": 337695408225222,
+							"parameters": {
+								"data": "AJAX.LastData"
+							}
+						},
+						{
+							"callFunction": "initializeJSON",
+							"sid": 479841912633495,
+							"parameters": [
+								"\"colors\""
+							]
+						}
+					],
+					"sid": 578524120582657
+				}
+			],
+			"sid": 143545687955143
+		}
+	],
+	"sid": 143555207262419
+}

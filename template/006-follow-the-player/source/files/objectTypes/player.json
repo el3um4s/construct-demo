@@ -1,0 +1,93 @@
+{
+	"name": "player",
+	"plugin-id": "Sprite",
+	"sid": 204939511997294,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "targetWidth",
+			"type": "number",
+			"desc": "",
+			"sid": 703771738103797
+		},
+		{
+			"name": "targetHeight",
+			"type": "number",
+			"desc": "",
+			"sid": 578376148622974
+		},
+		{
+			"name": "targetRotation",
+			"type": "number",
+			"desc": "",
+			"sid": 459483957255690
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 693728121869656
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 497894609842135
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 44,
+						"height": 76,
+						"originX": 0.5,
+						"originY": 0.9868421052631579,
+						"originalSource": "C:\\Users\\Kenney\\Desktop\\player.png",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 7074803,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					},
+					{
+						"width": 44,
+						"height": 76,
+						"originX": 0.5,
+						"originY": 0.9868421052631579,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2233040,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 334622324227427,
+				"name": "Default",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

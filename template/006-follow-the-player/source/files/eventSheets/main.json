@@ -1,0 +1,870 @@
+{
+	"name": "main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "bread_crumb_timer",
+			"type": "number",
+			"initialValue": "0.2",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 900831524413805
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 162991327049305
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 865222507596463,
+					"parameters": {
+						"text": "\"[b]\" &projectname & \"[/b]  [size=8][i](version: \" & projectversion & \")[/i][/size]\""
+					}
+				},
+				{
+					"callFunction": "InitializeJson:colors",
+					"sid": 272641196551255
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 727951318159876
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 159436487631212,
+					"parameters": [
+						"Title.UID",
+						"Functions.getValue(\"colors\", \"demo.primary\", \"0\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Object",
+					"sid": 534649551967371,
+					"parameters": [
+						"info.UID",
+						"Functions.getValue(\"colors\", \"demo.background\", \"0\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Layer",
+					"sid": 864054439283821,
+					"parameters": [
+						"\"background\"",
+						"Functions.getValue(\"colors\", \"demo.background\", \"0\")"
+					]
+				},
+				{
+					"callFunction": "Change_Color_Body",
+					"sid": 143458390021492,
+					"parameters": [
+						"Functions.getValue(\"colors\", \"demo.background\", \"0\")"
+					]
+				}
+			],
+			"sid": 573528022141876
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PLAYER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 691561030047680
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "player",
+							"sid": 179340703253606,
+							"parameters": {
+								"instance-variable": "targetWidth",
+								"value": "Self.Width"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "player",
+							"sid": 755185701420770,
+							"parameters": {
+								"instance-variable": "targetHeight",
+								"value": "Self.Height"
+							}
+						}
+					],
+					"sid": 912382277071546
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-jump",
+							"objectClass": "player",
+							"sid": 566252780230636,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "player",
+							"sid": 974997704134087,
+							"parameters": {
+								"width": "self.Width - 20"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "player",
+							"sid": 588702355596492,
+							"parameters": {
+								"height": "self.Height + 40"
+							}
+						}
+					],
+					"sid": 141710962629084
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-landed",
+							"objectClass": "player",
+							"sid": 474580932622387,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "player",
+							"sid": 458536838730151,
+							"parameters": {
+								"width": "self.Width + 20"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "player",
+							"sid": 388388488591952,
+							"parameters": {
+								"height": "self.Height - 40"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "spr_camera",
+							"sid": 975523528322890,
+							"behaviorType": "beh_scroll_to",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.2",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 251723432908647
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 674503460093557
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "player",
+							"sid": 376494664718850,
+							"parameters": {
+								"instance-variable": "targetWidth",
+								"value": "lerp(self.Width, 44, 0.2)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "player",
+							"sid": 460908809277924,
+							"parameters": {
+								"instance-variable": "targetHeight",
+								"value": "lerp(self.Height, 76, 0.2)"
+							}
+						},
+						{
+							"id": "set-width",
+							"objectClass": "player",
+							"sid": 461944730666620,
+							"parameters": {
+								"width": "self.targetWidth"
+							}
+						},
+						{
+							"id": "set-height",
+							"objectClass": "player",
+							"sid": 438520109061921,
+							"parameters": {
+								"height": "self.targetHeight"
+							}
+						}
+					],
+					"sid": 473965747970473
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 621573725296650,
+							"parameters": {
+								"key": 37
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 350456567413825,
+							"parameters": {
+								"key": 65
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "player",
+							"sid": 235849223283183,
+							"parameters": {
+								"frame-number": "1"
+							}
+						}
+					],
+					"sid": 418381584164403,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 801675186955339,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "key-is-down",
+							"objectClass": "Keyboard",
+							"sid": 773264900926140,
+							"parameters": {
+								"key": 68
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "player",
+							"sid": 411239769169275,
+							"parameters": {
+								"frame-number": "0"
+							}
+						}
+					],
+					"sid": 638444895397521,
+					"isOrBlock": true
+				}
+			],
+			"sid": 489224478098069
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "COMPANION",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "player",
+							"sid": 667668403183530,
+							"parameters": {
+								"object": "companion"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "companion",
+							"sid": 161859302340756,
+							"parameters": {
+								"instance-variable": "follower"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "companion",
+							"sid": 216584627801909,
+							"parameters": {
+								"instance-variable": "follower",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "companion",
+							"sid": 453148536134096,
+							"behaviorType": "Tween",
+							"parameters": {
+								"mode": "enabled"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "companion",
+							"sid": 256521813242417,
+							"parameters": {
+								"instance-variable": "position",
+								"value": "Functions.CountCompanionFollowers"
+							}
+						}
+					],
+					"sid": 563129464526130
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 991750001136317,
+							"parameters": {
+								"first-value": "Functions.CountCompanionFollowers",
+								"comparison": 0,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 640390122716008,
+							"parameters": {
+								"interval-seconds": "bread_crumb_timer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "companion",
+							"sid": 895065408265836,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "player.X",
+								"end-y": "player.Y",
+								"time": "bread_crumb_timer",
+								"ease": "noease",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "companion",
+							"sid": 713047043091588,
+							"parameters": {
+								"frame-number": "player.AnimationFrame"
+							}
+						}
+					],
+					"sid": 864780955028405
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 884017707833797,
+							"parameters": {
+								"first-value": "Functions.CountCompanionFollowers",
+								"comparison": 4,
+								"second-value": "1"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 964173507738017,
+							"parameters": {
+								"interval-seconds": "bread_crumb_timer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Companion_FollowAll",
+							"sid": 224371434992026
+						}
+					],
+					"sid": 794464420407529
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 406848480427290,
+							"parameters": {
+								"first-value": "Functions.CountCompanionFollowers",
+								"comparison": 5,
+								"second-value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "player",
+							"sid": 323958080848867,
+							"parameters": {
+								"object": "bread_crumb",
+								"layer": "companion.LayerName",
+								"image-point": "\"center\""
+							}
+						},
+						{
+							"id": "set-opacity",
+							"objectClass": "bread_crumb",
+							"sid": 565040963625830,
+							"parameters": {
+								"opacity": "100"
+							}
+						},
+						{
+							"id": "set-fade-out-time",
+							"objectClass": "bread_crumb",
+							"sid": 322090654511484,
+							"behaviorType": "Fade",
+							"parameters": {
+								"fade-out-time": "0.25 * Functions.CountCompanionFollowers"
+							}
+						},
+						{
+							"id": "move-to-bottom",
+							"objectClass": "bread_crumb",
+							"sid": 468941275556653
+						}
+					],
+					"sid": 436719829449630
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "COMPANION :: Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "CountCompanionFollowers",
+							"functionDescription": "",
+							"functionCategory": "Companion",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 752348299185018,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "companion",
+											"sid": 816777989258525,
+											"parameters": {
+												"instance-variable": "follower"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 124432225604512,
+											"parameters": {
+												"value": "companion.PickedCount"
+											}
+										}
+									],
+									"sid": 273617366960461
+								}
+							]
+						},
+						{
+							"functionName": "Companion_FollowAll",
+							"functionDescription": "",
+							"functionCategory": "Companion",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 731350176844695,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "followers",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 340256908077678
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 266106374797718,
+											"parameters": {
+												"variable": "followers",
+												"value": "Functions.CountCompanionFollowers"
+											}
+										}
+									],
+									"sid": 755371162556449,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "companion",
+													"sid": 927595458309558,
+													"parameters": {
+														"instance-variable": "position",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-two-properties",
+													"objectClass": "companion",
+													"sid": 916302746499898,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "position",
+														"end-x": "player.X",
+														"end-y": "player.Y",
+														"time": "bread_crumb_timer",
+														"ease": "noease",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												},
+												{
+													"id": "set-animation-frame",
+													"objectClass": "companion",
+													"sid": 172821686674392,
+													"parameters": {
+														"frame-number": "player.AnimationFrame"
+													}
+												}
+											],
+											"sid": 817173103754044
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for",
+													"objectClass": "System",
+													"sid": 289382743190607,
+													"parameters": {
+														"name": "\"index\"",
+														"start-index": "2",
+														"end-index": "followers"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 726518275523052,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "x",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 516120485411748
+												},
+												{
+													"eventType": "variable",
+													"name": "y",
+													"type": "number",
+													"initialValue": "0",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 570336721745114
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "companion",
+															"sid": 527049398925226,
+															"parameters": {
+																"instance-variable": "position",
+																"comparison": 0,
+																"value": "loopindex(\"index\")-1"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 380995056382663,
+															"parameters": {
+																"variable": "x",
+																"value": "Functions.Followers_GetPosition_X(companion.UID)"
+															}
+														},
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 795006409207093,
+															"parameters": {
+																"variable": "y",
+																"value": "Functions.Followers_GetPosition_Y(companion.UID)"
+															}
+														}
+													],
+													"sid": 413920754830058
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-instance-variable",
+															"objectClass": "companion",
+															"sid": 539428936977372,
+															"parameters": {
+																"instance-variable": "position",
+																"comparison": 0,
+																"value": "loopindex(\"index\")"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "tween-two-properties",
+															"objectClass": "companion",
+															"sid": 811793822694707,
+															"behaviorType": "Tween",
+															"parameters": {
+																"tags": "\"\"",
+																"property": "position",
+																"end-x": "X",
+																"end-y": "Y",
+																"time": "bread_crumb_timer",
+																"ease": "noease",
+																"destroy-on-complete": "no",
+																"loop": "no",
+																"ping-pong": "no"
+															}
+														},
+														{
+															"id": "set-animation-frame",
+															"objectClass": "companion",
+															"sid": 760952925302487,
+															"parameters": {
+																"frame-number": "player.AnimationFrame"
+															}
+														}
+													],
+													"sid": 631911768066538
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"functionName": "Followers_GetPosition_X",
+							"functionDescription": "",
+							"functionCategory": "Companion",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 950914602303657
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 103187784724102,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "companion",
+											"sid": 968151406486271,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 996804346632801,
+											"parameters": {
+												"value": "companion.X"
+											}
+										}
+									],
+									"sid": 314972691825124
+								}
+							]
+						},
+						{
+							"functionName": "Followers_GetPosition_Y",
+							"functionDescription": "",
+							"functionCategory": "Companion",
+							"functionReturnType": "number",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 893191579181467
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 467616953115782,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "companion",
+											"sid": 682426613737756,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-function-return-value",
+											"objectClass": "Functions",
+											"sid": 717766029874114,
+											"parameters": {
+												"value": "companion.Y"
+											}
+										}
+									],
+									"sid": 699377178092426
+								}
+							]
+						}
+					],
+					"sid": 699331199628507
+				}
+			],
+			"sid": 943977646341123
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CAMERA",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 963222905554812
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "spr_camera",
+							"sid": 370003489600065,
+							"parameters": {
+								"x": "lerp(Self.X,player.X,0.1)",
+								"y": "lerp(Self.Y,player.Y,0.1)"
+							}
+						}
+					],
+					"sid": 982773566531909
+				}
+			],
+			"sid": 241311331280050
+		}
+	],
+	"sid": 353809346757022
+}

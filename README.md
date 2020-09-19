@@ -17,6 +17,7 @@ My collection of demo projects
   3. [Sandy Road](template/003-sandy-road)
   4. [Splash Game](template/004-splash-game)
   5. [One Color Idle Game](template/005-one-color-idle-game)
+  6. [Follow the player](template/006-follow-the-player)
 
 ### User Interface
 

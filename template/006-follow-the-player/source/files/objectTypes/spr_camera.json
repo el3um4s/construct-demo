@@ -1,0 +1,55 @@
+{
+	"name": "spr_camera",
+	"plugin-id": "Sprite",
+	"sid": 577478627513031,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "scrollto",
+			"name": "beh_scroll_to",
+			"sid": 545183413116009
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1993674,
+						"collisionPoly": {
+							"points": [
+								0.015625,
+								0.015625,
+								0.96875,
+								0.015625,
+								0.96875,
+								0.96875,
+								0.015625,
+								0.96875
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 729902089305168,
+				"name": "ani_1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}
