@@ -1,5 +1,6 @@
 # Construct Demo
-My collection of demo projects
+
+My collection of demo projects for Construct 3
 
 ### JavaScript
 
