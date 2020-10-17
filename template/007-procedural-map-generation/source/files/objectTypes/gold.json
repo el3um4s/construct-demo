@@ -1,0 +1,44 @@
+{
+	"name": "Gold",
+	"plugin-id": "Sprite",
+	"sid": 196295000123583,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2495234,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 839721173561075,
+				"name": "Animation 1",
+				"isLooping": true,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 1
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -19,6 +19,7 @@ My collection of demo projects for Construct 3
   4. [Splash Game](template/004-splash-game)
   5. [One Color Idle Game](template/005-one-color-idle-game)
   6. [Follow the player](template/006-follow-the-player)
+  7. [Procedural Map Generation](template/007-procedural-map-generation)
 
 ### User Interface
 

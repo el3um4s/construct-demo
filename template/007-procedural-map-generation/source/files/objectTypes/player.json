@@ -1,0 +1,72 @@
+{
+	"name": "Player",
+	"plugin-id": "Sprite",
+	"sid": 471211971044511,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 833399581597683
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 918779872636530
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 247358623024024
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 8,
+						"height": 8,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5942189,
+						"collisionPoly": {
+							"points": [
+								0.125,
+								0.125,
+								0.875,
+								0.125,
+								0.875,
+								0.875,
+								0.125,
+								0.875
+							]
+						},
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Center",
+								"x": 0.5,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 763314960374334,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

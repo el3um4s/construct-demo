@@ -1,0 +1,292 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 22002,
+	"name": "procedural-map-generation",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "TileMovement",
+			"name": "Tile movement",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r220.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "hniyrqw6o28",
+	"objectTypes": {
+		"items": [
+			"Enemy",
+			"Gold",
+			"Tilemap",
+			"Player",
+			"Keyboard",
+			"Text_Gold",
+			"Particles_Gold",
+			"Text_GameOver",
+			"Particles_Enemy",
+			"Win",
+			"Particles_Win"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"Tilemaps",
+			"Dangers",
+			"Resources"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Game",
+			"Original",
+			"zzzBank"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"A_0",
+					"A_1",
+					"A_2",
+					"A_3",
+					"A_4",
+					"A_5",
+					"A_6",
+					"A_7",
+					"A_8",
+					"A_9",
+					"A_10"
+				],
+				"subfolders": [],
+				"name": "Template"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"Event sheet 1"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Minecraft.ttf",
+					"type": "application/font-sfnt",
+					"sid": 184525231253977
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 289460296136973,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 573507390174298,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 334798718001424,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 616358318420804,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 290885496080795,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 726352048441348,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 821271410893593,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Procedural map generation",
+		"version": "demo-2020.10.17",
+		"author": "Strani Anelli",
+		"authorEmail": "samuele@stranianelli.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 128,
+	"viewportHeight": 128,
+	"firstLayout": "Game"
+}

@@ -1,0 +1,11 @@
+{
+	"name": "Tilemaps",
+	"plugin-id": "Tilemap",
+	"sid": 743450553269348,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Tilemap"
+	]
+}

@@ -1,0 +1,650 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Gold",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 586105722032870
+		},
+		{
+			"eventType": "variable",
+			"name": "Dangers",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 615341137550427
+		},
+		{
+			"eventType": "variable",
+			"name": "Resources",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 292627593753359
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 182061274531004
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 815533267188890,
+					"parameters": {
+						"variable": "Gold",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 793657211141294,
+					"parameters": {
+						"layer": "\"GameOver\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 848530203622802,
+					"parameters": {
+						"layer": "\"Win\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-enabled",
+					"objectClass": "Player",
+					"sid": 496646148600805,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"state": "disabled"
+					}
+				},
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 449092059939902,
+					"parameters": {
+						"scale": "0.25"
+					}
+				}
+			],
+			"sid": 734747413830235,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 175144244307961,
+							"parameters": {
+								"name": "\"x\"",
+								"start-index": "0",
+								"end-index": "3"
+							}
+						},
+						{
+							"id": "for",
+							"objectClass": "System",
+							"sid": 721310576441591,
+							"parameters": {
+								"name": "\"y\"",
+								"start-index": "0",
+								"end-index": "3"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 687000708663102,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "template",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 378155482702924
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 756085880973494,
+									"parameters": {
+										"variable": "template",
+										"value": "floor(random(11)) "
+									}
+								},
+								{
+									"id": "recreate-initial-objects",
+									"objectClass": "System",
+									"sid": 802774866993701,
+									"parameters": {
+										"object": "Tilemaps",
+										"from-x": "0",
+										"from-y": "0",
+										"to-x": "128",
+										"to-y": "128",
+										"source-layout": "\"A_\" & template",
+										"source-layer": "-1",
+										"offset-x": "loopindex(\"x\")*128",
+										"offset-y": "loopindex(\"y\")*128"
+									}
+								},
+								{
+									"id": "recreate-initial-objects",
+									"objectClass": "System",
+									"sid": 849279251565746,
+									"parameters": {
+										"object": "Dangers",
+										"from-x": "0",
+										"from-y": "0",
+										"to-x": "128",
+										"to-y": "128",
+										"source-layout": "\"A_\" & template",
+										"source-layer": "-1",
+										"offset-x": "loopindex(\"x\")*128",
+										"offset-y": "loopindex(\"y\")*128"
+									}
+								},
+								{
+									"id": "recreate-initial-objects",
+									"objectClass": "System",
+									"sid": 701346831765556,
+									"parameters": {
+										"object": "Resources",
+										"from-x": "0",
+										"from-y": "0",
+										"to-x": "128",
+										"to-y": "128",
+										"source-layout": "\"A_\" & template",
+										"source-layer": "-1",
+										"offset-x": "loopindex(\"x\")*128",
+										"offset-y": "loopindex(\"y\")*128"
+									}
+								}
+							],
+							"sid": 949069374947468
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 971829403516227,
+									"parameters": {
+										"first-value": "loopindex(\"x\")",
+										"comparison": 0,
+										"second-value": "3"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 251429044209500,
+									"parameters": {
+										"first-value": "loopindex(\"y\")",
+										"comparison": 0,
+										"second-value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 606592129539343,
+									"parameters": {
+										"seconds": "0"
+									}
+								}
+							],
+							"sid": 353801589632872,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 812081318231041,
+											"parameters": {
+												"variable": "Dangers",
+												"value": "floor ( random(50, Dangers.Count) )"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 951013669235996,
+											"parameters": {
+												"variable": "Resources",
+												"value": "floor ( random(25, Resources.Count) )"
+											}
+										}
+									],
+									"sid": 585665178509714
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 704266492685099,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "Dangers"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 162657638191657,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 517213422881964,
+													"parameters": {
+														"object": "Dangers"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Dangers",
+													"sid": 667165908460017
+												}
+											],
+											"sid": 161415938347935
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for",
+											"objectClass": "System",
+											"sid": 292732129383714,
+											"parameters": {
+												"name": "\"\"",
+												"start-index": "0",
+												"end-index": "Resources"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 270506899834097,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 276289507231580,
+													"parameters": {
+														"object": "Resources"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Resources",
+													"sid": 307912631646860
+												}
+											],
+											"sid": 968211027609426
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 879194140595164,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 333284528282426
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 230286996374118,
+									"parameters": {
+										"object": "Win"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 858397879788003,
+									"parameters": {
+										"variable": "UID",
+										"value": "Win.UID"
+									}
+								}
+							],
+							"sid": 570034510271445
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-comparison",
+									"objectClass": "System",
+									"sid": 689814691664590,
+									"parameters": {
+										"object": "Win",
+										"expression": "Win.UID",
+										"comparison": 1,
+										"value": "UID"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Win",
+									"sid": 406430940655492
+								}
+							],
+							"sid": 653101287176824
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 884018860059478,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "Player",
+							"sid": 664784608781732,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"state": "enabled"
+							}
+						},
+						{
+							"id": "tween-value",
+							"objectClass": "Player",
+							"sid": 638978007710519,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"zoom\"",
+								"start-value": "0.25",
+								"end-value": "1",
+								"time": "1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 416084309065727
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 729728242875947,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 585099392611870
+				}
+			],
+			"sid": 600961660596639
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-playing",
+					"objectClass": "Player",
+					"sid": 159649064977310,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"zoom\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layout-scale",
+					"objectClass": "System",
+					"sid": 816234341300784,
+					"parameters": {
+						"scale": "Player.Tween.Value(\"zoom\")"
+					}
+				}
+			],
+			"sid": 362644138856432
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Gold",
+					"sid": 246781851833426,
+					"parameters": {
+						"text": "\"Gold: \" & Gold"
+					}
+				}
+			],
+			"sid": 457205559440836
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 791776948101355,
+					"parameters": {
+						"object": "Resources"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Resources",
+					"sid": 540085127387718
+				},
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 760853996975496,
+					"parameters": {
+						"variable": "Gold",
+						"value": "1"
+					}
+				},
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Resources",
+					"sid": 373963014075580,
+					"parameters": {
+						"object": "Particles_Gold",
+						"layer": "Resources.LayerName",
+						"image-point": "\"Center\""
+					}
+				}
+			],
+			"sid": 260844868111977
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 403360241561933,
+					"parameters": {
+						"object": "Dangers"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Player",
+					"sid": 239691202374412,
+					"parameters": {
+						"object": "Particles_Enemy",
+						"layer": "Player.LayerName",
+						"image-point": "\"Center\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Player",
+					"sid": 405353037449221
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 832055441095577,
+					"parameters": {
+						"layer": "\"GameOver\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 983344893121675,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 355975920375625
+				}
+			],
+			"sid": 558440978895074
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Player",
+					"sid": 508862216243810,
+					"parameters": {
+						"object": "Win"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Win",
+					"sid": 404093224991663,
+					"parameters": {
+						"object": "Particles_Win",
+						"layer": "Win.LayerName",
+						"image-point": "\"Center\""
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 490482648797222,
+					"parameters": {
+						"layer": "\"Win\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 746142465729359,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 828561778986588
+				}
+			],
+			"sid": 839189026764071
+		}
+	],
+	"sid": 691832793321185
+}

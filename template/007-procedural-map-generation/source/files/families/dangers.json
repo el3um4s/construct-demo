@@ -1,0 +1,11 @@
+{
+	"name": "Dangers",
+	"plugin-id": "Sprite",
+	"sid": 561570881749066,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Enemy"
+	]
+}
