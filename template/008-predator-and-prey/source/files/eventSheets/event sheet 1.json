@@ -1,0 +1,344 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "LAY_ANIMALS",
+			"type": "string",
+			"initialValue": "LAY_ANIMALS",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 617892076566904
+		},
+		{
+			"eventType": "variable",
+			"name": "ETA",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 232083754179671
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 934917553443725
+				}
+			],
+			"actions": [
+				{
+					"id": "start-timer",
+					"objectClass": "Timer",
+					"sid": 878798823639156,
+					"behaviorType": "Timer",
+					"parameters": {
+						"duration": "0.25",
+						"type": "regular",
+						"tag": "\"Eta\""
+					}
+				}
+			],
+			"sid": 390728595713630
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Log",
+					"sid": 440868030413253,
+					"parameters": {
+						"text": "\"fps: \" & floor(fps)& newline &\n\"cpuutilisation: \" & floor(cpuutilisation*1000)/1000 & newline &\n\"gpuutilisation: \" & floor(gpuutilisation*1000)/1000 & newline &\nnewline &\n\"ETA: \" & ETA & newline &\n\"predators: \" & Predators.Count & newline &\n\"preyes: \" & Preys.Count\n"
+					}
+				}
+			],
+			"sid": 609164838376185
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Predators",
+					"sid": 217692110509893
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Predators",
+					"sid": 358791762099841,
+					"parameters": {
+						"object": "Predators_Area",
+						"layer": "Predators.LayerName",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "add-child",
+					"objectClass": "Predators",
+					"sid": 891077128851068,
+					"parameters": {
+						"child": "Predators_Area",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": true
+					}
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Predators_Area",
+					"sid": 419738834138221,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 276078333065411
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-timer",
+					"objectClass": "Timer",
+					"sid": 644067444244646,
+					"behaviorType": "Timer",
+					"parameters": {
+						"tag": "\"Eta\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 204788859591356,
+					"parameters": {
+						"variable": "ETA",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 158844872148869,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 706521155540247,
+							"parameters": {
+								"object": "Animals"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MoveAnimal",
+							"sid": 379829991707131,
+							"parameters": [
+								"Animals.UID"
+							]
+						}
+					],
+					"sid": 634152528567132
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Animals",
+					"sid": 167665580895158,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 5,
+						"value": "Animals.ReproduceWhenHealthIs"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "ReproduceAnimalWhenHealthIs",
+					"sid": 107039807661242,
+					"parameters": [
+						"Animals.UID"
+					]
+				}
+			],
+			"sid": 435680886485605
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "Animals",
+					"sid": 324457877374976,
+					"parameters": {
+						"instance-variable": "Health",
+						"comparison": 2,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Animals",
+					"sid": 495724799607419
+				}
+			],
+			"sid": 236063068743639
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Predators_Area",
+					"sid": 262560329207911,
+					"parameters": {
+						"object": "Preys"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 492247331970244,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-parent",
+							"objectClass": "Predators_Area",
+							"sid": 674824563076362,
+							"parameters": {
+								"parent": "Predators",
+								"which": "top"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log",
+							"objectClass": "Browser",
+							"sid": 528600684527176,
+							"disabled": true,
+							"parameters": {
+								"type": "log",
+								"message": "Predators.UID"
+							}
+						},
+						{
+							"callFunction": "PredatorHunt",
+							"sid": 500880313873224,
+							"parameters": [
+								"Predators.UID",
+								"Preys.UID"
+							]
+						}
+					],
+					"sid": 154195814041547
+				}
+			]
+		},
+		{
+			"functionName": "MoveAnimal",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 945783178437076
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst direction = choose(\"left\", \"right\", \"up\", \"down\");\nanimal.instVars.Direction = direction;\n\nconst speed = animal.instVars.Speed;\n\nconst canMove = animal.behaviors.TileMovement.canMoveDirection(direction, speed);\n\nif (canMove) {\n\tanimal.instVars.Health += animal.instVars.OnMove;\n\tconst position = animal.behaviors.TileMovement.getGridPosition();\n\tconst newX = direction == \"left\" ? position[0]-speed : direction == \"right\" ? position[0]+speed : position[0];\n\tconst newY = direction == \"up\" ? position[1]-speed : direction == \"down\" ? position[1]+speed : position[1];\n\tanimal.behaviors.TileMovement.setGridPosition(newX, newY, true)\n} else {\n\tanimal.instVars.Health += animal.instVars.OnCantMove;\n}\n\n"
+				}
+			],
+			"sid": 653911605634882
+		},
+		{
+			"functionName": "ReproduceAnimalWhenHealthIs",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 725793025956141
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst speed = animal.instVars.Speed;\nconst onMove = animal.instVars.OnMove;\nconst onCantMove = animal.instVars.OnCantMove;\nconst reproduceWhen = animal.instVars.ReproduceWhenHealthIs;\nconst objectType = animal.objectType.name;\nconst lay = animal.layer.name;\n\nconst newAnimal = runtime.objects[objectType].createInstance(lay,\nanimal.x,animal.y);\n\nanimal.instVars.Health = 1;\n\nnewAnimal.instVars.Health = 1;\nnewAnimal.instVars.Speed = speed;\nnewAnimal.instVars.OnMove = onMove;\nnewAnimal.instVars.OnCantMove = onCantMove;\nnewAnimal.instVars.ReproduceWhenHealthIs = reproduceWhen;\n"
+				}
+			],
+			"sid": 167927831900325
+		},
+		{
+			"functionName": "PredatorHunt",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID_predator",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 514562147261022
+				},
+				{
+					"name": "UID_prey",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 520367716984481
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const uidPredator = localVars.UID_predator;\nconst uidPrey = localVars.UID_prey;\n\nconst predator = runtime.getInstanceByUid(uidPredator);\nconst prey = runtime.getInstanceByUid(uidPrey);\n\nconst healthOriginal = predator.instVars.Health;\nconst addHealth = prey.instVars.Health;\n\nconst speed = predator.instVars.Speed;\nconst onMove = predator.instVars.OnMove;\nconst onCantMove = predator.instVars.OnCantMove;\nconst reproduceWhen = predator.instVars.ReproduceWhenHealthIs;\nconst objectType = predator.objectType.name;\nconst lay = predator.layer.name;\n \nconst newPredator = runtime.objects[objectType].createInstance(lay,\npredator.x,predator.y);\n\npredator.instVars.Health = healthOriginal + addHealth;\n\nnewPredator.instVars.Health = healthOriginal +addHealth;\nnewPredator.instVars.Speed = speed;\nnewPredator.instVars.OnMove = onMove;\nnewPredator.instVars.OnCantMove = onCantMove;\nnewPredator.instVars.ReproduceWhenHealthIs = reproduceWhen;\n\nprey.destroy();\n"
+				}
+			],
+			"sid": 880080688799817
+		}
+	],
+	"sid": 652158111801143
+}

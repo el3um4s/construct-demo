@@ -1,0 +1,11 @@
+{
+	"name": "Predators",
+	"plugin-id": "Sprite",
+	"sid": 566252649969382,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Predator"
+	]
+}

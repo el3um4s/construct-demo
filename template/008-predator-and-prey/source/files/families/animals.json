@@ -1,0 +1,60 @@
+{
+	"name": "Animals",
+	"plugin-id": "Sprite",
+	"sid": 631395054674889,
+	"instanceVariables": [
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 471263986505139
+		},
+		{
+			"name": "Health",
+			"type": "number",
+			"desc": "",
+			"sid": 302971910254047
+		},
+		{
+			"name": "Speed",
+			"type": "number",
+			"desc": "",
+			"sid": 390665297246594
+		},
+		{
+			"name": "OnMove",
+			"type": "number",
+			"desc": "",
+			"sid": 612153413198221
+		},
+		{
+			"name": "ReproduceWhenHealthIs",
+			"type": "number",
+			"desc": "",
+			"sid": 693205014839006
+		},
+		{
+			"name": "OnCantMove",
+			"type": "number",
+			"desc": "",
+			"sid": 310499369839700
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "TileMovement",
+			"name": "TileMovement",
+			"sid": 887749821836196
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 377806136195968
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Prey",
+		"Predator"
+	]
+}
