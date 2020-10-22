@@ -39,6 +39,14 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r221",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Timer",
 			"name": "Timer",
@@ -72,7 +80,13 @@
 			"World",
 			"Predators_Area",
 			"Browser",
-			"Log"
+			"Log",
+			"Log_Timer",
+			"Mouse",
+			"Button_Play",
+			"Button_Stop",
+			"Button_Refresh",
+			"Random_Animals"
 		],
 		"subfolders": []
 	},
@@ -209,7 +223,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-v.20.10.21",
+		"version": "demo-v.20.10.22",
 		"author": "",
 		"authorEmail": "",
 		"authorWebsite": "",
@@ -220,15 +234,15 @@
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.23921568627450981,
+			0.47843137254901963,
+			0.796078431372549,
 			0
 		],
 		"splashColor": [
-			1,
-			1,
-			1,
+			0.21176470588235294,
+			0.3607843137254902,
+			0.36470588235294116,
 			0
 		],
 		"useThemeColor": false,

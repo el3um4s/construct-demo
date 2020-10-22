@@ -15,9 +15,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.23921568627450981,
+				0.47843137254901963,
+				0.796078431372549,
 				1
 			],
 			"isTransparent": false,
@@ -61,9 +61,9 @@
 						"tilemapData": {
 							"width": 108,
 							"height": 60,
-							"max-width": 113,
+							"max-width": 114,
 							"max-height": 63,
-							"data": "60x1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,1,58x0,1,3x0,60x1,318x0"
+							"data": "315x0,4,58x2,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,1,58x9,1,3x0,59x2,3,381x0"
 						},
 						"tile-width": 8,
 						"tile-height": 8,
@@ -140,8 +140,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -196,8 +196,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -252,8 +252,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -308,8 +308,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -364,8 +364,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -420,8 +420,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -476,8 +476,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -532,8 +532,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -588,8 +588,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -644,8 +644,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -700,8 +700,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -756,8 +756,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -812,8 +812,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -868,8 +868,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -924,8 +924,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -980,8 +980,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1036,8 +1036,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1092,8 +1092,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1148,8 +1148,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1204,8 +1204,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1260,8 +1260,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1316,8 +1316,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1372,8 +1372,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1428,8 +1428,8 @@
 							"properties": {
 								"grid-width": 8,
 								"grid-height": 8,
-								"grid-offset-x": 0,
-								"grid-offset-y": 0,
+								"grid-offset-x": -4,
+								"grid-offset-y": -4,
 								"speed-x": 100,
 								"speed-y": 100,
 								"enabled": true,
@@ -1507,8 +1507,166 @@
 						}
 					},
 					"world": {
-						"x": 16,
-						"y": -24,
+						"x": 20,
+						"y": 24,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Log_Timer",
+					"properties": {
+						"text": "x1",
+						"enable-bbcode": false,
+						"font": "monotalic",
+						"size": 8,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "bottom",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 34,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 40,
+						"height": 48,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button_Play",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 1,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 36,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 64,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button_Stop",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 37,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 104,
+						"width": 24,
+						"height": 24,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Button_Refresh",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 38,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 144,
+						"width": 32,
+						"height": 32,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Random_Animals",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 39,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 20,
+						"y": 192,
 						"width": 32,
 						"height": 32,
 						"originX": 0.5,
@@ -1560,12 +1718,12 @@
 						"font": "monotalic",
 						"size": 10,
 						"line-height": 0,
-						"bold": false,
+						"bold": true,
 						"italic": false,
 						"color": [
-							0.8313725490196079,
-							0.611764705882353,
-							0.00784313725490196,
+							1,
+							1,
+							1,
 							1
 						],
 						"horizontal-alignment": "right",
@@ -1578,10 +1736,10 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 656,
-						"y": 8,
+						"x": 648,
+						"y": 16,
 						"width": 200,
-						"height": 216,
+						"height": 208,
 						"originX": 0,
 						"originY": 0,
 						"color": [

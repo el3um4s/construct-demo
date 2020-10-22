@@ -22,6 +22,26 @@
 			"sid": 232083754179671
 		},
 		{
+			"eventType": "variable",
+			"name": "IsPlaying",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 957030730191053
+		},
+		{
+			"eventType": "variable",
+			"name": "ETA_SPEED",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 407771759079501
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -34,10 +54,10 @@
 				{
 					"id": "start-timer",
 					"objectClass": "Timer",
-					"sid": 878798823639156,
+					"sid": 478473931409439,
 					"behaviorType": "Timer",
 					"parameters": {
-						"duration": "0.25",
+						"duration": "1/ETA_SPEED",
 						"type": "regular",
 						"tag": "\"Eta\""
 					}
@@ -116,6 +136,14 @@
 					"behaviorType": "Timer",
 					"parameters": {
 						"tag": "\"Eta\""
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 221919235655154,
+					"parameters": {
+						"variable": "IsPlaying"
 					}
 				}
 			],
@@ -258,86 +286,872 @@
 			]
 		},
 		{
-			"functionName": "MoveAnimal",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "FUNCTIONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 945783178437076
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst direction = choose(\"left\", \"right\", \"up\", \"down\");\nanimal.instVars.Direction = direction;\n\nconst speed = animal.instVars.Speed;\n\nconst canMove = animal.behaviors.TileMovement.canMoveDirection(direction, speed);\n\nif (canMove) {\n\tanimal.instVars.Health += animal.instVars.OnMove;\n\tconst position = animal.behaviors.TileMovement.getGridPosition();\n\tconst newX = direction == \"left\" ? position[0]-speed : direction == \"right\" ? position[0]+speed : position[0];\n\tconst newY = direction == \"up\" ? position[1]-speed : direction == \"down\" ? position[1]+speed : position[1];\n\tanimal.behaviors.TileMovement.setGridPosition(newX, newY, true)\n} else {\n\tanimal.instVars.Health += animal.instVars.OnCantMove;\n}\n\n"
-				}
-			],
-			"sid": 653911605634882
-		},
-		{
-			"functionName": "ReproduceAnimalWhenHealthIs",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 725793025956141
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
-				{
-					"type": "script",
-					"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst speed = animal.instVars.Speed;\nconst onMove = animal.instVars.OnMove;\nconst onCantMove = animal.instVars.OnCantMove;\nconst reproduceWhen = animal.instVars.ReproduceWhenHealthIs;\nconst objectType = animal.objectType.name;\nconst lay = animal.layer.name;\n\nconst newAnimal = runtime.objects[objectType].createInstance(lay,\nanimal.x,animal.y);\n\nanimal.instVars.Health = 1;\n\nnewAnimal.instVars.Health = 1;\nnewAnimal.instVars.Speed = speed;\nnewAnimal.instVars.OnMove = onMove;\nnewAnimal.instVars.OnCantMove = onCantMove;\nnewAnimal.instVars.ReproduceWhenHealthIs = reproduceWhen;\n"
-				}
-			],
-			"sid": 167927831900325
-		},
-		{
-			"functionName": "PredatorHunt",
-			"functionDescription": "",
-			"functionCategory": "",
-			"functionReturnType": "none",
-			"functionIsAsync": false,
-			"functionParameters": [
-				{
-					"name": "UID_predator",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 514562147261022
+					"functionName": "MoveAnimal",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 945783178437076
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst direction = choose(\"left\", \"right\", \"up\", \"down\");\nanimal.instVars.Direction = direction;\n\nconst speed = animal.instVars.Speed;\n\nconst canMove = animal.behaviors.TileMovement.canMoveDirection(direction, speed);\n\nif (canMove) {\n\tanimal.instVars.Health += animal.instVars.OnMove;\n\tconst position = animal.behaviors.TileMovement.getGridPosition();\n\tconst newX = direction == \"left\" ? position[0]-speed : direction == \"right\" ? position[0]+speed : position[0];\n\tconst newY = direction == \"up\" ? position[1]-speed : direction == \"down\" ? position[1]+speed : position[1];\n\tanimal.behaviors.TileMovement.setGridPosition(newX, newY, true)\n} else {\n\tanimal.instVars.Health += animal.instVars.OnCantMove;\n}\n\n"
+						}
+					],
+					"sid": 335676661371275
 				},
 				{
-					"name": "UID_prey",
-					"type": "number",
-					"initialValue": "0",
-					"comment": "",
-					"sid": 520367716984481
-				}
-			],
-			"eventType": "function-block",
-			"conditions": [],
-			"actions": [
+					"functionName": "ReproduceAnimalWhenHealthIs",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 725793025956141
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uid = localVars.UID;\nconst animal = runtime.getInstanceByUid(uid);\n\nconst speed = animal.instVars.Speed;\nconst onMove = animal.instVars.OnMove;\nconst onCantMove = animal.instVars.OnCantMove;\nconst reproduceWhen = animal.instVars.ReproduceWhenHealthIs;\nconst objectType = animal.objectType.name;\nconst lay = animal.layer.name;\n\nconst newAnimal = runtime.objects[objectType].createInstance(lay,\nanimal.x,animal.y);\n\nanimal.instVars.Health = 1;\n\nnewAnimal.instVars.Health = 1;\nnewAnimal.instVars.Speed = speed;\nnewAnimal.instVars.OnMove = onMove;\nnewAnimal.instVars.OnCantMove = onCantMove;\nnewAnimal.instVars.ReproduceWhenHealthIs = reproduceWhen;\n"
+						}
+					],
+					"sid": 573446249322878
+				},
 				{
-					"type": "script",
-					"script": "const uidPredator = localVars.UID_predator;\nconst uidPrey = localVars.UID_prey;\n\nconst predator = runtime.getInstanceByUid(uidPredator);\nconst prey = runtime.getInstanceByUid(uidPrey);\n\nconst healthOriginal = predator.instVars.Health;\nconst addHealth = prey.instVars.Health;\n\nconst speed = predator.instVars.Speed;\nconst onMove = predator.instVars.OnMove;\nconst onCantMove = predator.instVars.OnCantMove;\nconst reproduceWhen = predator.instVars.ReproduceWhenHealthIs;\nconst objectType = predator.objectType.name;\nconst lay = predator.layer.name;\n \nconst newPredator = runtime.objects[objectType].createInstance(lay,\npredator.x,predator.y);\n\npredator.instVars.Health = healthOriginal + addHealth;\n\nnewPredator.instVars.Health = healthOriginal +addHealth;\nnewPredator.instVars.Speed = speed;\nnewPredator.instVars.OnMove = onMove;\nnewPredator.instVars.OnCantMove = onCantMove;\nnewPredator.instVars.ReproduceWhenHealthIs = reproduceWhen;\n\nprey.destroy();\n"
+					"functionName": "PredatorHunt",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID_predator",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 514562147261022
+						},
+						{
+							"name": "UID_prey",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 520367716984481
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uidPredator = localVars.UID_predator;\nconst uidPrey = localVars.UID_prey;\n\nconst predator = runtime.getInstanceByUid(uidPredator);\nconst prey = runtime.getInstanceByUid(uidPrey);\n\nconst healthOriginal = predator.instVars.Health;\nconst addHealth = prey.instVars.Health;\n\nconst speed = predator.instVars.Speed;\nconst onMove = predator.instVars.OnMove;\nconst onCantMove = predator.instVars.OnCantMove;\nconst reproduceWhen = predator.instVars.ReproduceWhenHealthIs;\nconst objectType = predator.objectType.name;\nconst lay = predator.layer.name;\n \nconst newPredator = runtime.objects[objectType].createInstance(lay,\npredator.x,predator.y);\n\npredator.instVars.Health = healthOriginal + addHealth;\n\nnewPredator.instVars.Health = healthOriginal +addHealth;\nnewPredator.instVars.Speed = speed;\nnewPredator.instVars.OnMove = onMove;\nnewPredator.instVars.OnCantMove = onCantMove;\nnewPredator.instVars.ReproduceWhenHealthIs = reproduceWhen;\n\nprey.destroy();\n"
+						}
+					],
+					"sid": 189726072773294
+				},
+				{
+					"functionName": "GenerateRandomAnimal",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Name",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 933910960744398
+						},
+						{
+							"name": "Lay",
+							"type": "string",
+							"initialValue": "LAY_ANIMALS",
+							"comment": "",
+							"sid": 855483165217450
+						},
+						{
+							"name": "Width",
+							"type": "number",
+							"initialValue": "101",
+							"comment": "",
+							"sid": 447780938864524
+						},
+						{
+							"name": "Height",
+							"type": "number",
+							"initialValue": "58",
+							"comment": "",
+							"sid": 656741050337197
+						},
+						{
+							"name": "Offset_X",
+							"type": "number",
+							"initialValue": "6",
+							"comment": "",
+							"sid": 363992746606655
+						},
+						{
+							"name": "Offset_Y",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 761595308031394
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 380707698082108,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "x",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 797550247417343
+						},
+						{
+							"eventType": "variable",
+							"name": "y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 355617890368180
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 215555813940654,
+									"parameters": {
+										"variable": "x",
+										"value": "floor(random(0,Width))+Offset_X"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 878649355593949,
+									"parameters": {
+										"variable": "y",
+										"value": "floor(random(0,Height))+Offset_Y"
+									}
+								}
+							],
+							"sid": 268645549518175,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-tile-at",
+											"objectClass": "World",
+											"sid": 827851280607761,
+											"parameters": {
+												"tile-x": "x",
+												"tile-y": "y",
+												"comparison": 0,
+												"tile": "8"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object-by-name",
+											"objectClass": "System",
+											"sid": 721156980459265,
+											"parameters": {
+												"object-name": "Name",
+												"layer": "Lay",
+												"x": "World.TileToPositionX(x)",
+												"y": "World.TileToPositionY(y)"
+											}
+										}
+									],
+									"sid": 543267552078101
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 863056914940337
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "GenerateRandomAnimal",
+											"sid": 698692526268860,
+											"parameters": [
+												"Name",
+												"Lay",
+												"Width",
+												"Height",
+												"Offset_X",
+												"Offset_Y"
+											]
+										}
+									],
+									"sid": 389974876729174
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "GenerateRandomAnimals",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Iterations",
+							"type": "number",
+							"initialValue": "50",
+							"comment": "",
+							"sid": 989407826519077
+						},
+						{
+							"name": "PercentagePredators",
+							"type": "number",
+							"initialValue": "10",
+							"comment": "",
+							"sid": 118444431333617
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 641358626092879,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 748640506156120,
+									"parameters": {
+										"name": "\"\"",
+										"start-index": "1",
+										"end-index": "Iterations"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 879595648078542,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Rand",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 272015119654070
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 387887085108737,
+											"parameters": {
+												"variable": "Rand",
+												"value": "floor(random(0,100))"
+											}
+										}
+									],
+									"sid": 545684383969362,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 990727703098753,
+													"parameters": {
+														"variable": "Rand",
+														"comparison": 2,
+														"value": "PercentagePredators"
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "GenerateRandomAnimal",
+													"sid": 706660344572271,
+													"parameters": [
+														"\"Predator\"",
+														"\"LAY_ANIMALS\"",
+														"101",
+														"58",
+														"6",
+														"1"
+													]
+												}
+											],
+											"sid": 596470542338074
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 813812969560176
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "GenerateRandomAnimal",
+													"sid": 922036753544148,
+													"parameters": [
+														"\"Prey\"",
+														"\"LAY_ANIMALS\"",
+														"101",
+														"58",
+														"6",
+														"1"
+													]
+												}
+											],
+											"sid": 939732995786073
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			],
-			"sid": 880080688799817
+			"sid": 764065840512319
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BUTTONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 926227881493059,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Log_Timer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 265911483368680,
+							"parameters": {
+								"variable": "ETA_SPEED",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 746720126738020,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 569398067618186,
+									"parameters": {
+										"variable": "ETA_SPEED",
+										"comparison": 4,
+										"value": "32"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 288592053898232,
+									"parameters": {
+										"variable": "ETA_SPEED",
+										"value": "32"
+									}
+								}
+							],
+							"sid": 685880048327955
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Log_Timer",
+									"sid": 824041707903308,
+									"parameters": {
+										"text": "\"x\" & ETA_SPEED"
+									}
+								},
+								{
+									"id": "stop-timer",
+									"objectClass": "Timer",
+									"sid": 171613402887559,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Eta\""
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Timer",
+									"sid": 839194267484812,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1/ETA_SPEED",
+										"type": "regular",
+										"tag": "\"Eta\""
+									}
+								}
+							],
+							"sid": 469144269046722
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 842383499313070,
+							"parameters": {
+								"mouse-button": "right",
+								"click-type": "clicked",
+								"object-clicked": "Log_Timer"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 153177952084867,
+							"parameters": {
+								"variable": "ETA_SPEED",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 514345364139995,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 919974995531062,
+									"parameters": {
+										"variable": "ETA_SPEED",
+										"comparison": 2,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 382992805570021,
+									"parameters": {
+										"variable": "ETA_SPEED",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 721917680774604
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Log_Timer",
+									"sid": 216621380559742,
+									"parameters": {
+										"text": "\"x\" & ETA_SPEED"
+									}
+								},
+								{
+									"id": "stop-timer",
+									"objectClass": "Timer",
+									"sid": 621627458735304,
+									"behaviorType": "Timer",
+									"parameters": {
+										"tag": "\"Eta\""
+									}
+								},
+								{
+									"id": "start-timer",
+									"objectClass": "Timer",
+									"sid": 613217554877972,
+									"behaviorType": "Timer",
+									"parameters": {
+										"duration": "1/ETA_SPEED",
+										"type": "regular",
+										"tag": "\"Eta\""
+									}
+								}
+							],
+							"sid": 339106941526202
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 279547509860353,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Button_Play"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Button_Play",
+							"sid": 269059746751534,
+							"parameters": {
+								"frame-number": "Button_Play.AnimationFrame = 0 ? 1 : 0"
+							}
+						},
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 918811915378656,
+							"parameters": {
+								"variable": "IsPlaying"
+							}
+						}
+					],
+					"sid": 652727258917136
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 522563999938906,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Button_Stop"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 241661091266459,
+							"parameters": {
+								"variable": "IsPlaying",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Button_Play",
+							"sid": 419920094854481,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 616111614736319,
+							"parameters": {
+								"variable": "ETA_SPEED",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Log_Timer",
+							"sid": 136291797544410,
+							"parameters": {
+								"text": "\"x\" & ETA_SPEED"
+							}
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 594646654661754,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Eta\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 736389327726643,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "1/ETA_SPEED",
+								"type": "regular",
+								"tag": "\"Eta\""
+							}
+						}
+					],
+					"sid": 601496131724411
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 582055733559143,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Button_Refresh"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 413246049203701,
+							"parameters": {
+								"variable": "IsPlaying",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 619780952258034,
+							"parameters": {
+								"variable": "ETA",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Button_Play",
+							"sid": 480199236789750,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 997282548343142,
+							"parameters": {
+								"variable": "ETA_SPEED",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Log_Timer",
+							"sid": 950823454113301,
+							"parameters": {
+								"text": "\"x\" & ETA_SPEED"
+							}
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 584628533644397,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Eta\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 475988489087295,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "1/ETA_SPEED",
+								"type": "regular",
+								"tag": "\"Eta\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Animals",
+							"sid": 520755711298703
+						}
+					],
+					"sid": 785753478684325
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 745333193333319,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Random_Animals"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 387617299370747,
+							"disabled": true,
+							"parameters": {
+								"variable": "IsPlaying",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 812121122445866,
+							"disabled": true,
+							"parameters": {
+								"variable": "ETA",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Button_Play",
+							"sid": 815557223642309,
+							"disabled": true,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 963738727809920,
+							"disabled": true,
+							"parameters": {
+								"variable": "ETA_SPEED",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Log_Timer",
+							"sid": 988242737579683,
+							"disabled": true,
+							"parameters": {
+								"text": "\"x\" & ETA_SPEED"
+							}
+						},
+						{
+							"id": "stop-timer",
+							"objectClass": "Timer",
+							"sid": 917199931404241,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"tag": "\"Eta\""
+							}
+						},
+						{
+							"id": "start-timer",
+							"objectClass": "Timer",
+							"sid": 203703862939527,
+							"disabled": true,
+							"behaviorType": "Timer",
+							"parameters": {
+								"duration": "1/ETA_SPEED",
+								"type": "regular",
+								"tag": "\"Eta\""
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Animals",
+							"sid": 491786478373863,
+							"disabled": true
+						},
+						{
+							"callFunction": "GenerateRandomAnimals",
+							"sid": 109492730946112,
+							"parameters": [
+								"50",
+								"10"
+							]
+						}
+					],
+					"sid": 416647046634551
+				}
+			],
+			"sid": 446887756497457
 		}
 	],
 	"sid": 652158111801143

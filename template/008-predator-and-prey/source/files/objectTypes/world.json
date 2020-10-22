@@ -13,15 +13,43 @@
 	],
 	"effectTypes": [],
 	"image": {
-		"width": 16,
-		"height": 16,
-		"originX": 11,
-		"originY": 7,
+		"width": 64,
+		"height": 64,
+		"originX": 2.75,
+		"originY": 1.75,
 		"originalSource": "",
 		"exportFormat": "png",
 		"exportQuality": 0.8,
-		"imageSpriteId": 3591283,
+		"imageSpriteId": 5734389,
+		"collisionPoly": {
+			"points": [
+				0,
+				0,
+				0.25,
+				0,
+				0.25,
+				0.25,
+				0,
+				0.25
+			]
+		},
 		"useCollisionPoly": true
 	},
-	"tile-collision-polys": {}
+	"tile-collision-polys": {
+		"8": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					1,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": false
+		}
+	}
 }

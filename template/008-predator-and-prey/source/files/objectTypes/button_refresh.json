@@ -1,7 +1,7 @@
 {
-	"name": "Predator",
+	"name": "Button_Refresh",
 	"plugin-id": "Sprite",
-	"sid": 356198464890337,
+	"sid": 883230464498550,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
@@ -11,19 +11,19 @@
 			{
 				"frames": [
 					{
-						"width": 8,
-						"height": 8,
+						"width": 32,
+						"height": 32,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9666290,
+						"imageSpriteId": 8341709,
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 755068813176768,
+				"sid": 713154772736664,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

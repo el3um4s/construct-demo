@@ -2743,6 +2743,34 @@ SetWrapping(w){this._SetWrapByWord(w===0)}}};
 'use strict';{const C3=self.C3;C3.Plugins.Text.Exps={Text(){return this._text},PlainText(){if(this._enableBBcode)return C3.BBString.StripAnyTags(this._text);else return this._text},FaceName(){return this._faceName},FaceSize(){return this._ptSize},TextWidth(){this._UpdateTextSize();return this._rendererText.GetTextWidth()},TextHeight(){this._UpdateTextSize();return this._rendererText.GetTextHeight()},LineHeight(){return this._lineHeightOffset}}};
 
 
+'use strict';{const C3=self.C3;C3.Plugins.Mouse=class MousePlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Mouse.Type=class MouseType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}GetScriptInterfaceClass(){return self.IMouseObjectType}};let mouseObjectType=null;function GetMouseSdkInstance(){return mouseObjectType.GetSingleGlobalInstance().GetSdkInstance()}self.IMouseObjectType=class IMouseObjectType extends self.IObjectClass{constructor(objectType){super(objectType);mouseObjectType=objectType;objectType.GetRuntime()._GetCommonScriptInterfaces().mouse=
+this}getMouseX(layerNameOrNumber){return GetMouseSdkInstance().GetMousePositionForLayer(layerNameOrNumber)[0]}getMouseY(layerNameOrNumber){return GetMouseSdkInstance().GetMousePositionForLayer(layerNameOrNumber)[1]}getMousePosition(layerNameOrNumber){return GetMouseSdkInstance().GetMousePositionForLayer(layerNameOrNumber)}isMouseButtonDown(button){return GetMouseSdkInstance().IsMouseButtonDown(button)}}};
+
+
+'use strict';{const C3=self.C3;const DOM_COMPONENT_ID="mouse";C3.Plugins.Mouse.Instance=class MouseInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst,DOM_COMPONENT_ID);this._buttonMap=[false,false,false];this._mouseXcanvas=0;this._mouseYcanvas=0;this._triggerButton=0;this._triggerType=0;this._triggerDir=0;const rt=this.GetRuntime().Dispatcher();this._disposables=new C3.CompositeDisposable(C3.Disposable.From(rt,"pointermove",e=>this._OnPointerMove(e.data)),C3.Disposable.From(rt,
+"pointerdown",e=>this._OnPointerDown(e.data)),C3.Disposable.From(rt,"pointerup",e=>this._OnPointerUp(e.data)),C3.Disposable.From(rt,"dblclick",e=>this._OnDoubleClick(e.data)),C3.Disposable.From(rt,"wheel",e=>this._OnMouseWheel(e.data)),C3.Disposable.From(rt,"window-blur",()=>this._OnWindowBlur()))}Release(){super.Release()}_OnPointerDown(e){if(e["pointerType"]!=="mouse")return;this._mouseXcanvas=e["pageX"]-this._runtime.GetCanvasClientX();this._mouseYcanvas=e["pageY"]-this._runtime.GetCanvasClientY();
+this._CheckButtonChanges(e["lastButtons"],e["buttons"])}_OnPointerMove(e){if(e["pointerType"]!=="mouse")return;this._mouseXcanvas=e["pageX"]-this._runtime.GetCanvasClientX();this._mouseYcanvas=e["pageY"]-this._runtime.GetCanvasClientY();this._CheckButtonChanges(e["lastButtons"],e["buttons"])}_OnPointerUp(e){if(e["pointerType"]!=="mouse")return;this._CheckButtonChanges(e["lastButtons"],e["buttons"])}_CheckButtonChanges(lastButtons,buttons){this._CheckButtonChange(lastButtons,buttons,1,0);this._CheckButtonChange(lastButtons,
+buttons,4,1);this._CheckButtonChange(lastButtons,buttons,2,2)}_CheckButtonChange(lastButtons,buttons,checkButtonFlag,resultButton){if(!(lastButtons&checkButtonFlag)&&buttons&checkButtonFlag)this._OnMouseDown(resultButton);else if(lastButtons&checkButtonFlag&&!(buttons&checkButtonFlag))this._OnMouseUp(resultButton)}_OnMouseDown(button){this._buttonMap[button]=true;this.Trigger(C3.Plugins.Mouse.Cnds.OnAnyClick);this._triggerButton=button;this._triggerType=0;this.Trigger(C3.Plugins.Mouse.Cnds.OnClick);
+this.Trigger(C3.Plugins.Mouse.Cnds.OnObjectClicked)}_OnMouseUp(button){if(!this._buttonMap[button])return;this._buttonMap[button]=false;this._triggerButton=button;this.Trigger(C3.Plugins.Mouse.Cnds.OnRelease)}_OnDoubleClick(e){this._triggerButton=e["button"];this._triggerType=1;this.Trigger(C3.Plugins.Mouse.Cnds.OnClick);this.Trigger(C3.Plugins.Mouse.Cnds.OnObjectClicked)}_OnMouseWheel(e){this._triggerDir=e["deltaY"]<0?1:0;this.Trigger(C3.Plugins.Mouse.Cnds.OnWheel)}_OnWindowBlur(){for(let i=0,len=
+this._buttonMap.length;i<len;++i){if(!this._buttonMap[i])return;this._buttonMap[i]=false;this._triggerButton=i;this.Trigger(C3.Plugins.Mouse.Cnds.OnRelease)}}GetMousePositionForLayer(layerNameOrNumber){const layout=this._runtime.GetMainRunningLayout();const x=this._mouseXcanvas;const y=this._mouseYcanvas;if(typeof layerNameOrNumber==="undefined"){const layer=layout.GetLayerByIndex(0);return layer.CanvasCssToLayer_DefaultTransform(x,y)}else{const layer=layout.GetLayer(layerNameOrNumber);if(layer)return layer.CanvasCssToLayer(x,
+y);else return[0,0]}}IsMouseButtonDown(button){button=Math.floor(button);return!!this._buttonMap[button]}_IsMouseOverCanvas(){return this._mouseXcanvas>=0&&this._mouseYcanvas>=0&&this._mouseXcanvas<this._runtime.GetCanvasCssWidth()&&this._mouseYcanvas<this._runtime.GetCanvasCssHeight()}GetDebuggerProperties(){const prefix="plugins.mouse";return[{title:prefix+".name",properties:[{name:prefix+".debugger.absolute-position",value:this._mouseXcanvas+","+this._mouseYcanvas},{name:prefix+".debugger.left-button",
+value:this._buttonMap[0]},{name:prefix+".debugger.middle-button",value:this._buttonMap[1]},{name:prefix+".debugger.right-button",value:this._buttonMap[2]}]},{title:prefix+".debugger.position-on-each-layer",properties:this._runtime.GetMainRunningLayout().GetLayers().map(layer=>({name:"$"+layer.GetName(),value:layer.CanvasCssToLayer(this._mouseXcanvas,this._mouseYcanvas).join(", ")}))}]}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Mouse.Cnds={OnClick(button,type){return this._triggerButton===button&&this._triggerType===type},OnAnyClick(){return true},IsButtonDown(button){return this._buttonMap[button]},OnRelease(button){return this._triggerButton===button},IsOverObject(objectClass){if(!this._IsMouseOverCanvas())return false;const cnd=this._runtime.GetCurrentCondition();const isInverted=cnd.IsInverted();const mx=this._mouseXcanvas;const my=this._mouseYcanvas;return C3.xor(this._runtime.GetCollisionEngine().TestAndSelectCanvasPointOverlap(objectClass,
+mx,my,isInverted),isInverted)},OnObjectClicked(button,type,objectClass){if(button!==this._triggerButton||type!==this._triggerType)return false;if(!this._IsMouseOverCanvas())return false;const mx=this._mouseXcanvas;const my=this._mouseYcanvas;return this._runtime.GetCollisionEngine().TestAndSelectCanvasPointOverlap(objectClass,mx,my,false)},OnWheel(dir){return this._triggerDir===dir}}};
+
+
+'use strict';{const C3=self.C3;let lastSetCursor=null;const CURSOR_STYLES=["auto","pointer","text","crosshair","move","help","wait","none"];C3.Plugins.Mouse.Acts={SetCursor(c){const cursorStyle=CURSOR_STYLES[c];if(lastSetCursor===cursorStyle)return;lastSetCursor=cursorStyle;this.PostToDOM("cursor",cursorStyle)},SetCursorSprite(objectClass){if(C3.Platform.IsMobile||!objectClass)return;const inst=objectClass.GetFirstPicked();if(!inst)return;const wi=inst.GetWorldInfo();const imageInfo=inst.GetCurrentImageInfo();
+if(!wi||!imageInfo)return;if(lastSetCursor===imageInfo)return;lastSetCursor=imageInfo;imageInfo.ExtractImageToCanvas().then(canvas=>C3.CanvasToBlob(canvas)).then(blob=>{const url=URL.createObjectURL(blob);const cursorStyle=`url(${url}) ${Math.round(wi.GetOriginX()*imageInfo.GetWidth())} ${Math.round(wi.GetOriginY()*imageInfo.GetHeight())}, auto`;this.PostToDOM("cursor","");this.PostToDOM("cursor",cursorStyle)})}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Mouse.Exps={X(layerParam){return this.GetMousePositionForLayer(layerParam)[0]},Y(layerParam){return this.GetMousePositionForLayer(layerParam)[1]},AbsoluteX(){return this._mouseXcanvas},AbsoluteY(){return this._mouseYcanvas}}};
+
+
 'use strict';{const C3=self.C3;C3.Behaviors.Timer=class TimerBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -2847,6 +2875,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		C3.Behaviors.solid,
 		C3.Plugins.Browser,
 		C3.Plugins.Text,
+		C3.Plugins.Mouse,
 		C3.Behaviors.TileMovement,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Behaviors.Timer.Acts.StartTimer,
@@ -2861,6 +2890,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		C3.Plugins.Sprite.Acts.AddChild,
 		C3.Plugins.Sprite.Acts.SetVisible,
 		C3.Behaviors.Timer.Cnds.OnTimer,
+		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.System.Acts.AddVar,
 		C3.Plugins.System.Cnds.ForEach,
 		C3.Plugins.Sprite.Exps.UID,
@@ -2868,9 +2898,26 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Plugins.Sprite.Cnds.PickParent,
-		C3.ScriptsInEvents.EventSheet1_Event10_Act1,
+		C3.Plugins.System.Cnds.IsGroupActive,
 		C3.ScriptsInEvents.EventSheet1_Event11_Act1,
-		C3.ScriptsInEvents.EventSheet1_Event12_Act1
+		C3.ScriptsInEvents.EventSheet1_Event12_Act1,
+		C3.ScriptsInEvents.EventSheet1_Event13_Act1,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.System.Exps.random,
+		C3.Plugins.Tilemap.Cnds.CompareTileAt,
+		C3.Plugins.System.Acts.CreateObjectByName,
+		C3.Plugins.Tilemap.Exps.TileToPositionX,
+		C3.Plugins.Tilemap.Exps.TileToPositionY,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.System.Cnds.For,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.Mouse.Cnds.OnObjectClicked,
+		C3.Behaviors.Timer.Acts.StopTimer,
+		C3.Plugins.System.Acts.SubVar,
+		C3.Plugins.Sprite.Acts.SetAnimFrame,
+		C3.Plugins.Sprite.Exps.AnimationFrame,
+		C3.Plugins.System.Acts.ToggleBoolVar,
+		C3.Plugins.System.Acts.SetBoolVar
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -2888,15 +2935,34 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		{Predators_Area: 0},
 		{Browser: 0},
 		{Log: 0},
+		{Log_Timer: 0},
+		{Mouse: 0},
+		{Button_Play: 0},
+		{Button_Stop: 0},
+		{Button_Refresh: 0},
+		{Random_Animals: 0},
 		{Preys: 0},
 		{Predators: 0},
 		{TileMovement: 0},
 		{Animals: 0},
 		{LAY_ANIMALS: 0},
 		{ETA: 0},
+		{IsPlaying: 0},
+		{ETA_SPEED: 0},
 		{UID: 0},
 		{UID_predator: 0},
-		{UID_prey: 0}
+		{UID_prey: 0},
+		{x: 0},
+		{y: 0},
+		{Name: 0},
+		{Lay: 0},
+		{Width: 0},
+		{Height: 0},
+		{Offset_X: 0},
+		{Offset_Y: 0},
+		{Rand: 0},
+		{Iterations: 0},
+		{PercentagePredators: 0}
 	];
 }
 
@@ -2998,7 +3064,10 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => 0.25,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (1 / v0.GetValue());
+		},
 		() => "Eta",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3018,7 +3087,47 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar_Family();
-		}
+		},
+		() => "FUNCTIONS",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			return () => (Math.floor(f0(0, v1.GetValue())) + v2.GetValue());
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => v0.GetValue();
+		},
+		() => 8,
+		p => {
+			const n0 = p._GetNode(0);
+			const v1 = p._GetNode(1).GetVar();
+			return () => n0.ExpObject(v1.GetValue());
+		},
+		() => "",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => Math.floor(f0(0, 100));
+		},
+		() => "Predator",
+		() => "LAY_ANIMALS",
+		() => 101,
+		() => 58,
+		() => 6,
+		() => "Prey",
+		() => "BUTTONS",
+		() => 32,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => and("x", v0.GetValue());
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => ((((n0.ExpObject()) === (0) ? 1 : 0)) ? (1) : (0));
+		},
+		() => 50,
+		() => 10
 	];
 }
 
@@ -3028,7 +3137,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 {
 	const scriptsInEvents = {
 
-		async EventSheet1_Event10_Act1(runtime, localVars)
+		async EventSheet1_Event11_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const animal = runtime.getInstanceByUid(uid);
@@ -3053,7 +3162,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 			
 		},
 
-		async EventSheet1_Event11_Act1(runtime, localVars)
+		async EventSheet1_Event12_Act1(runtime, localVars)
 		{
 			const uid = localVars.UID;
 			const animal = runtime.getInstanceByUid(uid);
@@ -3078,7 +3187,7 @@ inst._targetY]}getGridTargetPosition(){const inst=map.get(this);return[inst._tar
 			
 		},
 
-		async EventSheet1_Event12_Act1(runtime, localVars)
+		async EventSheet1_Event13_Act1(runtime, localVars)
 		{
 			const uidPredator = localVars.UID_predator;
 			const uidPrey = localVars.UID_prey;
