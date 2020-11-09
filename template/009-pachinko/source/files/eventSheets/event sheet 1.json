@@ -1,0 +1,482 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "force",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 398394858707977
+		},
+		{
+			"eventType": "variable",
+			"name": "points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 731910013639759
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 125705567788460
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 490400327676573,
+					"parameters": {
+						"variable": "points",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 328375021337087,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "rand",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 245478078411468
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 797874457689170,
+							"parameters": {
+								"object": "Nail"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 802897702534429,
+							"parameters": {
+								"variable": "rand",
+								"value": "choose(0,1)"
+							}
+						}
+					],
+					"sid": 730053542520129,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 915254278212863,
+									"parameters": {
+										"variable": "rand",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Nail",
+									"sid": 271802144819046
+								}
+							],
+							"sid": 923842979549552
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 944675654097866,
+					"parameters": {
+						"key": 82
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 797507775149147
+				}
+			],
+			"sid": 664319687897970
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "key-is-down",
+					"objectClass": "Keyboard",
+					"sid": 950658733726689,
+					"parameters": {
+						"key": 32
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 830025900832912,
+					"parameters": {
+						"interval-seconds": "0.1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "add-to-eventvar",
+					"objectClass": "System",
+					"sid": 996988955812042,
+					"parameters": {
+						"variable": "force",
+						"value": "0.1"
+					}
+				}
+			],
+			"sid": 861793850467987
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-released",
+					"objectClass": "Keyboard",
+					"sid": 325582187702652,
+					"parameters": {
+						"key": 32
+					}
+				}
+			],
+			"actions": [],
+			"sid": 378127485721278,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Ball",
+							"sid": 395248753770430,
+							"parameters": {
+								"object": "Box_launch"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "apply-impulse",
+							"objectClass": "Ball",
+							"sid": 581566286062382,
+							"behaviorType": "Physics",
+							"parameters": {
+								"impulse-x": "0",
+								"implulse-y": "-force",
+								"image-point": "0"
+							}
+						}
+					],
+					"sid": 766332412382415
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 697468119405915,
+							"parameters": {
+								"variable": "force",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 363872789412120
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-key-pressed",
+					"objectClass": "Keyboard",
+					"sid": 528182247735387,
+					"parameters": {
+						"key": 13
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "Box_SpawnNewBall",
+					"sid": 359981719616642,
+					"parameters": {
+						"object": "Ball",
+						"layer": "\"LAY_BALLS\"",
+						"image-point": "0"
+					}
+				}
+			],
+			"sid": 647743670766095
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Ball",
+					"sid": 865525005626638
+				}
+			],
+			"actions": [
+				{
+					"id": "add-child",
+					"objectClass": "Ball",
+					"sid": 359264629734816,
+					"parameters": {
+						"child": "BallShadow",
+						"transform-x": true,
+						"transform-y": true,
+						"transform-w": true,
+						"transform-h": true,
+						"transform-a": true,
+						"transform-z-elevation": true,
+						"destroy-with-parent": true
+					}
+				}
+			],
+			"sid": 563519231273572
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-sleeping",
+					"objectClass": "Ball",
+					"sid": 227276416948925,
+					"behaviorType": "Physics"
+				},
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "BallShadow",
+					"sid": 393706528721888,
+					"parameters": {
+						"object": "Nail"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Nail",
+					"sid": 289813455128698
+				}
+			],
+			"sid": 374777594877111
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BallShadow",
+					"sid": 842129878963559
+				}
+			],
+			"actions": [
+				{
+					"id": "set-visible",
+					"objectClass": "BallShadow",
+					"sid": 341156116216172,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 101214154870580
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Ball",
+					"sid": 582649325470623,
+					"parameters": {
+						"object": "Box_End"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Ball",
+					"sid": 600812007377533
+				}
+			],
+			"sid": 590618089746799
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 466042211690356,
+					"parameters": {
+						"variable": "force",
+						"comparison": 4,
+						"value": "1.6"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 303303223198624,
+					"parameters": {
+						"variable": "force",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 748284071988322
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-height",
+					"objectClass": "Sprite",
+					"sid": 890594019976872,
+					"parameters": {
+						"height": "Sprite.ImageHeight*force"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Points",
+					"sid": 541233396836534,
+					"parameters": {
+						"text": "\"Points: \" & points"
+					}
+				}
+			],
+			"sid": 685710253490624
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Ball",
+					"sid": 922512466145769,
+					"parameters": {
+						"object": "Nail"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 612203316568790,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "rand",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 102102221304418
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 676393164077866,
+							"parameters": {
+								"variable": "rand",
+								"value": "choose(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,4,4,4,5,5,6,6,7,7,8,8,9,9,10)"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 923019304073119,
+							"parameters": {
+								"variable": "points",
+								"value": "rand"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Nail",
+							"sid": 998603331156135,
+							"parameters": {
+								"object": "Text_New_Point",
+								"layer": "Nail.LayerName",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "set-angle-of-motion",
+							"objectClass": "Text_New_Point",
+							"sid": 936956133786599,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"angle": "-90"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_New_Point",
+							"sid": 919328124746534,
+							"parameters": {
+								"text": "rand"
+							}
+						}
+					],
+					"sid": 469282924884026
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [],
+					"sid": 424724177018397
+				}
+			]
+		}
+	],
+	"sid": 599737470150110
+}

@@ -1,0 +1,49 @@
+{
+	"name": "Nail",
+	"plugin-id": "Sprite",
+	"sid": 924463827821267,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 16,
+						"height": 16,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4310553,
+						"collisionPoly": {
+							"points": [
+								0.4979166666666667,
+								0.06875,
+								0.9270833333333334,
+								0.4979166666666667,
+								0.5104166666666666,
+								0.94375,
+								0.07291666666666667,
+								0.5104166666666666
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 595925722642543,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

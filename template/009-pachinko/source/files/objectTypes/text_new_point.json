@@ -1,0 +1,25 @@
+{
+	"name": "Text_New_Point",
+	"plugin-id": "Text",
+	"sid": 372481187399715,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 159525320088152
+		},
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 997090750132426
+		},
+		{
+			"behaviorId": "destroy",
+			"name": "DestroyOutsideLayout",
+			"sid": 843506238969022
+		}
+	],
+	"effectTypes": []
+}

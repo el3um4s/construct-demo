@@ -1,0 +1,19 @@
+{
+	"name": "Physics",
+	"plugin-id": "Sprite",
+	"sid": 103881589393135,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Physics",
+			"name": "Physics",
+			"sid": 603427889717976
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Box_Margin",
+		"Nail",
+		"Ball"
+	]
+}
