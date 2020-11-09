@@ -20,7 +20,7 @@ My collection of demo projects for Construct 3
   5. [One Color Idle Game](template/005-one-color-idle-game)
   6. [Follow the player](template/006-follow-the-player)
   7. [Procedural Map Generation](template/007-procedural-map-generation)
-  8. [WIP - Predator and Prey](template/008-predator-and-prey)
+  8. [Predator and Prey](template/008-predator-and-prey)
 
 ### User Interface
 

@@ -46,7 +46,7 @@ My collection of demo projects for Construct 3
 | 5|![image][T-5i] | [One Color Idle Game][T-5]               |[Demo][T-5d] |
 | 6|![image][T-6i] | [Follow the player][T-6]                 |[Demo][T-6d] |
 | 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |
-| 8|![image][T-8i] | [WIP - Predator and Prey][T-8]           |[Demo][T-8d] |
+| 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
