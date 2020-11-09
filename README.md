@@ -47,7 +47,7 @@ My collection of demo projects for Construct 3
 | 6|![image][T-6i] | [Follow the player][T-6]                 |[Demo][T-6d] |
 | 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |
 | 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |
-| 9|![image][T-8i] | [Pachinko][T-9]                          |[Demo][T-9d] |
+| 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
