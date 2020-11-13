@@ -1,0 +1,15 @@
+{
+	"name": "Win",
+	"plugin-id": "Text",
+	"sid": 386433584392658,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 136348679670428
+		}
+	],
+	"effectTypes": []
+}

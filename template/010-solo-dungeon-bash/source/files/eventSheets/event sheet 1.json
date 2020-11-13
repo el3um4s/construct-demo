@@ -1,0 +1,2280 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Health",
+			"type": "number",
+			"initialValue": "17",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 897120298634509
+		},
+		{
+			"eventType": "variable",
+			"name": "AttackDice",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 184230987037022
+		},
+		{
+			"eventType": "variable",
+			"name": "DefenceDice",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 209501271821352
+		},
+		{
+			"eventType": "variable",
+			"name": "Treasure",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 615245145588848
+		},
+		{
+			"eventType": "variable",
+			"name": "Potions",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 654669700376527
+		},
+		{
+			"eventType": "variable",
+			"name": "Log",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 418410692344014
+		},
+		{
+			"eventType": "variable",
+			"name": "CanMove",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 856139224039588
+		},
+		{
+			"eventType": "variable",
+			"name": "ExploreRoom",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 258154598355511
+		},
+		{
+			"eventType": "variable",
+			"name": "IsFighting",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 653695623367619
+		},
+		{
+			"eventType": "variable",
+			"name": "Room_Log",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 446284501432407
+		},
+		{
+			"eventType": "variable",
+			"name": "Room_Action",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 853940729344529
+		},
+		{
+			"eventType": "variable",
+			"name": "Room_Value",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 171699285794650
+		},
+		{
+			"eventType": "variable",
+			"name": "Room_Health",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 110694063975840
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Initalize",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 426487930486041
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 315244137856656,
+							"parameters": {
+								"variable": "CanMove",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 311072715661594,
+							"parameters": {
+								"variable": "ExploreRoom",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 768411170827303,
+							"parameters": {
+								"variable": "IsFighting",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Txt_Room_log",
+							"sid": 976096595874003,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Txt_log",
+							"sid": 383699639931235,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Txt_FightAgain",
+							"sid": 821144932841691,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 279815380016388,
+							"parameters": {
+								"variable": "Health",
+								"value": "17"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 168161980974391,
+							"parameters": {
+								"variable": "AttackDice",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 211075958959218,
+							"parameters": {
+								"variable": "DefenceDice",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 569512147410296,
+							"parameters": {
+								"variable": "Treasure",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 301260187612216,
+							"parameters": {
+								"variable": "Potions",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 877140647667756,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 776303210586919,
+									"parameters": {
+										"object": "Card"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Card",
+									"sid": 509804989413845,
+									"parameters": {
+										"instance-variable": "room"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Set Room",
+									"sid": 197675097488814,
+									"parameters": [
+										"Card.UID"
+									]
+								}
+							],
+							"sid": 356242553260877
+						}
+					]
+				}
+			],
+			"sid": 114991171704529
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Card :: Colors",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Range",
+							"sid": 239386337954121,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 747129859142784,
+							"parameters": {
+								"animation": "\"Visited\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 954590521316718,
+							"parameters": {
+								"animation": "\"You Can Visit\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 637634335510423,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 316818684782545,
+									"parameters": {
+										"object": "Card"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Card",
+									"sid": 810624876916241,
+									"parameters": {
+										"animation": "\"You Can Visit\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 258246129499626,
+							"disabled": true
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 599652003754527,
+							"parameters": {
+								"object": "Card"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 993636694237080,
+							"parameters": {
+								"animation": "\"Visited\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 989194737457763
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 472772957644066,
+							"parameters": {
+								"object": "Card"
+							}
+						},
+						{
+							"id": "is-animation-playing",
+							"objectClass": "Card",
+							"sid": 420484309901662,
+							"parameters": {
+								"animation": "\"You Can Visit\""
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player_Range",
+							"sid": 770243711124481,
+							"parameters": {
+								"object": "Card"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 656972815145985,
+							"disabled": true,
+							"parameters": {
+								"object": "Card"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Card",
+							"sid": 686498325972053,
+							"parameters": {
+								"animation": "\"Not Visited\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 577869088620075
+				}
+			],
+			"sid": 835497898966487
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "UI",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 454327072206524,
+							"parameters": {
+								"object": "txt_Var"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 809765537953293,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "txt_Var",
+									"sid": 229331684072200,
+									"parameters": {
+										"instance-variable": "nameVar",
+										"comparison": 0,
+										"value": "\"Health\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_Var",
+									"sid": 519055543853566,
+									"parameters": {
+										"text": "Health"
+									}
+								}
+							],
+							"sid": 531815490366940
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "txt_Var",
+									"sid": 206416880947294,
+									"parameters": {
+										"instance-variable": "nameVar",
+										"comparison": 0,
+										"value": "\"AttackDice\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_Var",
+									"sid": 324306776667769,
+									"parameters": {
+										"text": "AttackDice"
+									}
+								}
+							],
+							"sid": 170764950616563
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "txt_Var",
+									"sid": 439230978181539,
+									"parameters": {
+										"instance-variable": "nameVar",
+										"comparison": 0,
+										"value": "\"DefenceDice\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_Var",
+									"sid": 177112831829158,
+									"parameters": {
+										"text": "DefenceDice"
+									}
+								}
+							],
+							"sid": 217822990713259
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "txt_Var",
+									"sid": 196046835506512,
+									"parameters": {
+										"instance-variable": "nameVar",
+										"comparison": 0,
+										"value": "\"Treasure\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_Var",
+									"sid": 285807171120938,
+									"parameters": {
+										"text": "Treasure"
+									}
+								}
+							],
+							"sid": 130397518832209
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "txt_Var",
+									"sid": 206902845387759,
+									"parameters": {
+										"instance-variable": "nameVar",
+										"comparison": 0,
+										"value": "\"Potions\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "txt_Var",
+									"sid": 245737793475871,
+									"parameters": {
+										"text": "Potions"
+									}
+								}
+							],
+							"sid": 186438914766085
+						}
+					]
+				}
+			],
+			"sid": 503879828796101
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Win",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 131680634301895,
+							"parameters": {
+								"object": "Player_Win"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 106261507555106,
+							"parameters": {
+								"variable": "CanMove",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Win",
+							"sid": 588545296620370,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 342435902661528
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 875612829476123,
+							"parameters": {
+								"key": 13
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Win",
+							"sid": 943929837329339
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 314909858914366
+						}
+					],
+					"sid": 240203800541851
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 503353659533552,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Win"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Win",
+							"sid": 551796355568945
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 793248540093107
+						}
+					],
+					"sid": 976551069319862
+				}
+			],
+			"sid": 256474584049908
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Lose",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 486327539010144,
+							"parameters": {
+								"variable": "Health",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Lose",
+							"sid": 915654771074893,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Txt_FightAgain",
+							"sid": 405979269348923,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 123524227883049
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 213856326316102,
+							"parameters": {
+								"variable": "CanMove"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Win",
+							"sid": 335421602642931,
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 613544825003122,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "Card",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 392125526287706
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-animation-playing",
+									"objectClass": "Card",
+									"sid": 402586821402859,
+									"parameters": {
+										"animation": "\"You Can Visit\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 879476204596715,
+									"parameters": {
+										"variable": "Card",
+										"value": "Card.PickedCount"
+									}
+								}
+							],
+							"sid": 649941589870570
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 715096155952859,
+									"parameters": {
+										"variable": "Card",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Lose",
+									"sid": 143997922971175,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 866938630566726
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 895315275078157,
+							"parameters": {
+								"key": 13
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Lose",
+							"sid": 140620797195625
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 675560661854808
+						}
+					],
+					"sid": 879298158191023
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 539775104579545,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Lose"
+							}
+						},
+						{
+							"id": "is-visible",
+							"objectClass": "Lose",
+							"sid": 812291056124163
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 153410397418918
+						}
+					],
+					"sid": 932843278638869
+				}
+			],
+			"sid": 982272969279425
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Turn Sequence",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "01 - Pick next square and move into it"
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Player :: Move",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player :: Move :: Mouse",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 858221592292146,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Card"
+											}
+										},
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 415489183707149,
+											"parameters": {
+												"variable": "CanMove"
+											}
+										},
+										{
+											"id": "is-animation-playing",
+											"objectClass": "Card",
+											"sid": 659004982724099,
+											"parameters": {
+												"animation": "\"You Can Visit\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position-to-another-object",
+											"objectClass": "Player",
+											"sid": 399119429083347,
+											"parameters": {
+												"object": "Card",
+												"image-point-optional": "0"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 706887832846826,
+											"parameters": {
+												"variable": "CanMove",
+												"value": "false"
+											}
+										},
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 873733560508889,
+											"parameters": {
+												"variable": "ExploreRoom",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 946809295622401
+								}
+							],
+							"sid": 755433852294710
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Player :: Move :: Keyboard",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 240241687443518,
+											"parameters": {
+												"variable": "CanMove"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 824719963296132,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 266900129992293,
+													"parameters": {
+														"key": 103
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 212110964631396,
+													"disabled": true,
+													"parameters": {
+														"key": 81
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 325028107322888,
+													"parameters": {
+														"key": 36
+													}
+												}
+											],
+											"actions": [],
+											"sid": 693889248316484,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Card",
+															"sid": 381751081030491,
+															"parameters": {
+																"comparison": 2,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "Card",
+															"sid": 177925513153915,
+															"parameters": {
+																"comparison": 2,
+																"y-co-ordinate": "Player.Y"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Card",
+															"sid": 514932947014238,
+															"parameters": {
+																"animation": "\"You Can Visit\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position-to-another-object",
+															"objectClass": "Player",
+															"sid": 463018911050452,
+															"parameters": {
+																"object": "Card",
+																"image-point-optional": "0"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 301606690881613,
+															"parameters": {
+																"variable": "CanMove",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 135691977548396,
+															"parameters": {
+																"variable": "ExploreRoom",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 759796949074461
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 811728279650028,
+													"parameters": {
+														"key": 105
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 585293391868177,
+													"disabled": true,
+													"parameters": {
+														"key": 69
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 397296786397459,
+													"parameters": {
+														"key": 33
+													}
+												}
+											],
+											"actions": [],
+											"sid": 889373614148754,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Card",
+															"sid": 229511534768392,
+															"parameters": {
+																"comparison": 4,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "Card",
+															"sid": 982656740118769,
+															"parameters": {
+																"comparison": 2,
+																"y-co-ordinate": "Player.Y"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Card",
+															"sid": 234901755490728,
+															"parameters": {
+																"animation": "\"You Can Visit\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position-to-another-object",
+															"objectClass": "Player",
+															"sid": 751294012100061,
+															"parameters": {
+																"object": "Card",
+																"image-point-optional": "0"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 825951840919208,
+															"parameters": {
+																"variable": "CanMove",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 673489057535363,
+															"parameters": {
+																"variable": "ExploreRoom",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 305371642806806
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 650219664634789,
+													"parameters": {
+														"key": 104
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 953970156595894,
+													"disabled": true,
+													"parameters": {
+														"key": 87
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 848961473272809,
+													"parameters": {
+														"key": 38
+													}
+												}
+											],
+											"actions": [],
+											"sid": 270555344941989,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Card",
+															"sid": 819694677556034,
+															"parameters": {
+																"comparison": 0,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "Card",
+															"sid": 592356740996513,
+															"parameters": {
+																"comparison": 2,
+																"y-co-ordinate": "Player.Y"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Card",
+															"sid": 366166695658760,
+															"parameters": {
+																"animation": "\"You Can Visit\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position-to-another-object",
+															"objectClass": "Player",
+															"sid": 637296188324011,
+															"parameters": {
+																"object": "Card",
+																"image-point-optional": "0"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 562555221483792,
+															"parameters": {
+																"variable": "CanMove",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 859404933671844,
+															"parameters": {
+																"variable": "ExploreRoom",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 446436046971727
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 268714178073664,
+													"parameters": {
+														"key": 100
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 252396211737163,
+													"disabled": true,
+													"parameters": {
+														"key": 65
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 163670631492857,
+													"parameters": {
+														"key": 37
+													}
+												}
+											],
+											"actions": [],
+											"sid": 556742417053690,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Card",
+															"sid": 111254089365753,
+															"parameters": {
+																"comparison": 2,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "Card",
+															"sid": 456003175528719,
+															"parameters": {
+																"comparison": 0,
+																"y-co-ordinate": "Player.Y"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Card",
+															"sid": 798263258585197,
+															"parameters": {
+																"animation": "\"You Can Visit\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position-to-another-object",
+															"objectClass": "Player",
+															"sid": 724044359928041,
+															"parameters": {
+																"object": "Card",
+																"image-point-optional": "0"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 626753862615959,
+															"parameters": {
+																"variable": "CanMove",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 445250878463073,
+															"parameters": {
+																"variable": "ExploreRoom",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 716759465317639
+												}
+											],
+											"isOrBlock": true
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 927826029087970,
+													"parameters": {
+														"key": 102
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 203609748427408,
+													"disabled": true,
+													"parameters": {
+														"key": 68
+													}
+												},
+												{
+													"id": "on-key-pressed",
+													"objectClass": "Keyboard",
+													"sid": 624576190500706,
+													"parameters": {
+														"key": 39
+													}
+												}
+											],
+											"actions": [],
+											"sid": 711660082993074,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "compare-x",
+															"objectClass": "Card",
+															"sid": 250173962641123,
+															"parameters": {
+																"comparison": 4,
+																"x-co-ordinate": "Player.X"
+															}
+														},
+														{
+															"id": "compare-y",
+															"objectClass": "Card",
+															"sid": 952892116056442,
+															"parameters": {
+																"comparison": 0,
+																"y-co-ordinate": "Player.Y"
+															}
+														},
+														{
+															"id": "is-animation-playing",
+															"objectClass": "Card",
+															"sid": 748125819896873,
+															"parameters": {
+																"animation": "\"You Can Visit\""
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-position-to-another-object",
+															"objectClass": "Player",
+															"sid": 115542018460167,
+															"parameters": {
+																"object": "Card",
+																"image-point-optional": "0"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 532294072644236,
+															"parameters": {
+																"variable": "CanMove",
+																"value": "false"
+															}
+														},
+														{
+															"id": "set-boolean-eventvar",
+															"objectClass": "System",
+															"sid": 276885522198616,
+															"parameters": {
+																"variable": "ExploreRoom",
+																"value": "true"
+															}
+														}
+													],
+													"sid": 126331542113677
+												}
+											],
+											"isOrBlock": true
+										}
+									]
+								}
+							],
+							"sid": 408257251567540
+						}
+					],
+					"sid": 942091124850680
+				},
+				{
+					"eventType": "comment",
+					"text": "02 - Determine room content"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 160425415771077,
+							"parameters": {
+								"variable": "ExploreRoom"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Player",
+							"sid": 848912181817754,
+							"parameters": {
+								"object": "Card"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Txt_Room_log",
+							"sid": 416335238440802,
+							"parameters": {
+								"text": "Card.log"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Txt_log",
+							"sid": 663124025508097,
+							"parameters": {
+								"text": "\"\""
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 151424251227701,
+							"parameters": {
+								"variable": "Room_Log",
+								"value": "Card.log"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 358814462648797,
+							"parameters": {
+								"variable": "Room_Action",
+								"value": "Card.action"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 521123468924557,
+							"parameters": {
+								"variable": "Room_Value",
+								"value": "Card.value"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 200531516139720,
+							"parameters": {
+								"variable": "Room_Health",
+								"value": "Card.health"
+							}
+						}
+					],
+					"sid": 553140924851965
+				},
+				{
+					"eventType": "comment",
+					"text": "03 - If room contains Treasure add it to your Treasure score"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 145045495647690,
+							"parameters": {
+								"variable": "ExploreRoom"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 666196597559766,
+							"parameters": {
+								"variable": "Room_Action",
+								"comparison": 0,
+								"value": "\"Treasure\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 153868981883437,
+							"parameters": {
+								"variable": "Treasure",
+								"value": "Room_Value"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 707499247280497,
+							"parameters": {
+								"variable": "CanMove",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 380224599914712,
+							"parameters": {
+								"variable": "ExploreRoom",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 269738803655088
+				},
+				{
+					"eventType": "comment",
+					"text": "04 - If room contains Potion add it to your Potion count"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 503975163199226,
+							"parameters": {
+								"variable": "ExploreRoom"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 365405850073855,
+							"parameters": {
+								"variable": "Room_Action",
+								"comparison": 0,
+								"value": "\"Potion\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 483178248933046,
+							"parameters": {
+								"variable": "Potions",
+								"value": "Room_Value"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 181236970779001,
+							"parameters": {
+								"variable": "CanMove",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 788113447553155,
+							"parameters": {
+								"variable": "ExploreRoom",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 291415496337202
+				},
+				{
+					"eventType": "comment",
+					"text": "05 - If room is empty move again"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 382874055313173,
+							"parameters": {
+								"variable": "ExploreRoom"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 625718608708101,
+							"parameters": {
+								"variable": "Room_Action",
+								"comparison": 0,
+								"value": "\"Empty\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 449227646949031,
+							"parameters": {
+								"variable": "CanMove",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 562930316106958,
+							"parameters": {
+								"variable": "ExploreRoom",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 451873587372058
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "06 - If room contains a Monster, fight to the Death",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 205637798270410,
+									"parameters": {
+										"variable": "ExploreRoom"
+									}
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 210778371670678,
+									"parameters": {
+										"variable": "Room_Action",
+										"comparison": 0,
+										"value": "\"Attack\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 972898834535234,
+									"parameters": {
+										"variable": "ExploreRoom",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 320798632427132,
+									"parameters": {
+										"variable": "IsFighting",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 242495076432473
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 489715349204392,
+									"parameters": {
+										"variable": "IsFighting"
+									}
+								},
+								{
+									"id": "is-overlapping-another-object",
+									"objectClass": "Player",
+									"sid": 522762030882191,
+									"parameters": {
+										"object": "Card"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "Txt_FightAgain",
+									"sid": 455193916619146,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								},
+								{
+									"callFunction": "Fighting",
+									"sid": 683802049012935,
+									"parameters": [
+										"Card.UID"
+									]
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 725065210992748,
+									"parameters": {
+										"variable": "IsFighting",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Txt_log",
+									"sid": 577037394886091,
+									"parameters": {
+										"text": "Log"
+									}
+								}
+							],
+							"sid": 921973857259821,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Card",
+											"sid": 885293538730682,
+											"parameters": {
+												"instance-variable": "health",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-visible",
+											"objectClass": "Txt_FightAgain",
+											"sid": 323933133945792,
+											"parameters": {
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 435931540925968
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 317680863594176
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 989513086086379,
+											"parameters": {
+												"variable": "CanMove",
+												"value": "true"
+											}
+										}
+									],
+									"sid": 159554132599541
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 956764468007675,
+									"parameters": {
+										"variable": "IsFighting"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-visible",
+									"objectClass": "Txt_FightAgain",
+									"sid": 717347450950557
+								}
+							],
+							"actions": [],
+							"sid": 657518144326882,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 509166030280476,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Txt_FightAgain"
+											}
+										},
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 395965104020567,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Txt_log"
+											}
+										},
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 300570947832879,
+											"parameters": {
+												"key": 13
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 329179952088410,
+											"parameters": {
+												"variable": "IsFighting",
+												"value": "true"
+											}
+										},
+										{
+											"id": "set-visible",
+											"objectClass": "Txt_FightAgain",
+											"sid": 147831297976669,
+											"parameters": {
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 405833598643890,
+									"isOrBlock": true
+								}
+							]
+						}
+					],
+					"sid": 375726427707171
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "07 - Exchange any Treasure for Items",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 768570192571129,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Buy_Attack"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 969982656718406,
+									"parameters": {
+										"key": 65
+									}
+								}
+							],
+							"actions": [],
+							"sid": 726028649864194,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 489389348217774,
+											"parameters": {
+												"variable": "Treasure",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 611549760617746,
+											"parameters": {
+												"variable": "Treasure",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 994263615572309,
+											"parameters": {
+												"variable": "AttackDice",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 860553764768000
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 172791085335390,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Buy_Defence"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 408133388106932,
+									"parameters": {
+										"key": 68
+									}
+								}
+							],
+							"actions": [],
+							"sid": 955171410317070,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 552438956471864,
+											"parameters": {
+												"variable": "Treasure",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 977522806024556,
+											"parameters": {
+												"variable": "Treasure",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 734214195314960,
+											"parameters": {
+												"variable": "DefenceDice",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 245534213962166
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 440589728612978,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Buy_Potion"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 997439624717847,
+									"parameters": {
+										"key": 80
+									}
+								}
+							],
+							"actions": [],
+							"sid": 966386325534508,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 273452365194900,
+											"parameters": {
+												"variable": "Treasure",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 541333309096441,
+											"parameters": {
+												"variable": "Treasure",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 673113215295653,
+											"parameters": {
+												"variable": "Potions",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 452279265558439
+								}
+							],
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 118615244781757,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Use_Potion"
+									}
+								},
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 312675731340801,
+									"parameters": {
+										"key": 72
+									}
+								}
+							],
+							"actions": [],
+							"sid": 665516576639160,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 606375040799057,
+											"parameters": {
+												"variable": "Potions",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "subtract-from-eventvar",
+											"objectClass": "System",
+											"sid": 360876606134492,
+											"parameters": {
+												"variable": "Potions",
+												"value": "1"
+											}
+										},
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 953820632601911,
+											"parameters": {
+												"variable": "Health",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 226700797250276
+								}
+							],
+							"isOrBlock": true
+						}
+					],
+					"sid": 282792527633617
+				}
+			],
+			"sid": 921000649717381
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Set Room",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 302721540590169
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uid = localVars.UID;\nconst card = g_runtime.getInstanceByUid(uid);\n\nconst level = card.instVars.level;\nconst dice = choose(\"1\",\"2\",\"3\",\"4\",\"5\",\"6\");\n\ncard.instVars.log = cards[\"level_\" + level][dice][\"log\"];\ncard.instVars.action = cards[\"level_\" + level][dice][\"action\"];\ncard.instVars.value = cards[\"level_\" + level][dice][\"value\"];\ncard.instVars.health = cards[\"level_\" + level][dice][\"health\"];\nconst randomReward = choose(6,5,5,4,4,4,3,3,3,3,2,2,2,2,2,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0);\ncard.instVars.reward = cards[\"level_\" + level][dice][\"reward\"] + randomReward;"
+						}
+					],
+					"sid": 129544767635514
+				},
+				{
+					"functionName": "Fighting",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 931473720865038
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const uid = localVars.UID;\nconst card = g_runtime.getInstanceByUid(uid);\nconst color = \"#fdf50a\";\n\nif (card.instVars.health > 0 && g_runtime.globalVars.Health > 0) {\n\nconst monster_value = card.instVars.value;\nconst defenceDice =  g_runtime.globalVars.DefenceDice;\nconst attackDice =  g_runtime.globalVars.AttackDice;\n\n// Monster rolls its Attack Dice, each 6 is a Hit.\nlet attack_monster = 0\nfor (let i = 0; i < monster_value; i++ ) {\n\tconst dice = choose(1,2,3,4,5,6);\n\tattack_monster += dice >=6 ? 1 : 0;\n}\n\n// Player rolls their Defence Dice. Each 6 reduces the count of Hits. Any remaining Hits are subtracted from the Players Health.\nlet defense_player = 0;\nfor (let i = 0; i < defenceDice; i++ ) {\n\tconst dice = choose(1,2,3,4,5,6);\n\tdefense_player += dice >=6 ? 1 : 0;\n}\n\nconst monster_hits = (attack_monster - defense_player) > 0 ? (attack_monster - defense_player) : 0;\n\n// Player rolls their Attack Dice. Each 6 is a Hit.\nlet attack_player = 0;\nfor (let i = 0; i < attackDice; i++ ) {\n\tconst dice = choose(1,2,3,4,5,6);\n\tattack_player += dice >=6 ? 1 : 0;\n}\n\ncard.instVars.health -= attack_player;\ncard.instVars.health = card.instVars.health < 0 ? 0 : card.instVars.health;\ng_runtime.globalVars.Health -= monster_hits;\ng_runtime.globalVars.Health = g_runtime.globalVars.Health < 0 ? 0 : g_runtime.globalVars.Health;\n\nconst monsterIsDead = card.instVars.health <= 0 ? \"Monster is dead!\" : \"\";\nconst playerIsDead = g_runtime.globalVars.Health <= 0 ? \"Player is dead!\" : \"\"; \n\nconst reward = card.instVars.reward;\nlet rewardFound = \"\"\nif (card.instVars.health <= 0) {\n\tcard.instVars.reward = 0;\n\tg_runtime.globalVars.Treasure += reward;\n\trewardFound = `The player found [color=${color}]${reward}[/color] coins!`\n}\n\ng_runtime.globalVars.Log = `\nThe monster attacks with [color=${color}]${monster_value}[/color] dice.\nThe monster hits [color=${color}]${attack_monster}[/color] times.\n\nThe player defends with [color=${color}]${defenceDice}[/color] dice.\nThe player reduces [color=${color}]${defense_player}[/color] hits.\nThe player attacks with [color=${color}]${attackDice}[/color] dice.\nThe player hits [color=${color}]${attack_player}[/color] times.\n\nNew monster health: [color=${color}]${card.instVars.health}[/color].\n${monsterIsDead}\n${playerIsDead}\n${rewardFound}\n`;\n}\n\ng_runtime.globalVars.IsFighting = false;"
+						}
+					],
+					"sid": 295801099026514
+				}
+			],
+			"sid": 241551844503126
+		}
+	],
+	"sid": 465764941275323
+}

@@ -1,0 +1,15 @@
+{
+	"name": "Lose",
+	"plugin-id": "Text",
+	"sid": 878224352362278,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 477610729569476
+		}
+	],
+	"effectTypes": []
+}

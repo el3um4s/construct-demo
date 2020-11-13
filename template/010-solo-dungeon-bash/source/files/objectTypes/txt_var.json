@@ -1,0 +1,16 @@
+{
+	"name": "txt_Var",
+	"plugin-id": "Text",
+	"sid": 944776110596309,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "nameVar",
+			"type": "string",
+			"desc": "",
+			"sid": 255987934987273
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

@@ -48,6 +48,7 @@ My collection of demo projects for Construct 3
 | 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |
 | 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |
 | 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |
+|10|![image][T-10i]| [Solo Dungeon Bash][T-10]                |[Demo][T-10d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -84,6 +85,10 @@ My collection of demo projects for Construct 3
 [T-9i]: template/009-pachinko/preview.png
 [T-9]: template/009-pachinko
 [T-9d]: template/009-pachinko/demo
+
+[T-10i]: template/010-solo-dungeon-bash/preview.png
+[T-10]: template/010-solo-dungeon-bash
+[T-10d]: template/010-solo-dungeon-bash/demo
 
 ### User Interface
 
