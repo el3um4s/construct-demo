@@ -1,0 +1,24 @@
+{
+	"name": "NewElement",
+	"plugin-id": "Sprite",
+	"sid": 560553787394332,
+	"instanceVariables": [
+		{
+			"name": "NameGenerator",
+			"type": "string",
+			"desc": "",
+			"sid": 557237626165437
+		},
+		{
+			"name": "Position",
+			"type": "number",
+			"desc": "",
+			"sid": 773721373149274
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"NewColor"
+	]
+}

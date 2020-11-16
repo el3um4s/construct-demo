@@ -1,0 +1,49 @@
+{
+	"name": "Chars",
+	"plugin-id": "Sprite",
+	"sid": 481332621586860,
+	"instanceVariables": [
+		{
+			"name": "Number",
+			"type": "number",
+			"desc": "",
+			"sid": 936819916192406
+		},
+		{
+			"name": "PositionX",
+			"type": "number",
+			"desc": "",
+			"sid": 924427151608532
+		},
+		{
+			"name": "PositionY",
+			"type": "number",
+			"desc": "",
+			"sid": 886839269279499
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 681646050011704
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 333981755928058
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Char_1",
+		"Char_2",
+		"Char_3",
+		"Char_4",
+		"Char_5",
+		"Char_6",
+		"Char_7",
+		"Char_8",
+		"Char_9"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"name": "Generators",
+	"plugin-id": "Sprite",
+	"sid": 337527400512369,
+	"instanceVariables": [
+		{
+			"name": "NameGenerator",
+			"type": "string",
+			"desc": "",
+			"sid": 543730390815164
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 330288439308693
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Generator"
+	]
+}
