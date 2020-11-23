@@ -1,0 +1,47 @@
+{
+	"name": "Block_Shape_Triangle",
+	"plugin-id": "Sprite",
+	"sid": 154704783543516,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 66,
+						"height": 66,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4854811,
+						"collisionPoly": {
+							"points": [
+								0.48484848484848486,
+								0,
+								0.9090909090909091,
+								0.9090909090909091,
+								0.06060606060606061,
+								0.9090909090909091
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 898444670519544,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

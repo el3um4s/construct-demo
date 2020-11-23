@@ -1,0 +1,38 @@
+{
+	"name": "Room_Ground",
+	"plugin-id": "TiledBg",
+	"sid": 289056787746321,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 343350758945502
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 32,
+		"height": 96,
+		"originX": 0.5,
+		"originY": 0.3333333333333333,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8095228,
+		"collisionPoly": {
+			"points": [
+				0,
+				0.16666666666666666,
+				1,
+				0.16666666666666666,
+				1,
+				0.5,
+				0,
+				0.5
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

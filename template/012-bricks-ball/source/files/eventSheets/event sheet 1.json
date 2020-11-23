@@ -1,0 +1,1724 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Balls",
+			"type": "number",
+			"initialValue": "30",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 922993470926582
+		},
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 559780171195875
+		},
+		{
+			"eventType": "variable",
+			"name": "MaxScore",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 730163331194946
+		},
+		{
+			"eventType": "variable",
+			"name": "inGame",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 107354635384303
+		},
+		{
+			"eventType": "variable",
+			"name": "Level",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 848131855687795
+		},
+		{
+			"eventType": "variable",
+			"name": "AllBallsLAunched",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 574364945057641
+		},
+		{
+			"eventType": "variable",
+			"name": "Status",
+			"type": "string",
+			"initialValue": "NONE",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 671761737230486
+		},
+		{
+			"eventType": "variable",
+			"name": "BricksBall_Max_Score",
+			"type": "string",
+			"initialValue": "BricksBall_Max_Score",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 480774374067872
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ON START",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 790161078667550
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "InitializeLevel",
+							"sid": 153910834507042
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 433060772043524,
+							"parameters": {
+								"variable": "Balls",
+								"value": "30"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 950310439033260,
+							"parameters": {
+								"variable": "Score",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 100752675382643,
+							"parameters": {
+								"variable": "Level",
+								"value": "1"
+							}
+						},
+						{
+							"id": "check-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 131091586715578,
+							"parameters": {
+								"key": "BricksBall_Max_Score"
+							}
+						}
+					],
+					"sid": 619286313876571
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-exists",
+							"objectClass": "LocalStorage",
+							"sid": 985845589037716,
+							"parameters": {
+								"key": "BricksBall_Max_Score"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "get-item",
+							"objectClass": "LocalStorage",
+							"sid": 695242927181377,
+							"parameters": {
+								"key": "BricksBall_Max_Score"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 338080436024486
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 669807151522236,
+							"parameters": {
+								"variable": "MaxScore",
+								"value": "LocalStorage.ItemValue"
+							}
+						}
+					],
+					"sid": 460391691837033
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-item-missing",
+							"objectClass": "LocalStorage",
+							"sid": 687482752373062,
+							"parameters": {
+								"key": "BricksBall_Max_Score"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-item",
+							"objectClass": "LocalStorage",
+							"sid": 409248740754858,
+							"parameters": {
+								"key": "BricksBall_Max_Score",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 577784763061996
+				}
+			],
+			"sid": 626007309570839
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BLOCKS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-parent",
+							"objectClass": "Block_Power",
+							"sid": 834291298652712,
+							"parameters": {
+								"parent": "Blocks",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Block_Power",
+							"sid": 355283967723779,
+							"parameters": {
+								"text": "Blocks.Power_Now"
+							}
+						}
+					],
+					"sid": 351515842631010
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-height",
+							"objectClass": "Blocks",
+							"sid": 230629015158970,
+							"parameters": {
+								"comparison": 3,
+								"height": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Blocks",
+							"sid": 882668225235923,
+							"parameters": {
+								"width": "64",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 998511804522301
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-width",
+							"objectClass": "Blocks",
+							"sid": 803022578660744,
+							"parameters": {
+								"comparison": 3,
+								"width": "24"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-size",
+							"objectClass": "Blocks",
+							"sid": 755284380438395,
+							"parameters": {
+								"width": "64",
+								"height": "64"
+							}
+						}
+					],
+					"sid": 546666264833056
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Blocks",
+							"sid": 457077167948135,
+							"parameters": {
+								"object": "Blocks_Limit"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 404083640985066,
+							"parameters": {
+								"variable": "inGame",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 607372343944752
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Blocks",
+							"sid": 693622502428414,
+							"parameters": {
+								"instance-variable": "Power_Original",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Blocks",
+							"sid": 725014858191113,
+							"parameters": {
+								"instance-variable": "Power_Original",
+								"value": "choose(1,1,1,1,2,2,2,2,2,2,2,4,4,4,4,6,6,6,8,10,12,14,16,18,20,50)*Level * choose(1,1,1,1,1,1,1,2,2,2,2,3,3,3,4,4,5)"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Blocks",
+							"sid": 834336038182514,
+							"parameters": {
+								"instance-variable": "Power_Now",
+								"value": "Blocks.Power_Original"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Blocks",
+							"sid": 825153828090764,
+							"parameters": {
+								"object": "Block_Power",
+								"layer": "Blocks.LayerName",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Blocks",
+							"sid": 518490256922930,
+							"parameters": {
+								"child": "Block_Power",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": true,
+								"transform-h": true,
+								"transform-a": true,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						}
+					],
+					"sid": 835728361640192
+				}
+			],
+			"sid": 217557059051522
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "BALLS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Balls",
+							"sid": 136647734539213,
+							"parameters": {
+								"object": "Stopper"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Balls",
+							"sid": 662349819265198,
+							"parameters": {
+								"instance-variable": "IsLaunching"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-enabled",
+							"objectClass": "Balls",
+							"sid": 573559126514338,
+							"behaviorType": "Bullet",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-y",
+							"objectClass": "Balls",
+							"sid": 477783297522515,
+							"parameters": {
+								"y": "Stopper.Y - 9"
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Balls",
+							"sid": 208797809644315,
+							"parameters": {
+								"instance-variable": "IsLaunching",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 839156804201586,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Create",
+									"sid": 607340778599167,
+									"parameters": {
+										"instance-variable": "Magnetized"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Create",
+									"sid": 809398377747106,
+									"parameters": {
+										"x": "Balls.X",
+										"y": "Stopper.Y - 9"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Create",
+									"sid": 193490418801906,
+									"parameters": {
+										"instance-variable": "Magnetized",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 778371620436805
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Create",
+							"sid": 967718736539647,
+							"parameters": {
+								"instance-variable": "Magnetized"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 657848781491707,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"READY TO LAUNCH\""
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Balls",
+							"sid": 824662593640073,
+							"parameters": {
+								"instance-variable": "IsLaunching"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-any-playing",
+							"objectClass": "Balls",
+							"sid": 974583836402290,
+							"behaviorType": "Tween",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "Balls",
+							"sid": 676260918336050,
+							"parameters": {
+								"y": "Stopper.Y - 9"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Balls",
+							"sid": 178973892401151,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "position",
+								"end-x": "Create.X",
+								"end-y": "Create.Y",
+								"time": "0.5",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 284147109021525
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Balls",
+							"sid": 335784614231437,
+							"parameters": {
+								"object": "Blocks"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Blocks",
+							"sid": 878016860011777,
+							"parameters": {
+								"instance-variable": "Power_Now",
+								"value": "1"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 693123854794238,
+							"parameters": {
+								"variable": "Score",
+								"value": "1"
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Blocks",
+							"sid": 540907534373850,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "size",
+								"end-x": "24",
+								"end-y": "24",
+								"time": "0.1",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 809696090281383,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Blocks",
+									"sid": 419711794913110,
+									"parameters": {
+										"instance-variable": "Power_Now",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Blocks",
+									"sid": 174532736837538
+								}
+							],
+							"sid": 493397696228599
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "Balls",
+							"sid": 667122461255526
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Balls",
+							"sid": 960501918871701,
+							"parameters": {
+								"object": "Create",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 473373793711906
+				}
+			],
+			"sid": 873006098597176
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LAUNCH",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-click",
+							"objectClass": "Mouse",
+							"sid": 189352037638186,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 771782865805638,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"READY TO LAUNCH\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 664505525496659,
+							"parameters": {
+								"variable": "Status",
+								"value": "\"LAUNCHED\""
+							}
+						},
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Create",
+							"sid": 359179272315993,
+							"parameters": {
+								"instance-variable": "Magnetized",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 417091982175793,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "BallsCount",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 493394943237680
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 332014637682498,
+									"parameters": {
+										"variable": "BallsCount",
+										"value": "Balls.Count"
+									}
+								}
+							],
+							"sid": 567628832804215
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 100458622998683,
+									"parameters": {
+										"object": "Balls"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 123681131969713,
+									"parameters": {
+										"seconds": "loopindex * 0.1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 492069139272850
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Balls",
+									"sid": 451176350273159,
+									"parameters": {
+										"instance-variable": "IsLaunching",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-angle",
+									"objectClass": "Balls",
+									"sid": 275821596268661,
+									"parameters": {
+										"angle": "angle(Balls.X, Balls.Y, Arrow.ImagePointX(\"Direction\"), Arrow.ImagePointY(\"Direction\"))"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Balls",
+									"sid": 378324843764430,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": "enabled"
+									}
+								}
+							],
+							"sid": 103247539945639
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 967528188247384,
+									"parameters": {
+										"seconds": "BallsCount * 0.1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 393759544655190
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 918328930448488,
+									"parameters": {
+										"variable": "AllBallsLAunched",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 250952049531337
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 712137833344071,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"LAUNCHED\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arrow",
+							"sid": 732748619786901,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Ray",
+							"sid": 152083857413230,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 605246984186684
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 760523538613556,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"LAUNCHED\""
+							}
+						},
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 530016804474554,
+							"parameters": {
+								"variable": "AllBallsLAunched"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 400392381271478,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "BallsLaunched",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 102507418993225
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 877421441194086,
+									"parameters": {
+										"object": "Balls"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Balls",
+									"sid": 830994429030016,
+									"parameters": {
+										"instance-variable": "IsLaunching"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 173586241602587,
+									"parameters": {
+										"variable": "BallsLaunched",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 128458747548659
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 255147546048672,
+									"parameters": {
+										"first-value": "BallsLaunched",
+										"comparison": 0,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 808776995249877,
+									"parameters": {
+										"variable": "AllBallsLAunched",
+										"value": "false"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 570146221410751,
+									"parameters": {
+										"variable": "Status",
+										"value": "\"READY TO LAUNCH\""
+									}
+								}
+							],
+							"sid": 470367556925916,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 891434738025071,
+											"parameters": {
+												"object": "Blocks",
+												"expression": "Blocks.Y",
+												"order": "descending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-one-property",
+											"objectClass": "Blocks",
+											"sid": 566107989173775,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "offsetY",
+												"end-value": "Blocks.Y + 64",
+												"time": "0.5",
+												"ease": "default",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "Blocks",
+											"sid": 438576585389035,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										}
+									],
+									"sid": 245326313967044
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 283314014169995,
+											"parameters": {
+												"object": "Positions",
+												"expression": "Blocks.X",
+												"order": "ascending"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Positions",
+											"sid": 943814111406146,
+											"parameters": {
+												"instance-variable": "Difficult",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 126325439709326,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "Randomize",
+											"type": "number",
+											"initialValue": "0",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 861482982652030
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 212943000501618,
+													"parameters": {
+														"variable": "Randomize",
+														"value": "random(0,1)"
+													}
+												}
+											],
+											"sid": 312319720170093
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 567936676466010,
+													"parameters": {
+														"variable": "Randomize",
+														"comparison": 3,
+														"value": "0.4+ (Level *0.1)"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "create-object-by-name",
+													"objectClass": "System",
+													"sid": 730081988137710,
+													"parameters": {
+														"object-name": "\"Block_Shape_\" & choose(\"Square\",\"Triangle\", \"Pentagon\")",
+														"layer": "\"LAY_BLOCKS\"",
+														"x": "Positions.X",
+														"y": "Positions.Y"
+													}
+												}
+											],
+											"sid": 444176395606836
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 187078016247794,
+							"parameters": {
+								"variable": "inGame"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 557083529485020,
+							"parameters": {
+								"layer": "\"LAY_GAME_OVER\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 869594275980150
+				}
+			],
+			"sid": 818425316010695
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "NEW LEVEL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 380760926022591,
+							"parameters": {
+								"variable": "inGame"
+							}
+						},
+						{
+							"id": "compare-two-values",
+							"objectClass": "System",
+							"sid": 921787100610521,
+							"parameters": {
+								"first-value": "Blocks.Count",
+								"comparison": 0,
+								"second-value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 554351064700092,
+							"parameters": {
+								"variable": "inGame",
+								"value": "false"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 885821757881950,
+							"parameters": {
+								"variable": "Level",
+								"value": "1"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 174035327695078,
+							"parameters": {
+								"layer": "\"LAY_NEW_LEVEL\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 953379945999667,
+							"parameters": {
+								"layer": "\"LAY_GAME_OVER\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 761963645960971,
+							"parameters": {
+								"seconds": "1.0"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 287495970094674
+						},
+						{
+							"callFunction": "InitializeLevel",
+							"sid": 415238611683549
+						}
+					],
+					"sid": 420143433508399,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 270746520034599,
+									"parameters": {
+										"first-value": "Score",
+										"comparison": 4,
+										"second-value": "MaxScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 390275757034789,
+									"parameters": {
+										"variable": "MaxScore",
+										"value": "Score"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 565526156110552,
+									"parameters": {
+										"key": "BricksBall_Max_Score",
+										"value": "Score"
+									}
+								}
+							],
+							"sid": 285986841815860
+						}
+					]
+				}
+			],
+			"sid": 204133909405813
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GAME OVER",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 769492642337359,
+							"parameters": {
+								"variable": "inGame"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "layer-is-visible",
+							"objectClass": "System",
+							"sid": 279321579469194,
+							"parameters": {
+								"layer": "\"LAY_NEW_LEVEL\""
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 758295336033630,
+							"parameters": {
+								"layer": "\"LAY_GAME_OVER\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Arrow",
+							"sid": 559389047088718,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Ray",
+							"sid": 762584490035859,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 172362273274267,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 798621662374549,
+									"parameters": {
+										"first-value": "Score",
+										"comparison": 4,
+										"second-value": "MaxScore"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 473572602540686,
+									"parameters": {
+										"variable": "MaxScore",
+										"value": "Score"
+									}
+								},
+								{
+									"id": "set-item",
+									"objectClass": "LocalStorage",
+									"sid": 922514907482851,
+									"parameters": {
+										"key": "BricksBall_Max_Score",
+										"value": "Score"
+									}
+								}
+							],
+							"sid": 513479977528410
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-click",
+									"objectClass": "Mouse",
+									"sid": 116135614000646
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 735287717932584
+								}
+							],
+							"sid": 821554083270191
+						}
+					]
+				}
+			],
+			"sid": 583654078385333
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "RAY",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 386476263542292,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"READY TO LAUNCH\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Ray",
+							"sid": 260987165412005,
+							"parameters": {
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 156615453508540
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-visible",
+							"objectClass": "Arrow",
+							"sid": 278642814880762
+						}
+					],
+					"actions": [
+						{
+							"id": "cast-ray",
+							"objectClass": "Arrow",
+							"sid": 648956587064482,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"from-x": "Self.X",
+								"from-y": "Self.Y",
+								"to-x": "Self.X+ cos(Self.Angle) * 2000",
+								"to-y": "Self.Y + sin(Self.Angle) * 2000",
+								"use-collision-cells": true
+							}
+						}
+					],
+					"sid": 603387073198631
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "ray-intersected",
+							"objectClass": "Arrow",
+							"sid": 453168049666883,
+							"behaviorType": "LineOfSight"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-width",
+							"objectClass": "Ray",
+							"sid": 668890323138060,
+							"parameters": {
+								"width": "Arrow.LineOfSight.HitDistance"
+							}
+						}
+					],
+					"sid": 968628175443953
+				}
+			],
+			"sid": 723980672170903
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ARROW",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 472355572881589,
+							"parameters": {
+								"variable": "Status",
+								"comparison": 0,
+								"value": "\"READY TO LAUNCH\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "Arrow",
+							"sid": 875079854252818,
+							"parameters": {
+								"object": "Ball",
+								"image-point-optional": "0"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Arrow",
+							"sid": 310361075145123,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Arrow",
+							"sid": 667371913652286,
+							"parameters": {
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						}
+					],
+					"sid": 714672073199637
+				}
+			],
+			"sid": 244912475497394
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "FUNCTIONS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "InitializeLevel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Arrow",
+							"sid": 304353651579162,
+							"parameters": {
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 464372405075556,
+							"parameters": {
+								"variable": "AllBallsLAunched",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 338318526283271,
+							"parameters": {
+								"variable": "inGame",
+								"value": "true"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 485758151753552,
+							"parameters": {
+								"layer": "\"LAY_NEW_LEVEL\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 541423200675725,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 404132956054615,
+									"parameters": {
+										"object": "Positions",
+										"expression": "Positions.Y",
+										"order": "ascending"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Positions",
+									"sid": 713231367397589,
+									"parameters": {
+										"instance-variable": "Difficult",
+										"comparison": 3,
+										"value": "Level"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Ball",
+									"sid": 368856862105210
+								}
+							],
+							"sid": 426700382176234,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "Randomize",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 948464664280362
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 126130238610018,
+											"parameters": {
+												"variable": "Randomize",
+												"value": "random(0,1)"
+											}
+										}
+									],
+									"sid": 472052807035709
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 601795654212214,
+											"parameters": {
+												"variable": "Randomize",
+												"comparison": 3,
+												"value": "0.2+ (Level *0.1)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "create-object-by-name",
+											"objectClass": "System",
+											"sid": 886832273346688,
+											"parameters": {
+												"object-name": "\"Block_Shape_\" & choose(\"Square\",\"Square\")",
+												"layer": "\"LAY_BLOCKS\"",
+												"x": "Positions.X",
+												"y": "Positions.Y"
+											}
+										}
+									],
+									"sid": 582753931980226
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for",
+									"objectClass": "System",
+									"sid": 703492697493596,
+									"parameters": {
+										"name": "\"i\"",
+										"start-index": "1",
+										"end-index": "Balls * Level"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Create",
+									"sid": 357576431263150,
+									"parameters": {
+										"object": "Ball",
+										"layer": "Create.LayerName",
+										"image-point": "0"
+									}
+								}
+							],
+							"sid": 316059022991921
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 495085188262826,
+									"parameters": {
+										"variable": "Status",
+										"value": "\"READY TO LAUNCH\""
+									}
+								}
+							],
+							"sid": 673271359678321
+						}
+					]
+				}
+			],
+			"sid": 329066072537887
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Txt_Score",
+					"sid": 577635144771454,
+					"parameters": {
+						"text": "\"Score: \" & Score"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Txt_MaxScore",
+					"sid": 640891695074340,
+					"parameters": {
+						"text": "\"Max Score: \" & MaxScore"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Txt_Balls",
+					"sid": 460601126543434,
+					"parameters": {
+						"text": "\"Balls: \" & Balls.Count"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Txt_Level",
+					"sid": 614072127321843,
+					"parameters": {
+						"text": "\"Level \" & Level"
+					}
+				}
+			],
+			"sid": 167421951154395
+		}
+	],
+	"sid": 119883553149800
+}

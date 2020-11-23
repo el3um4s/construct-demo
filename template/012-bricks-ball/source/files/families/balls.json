@@ -1,0 +1,29 @@
+{
+	"name": "Balls",
+	"plugin-id": "Sprite",
+	"sid": 470767130585068,
+	"instanceVariables": [
+		{
+			"name": "IsLaunching",
+			"type": "boolean",
+			"desc": "",
+			"sid": 456371058551630
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 271923128355830
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 597297794821314
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Ball"
+	]
+}

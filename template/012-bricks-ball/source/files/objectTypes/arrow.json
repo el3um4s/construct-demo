@@ -1,0 +1,50 @@
+{
+	"name": "Arrow",
+	"plugin-id": "Sprite",
+	"sid": 227552952231822,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 615699662679262
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": -0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 5342698,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Direction",
+								"x": 1,
+								"y": 0.5
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 903557341963406,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

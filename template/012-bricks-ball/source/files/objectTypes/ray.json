@@ -1,0 +1,38 @@
+{
+	"name": "Ray",
+	"plugin-id": "TiledBg",
+	"sid": 423325121612639,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 372641023096425
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 32,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4326988,
+		"collisionPoly": {
+			"points": [
+				0,
+				0.25,
+				1,
+				0.25,
+				1,
+				0.75,
+				0,
+				0.75
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

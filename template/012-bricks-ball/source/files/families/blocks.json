@@ -1,0 +1,42 @@
+{
+	"name": "Blocks",
+	"plugin-id": "Sprite",
+	"sid": 673797972453307,
+	"instanceVariables": [
+		{
+			"name": "Power_Original",
+			"type": "number",
+			"desc": "",
+			"sid": 852363524275147
+		},
+		{
+			"name": "Power_Now",
+			"type": "number",
+			"desc": "",
+			"sid": 463564350190728
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 157072471970198
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 880327410979983
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 475906530312112
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Block_Shape_Square",
+		"Block_Shape_Triangle",
+		"Block_Shape_Pentagon"
+	]
+}

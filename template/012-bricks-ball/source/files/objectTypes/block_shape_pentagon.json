@@ -1,0 +1,51 @@
+{
+	"name": "Block_Shape_Pentagon",
+	"plugin-id": "Sprite",
+	"sid": 904063752771797,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 66,
+						"height": 66,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8062002,
+						"collisionPoly": {
+							"points": [
+								0.5,
+								0.030303030303030304,
+								0.9090909090909091,
+								0.42424242424242425,
+								0.7878787878787878,
+								0.9090909090909091,
+								0.18181818181818182,
+								0.9090909090909091,
+								0.06060606060606061,
+								0.42424242424242425
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 415030063262064,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

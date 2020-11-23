@@ -50,6 +50,7 @@ My collection of demo projects for Construct 3
 | 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |
 |10|![image][T-10i]| [Solo Dungeon Bash][T-10]                |[Demo][T-10d]|
 |11|![image][T-11i]| [Combine Colors][T-11]                   |[Demo][T-11d]|
+|12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -94,6 +95,10 @@ My collection of demo projects for Construct 3
 [T-11i]: template/011-combine-colors/preview.png
 [T-11]: template/011-combine-colors
 [T-11d]: template/011-combine-colors/demo
+
+[T-12i]: template/012-bricks-ball/preview.png
+[T-12]: template/012-bricks-ball
+[T-12d]: template/012-bricks-ball/demo
 
 ### User Interface
 
