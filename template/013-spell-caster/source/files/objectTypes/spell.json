@@ -1,0 +1,50 @@
+{
+	"name": "Spell",
+	"plugin-id": "Sprite",
+	"sid": 948508936512225,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Position",
+			"type": "number",
+			"desc": "",
+			"sid": 283325876041029
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 227893562796996
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 10,
+						"height": 10,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 2054509,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 213579051040211,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,444 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "VelocityCaster",
+			"type": "number",
+			"initialValue": "0.4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 923494638000121
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 898429885054315
+				}
+			],
+			"actions": [
+				{
+					"id": "set-font-face",
+					"objectClass": "Text",
+					"sid": 950334616545798,
+					"parameters": {
+						"font-face": "\"bigshouldersstenciltext-regular\"",
+						"style": "normal"
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Spell",
+					"sid": 269526259131519
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Explosion",
+					"sid": 744671503104940
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Target",
+					"sid": 711308766708834,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 524176165384740
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-click",
+					"objectClass": "Mouse",
+					"sid": 546040096896185
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Spell",
+					"sid": 913159682754296
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Explosion",
+					"sid": 395975229392059
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Target",
+					"sid": 936424598111413,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 376605914360579,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 559194675071284,
+							"parameters": {
+								"object": "Target"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Target",
+							"sid": 469681190199810,
+							"parameters": {
+								"instance-variable": "Starter"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "CreateSpell",
+							"sid": 789090665490593,
+							"parameters": [
+								"Target.UID"
+							]
+						}
+					],
+					"sid": 539449912245645
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tweens-finished",
+					"objectClass": "Spell",
+					"sid": 326149281100493,
+					"behaviorType": "Tween",
+					"parameters": {
+						"tags": "\"MoveTo\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Spell",
+					"sid": 599136322514388
+				}
+			],
+			"sid": 485583543716397,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Spell",
+							"sid": 555919100254148,
+							"parameters": {
+								"object": "Target"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Target",
+							"sid": 264366779948045,
+							"parameters": {
+								"instance-variable": "End"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-visible",
+							"objectClass": "Target",
+							"sid": 571326585630655,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "restart-fade",
+							"objectClass": "Target",
+							"sid": 204894053772916,
+							"behaviorType": "Fade"
+						},
+						{
+							"callFunction": "CreateSpell",
+							"sid": 882175209700191,
+							"parameters": [
+								"Target.UID"
+							]
+						}
+					],
+					"sid": 273794266860770
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "Spell",
+							"sid": 861466321499527,
+							"parameters": {
+								"object": "Target"
+							}
+						},
+						{
+							"id": "is-boolean-instance-variable-set",
+							"objectClass": "Target",
+							"sid": 544344115961866,
+							"parameters": {
+								"instance-variable": "End"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Target",
+							"sid": 639121596010109,
+							"parameters": {
+								"object": "Explosion",
+								"layer": "\"LAY_SPELL\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 828094213638288
+				}
+			]
+		},
+		{
+			"functionName": "CreateSpell",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 814041008641898
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [],
+			"sid": 368023792112145,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Position",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 600897780172607
+				},
+				{
+					"eventType": "variable",
+					"name": "X",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 585671619908839
+				},
+				{
+					"eventType": "variable",
+					"name": "Y",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 122657400046496
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Target",
+							"sid": 155225204910896,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 956419090738298,
+							"parameters": {
+								"variable": "Position",
+								"value": "Target.Order"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 673626859943770,
+							"parameters": {
+								"variable": "X",
+								"value": "Target.X"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 225381869482435,
+							"parameters": {
+								"variable": "Y",
+								"value": "Target.Y"
+							}
+						}
+					],
+					"sid": 601498279436384
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 765773284654894,
+							"parameters": {
+								"object": "Target"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Target",
+							"sid": 849648721608863,
+							"parameters": {
+								"instance-variable": "Order",
+								"comparison": 0,
+								"value": "Position+1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 701107982137007,
+							"parameters": {
+								"object-to-create": "Spell",
+								"layer": "\"LAY_SPELL\"",
+								"x": "X",
+								"y": "Y",
+								"create-hierarchy": true
+							}
+						},
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Spell",
+							"sid": 457046487897399,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"MoveTo\"",
+								"property": "position",
+								"end-x": "Target.X",
+								"end-y": "Target.Y",
+								"time": "VelocityCaster",
+								"ease": "default",
+								"destroy-on-complete": "no",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Spell",
+							"sid": 456653476953991,
+							"parameters": {
+								"object": "Tail_Particle",
+								"layer": "\"LAY_TAILS\"",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "add-child",
+							"objectClass": "Spell",
+							"sid": 463876840723305,
+							"parameters": {
+								"child": "Tail_Particle",
+								"transform-x": true,
+								"transform-y": true,
+								"transform-w": false,
+								"transform-h": false,
+								"transform-a": false,
+								"transform-z-elevation": true,
+								"destroy-with-parent": true
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Spell",
+							"sid": 210739584794624,
+							"parameters": {
+								"x": "Target.X",
+								"y": "Target.Y"
+							}
+						}
+					],
+					"sid": 363042614597782
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "pick-children",
+					"objectClass": "Spell",
+					"sid": 133600802316003,
+					"parameters": {
+						"child": "Tail_Particle",
+						"which": "own"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-angle",
+					"objectClass": "Tail_Particle",
+					"sid": 624952964956920,
+					"parameters": {
+						"angle": "-Spell.Angle"
+					}
+				},
+				{
+					"id": "set-position-to-another-object",
+					"objectClass": "Tail_Particle",
+					"sid": 359890908794169,
+					"parameters": {
+						"object": "Spell",
+						"image-point-optional": "0"
+					}
+				}
+			],
+			"sid": 393496427995427
+		}
+	],
+	"sid": 682427068122302
+}

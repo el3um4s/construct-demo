@@ -1,0 +1,32 @@
+{
+	"name": "Tail_Particle",
+	"plugin-id": "Particles",
+	"sid": 290180790146970,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 16,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2865367,
+		"collisionPoly": {
+			"points": [
+				0.375,
+				0,
+				0.625,
+				0,
+				0.625,
+				1,
+				0.375,
+				1
+			]
+		},
+		"useCollisionPoly": true
+	}
+}
