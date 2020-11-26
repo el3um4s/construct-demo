@@ -1,0 +1,44 @@
+{
+	"name": "Controllers",
+	"plugin-id": "Sprite",
+	"sid": 282669290477875,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Player",
+			"type": "number",
+			"desc": "",
+			"sid": 431831084272282
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 66,
+						"height": 66,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6326035,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 721978703132540,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 0
+			}
+		],
+		"subfolders": []
+	}
+}

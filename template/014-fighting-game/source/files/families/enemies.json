@@ -1,0 +1,34 @@
+{
+	"name": "Enemies",
+	"plugin-id": "Sprite",
+	"sid": 377843804571062,
+	"instanceVariables": [
+		{
+			"name": "Health",
+			"type": "number",
+			"desc": "",
+			"sid": 358682837855760
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 895710270130100
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 691405461800790
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 913441814627889
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Enemy"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"name": "Projectiles",
+	"plugin-id": "Sprite",
+	"sid": 309916645386277,
+	"instanceVariables": [
+		{
+			"name": "Damn",
+			"type": "number",
+			"desc": "",
+			"sid": 330838756614987
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Bullet",
+			"name": "Bullet",
+			"sid": 479654255538104
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Bullet"
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"name": "Players",
+	"plugin-id": "Sprite",
+	"sid": 837380153897610,
+	"instanceVariables": [
+		{
+			"name": "Player_Number",
+			"type": "number",
+			"desc": "",
+			"sid": 900221049450747
+		},
+		{
+			"name": "Health",
+			"type": "number",
+			"desc": "",
+			"sid": 907735281473792
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 851509461515059
+		},
+		{
+			"behaviorId": "scrollto",
+			"name": "ScrollTo",
+			"sid": 573339284503090
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Player"
+	]
+}

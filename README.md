@@ -2,7 +2,7 @@
 
 My collection of demo projects for Construct 3
 
-### JavaScript
+### JavaScript (classic mode)
 
 |  |               |Name                                      | Demo        |
 |--|---------------|------------------------------------------|-------------|
@@ -52,6 +52,7 @@ My collection of demo projects for Construct 3
 |11|![image][T-11i]| [Combine Colors][T-11]                   |[Demo][T-11d]|
 |12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|
 |13|![image][T-13i]| [Spell Caster][T-13]                     |[Demo][T-13d]|
+|14|               | [WIP - Fighting Game][T-14]              |             |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -104,6 +105,10 @@ My collection of demo projects for Construct 3
 [T-13i]: template/013-spell-caster/preview.png
 [T-13]: template/013-spell-caster
 [T-13d]: template/013-spell-caster/demo
+
+[T-14i]: template/014-fighting-game/preview.png
+[T-14]: template/014-fighting-game
+[T-14d]: template/014-fighting-game/demo
 
 ### User Interface
 

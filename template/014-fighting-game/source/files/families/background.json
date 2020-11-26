@@ -1,0 +1,17 @@
+{
+	"name": "Background",
+	"plugin-id": "TiledBg",
+	"sid": 399969890943208,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 728705528791566
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"TiledBackground"
+	]
+}
