@@ -8,6 +8,18 @@
 			"type": "number",
 			"desc": "",
 			"sid": 330838756614987
+		},
+		{
+			"name": "Player",
+			"type": "boolean",
+			"desc": "",
+			"sid": 890689243971525
+		},
+		{
+			"name": "Player_Number",
+			"type": "number",
+			"desc": "",
+			"sid": 264109402377598
 		}
 	],
 	"behaviorTypes": [

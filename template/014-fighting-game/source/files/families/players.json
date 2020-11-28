@@ -26,6 +26,11 @@
 			"behaviorId": "scrollto",
 			"name": "ScrollTo",
 			"sid": 573339284503090
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 770966766086830
 		}
 	],
 	"effectTypes": [],

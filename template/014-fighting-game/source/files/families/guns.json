@@ -2,7 +2,14 @@
 	"name": "Guns",
 	"plugin-id": "Sprite",
 	"sid": 189487151945703,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "Fire_Damn",
+			"type": "number",
+			"desc": "",
+			"sid": 943396476887829
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "Flash",

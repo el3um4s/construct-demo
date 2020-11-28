@@ -1,0 +1,126 @@
+{
+	"name": "Vars",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PLAYERS_NUMBER",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 693477450819971
+		},
+		{
+			"eventType": "variable",
+			"name": "CONTROL_PLAYER_1",
+			"type": "string",
+			"initialValue": "KEYBOARD",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 732653147715048
+		},
+		{
+			"eventType": "variable",
+			"name": "CONTROL_PLAYER_2",
+			"type": "string",
+			"initialValue": "NONE",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 228556272773305
+		},
+		{
+			"eventType": "variable",
+			"name": "HEALTH_MAX_PLAYER_1",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 912272033064445
+		},
+		{
+			"eventType": "variable",
+			"name": "HEALTH_MAX_PLAYER_2",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 585307349750459
+		},
+		{
+			"eventType": "variable",
+			"name": "FIRST_ACCESS",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 372801424602692
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_1_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 192054970832986
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_2_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 618614654173600
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_1_LAST_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 323094450272617
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_2_LAST_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 828531279986920
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_1_MAX_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 817681096760362
+		},
+		{
+			"eventType": "variable",
+			"name": "PLAYER_2_MAX_SCORE",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 323869797708342
+		}
+	],
+	"sid": 276808400217707
+}

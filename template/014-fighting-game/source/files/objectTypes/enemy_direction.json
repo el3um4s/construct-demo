@@ -1,16 +1,9 @@
 {
-	"name": "Player",
+	"name": "Enemy_Direction",
 	"plugin-id": "Sprite",
-	"sid": 322531954879636,
+	"sid": 496786857091639,
 	"isGlobal": false,
-	"instanceVariables": [
-		{
-			"name": "Fire_Damn",
-			"type": "number",
-			"desc": "",
-			"sid": 332487400334615
-		}
-	],
+	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -18,20 +11,32 @@
 			{
 				"frames": [
 					{
-						"width": 32,
+						"width": 64,
 						"height": 64,
 						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5772436,
+						"imageSpriteId": 9213659,
+						"collisionPoly": {
+							"points": [
+								1,
+								0,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 765562382017059,
-				"name": "Animation 1",
+				"sid": 677021810259955,
+				"name": "RIGHT",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,
@@ -42,31 +47,31 @@
 				"frames": [
 					{
 						"width": 64,
-						"height": 32,
-						"originX": 1,
+						"height": 64,
+						"originX": 0.5,
 						"originY": 0.5,
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 8900940,
+						"imageSpriteId": 3730433,
 						"collisionPoly": {
 							"points": [
-								0,
-								1,
-								0,
-								0,
 								1,
 								0,
 								1,
-								1
+								1,
+								0,
+								1,
+								0,
+								0
 							]
 						},
 						"useCollisionPoly": true,
 						"duration": 1
 					}
 				],
-				"sid": 167373768486412,
-				"name": "DIED",
+				"sid": 314521383396777,
+				"name": "LEFT",
 				"isLooping": false,
 				"isPingPong": false,
 				"repeatCount": 1,

@@ -55,6 +55,38 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "NinePatch",
+			"name": "9-patch",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
@@ -66,6 +98,14 @@
 			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r225",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
@@ -93,14 +133,6 @@
 			"author": "Scirra",
 			"version": "r225",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "LOS",
-			"name": "Line of sight",
-			"author": "Scirra",
-			"version": "r225",
-			"bundled": false
 		}
 	],
 	"uniqueId": "m6eekkbwbw0",
@@ -119,7 +151,19 @@
 			"Enemy",
 			"Enemy_Gun",
 			"Particles_Hit",
-			"TiledBackground2"
+			"TiledBackground2",
+			"9patch",
+			"Bar_Health",
+			"Enemy_Direction",
+			"Enemy_Jump",
+			"Help_Chars",
+			"Text",
+			"Text_Scores_Player_1",
+			"Text_Scores_Player_2",
+			"Particles_Died",
+			"LocalStorage",
+			"Score",
+			"Controller_Player_Score"
 		],
 		"subfolders": []
 	},
@@ -145,13 +189,16 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"Start",
+			"Game"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Game",
+			"Start",
+			"Vars"
 		],
 		"subfolders": []
 	},
@@ -259,14 +306,14 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "Demo-v20.11.26",
+		"version": "Demo-v20.11.28",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",
 		"appId": "",
 		"pixelRounding": false,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -305,5 +352,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": null
+	"firstLayout": "Start"
 }

@@ -8,6 +8,30 @@
 			"type": "number",
 			"desc": "",
 			"sid": 358682837855760
+		},
+		{
+			"name": "FireTimer",
+			"type": "number",
+			"desc": "",
+			"sid": 569422971365227
+		},
+		{
+			"name": "Direction",
+			"type": "string",
+			"desc": "",
+			"sid": 575727037538981
+		},
+		{
+			"name": "Firing",
+			"type": "boolean",
+			"desc": "",
+			"sid": 466156825721853
+		},
+		{
+			"name": "Jump",
+			"type": "boolean",
+			"desc": "",
+			"sid": 654251036743374
 		}
 	],
 	"behaviorTypes": [

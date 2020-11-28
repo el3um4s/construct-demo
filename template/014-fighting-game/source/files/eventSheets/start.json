@@ -1,0 +1,251 @@
+{
+	"name": "Start",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 627547958607421
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 750011026390789,
+					"parameters": {
+						"layer": "\"LAY_ENEMIES_AI\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 259705093703010,
+					"parameters": {
+						"variable": "CONTROL_PLAYER_1",
+						"value": "\"KEYBOARD\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 104566674963302,
+					"parameters": {
+						"variable": "CONTROL_PLAYER_2",
+						"value": "\"NONE\""
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 584933273378156,
+					"parameters": {
+						"variable": "PLAYERS_NUMBER",
+						"value": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 937624862486774,
+					"parameters": {
+						"variable": "HEALTH_MAX_PLAYER_1",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 175164124024011,
+					"parameters": {
+						"variable": "CONTROL_PLAYER_2",
+						"value": "10"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 865447436579367,
+					"parameters": {
+						"variable": "PLAYER_1_SCORE",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 735016006122421,
+					"parameters": {
+						"variable": "PLAYER_2_SCORE",
+						"value": "0"
+					}
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 357818854680308,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_LAST_SCORE\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 270484324552838
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 897698094047340,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_LAST_SCORE\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 113544185952726
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 259035505385610,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_MAX_SCORE\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 416531718239460
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 389045613397983,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_MAX_SCORE\""
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 353256994907732
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 762782567643171,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 974200064007351
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 905527304594083,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_LAST_SCORE\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 989405478557109,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_LAST_SCORE\"",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 195250003540822
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 646620698097127,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_LAST_SCORE\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 120196099659504,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_LAST_SCORE\"",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 860123742482360
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 127241739671261,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_MAX_SCORE\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 586141780691046,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_1_MAX_SCORE\"",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 874719821536364
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 251371516037067,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_MAX_SCORE\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-item",
+					"objectClass": "LocalStorage",
+					"sid": 293435685460877,
+					"parameters": {
+						"key": "\"Fighting_Game_PLAYER_2_MAX_SCORE\"",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 405760415554200
+		}
+	],
+	"sid": 639362522055012
+}

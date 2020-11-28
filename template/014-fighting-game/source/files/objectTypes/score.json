@@ -1,0 +1,20 @@
+{
+	"name": "Score",
+	"plugin-id": "Text",
+	"sid": 842512418137066,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 627183033727998
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 648738414613865
+		}
+	],
+	"effectTypes": []
+}
