@@ -1,0 +1,23 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 682573515891746
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "function test1() {\n\tthis.assert.add(1==1, \"1==1\");\n}\n\nfunction test2() {\n\tthis.assert.add(1==2, \"1==2\");\n}\n\nvar suite = new JSTestSuite();\nsuite.add(test1);\nsuite.add(test2);\nsuite.run();\n"
+				}
+			],
+			"sid": 757684859915867
+		}
+	],
+	"sid": 121801325415172
+}

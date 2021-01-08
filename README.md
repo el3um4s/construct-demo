@@ -12,6 +12,7 @@ My collection of demo projects for Construct 3
 | 3|![image][J-3i] | [How to use behavior TileMovement][J-3]  |[Demo][J-3d] |
 | 4|![image][J-4i] | [How to create tooltips][J-4]            |[Demo][J-4d] |
 | 5|![image][J-5i] | [How to dynamically import a module][J-5]|[Demo][J-5d] |
+| 6|![image][J-6i] | [JsUnit][J-6]                            |[Demo][J-6d] |
 
 [J-0]: javascript/000-snippets
 
@@ -35,6 +36,9 @@ My collection of demo projects for Construct 3
 [J-5]: javascript/005-how-to-dynamically-import-a-module
 [J-5d]: https://c3demo.stranianelli.com/javascript/005-how-to-dynamically-import-a-module/demo
 
+[J-6i]: javascript/006-jsunit/preview.png
+[J-6]: javascript/006-jsunit
+[J-6d]: https://c3demo.stranianelli.com/javascript/006-jsunit/demo
 ### Template
 
 |  |               |Name                                      | Demo        |
