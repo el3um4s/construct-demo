@@ -1,0 +1,26 @@
+{
+	"name": "Limit",
+	"plugin-id": "TiledBg",
+	"sid": 643661236824413,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 985300137392659
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 32,
+		"height": 32,
+		"originX": 3.90625,
+		"originY": 3.90625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3610143,
+		"useCollisionPoly": true
+	}
+}

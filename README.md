@@ -57,6 +57,7 @@ My collection of demo projects for Construct 3
 |12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|
 |13|![image][T-13i]| [Spell Caster][T-13]                     |[Demo][T-13d]|
 |14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|
+|15|![image][T-15i]| [Typo Battle][T-15]                    |[Demo][T-15d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -114,6 +115,9 @@ My collection of demo projects for Construct 3
 [T-14]: template/014-fighting-game
 [T-14d]: template/014-fighting-game/demo
 
+[T-15i]: template/015-typo-battle/preview.png
+[T-15]: template/015-typo-battle
+[T-15d]: template/015-typo-battle/demo
 ### User Interface
 
 |  |               |Name                                      | Demo        |

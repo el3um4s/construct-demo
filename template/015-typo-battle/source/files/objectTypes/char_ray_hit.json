@@ -1,0 +1,38 @@
+{
+	"name": "Char_Ray_HIT",
+	"plugin-id": "TiledBg",
+	"sid": 457846962721677,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Pin",
+			"name": "Pin",
+			"sid": 242083525242766
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 16,
+		"height": 32,
+		"originX": 0.5,
+		"originY": 0.375,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 868445,
+		"collisionPoly": {
+			"points": [
+				0.25,
+				0.125,
+				0.75,
+				0.125,
+				0.75,
+				0.875,
+				0.25,
+				0.875
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

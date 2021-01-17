@@ -1,0 +1,406 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 23100,
+	"name": "TypoBattle",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Keyboard",
+			"name": "Keyboard",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Tween",
+			"name": "Tween",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Pin",
+			"name": "Pin",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Flash",
+			"name": "Flash",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "scrollto",
+			"name": "Scroll To",
+			"author": "Scirra",
+			"version": "r231",
+			"bundled": false
+		}
+	],
+	"uniqueId": "9rdprc03t04",
+	"objectTypes": {
+		"items": [
+			"Center",
+			"Label_NameKeyboard",
+			"Keyboard_List"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"Grid_Line",
+					"Grid_Light",
+					"Grid_Dark"
+				],
+				"subfolders": [],
+				"name": "Grids"
+			},
+			{
+				"items": [
+					"Char_Box",
+					"Chars_Field",
+					"Char_Label",
+					"Char",
+					"Char_Ray_HIT",
+					"Particles"
+				],
+				"subfolders": [],
+				"name": "Chars"
+			},
+			{
+				"items": [
+					"Keyboard_Create_Muted",
+					"Keyboard_Create_Char",
+					"Limit"
+				],
+				"subfolders": [],
+				"name": "Keyboard_Create"
+			},
+			{
+				"items": [
+					"Key",
+					"Key_Border",
+					"Key_Label"
+				],
+				"subfolders": [],
+				"name": "Keys"
+			},
+			{
+				"items": [
+					"Keyboard",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"Label",
+					"Text_Score",
+					"Text_Score_Max",
+					"Counter",
+					"Text_Score_Last"
+				],
+				"subfolders": [],
+				"name": "UI"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Main",
+			"Keys & Chars"
+		],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"Keyboard_QWERTY_LETTERS",
+							"Keyboard_QWERTY_SIMPLE_1",
+							"Keyboard_QWERTY_SIMPLE_2",
+							"Keyboard_QWERTY_SIMPLE_3"
+						],
+						"subfolders": [],
+						"name": "QWERTY"
+					},
+					{
+						"items": [
+							"Keyboard_AZERTY_LETTERS",
+							"Keyboard_AZERTY_SIMPLE_1",
+							"Keyboard_AZERTY_SIMPLE_2",
+							"Keyboard_AZERTY_SIMPLE_3"
+						],
+						"subfolders": [],
+						"name": "AZERTY"
+					}
+				],
+				"name": "Keyboards"
+			}
+		]
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"Chars",
+			"Keyboard",
+			"GlobalVars"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 809108709063726,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "utilities.js",
+					"type": "application/javascript",
+					"sid": 805606730831003,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importForEvents.js",
+					"type": "application/javascript",
+					"sid": 574076944781614,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "gameCoordinates.js",
+					"type": "application/javascript",
+					"sid": 654317569784335,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Kenney Future Narrow.ttf",
+					"type": "application/font-sfnt",
+					"sid": 875856150527559
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 304751276266307,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 690810126841014,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 711085722390738,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 645107655701849,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 248968168272143,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 188481611590223,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 997618226696306,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "Credits.txt",
+					"type": "text/plain",
+					"sid": 478093520871964
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "demo-21.01.17",
+		"author": "",
+		"authorEmail": "",
+		"authorWebsite": "",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.7843137254901961,
+			0.7843137254901961,
+			0.7843137254901961,
+			0
+		],
+		"splashColor": [
+			0.7843137254901961,
+			0.7843137254901961,
+			0.7843137254901961,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 1280,
+	"viewportHeight": 720,
+	"firstLayout": null
+}

@@ -1,0 +1,20 @@
+{
+	"name": "Grid_Line",
+	"plugin-id": "TiledBg",
+	"sid": 449231972677898,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 15.625,
+		"originY": 15.625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 5087543,
+		"useCollisionPoly": true
+	}
+}

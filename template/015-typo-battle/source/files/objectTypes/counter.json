@@ -1,0 +1,16 @@
+{
+	"name": "Counter",
+	"plugin-id": "Text",
+	"sid": 591016025961910,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Counter",
+			"type": "number",
+			"desc": "",
+			"sid": 168016050629189
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

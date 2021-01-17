@@ -1,0 +1,1179 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Chars"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Keyboard"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 733582361462355
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 650229307907981,
+					"parameters": {
+						"variable": "isRunning",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 138228286710624,
+					"parameters": {
+						"variable": "isCounting",
+						"value": "true"
+					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Counter",
+					"sid": 237060987584314,
+					"parameters": {
+						"instance-variable": "Counter",
+						"value": "3"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 781141160943856,
+					"parameters": {
+						"variable": "Score_Last",
+						"value": "Score"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 983783569394945,
+					"parameters": {
+						"variable": "Score_Max",
+						"value": "Score > Score_Max  ? Score : Score_Max"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 519129473082108,
+					"parameters": {
+						"variable": "Score",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-selection",
+					"objectClass": "Keyboard_List",
+					"sid": 613944223866229,
+					"parameters": {
+						"index": "Keyboard_Template = \"QWERTY\" ? 0 : 1"
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Keyboard_List",
+					"sid": 828687423217540,
+					"parameters": {
+						"property-name": "\"font-family\"",
+						"value": "\"Kenney Future Narrow\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Keyboard_List",
+					"sid": 869113915517775,
+					"parameters": {
+						"property-name": "\"text-align\"",
+						"value": "\"center\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Keyboard_List",
+					"sid": 647940084976930,
+					"parameters": {
+						"property-name": "\"font-size\"",
+						"value": "\"xx-large\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Keyboard_List",
+					"sid": 922940010132275,
+					"parameters": {
+						"property-name": "\"color\"",
+						"value": "\"rgb(100,100,100)\""
+					}
+				},
+				{
+					"id": "set-css-style",
+					"objectClass": "Keyboard_List",
+					"sid": 202348091045290,
+					"parameters": {
+						"property-name": "\"background-color\"",
+						"value": "\"transparent\""
+					}
+				}
+			],
+			"sid": 706953679981192,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 736804123620074,
+							"parameters": {
+								"object": "Char"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Char_Destroy",
+							"sid": 885440608115199,
+							"parameters": [
+								"Char.UID"
+							]
+						}
+					],
+					"sid": 254731980553440
+				},
+				{
+					"eventType": "variable",
+					"name": "Keyboard_Template_Random",
+					"type": "string",
+					"initialValue": "Keyboard_QWERTY",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 713822654216528
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 912994122350637,
+							"parameters": {
+								"variable": "Keyboard_Template_Random",
+								"value": "\"Keyboard_\" & Keyboard_List.SelectedText & choose(\"_LETTERS\",\"_SIMPLE_1\",\"_SIMPLE_2\",\"_SIMPLE_3\")"
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 335674905736633,
+							"parameters": {
+								"object": "Keyboard_Create_Char",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Keyboard_Letter\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 892547449197296,
+							"parameters": {
+								"object": "Limit",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Limit\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 640546041881324,
+							"parameters": {
+								"object": "Label_NameKeyboard",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Keyboard_Letter\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 538891353085736,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 233134236474154,
+									"parameters": {
+										"object": "Keyboard_Create_Char"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 733382349610452,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 387979446206094
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 738028951768586,
+											"parameters": {
+												"variable": "UID",
+												"value": "Functions.Keyboard_CreateKey(Keyboard_Create_Char.Text, \"Keyboard_Letter\")"
+											}
+										},
+										{
+											"callFunction": "Keyboard_MoveToPosition",
+											"sid": 466219641742170,
+											"parameters": [
+												"UID",
+												"Keyboard_Create_Char.X",
+												"Keyboard_Create_Char.Y"
+											]
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Keyboard_Create_Char",
+											"sid": 494279364297056
+										}
+									],
+									"sid": 351980548863408
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 958904020995835,
+					"parameters": {
+						"variable": "isRunning"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 936634843201335,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 728790295638827,
+							"parameters": {
+								"interval-seconds": "choose(0.8,0.9,1)"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 154589557874666,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 991480628706976,
+									"parameters": {
+										"object": "Char"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Char_Move",
+									"sid": 553388340375050,
+									"parameters": [
+										"Char.UID",
+										"\"DOWN\"",
+										"64"
+									]
+								}
+							],
+							"sid": 601133797758759
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 511010778660003,
+									"parameters": {
+										"object": "Key"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 614191202118644,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "k",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 262186434791155
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 175977249823052,
+											"parameters": {
+												"variable": "k",
+												"value": "Key.Key"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Key",
+											"sid": 474283530813652,
+											"parameters": {
+												"object": "Char",
+												"layer": "\"Chars\"",
+												"image-point": "0",
+												"create-hierarchy": true
+											}
+										}
+									],
+									"sid": 830768569765272,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 737918978331490,
+													"parameters": {
+														"object": "Char"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "move-to-bottom",
+													"objectClass": "Char",
+													"sid": 157821971933115
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Char",
+													"sid": 914809077544314,
+													"parameters": {
+														"instance-variable": "Key",
+														"value": "k"
+													}
+												},
+												{
+													"id": "set-y",
+													"objectClass": "Char",
+													"sid": 851926227965031,
+													"parameters": {
+														"y": "32"
+													}
+												}
+											],
+											"sid": 129898708051317
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 549419357538221,
+													"parameters": {
+														"object": "Char_Label"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Char_Label",
+													"sid": 264689098082354,
+													"parameters": {
+														"text": "k"
+													}
+												}
+											],
+											"sid": 183234902999815
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 998975429214064
+						}
+					],
+					"actions": [],
+					"sid": 145672655678818,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CharPressed",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 827935379281777
+						},
+						{
+							"eventType": "variable",
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 151066038953345
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 522959172939438,
+									"parameters": {
+										"variable": "CharPressed",
+										"value": "Keyboard.TypedKey"
+									}
+								}
+							],
+							"sid": 352861592919617
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 304566044056463,
+									"parameters": {
+										"object": "Key"
+									}
+								},
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Key",
+									"sid": 402562235196598,
+									"parameters": {
+										"instance-variable": "Key",
+										"comparison": 0,
+										"value": "uppercase(CharPressed)"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Key",
+									"sid": 228783850450205,
+									"parameters": {
+										"color": "rgbEx255(100, 210, 110)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 589898175723262,
+									"parameters": {
+										"variable": "UID",
+										"value": "Key.UID"
+									}
+								}
+							],
+							"sid": 270483459526132,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Char",
+											"sid": 179635533491666,
+											"parameters": {
+												"instance-variable": "Key",
+												"comparison": 0,
+												"value": "uppercase(CharPressed)"
+											}
+										},
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 389358410108891,
+											"parameters": {
+												"object": "Char",
+												"expression": "Char.Y",
+												"order": "descending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Char",
+											"sid": 877018817448583,
+											"parameters": {
+												"instance-variable": "Hitted",
+												"value": "true"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Char",
+											"sid": 502220933400835,
+											"parameters": {
+												"object": "Char_Ray_HIT",
+												"layer": "Char.LayerName",
+												"image-point": "\"Bottom\"",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"id": "pin-to-object-properties",
+											"objectClass": "Char_Ray_HIT",
+											"sid": 517646640240349,
+											"behaviorType": "Pin",
+											"parameters": {
+												"pin-to": "Char",
+												"x": true,
+												"y": true,
+												"angle": false,
+												"width-type": "no",
+												"height-type": "no",
+												"z": false
+											}
+										},
+										{
+											"id": "set-height",
+											"objectClass": "Char_Ray_HIT",
+											"sid": 755015799614501,
+											"parameters": {
+												"height": "distance(Char.X, Char.Y+32, Key.X, Key.Y-32)"
+											}
+										},
+										{
+											"id": "stop-loop",
+											"objectClass": "System",
+											"sid": 680172612195351
+										}
+									],
+									"sid": 479734979590441,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "add-to-eventvar",
+													"objectClass": "System",
+													"sid": 460927350413572,
+													"parameters": {
+														"variable": "Score",
+														"value": "1"
+													}
+												}
+											],
+											"sid": 200276008312257
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-random-instance",
+													"objectClass": "System",
+													"sid": 751424360775998,
+													"parameters": {
+														"object": "Key"
+													}
+												}
+											],
+											"actions": [],
+											"sid": 215053671200791,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "k",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 454926871736678
+												},
+												{
+													"eventType": "block",
+													"conditions": [],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 239704208665629,
+															"parameters": {
+																"variable": "k",
+																"value": "Key.Key"
+															}
+														},
+														{
+															"id": "spawn-another-object",
+															"objectClass": "Key",
+															"sid": 689742007743831,
+															"parameters": {
+																"object": "Char",
+																"layer": "\"Chars\"",
+																"image-point": "0",
+																"create-hierarchy": true
+															}
+														}
+													],
+													"sid": 890036930627419,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-last-created",
+																	"objectClass": "System",
+																	"sid": 898251021987233,
+																	"parameters": {
+																		"object": "Char"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "move-to-bottom",
+																	"objectClass": "Char",
+																	"sid": 869113722044529
+																},
+																{
+																	"id": "set-instvar-value",
+																	"objectClass": "Char",
+																	"sid": 642268146802977,
+																	"parameters": {
+																		"instance-variable": "Key",
+																		"value": "k"
+																	}
+																},
+																{
+																	"id": "set-y",
+																	"objectClass": "Char",
+																	"sid": 842529813756831,
+																	"parameters": {
+																		"y": "32"
+																	}
+																}
+															],
+															"sid": 456398632825142
+														},
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-last-created",
+																	"objectClass": "System",
+																	"sid": 579818943221066,
+																	"parameters": {
+																		"object": "Char_Label"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-text",
+																	"objectClass": "Char_Label",
+																	"sid": 803886096490736,
+																	"parameters": {
+																		"text": "k"
+																	}
+																}
+															],
+															"sid": 814650127118564
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-any-key-released",
+							"objectClass": "Keyboard",
+							"sid": 791816007516165
+						}
+					],
+					"actions": [],
+					"sid": 827428401604113,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "CharPressed",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 325202813119819
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 655575780072232,
+									"parameters": {
+										"variable": "CharPressed",
+										"value": "Keyboard.TypedKey"
+									}
+								}
+							],
+							"sid": 521625916239469,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 973747281170508,
+											"parameters": {
+												"object": "Key"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Key",
+											"sid": 263403483791374,
+											"parameters": {
+												"instance-variable": "Key",
+												"comparison": 0,
+												"value": "uppercase(CharPressed)"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "Key",
+											"sid": 533709349909299,
+											"parameters": {
+												"color": "rgbEx255(255, 255, 255)"
+											}
+										}
+									],
+									"sid": 753357775370758
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-height",
+							"objectClass": "Limit",
+							"sid": 443711096434434,
+							"parameters": {
+								"comparison": 3,
+								"height": "0"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 801801894316804
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 492567109656920,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 485843210334271,
+							"parameters": {
+								"layer": "\"Counter\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 770600731374945,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 378836517916011
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 527105477070967
+						}
+					],
+					"sid": 104534999514197
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 606142812747453,
+					"parameters": {
+						"variable": "isCounting"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 777155739888040,
+					"parameters": {
+						"interval-seconds": "1.0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 993020432406042,
+					"parameters": {
+						"layer": "\"Counter\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "subtract-from-instvar",
+					"objectClass": "Counter",
+					"sid": 383139875591046,
+					"parameters": {
+						"instance-variable": "Counter",
+						"value": "1"
+					}
+				}
+			],
+			"sid": 157129076116738,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Counter",
+							"sid": 506302581077819,
+							"parameters": {
+								"instance-variable": "Counter",
+								"comparison": 5,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Center",
+							"sid": 994631040873026,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "10",
+								"duration": "0.5",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 141961503693244
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Counter",
+							"sid": 698836336942635,
+							"parameters": {
+								"instance-variable": "Counter",
+								"comparison": 3,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 354960422449192,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 752553002473538
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Counter",
+							"sid": 211100206018692,
+							"parameters": {
+								"instance-variable": "Counter",
+								"comparison": 3,
+								"value": "-1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 409889036875986,
+							"parameters": {
+								"variable": "isCounting",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 974968022750002,
+							"parameters": {
+								"layer": "\"Counter\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Counter",
+							"sid": 342460774775779,
+							"parameters": {
+								"instance-variable": "Counter",
+								"value": "3"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Counter",
+							"sid": 814284118119051,
+							"parameters": {
+								"text": "Counter.Counter > 0 ? \"[COLOR=#fe4a43]\" & Counter.Counter & \"[/COLOR]\" : \"[COLOR=#64d26e]GO![/COLOR]\""
+							}
+						}
+					],
+					"sid": 794947197958033
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 726009347383305,
+					"parameters": {
+						"variable": "isCounting"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Counter",
+					"sid": 436900336687338,
+					"parameters": {
+						"text": "Counter.Counter > 0 ? \"[COLOR=#fe4a43]\" & Counter.Counter & \"[/COLOR]\" : \"[COLOR=#64d26e]GO![/COLOR]\""
+					}
+				}
+			],
+			"sid": 629189023869952
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text_Score",
+					"sid": 921264370195086,
+					"parameters": {
+						"text": "Score"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Score_Last",
+					"sid": 988953832621782,
+					"parameters": {
+						"text": "Score_Last"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text_Score_Max",
+					"sid": 673803016924356,
+					"parameters": {
+						"text": "Score_Max"
+					}
+				}
+			],
+			"sid": 992050838237206
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-selection-changed",
+					"objectClass": "Keyboard_List",
+					"sid": 107086158030854
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 953791741383976,
+					"parameters": {
+						"variable": "Keyboard_Template",
+						"value": "Keyboard_List.SelectedText"
+					}
+				},
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 593902592691238,
+					"parameters": {
+						"variable": "isRunning",
+						"value": "false"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 602829419082277,
+					"parameters": {
+						"layer": "\"Counter\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 859389513872719,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 588310426329287
+				},
+				{
+					"id": "restart-layout",
+					"objectClass": "System",
+					"sid": 464636586426429
+				}
+			],
+			"sid": 201051982191172
+		}
+	],
+	"sid": 619606570409396
+}

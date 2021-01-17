@@ -1,0 +1,66 @@
+{
+	"name": "GlobalVars",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "isRunning",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 111773274697903
+		},
+		{
+			"eventType": "variable",
+			"name": "isCounting",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 537561316502330
+		},
+		{
+			"eventType": "variable",
+			"name": "Score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 415283474550225
+		},
+		{
+			"eventType": "variable",
+			"name": "Score_Last",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 733283877935870
+		},
+		{
+			"eventType": "variable",
+			"name": "Score_Max",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 241643735383136
+		},
+		{
+			"eventType": "variable",
+			"name": "Keyboard_Template",
+			"type": "string",
+			"initialValue": "QWERTY",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 901705949544057
+		}
+	],
+	"sid": 110185405822355
+}

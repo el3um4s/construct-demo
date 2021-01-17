@@ -1,0 +1,32 @@
+{
+	"name": "Grid_Dark",
+	"plugin-id": "TiledBg",
+	"sid": 457719463776980,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 128,
+		"height": 128,
+		"originX": 0.9765625,
+		"originY": 0.9765625,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8889592,
+		"collisionPoly": {
+			"points": [
+				0,
+				0,
+				0.5,
+				0,
+				0.5,
+				0.5,
+				0,
+				0.5
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

@@ -1,0 +1,144 @@
+{
+	"name": "Keyboard",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "KEYBOARD",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Keyboard_SetTextLabel",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 869836422161421
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst label = instance.instVars[\"Key\"];\nconst children = instance.children();\n\nfor (const c of children) {\n    if (c.objectType.name == \"Key_Label\") {\n\t\tc.text = label;\n\t}\n};\n"
+						}
+					],
+					"sid": 916987486729381
+				},
+				{
+					"functionName": "Keyboard_CreateKey",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Key",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 989454813076524
+						},
+						{
+							"name": "Layer",
+							"type": "string",
+							"initialValue": "Keyboard_Letter",
+							"comment": "",
+							"sid": 205265926830066
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = Utils.createInstance(\"Key\");\nconst keyBorder = Utils.createInstance(\"Key_Border\");\nconst keyLabel = Utils.createInstance(\"Key_Label\");\n\nkey.moveToBottom();\nkey.instVars.Key = localVars.Key;\nkeyLabel.text = localVars.Key;\n\n\nkey.addChild(keyBorder, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\nkey.addChild(keyLabel, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\n\n\nconst layer = key.layout.getLayer(localVars.Layer);\nkey.moveToLayer(layer);\nkeyBorder.moveToLayer(layer);\nkeyLabel.moveToLayer(layer);\n\nconst UID = key.uid;\ng_runtime.setReturnValue(UID);\n"
+						}
+					],
+					"sid": 552088047913136
+				},
+				{
+					"functionName": "Keyboard_MoveToPosition",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 570917355601859
+						},
+						{
+							"name": "X",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 821955294168038
+						},
+						{
+							"name": "Y",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 590608904473490
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\ninstance.x = localVars.X;\ninstance.y = localVars.Y;\n"
+						}
+					],
+					"sid": 526586647336111
+				},
+				{
+					"functionName": "Keyboard_MoveToLayer",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 756093136687825
+						},
+						{
+							"name": "Layer",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 305906762198167
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst layer = instance.layout.getLayer(localVars.Layer);\ninstance.moveToLayer(layer);\n"
+						}
+					],
+					"sid": 226247574165533
+				}
+			],
+			"sid": 641225690415394
+		}
+	],
+	"sid": 656791142830123
+}
