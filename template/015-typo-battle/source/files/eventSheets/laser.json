@@ -1,0 +1,76 @@
+{
+	"name": "Laser",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Laser",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Laser_Create",
+					"functionDescription": "",
+					"functionCategory": "Laser",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "LaserName",
+							"type": "string",
+							"initialValue": "Laser",
+							"comment": "",
+							"sid": 600034209441064
+						},
+						{
+							"name": "Layer",
+							"type": "string",
+							"initialValue": "Chars",
+							"comment": "",
+							"sid": 819851563528681
+						},
+						{
+							"name": "Origin_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 404248752777084
+						},
+						{
+							"name": "Target_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 411330768251590
+						},
+						{
+							"name": "Width",
+							"type": "number",
+							"initialValue": "12",
+							"comment": "",
+							"sid": 329813790145533
+						},
+						{
+							"name": "VisibleForSeconds",
+							"type": "number",
+							"initialValue": "0.05",
+							"comment": "",
+							"sid": 595428098122646
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = ManipulateInstance.createInstance(localVars.LaserName);\ninstance.width = localVars.Width;\n\nconst layer = instance.layout.getLayer(localVars.Layer);\ninstance.moveToLayer(layer);\n\nconst origin = g_runtime.getInstanceByUid(localVars.Origin_UID);\nconst target = g_runtime.getInstanceByUid(localVars.Target_UID);\nconst distance = Utils.distanceBeetweenObjects(origin, target);\ninstance.height = distance;\n\nconst angleDegrees = Utils.angleDegreesBeetweenObjects(origin, target);\ninstance.angleDegrees = angleDegrees + 90;\n\ninstance.x = origin.x;\ninstance.y = origin.y;\n\nawait Utils.waitForMillisecond(localVars.VisibleForSeconds*1000);\ninstance.destroy();"
+						}
+					],
+					"sid": 881760428441146
+				}
+			],
+			"sid": 864208342741922
+		}
+	],
+	"sid": 318402103344590
+}

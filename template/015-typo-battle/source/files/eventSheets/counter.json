@@ -1,0 +1,252 @@
+{
+	"name": "Counter",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Counter",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "Counter_Layer",
+					"type": "string",
+					"initialValue": "Counter",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 510039868414689
+				},
+				{
+					"functionName": "Counter_SetText",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Counter",
+							"sid": 647655307595137,
+							"parameters": {
+								"text": "Counter.Counter > 0 ? \"[COLOR=#fe4a43]\" & Counter.Counter & \"[/COLOR]\" : \"[COLOR=#64d26e]GO![/COLOR]\""
+							}
+						}
+					],
+					"sid": 843657240867025
+				},
+				{
+					"functionName": "Counter_Countdown",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "Counter",
+							"sid": 985778424188539,
+							"parameters": {
+								"instance-variable": "Counter",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 855535858093417,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Counter",
+									"sid": 166930401431056,
+									"parameters": {
+										"instance-variable": "Counter",
+										"comparison": 5,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "shake",
+									"objectClass": "Center",
+									"sid": 691532963401252,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "10",
+										"duration": "0.5",
+										"mode": "reducing-magnitude"
+									}
+								}
+							],
+							"sid": 742560910418587
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Counter",
+									"sid": 503703155278913,
+									"parameters": {
+										"instance-variable": "Counter",
+										"comparison": 3,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 926875896239320,
+									"parameters": {
+										"variable": "isRunning",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 121723816876432
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Counter",
+									"sid": 870803451640968,
+									"parameters": {
+										"instance-variable": "Counter",
+										"comparison": 3,
+										"value": "-1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Counter_StopCounter",
+									"sid": 487060315255405
+								},
+								{
+									"callFunction": "Counter_ResetCounter",
+									"sid": 285269467778328,
+									"parameters": [
+										"4"
+									]
+								}
+							],
+							"sid": 103633455627099
+						}
+					]
+				},
+				{
+					"functionName": "Counter_ResetCounter",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "StartFrom",
+							"type": "number",
+							"initialValue": "4",
+							"comment": "",
+							"sid": 294003406442509
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Counter",
+							"sid": 388584604100013,
+							"parameters": {
+								"instance-variable": "Counter",
+								"value": "StartFrom"
+							}
+						}
+					],
+					"sid": 900175143780115
+				},
+				{
+					"functionName": "Counter_Layer_Show",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 232603281281623,
+							"parameters": {
+								"layer": "Counter_Layer",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 184437072418093
+				},
+				{
+					"functionName": "Counter_Layer_Hide",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 350928463124101,
+							"parameters": {
+								"layer": "Counter_Layer",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 811172458883331
+				},
+				{
+					"functionName": "Counter_StopCounter",
+					"functionDescription": "",
+					"functionCategory": "Counter",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 342821849248465,
+							"parameters": {
+								"variable": "isCounting",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 494683765987290
+				}
+			],
+			"sid": 741471473691323
+		}
+	],
+	"sid": 959837083026759
+}

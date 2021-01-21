@@ -4,39 +4,14 @@
 		{
 			"eventType": "group",
 			"disabled": false,
-			"title": "KEYBOARD",
+			"title": "Keyboard",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"functionName": "Keyboard_SetTextLabel",
-					"functionDescription": "",
-					"functionCategory": "",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "UID",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 869836422161421
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"type": "script",
-							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst label = instance.instVars[\"Key\"];\nconst children = instance.children();\n\nfor (const c of children) {\n    if (c.objectType.name == \"Key_Label\") {\n\t\tc.text = label;\n\t}\n};\n"
-						}
-					],
-					"sid": 916987486729381
-				},
-				{
 					"functionName": "Keyboard_CreateKey",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Keyboard",
 					"functionReturnType": "number",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -60,7 +35,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const key = Utils.createInstance(\"Key\");\nconst keyBorder = Utils.createInstance(\"Key_Border\");\nconst keyLabel = Utils.createInstance(\"Key_Label\");\n\nkey.moveToBottom();\nkey.instVars.Key = localVars.Key;\nkeyLabel.text = localVars.Key;\n\n\nkey.addChild(keyBorder, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\nkey.addChild(keyLabel, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\n\n\nconst layer = key.layout.getLayer(localVars.Layer);\nkey.moveToLayer(layer);\nkeyBorder.moveToLayer(layer);\nkeyLabel.moveToLayer(layer);\n\nconst UID = key.uid;\ng_runtime.setReturnValue(UID);\n"
+							"script": "const key = ManipulateInstance.createInstance(\"Key\");\nconst keyBorder = ManipulateInstance.createInstance(\"Key_Border\");\nconst keyLabel = ManipulateInstance.createInstance(\"Key_Label\");\n\nkey.moveToBottom();\nkey.instVars.Key = localVars.Key;\nkeyLabel.text = localVars.Key;\n\n\nkey.addChild(keyBorder, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\nkey.addChild(keyLabel, {transformX: true, transformY: true, transformWidth: true, transformHeight: true, transformAngle: true, transformZElevation: true, destroyWithParent: true});\n\n\nconst layer = key.layout.getLayer(localVars.Layer);\nkey.moveToLayer(layer);\nkeyBorder.moveToLayer(layer);\nkeyLabel.moveToLayer(layer);\n\nconst UID = key.uid;\ng_runtime.setReturnValue(UID);\n"
 						}
 					],
 					"sid": 552088047913136
@@ -68,7 +43,7 @@
 				{
 					"functionName": "Keyboard_MoveToPosition",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Keyboard",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
 					"functionParameters": [
@@ -105,36 +80,149 @@
 					"sid": 526586647336111
 				},
 				{
-					"functionName": "Keyboard_MoveToLayer",
+					"functionName": "Keyboard_ChangeTemplateFromSelection",
 					"functionDescription": "",
-					"functionCategory": "",
+					"functionCategory": "Keyboard",
 					"functionReturnType": "none",
 					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "UID",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 756093136687825
-						},
-						{
-							"name": "Layer",
-							"type": "string",
-							"initialValue": "",
-							"comment": "",
-							"sid": 305906762198167
-						}
-					],
+					"functionParameters": [],
 					"eventType": "function-block",
 					"conditions": [],
 					"actions": [
 						{
-							"type": "script",
-							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst layer = instance.layout.getLayer(localVars.Layer);\ninstance.moveToLayer(layer);\n"
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 656070131319618,
+							"parameters": {
+								"variable": "Keyboard_Template",
+								"value": "Keyboard_List.SelectedText"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 220461343077595,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"callFunction": "Counter_ResetCounter",
+							"sid": 526584746846913,
+							"parameters": [
+								"5"
+							]
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 864501138751571,
+							"parameters": {
+								"variable": "isCounting",
+								"value": "true"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 577545728029538,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 897074050080522
+						},
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 864429826603333
 						}
 					],
-					"sid": 226247574165533
+					"sid": 575737041171136
+				},
+				{
+					"functionName": "Keyboard_ColorKey",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "TypedKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 651742975480664
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Key",
+							"sid": 718253784536192,
+							"parameters": {
+								"instance-variable": "Key",
+								"comparison": 0,
+								"value": "uppercase(TypedKey)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Key",
+							"sid": 197000978175362,
+							"parameters": {
+								"color": "rgbEx255(100, 210, 110)"
+							}
+						}
+					],
+					"sid": 860006417303230
+				},
+				{
+					"functionName": "Keyboard_DecolorKey",
+					"functionDescription": "",
+					"functionCategory": "Keyboard",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "TypedKey",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 555072196750278
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Key",
+							"sid": 280723994276835,
+							"parameters": {
+								"instance-variable": "Key",
+								"comparison": 0,
+								"value": "uppercase(TypedKey)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Key",
+							"sid": 957970392443336,
+							"parameters": {
+								"color": "rgbEx255(255, 255, 255)"
+							}
+						}
+					],
+					"sid": 309057325396966
 				}
 			],
 			"sid": 641225690415394

@@ -357,7 +357,7 @@ activeRPAFids.delete(id)}};
 
 
 // c3/lib/misc/runtimeutil.js
-'use strict';{const C3=self.C3;C3.IsAbsoluteURL=function IsAbsoluteURL(url){return/^(?:[a-z]+:)?\/\//.test(url)||url.substr(0,5)==="data:"||url.substr(0,5)==="blob:"};C3.IsRelativeURL=function IsRelativeURL(url){return!C3.IsAbsoluteURL(url)};C3.ThrowIfNotOk=function ThrowIfNotOk(response){if(!response.ok)throw new Error(`fetch '${response.url}' response returned ${response.status} ${response.statusText}`);};C3.FetchOk=function FetchOk(url,init){return fetch(url,init).then(response=>{C3.ThrowIfNotOk(response);
+'use strict';{const C3=self.C3;C3.IsAbsoluteURL=function IsAbsoluteURL(url){return/^(?:[a-z\-]+:)?\/\//.test(url)||url.substr(0,5)==="data:"||url.substr(0,5)==="blob:"};C3.IsRelativeURL=function IsRelativeURL(url){return!C3.IsAbsoluteURL(url)};C3.ThrowIfNotOk=function ThrowIfNotOk(response){if(!response.ok)throw new Error(`fetch '${response.url}' response returned ${response.status} ${response.statusText}`);};C3.FetchOk=function FetchOk(url,init){return fetch(url,init).then(response=>{C3.ThrowIfNotOk(response);
 return response})};C3.FetchText=function FetchText(url){return C3.FetchOk(url).then(response=>response.text())};C3.FetchJson=function FetchJson(url){return C3.FetchOk(url).then(response=>response.json())};C3.FetchBlob=function FetchBlob(url){return C3.FetchOk(url).then(response=>response.blob())};C3.FetchArrayBuffer=function FetchArrayBuffer(url){return C3.FetchOk(url).then(response=>response.arrayBuffer())};C3.FetchImage=function FetchImage(url){return new Promise((resolve,reject)=>{const img=new Image;
 img.onload=()=>resolve(img);img.onerror=err=>reject(err);img.src=url})};C3.BlobToArrayBuffer=function BlobToArrayBuffer(blob){if(typeof blob["arrayBuffer"]==="function")return blob["arrayBuffer"]();else return new Promise((resolve,reject)=>{const fileReader=new FileReader;fileReader.onload=()=>resolve(fileReader.result);fileReader.onerror=()=>reject(fileReader.error);fileReader.readAsArrayBuffer(blob)})};C3.BlobToString=function BlobToString(blob){if(typeof blob["text"]==="function")return blob["text"]();
 else return new Promise((resolve,reject)=>{const fileReader=new FileReader;fileReader.onload=()=>resolve(fileReader.result);fileReader.onerror=()=>reject(fileReader.error);fileReader.readAsText(blob)})};C3.BlobToJson=function BlobToJson(blob){return C3.BlobToString(blob).then(text=>JSON.parse(text))};C3.BlobToImage=async function BlobToImage(blob,decodeImage){let blobUrl=URL.createObjectURL(blob);try{const img=await C3.FetchImage(blobUrl);URL.revokeObjectURL(blobUrl);blobUrl="";if(decodeImage&&typeof img["decode"]===
@@ -1089,7 +1089,7 @@ this._instances.push(inst);if(inst.GetWorldInfo().GetZElevation()!==0)this._anyI
 if(index<0)return;if(removeFromGrid&&this._useRenderCells)inst.GetWorldInfo()._RemoveFromRenderCells();this._instances.splice(index,1);this.SetZIndicesChanged();this._MaybeResetAnyInstanceZElevatedFlag()}_SetAnyInstanceZElevated(){this._anyInstanceZElevated=true}_MaybeResetAnyInstanceZElevatedFlag(){if(this._instances.length===0)this._anyInstanceZElevated=false}_SortInstancesByLastCachedZIndex(isPersistMode){if(isPersistMode){const assignedZIndices=new Set;for(const inst of this._instances){const cachedZIndex=
 inst.GetWorldInfo()._GetLastCachedZIndex();if(cachedZIndex>=0)assignedZIndices.add(cachedZIndex)}let index=-1;for(const inst of this._instances){const wi=inst.GetWorldInfo();if(wi._GetLastCachedZIndex()>=0)continue;++index;while(assignedZIndices.has(index))++index;wi._SetZIndex(index)}}this._instances.sort(SortByInstLastCachedZIndex)}_Start(){}_End(){for(const inst of this._instances)if(!inst.GetObjectClass().IsGlobal())this._runtime.DestroyInstance(inst);this._runtime.FlushPendingInstances();C3.clearArray(this._instances);
 this._anyInstanceZElevated=false;this.SetZIndicesChanged()}RecreateInitialObjects(objectClass,rc,offsetX,offsetY,createHierarchy){const eventSheetManager=this._runtime.GetEventSheetManager();const allObjectClasses=this._runtime.GetAllObjectClasses();const isFamily=objectClass.IsFamily();const ret=[];for(const instData of this._initialInstances){const worldData=instData[0];const x=worldData[0];const y=worldData[1];if(!rc.containsPoint(x,y))continue;const objectType=allObjectClasses[instData[1]];if(objectType!==
-objectClass)if(isFamily){if(!objectClass.FamilyHasMember(objectType))continue}else continue;let createOnLayer=this;const runningLayout=this._runtime.GetCurrentLayout();if(this.GetLayout()!==runningLayout){createOnLayer=runningLayout.GetLayerByName(this.GetName());if(!createOnLayer)createOnLayer=runningLayout.GetLayerByIndex(this.GetIndex())}const inst=this._runtime.CreateInstanceFromData(instData,createOnLayer,false,undefined,undefined,false,createHierarchy);if(createHierarchy)this.SortAndAddSceneGraphInstancesByZIndex(inst);
+objectClass)if(isFamily){if(!objectClass.FamilyHasMember(objectType))continue}else continue;let createOnLayer=this;const runningLayout=this._runtime.GetCurrentLayout();if(this.GetLayout()!==runningLayout){createOnLayer=runningLayout.GetLayerByName(this.GetName());if(!createOnLayer)createOnLayer=runningLayout.GetLayerByIndex(this.GetIndex())}const inst=this._runtime.CreateInstanceFromData(instData,createOnLayer,false,undefined,undefined,false,createHierarchy);createOnLayer.SortAndAddSceneGraphInstancesByZIndex(inst);
 const wi=inst.GetWorldInfo();wi.OffsetXY(offsetX,offsetY);wi.SetBboxChanged();eventSheetManager.BlockFlushingInstances(true);inst._TriggerOnCreatedOnSelfAndRelated();eventSheetManager.BlockFlushingInstances(false);ret.push(inst)}return ret}GetInstanceCount(){return this._instances.length}GetLayout(){return this._layout}GetName(){return this._name}GetIndex(){return this._index}GetSID(){return this._sid}GetRuntime(){return this._runtime}GetDevicePixelRatio(){return this._runtime.GetDevicePixelRatio()}GetEffectList(){return this._effectList}UsesRenderCells(){return this._useRenderCells}GetRenderGrid(){return this._renderGrid}SetRenderListStale(){this._isRenderListUpToDate=
 false}IsVisible(){return this._isVisible}SetVisible(v){v=!!v;if(this._isVisible===v)return;this._isVisible=v;this._runtime.UpdateRender()}GetViewport(){return this._viewport}GetViewportForZ(z,outRect){const viewportZ0=this._viewportZ0;if(z===0)outRect.copy(viewportZ0);else{const scaleFactor=this.Get2DScaleFactorToZ(z);const midX=viewportZ0.midX();const midY=viewportZ0.midY();const halfW=.5*viewportZ0.width()/scaleFactor;const halfH=.5*viewportZ0.height()/scaleFactor;outRect.set(midX-halfW,midY-halfH,
 midX+halfW,midY+halfH)}}GetOpacity(){return this._color.getA()}SetOpacity(o){o=C3.clamp(o,0,1);if(this._color.getA()===o)return;this._color.setA(o);this._UpdatePremultipliedColor();this._runtime.UpdateRender()}_UpdatePremultipliedColor(){this._premultipliedColor.copy(this._color);this._premultipliedColor.premultiply()}GetPremultipliedColor(){return this._premultipliedColor}HasDefaultColor(){return this._color.equalsRgba(1,1,1,1)}GetScaleRate(){return this._scaleRate}SetScaleRate(r){if(this._scaleRate===
@@ -1125,8 +1125,8 @@ midX)*scaleFactor+midX;layerY=(layerY-midY)*scaleFactor+midY}const parallaxOrigi
 sina;layerY=layerY*cosa+layerX*sina;layerX=x_temp;layerX+=scrollOriginX;layerY+=scrollOriginY}const normalScale=this.GetNormalScale();const scaledViewportWidth=runtime.GetViewportWidth()/normalScale;const scaledViewportHeight=runtime.GetViewportHeight()/normalScale;const viewportOriginX=scrollOriginX-scaledViewportWidth/2;const viewportOriginY=scrollOriginY-scaledViewportHeight/2;const viewportOffX=layerX-viewportOriginX;const viewportOffY=layerY-viewportOriginY;const canvasX=viewportOffX*displayScale;
 const canvasY=viewportOffY*displayScale;return[canvasX,canvasY]}_GetLayerToDrawSurfaceScale(size,zElevation){size*=this.GetRenderScale()*this.GetDevicePixelRatio();if(zElevation!==0)size*=this.Get2DScaleFactorToZ(zElevation);return size}_SaveToJson(){const o={"s":this.GetOwnScale(),"a":this.GetOwnAngle(),"vl":this._viewport.getLeft(),"vt":this._viewport.getTop(),"vr":this._viewport.getRight(),"vb":this._viewport.getBottom(),"v":this.IsVisible(),"bc":this._backgroundColor.toJSON(),"t":this.IsTransparent(),
 "px":this.GetParallaxX(),"py":this.GetParallaxY(),"c":this._color.toJSON(),"sr":this.GetScaleRate(),"fx":this._effectList.SaveToJson(),"cg":this._createdGlobalUids};return o}_LoadFromJson(o){this._scale=o["s"];this._angle=o["a"];this._viewport.set(o["vl"],o["vt"],o["vr"],o["vb"]);this._isVisible=!!o["v"];this._backgroundColor.setFromJSON(o["bc"]);this._isTransparent=!!o["t"];this._parallaxX=o["px"];this._parallaxY=o["py"];this._color.setFromJSON(o["c"]);this._scaleRate=o["sr"];C3.shallowAssignArray(this._createdGlobalUids,
-o["cg"]);C3.shallowAssignArray(this._initialInstances,this._startupInitialInstances);const tempSet=new Set(this._createdGlobalUids);let j=0;for(let i=0,len=this._initialInstances.length;i<len;++i)if(!tempSet.has(this._initialInstances[i][2])){this._initialInstances[j]=this._initialInstances[i];++j}C3.truncateArray(this._initialInstances,j);this._effectList.LoadFromJson(o["fx"]);this._SortInstancesByLastCachedZIndex(false);this.SetZIndicesChanged()}GetILayer(){return this._iLayer}SortAndAddSceneGraphInstancesByZIndex(inst){if(inst.HasChildren()){const instances=
-[...inst.allChildren()];instances.push(inst);instances.sort((f,s)=>{const firstZIndex=f.GetWorldInfo().GetSceneGraphZIndex();const secondZIndex=s.GetWorldInfo().GetSceneGraphZIndex();return firstZIndex-secondZIndex});for(const instance of instances)this._AddInstance(instance,true)}else this._AddInstance(inst,true)}}};
+o["cg"]);C3.shallowAssignArray(this._initialInstances,this._startupInitialInstances);const tempSet=new Set(this._createdGlobalUids);let j=0;for(let i=0,len=this._initialInstances.length;i<len;++i)if(!tempSet.has(this._initialInstances[i][2])){this._initialInstances[j]=this._initialInstances[i];++j}C3.truncateArray(this._initialInstances,j);this._effectList.LoadFromJson(o["fx"]);this._SortInstancesByLastCachedZIndex(false);this.SetZIndicesChanged()}GetILayer(){return this._iLayer}SortAndAddSceneGraphInstancesByZIndex(inst){if(this._instances.includes(inst))return;
+if(inst.HasChildren()){const instances=[...inst.allChildren()];instances.push(inst);instances.sort((f,s)=>{const firstZIndex=f.GetWorldInfo().GetSceneGraphZIndex();const secondZIndex=s.GetWorldInfo().GetSceneGraphZIndex();return firstZIndex-secondZIndex});for(const instance of instances)this._AddInstance(instance,true)}else this._AddInstance(inst,true)}}};
 
 
 // c3/layouts/layout.js
@@ -1745,7 +1745,7 @@ this.GetParent();while(p){if(p instanceof C3.EventBlock&&p.IsGroup()&&!p.IsGroup
 // c3/events/expNode.js
 'use strict';{const C3=self.C3;const assert=self.assert;C3.ExpNode=class ExpNode extends C3.DefendedBase{constructor(owner){super();this._owner=owner;this._runtime=owner.GetRuntime()}_PostInit(){}static CreateNode(owner,data){const type=data[0];const Classes=[BehaviorExpressionNode,ObjectExpressionNode,InstVarExpressionNode,EventVarExpNode,SystemExpressionExpNode,CallFunctionExpressionExpNode];return C3.New(Classes[type],owner,data)}};class SystemExpressionExpNode extends C3.ExpNode{constructor(owner,
 data){super(owner);this._systemPlugin=this._runtime.GetSystemPlugin();this._func=this._runtime.GetObjectReference(data[1]);if(this._func===C3.Plugins.System.Exps.random||this._func===C3.Plugins.System.Exps.choose)this._owner.SetVariesPerInstance()}GetBoundMethod(){return this._systemPlugin._GetBoundACEMethod(this._func,this._systemPlugin)}}class CallFunctionExpressionExpNode extends C3.ExpNode{constructor(owner,data){super(owner);this._functionBlock=null;this._functionName=data[1];this._owner.SetVariesPerInstance()}_PostInit(){const eventSheetManager=
-this._runtime.GetEventSheetManager();this._functionBlock=eventSheetManager.GetFunctionBlockByName(this._functionName);this._functionName=null;const myEventBlock=this._owner.GetEventBlock();const callEventBlock=this._functionBlock.GetEventBlock();this._combinedSolModifiers=[...new Set([...myEventBlock.GetSolModifiersIncludingParents(),...callEventBlock.GetSolModifiersIncludingParents()])];this._combinedSolModifiers=eventSheetManager._DeduplicateSolModifierList(this._combinedSolModifiers)}GetBoundMethod(){const functionBlock=
+this._runtime.GetEventSheetManager();this._functionBlock=eventSheetManager.GetFunctionBlockByName(this._functionName);this._functionName=null;const myEventBlock=this._owner.GetEventBlock();const callEventBlock=this._functionBlock.GetEventBlock();this._combinedSolModifiers=[...(new Set([...myEventBlock.GetSolModifiersIncludingParents(),...callEventBlock.GetSolModifiersIncludingParents()]))];this._combinedSolModifiers=eventSheetManager._DeduplicateSolModifierList(this._combinedSolModifiers)}GetBoundMethod(){const functionBlock=
 this._functionBlock;if(functionBlock.IsEnabled()){const callEventBlock=functionBlock.GetEventBlock();return C3.EventBlock.prototype.RunAsExpressionFunctionCall.bind(callEventBlock,this._combinedSolModifiers,functionBlock.GetReturnType(),functionBlock.GetDefaultReturnValue())}else{const defaultReturnValue=functionBlock.GetDefaultReturnValue();return()=>defaultReturnValue}}}function WrapIndex(index,len){if(index>=len)return index%len;else if(index<0){if(index<=-len)index%=len;if(index<0)index+=len;
 return index}else return index}class ObjectExpressionNode extends C3.ExpNode{constructor(owner,data){super(owner);this._objectClass=this._runtime.GetObjectClassByIndex(data[1]);this._func=this._runtime.GetObjectReference(data[2]);this._returnsString=!!data[3];this._eventStack=this._runtime.GetEventSheetManager().GetEventStack();this._owner._MaybeVaryFor(this._objectClass)}GetBoundMethod(){return this._objectClass.GetPlugin()._GetBoundACEMethod(this._func,this._objectClass.GetSingleGlobalInstance().GetSdkInstance())}ExpObject(...args){const objectClass=
 this._objectClass;const instances=objectClass.GetCurrentSol().GetExpressionInstances();const len=instances.length;if(len===0)return this._returnsString?"":0;const index=WrapIndex(this._owner.GetSolIndex(),len);this._eventStack.GetCurrentStackFrame().SetExpressionObjectClass(objectClass);return this._func.apply(instances[index].GetSdkInstance(),args)}ExpObject_InstExpr(instIndex,...args){const objectClass=this._objectClass;const instances=objectClass.GetInstances();const len=instances.length;if(len===
@@ -1812,7 +1812,7 @@ data,index){return C3.New(C3.Action,eventBlock,data,index)}_PostInit(){for(const
 this._func=userMethod.bind(null,this._runtime.GetIRuntime(),localVars)}else if(this._behaviorType)if(this.IsAsync()){this.Run=this._RunBehavior_Async;this.DebugRun=this._DebugRunBehavior_Async}else{this.Run=this._RunBehavior;this.DebugRun=this._DebugRunBehavior}else if(this._objectClass.GetPlugin().IsSingleGlobal()){this._SetSingleGlobalRunMethod();this.DebugRun=this._DebugRunSingleGlobal}else if(this.IsAsync()){this.Run=this._RunObject_Async;this.DebugRun=this._DebugRunObject_Async}else if(!this._parameters.length){this.Run=
 this._RunObject_ParamsConst;this.DebugRun=this._DebugRunObject_ParamsConst}else if(this._parameters.every(p=>p.VariesPerInstance())){this.Run=this._RunObject_AllParamsVary;this.DebugRun=this._DebugRunObject_AllParamsVary}else if(this._anyParamVariesPerInstance){this.Run=this._RunObject_SomeParamsVary;this.DebugRun=this._DebugRunObject_SomeParamsVary}else if(this._parameters.every(p=>p.IsConstant())){EvalParams(this._parameters,this._results);this.Run=this._RunObject_ParamsConst;this.DebugRun=this._DebugRunObject_ParamsConst}else{this.Run=
 this._RunObject_ParamsDontVary;this.DebugRun=this._DebugRunObject_ParamsDontVary}}_SetSystemRunMethod(){const plugin=this._systemPlugin;const bindThis=this._systemPlugin;this._SetRunMethodForBoundFunc(plugin,bindThis,this._RunSystem)}_SetSingleGlobalRunMethod(){const plugin=this._objectClass.GetPlugin();const bindThis=this._objectClass.GetSingleGlobalInstance().GetSdkInstance();this._SetRunMethodForBoundFunc(plugin,bindThis,this._RunSingleGlobal)}_SetCallFunctionRunMethod(){const eventSheetManager=
-this._eventBlock.GetEventSheetManager();const functionBlock=eventSheetManager.GetFunctionBlockByName(this._callFunctionName);if(functionBlock.IsEnabled()){this._callEventBlock=functionBlock.GetEventBlock();this._combinedSolModifiers=[...new Set([...this._eventBlock.GetSolModifiersIncludingParents(),...this._callEventBlock.GetSolModifiersIncludingParents()])];this._combinedSolModifiers=eventSheetManager._DeduplicateSolModifierList(this._combinedSolModifiers);this.Run=C3.EventBlock.prototype.RunAsFunctionCall.bind(this._callEventBlock,
+this._eventBlock.GetEventSheetManager();const functionBlock=eventSheetManager.GetFunctionBlockByName(this._callFunctionName);if(functionBlock.IsEnabled()){this._callEventBlock=functionBlock.GetEventBlock();this._combinedSolModifiers=[...(new Set([...this._eventBlock.GetSolModifiersIncludingParents(),...this._callEventBlock.GetSolModifiersIncludingParents()]))];this._combinedSolModifiers=eventSheetManager._DeduplicateSolModifierList(this._combinedSolModifiers);this.Run=C3.EventBlock.prototype.RunAsFunctionCall.bind(this._callEventBlock,
 this._combinedSolModifiers,this._parameters);this.DebugRun=this._DebugRunCallFunction}else{this.Run=noop;this.DebugRun=noopGenerator}}_SetRunMethodForBoundFunc(plugin,bindThis,fallbackMethod){const func=this._func;const parameters=this._parameters;if(parameters.length===0)this.Run=plugin._GetBoundACEMethod(func,bindThis);else if(parameters.length===1){const param0=parameters[0];if(param0.IsConstant())this.Run=plugin._GetBoundACEMethod_1param(func,bindThis,param0.Get(0));else{const boundFunc=plugin._GetBoundACEMethod(func,
 bindThis);this.Run=function RunSingleAct_1param(){return boundFunc(param0.Get(0))}}}else if(parameters.length===2){const param0=parameters[0];const param1=parameters[1];if(param0.IsConstant()&&param1.IsConstant())this.Run=plugin._GetBoundACEMethod_2params(func,bindThis,param0.Get(0),param1.Get(0));else{const boundFunc=plugin._GetBoundACEMethod(func,bindThis);this.Run=function RunSingleAct_2params(){return boundFunc(param0.Get(0),param1.Get(0))}}}else if(parameters.length===3){const param0=parameters[0];
 const param1=parameters[1];const param2=parameters[2];if(param0.IsConstant()&&param1.IsConstant()&&param2.IsConstant())this.Run=plugin._GetBoundACEMethod_3params(func,bindThis,param0.Get(0),param1.Get(0),param2.Get(0));else{const boundFunc=plugin._GetBoundACEMethod(func,bindThis);this.Run=function RunSingleAct_3params(){return boundFunc(param0.Get(0),param1.Get(0),param2.Get(0))}}}else this.Run=fallbackMethod}GetSID(){return this._sid}IsAsync(){return this._actionReturnType===1}CanBailOut(){return this._actionReturnType===
@@ -2275,8 +2275,8 @@ this._gpuTimeEndFrame;this._gpuTimeEndFrame=0}GetGPUFrameTimingsBuffer(){return 
 let canvas=this._canvas;const snapArea=this._snapshotArea;const x=C3.clamp(Math.floor(snapArea.getLeft()),0,canvas.width);const y=C3.clamp(Math.floor(snapArea.getTop()),0,canvas.height);let w=snapArea.width();if(w===0)w=canvas.width-x;else w=C3.clamp(Math.floor(w),0,canvas.width-x);let h=snapArea.height();if(h===0)h=canvas.height-y;else h=C3.clamp(Math.floor(h),0,canvas.height-y);if((x!==0||y!==0||w!==canvas.width||h!==canvas.height)&&(w>0&&h>0)){canvas=C3.CreateCanvas(w,h);const ctx=canvas.getContext("2d");
 ctx.drawImage(this._canvas,x,y,w,h,0,0,w,h)}C3.CanvasToBlob(canvas,this._snapshotFormat,this._snapshotQuality).then(blob=>{this._snapshotUrl=URL.createObjectURL(blob);this._snapshotPromise=null;this._snapshotResolve(this._snapshotUrl)});this._snapshotFormat="";this._snapshotQuality=1}GetCanvasSnapshotUrl(){return this._snapshotUrl}InitLoadingScreen(loaderStyle){if(loaderStyle===2){this._percentText=C3.New(C3.Gfx.RendererText,this._webglRenderer);this._percentText.SetIsAsync(false);this._percentText.SetFontName("Arial");
 this._percentText.SetFontSize(16);this._percentText.SetHorizontalAlignment("center");this._percentText.SetVerticalAlignment("center");this._percentText.SetSize(PERCENTTEXT_WIDTH,PERCENTTEXT_HEIGHT)}else if(loaderStyle===0){const loadingLogoFilename=this._runtime.GetLoadingLogoFilename();const assetManager=this._runtime.GetAssetManager();let url;if(this._runtime.IsPreview()){if(!assetManager._HasLocalUrlBlob(loadingLogoFilename))return;url=assetManager.GetLocalUrlAsBlobUrl(loadingLogoFilename)}else url=
-assetManager.GetIconsSubfolder()+loadingLogoFilename;this._loadingLogoAsset=assetManager.LoadImage({url});this._loadingLogoAsset.LoadStaticTexture(this._webglRenderer).catch(err=>console.warn(`[C3 runtime] Failed to load '${loadingLogoFilename}' for loading screen. Check the project has an icon with that name.`,err))}else if(loaderStyle===4){this._LoadSvgSplashImage("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSIxNzAwLjc5MDA0cHgiIGhlaWdodD0iMTcwMC43OTAwNHB4IiB2aWV3Qm94PSIyODcgMzE3IDExMjUgMTEyNSINCgkgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTcwMC43OTAwNCAxNzAwLjc5MDA0IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnIGlkPSJsb2dvIj4NCgk8Zz4NCgkJPGc+DQoJCQk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0ZGRkZGRiIgZD0iTTM1NC45Nzc1NCwxMTk1LjYyMzA1DQoJCQkJYzExLjM4NDc3LDAsMjIuMDEyNywzLjIzNzMsMzEuMDE3NTgsOC44Mzc4OWMxLjk0NjI5LDEuMjEwOTQsMi41ODQ5NiwzLjc0OTAyLDEuNDM4NDgsNS43MzQzOGwtNC45MzI2Miw4LjU0MTk5DQoJCQkJYy0zLjI3ODMyLDUuNjc5NjktMTAuMDMzMiw4LjM3Njk1LTE2LjMxNzM4LDYuNTAwOThjLTIuNzY0NjUtMC44MjUyLTUuNjkzMzYtMS4yNjg1NS04LjcyNjU2LTEuMjY4NTUNCgkJCQljLTE2LjgyOTEsMC0zMC40NzI2NiwxMy42NDM1NS0zMC40NzI2NiwzMC40NzI2NmMwLDE2LjgyODEzLDEzLjY0MzU1LDMwLjQ3MjY2LDMwLjQ3MjY2LDMwLjQ3MjY2DQoJCQkJYzMuMDMzMiwwLDUuOTYxOTEtMC40NDMzNiw4LjcyNjU2LTEuMjY4NTVjNi4yOTQ5Mi0xLjg3OTg4LDEzLjAzMzIsMC44MTE1MiwxNi4zMTczOCw2LjUwMDk4bDQuOTMxNjQsOC41NDE5OQ0KCQkJCWMxLjE0NzQ2LDEuOTg4MjgsMC41MTA3NCw0LjUyMzQ0LTEuNDM4NDgsNS43MzQzOGMtOS4wMDM5MSw1LjYwMTU2LTE5LjYzMTg0LDguODM3ODktMzEuMDE2Niw4LjgzNzg5DQoJCQkJYy0zMi40ODUzNSwwLTU4LjgxOTM0LTI2LjMzNDk2LTU4LjgxOTM0LTU4LjgxOTM0QzI5Ni4xNTgyLDEyMjEuOTU3MDMsMzIyLjQ5MjE5LDExOTUuNjIzMDUsMzU0Ljk3NzU0LDExOTUuNjIzMDUNCgkJCQlMMzU0Ljk3NzU0LDExOTUuNjIzMDV6IE03MDMuMjE0ODQsMTI1OS4xNzU3OGMtMTQuNTU5NTctOS44MTczOC0yMC4yMDMxMy0yMC4wMzIyMy0yMC4yMDMxMy0zMy4wODAwOA0KCQkJCWMwLTE4LjQ4OTI2LDE1LjcxNDg0LTI5Ljc2MzY3LDM4LjI2NjYtMjkuNzYzNjdjOS42NTcyMywwLDE4LjcyMTY4LDIuNTQyOTcsMjYuNTU5NTcsNi45OTQxNA0KCQkJCWMyLjA0OTgsMS4xNjQwNiwyLjc2MTcyLDMuNzgzMiwxLjU4MzAxLDUuODI0MjJsLTMuNDE3OTcsNS45MTk5MmMtMy4yNDcwNyw1LjYyNDAyLTkuOTA4Miw4LjMzMTA1LTE2LjE1MzMyLDYuNTQ4ODMNCgkJCQljLTIuNzIzNjMtMC43NzYzNy01LjU5ODYzLTEuMTkyMzgtOC41NzEyOS0xLjE5MjM4Yy0xMC40OTAyMywwLTExLjU5ODYzLDkuNTc2MTctNC44NTc0MiwxNC4xMjMwNWwyMy42ODY1MiwxNS45NzY1Ng0KCQkJCWM5Ljk5MDIzLDYuNzM4MjgsMTUuODk1NTEsMTcuMDY2NDEsMTUuODk1NTEsMjguNzE4NzVjMCwxOC43ODYxMy0xNS4wMDY4NCwzMy4zMDc2Mi0zOC4yNjc1OCwzMy4zMDc2Mg0KCQkJCWMtOS41MjI0NiwwLTE4LjU4Nzg5LTEuOTU3MDMtMjYuODE1NDMtNS40OTAyM2MtNy43ODEyNS0zLjMzOTg0LTEwLjkzMzU5LTEyLjc4MjIzLTYuNjk3MjctMjAuMTE4MTZsMy40ODczLTYuMDQxOTkNCgkJCQljMS4yMTM4Ny0yLjA5OTYxLDMuOTMxNjQtMi43NTk3Nyw1Ljk3NDYxLTEuNDU2MDVjNi44NTkzOCw0LjM4MjgxLDE2LjQ5MDIzLDcuNTk0NzMsMjQuNzU4NzksNy41OTQ3Mw0KCQkJCWMxMC41NDU5LDAsMTEuMzI4MTMtOS45NTg5OCwzLjc2NzU4LTE1LjA1NzYyTDcwMy4yMTQ4NCwxMjU5LjE3NTc4TDcwMy4yMTQ4NCwxMjU5LjE3NTc4eiBNOTg0LjYzMDg2LDEyMDIuMDAwOTgNCgkJCQljMC0yLjM0NzY2LDEuOTAzMzItNC4yNTE5NSw0LjI1MTk1LTQuMjUxOTVoOS45MjE4OGM3LjgyNzE1LDAsMTQuMTcyODUsNi4zNDU3LDE0LjE3Mjg1LDE0LjE3MzgzdjU3LjQwMTM3DQoJCQkJYzAsOC42MTAzNSw2Ljk4MDQ3LDE1LjU5MDgyLDE1LjU5MDgyLDE1LjU5MDgyczE1LjU5MDgyLTYuOTgwNDcsMTUuNTkwODItMTUuNTkwODJ2LTU3LjQwMTM3DQoJCQkJYzAtNy44MjgxMyw2LjM0NTctMTQuMTczODMsMTQuMTcyODUtMTQuMTczODNoOS45MjA5YzIuMzQ4NjMsMCw0LjI1MTk1LDEuOTA0Myw0LjI1MTk1LDQuMjUxOTV2NjcuMzIzMjQNCgkJCQljMCwyNC4yNjU2My0xOS42NzA5LDQzLjkzNzUtNDMuOTM2NTIsNDMuOTM3NXMtNDMuOTM3NS0xOS42NzE4OC00My45Mzc1LTQzLjkzNzVWMTIwMi4wMDA5OEw5ODQuNjMwODYsMTIwMi4wMDA5OHoNCgkJCQkgTTQ2Ni44NjkxNCwxMTk1LjYyMzA1YzMyLjQ4NDM4LDAsNTguODE4MzYsMjYuMzMzOTgsNTguODE4MzYsNTguODE5MzRjMCwzMi40ODQzOC0yNi4zMzM5OCw1OC44MTkzNC01OC44MTgzNiw1OC44MTkzNA0KCQkJCWMtMzIuNDg2MzMsMC01OC44MTkzNC0yNi4zMzQ5Ni01OC44MTkzNC01OC44MTkzNEM0MDguMDQ5OCwxMjIxLjk1NzAzLDQzNC4zODI4MSwxMTk1LjYyMzA1LDQ2Ni44NjkxNCwxMTk1LjYyMzA1DQoJCQkJTDQ2Ni44NjkxNCwxMTk1LjYyMzA1eiBNNDY2Ljg2OTE0LDEyMjUuMDMzMmMtMTYuMjQzMTYsMC0yOS40MTAxNiwxMy4xNjY5OS0yOS40MTAxNiwyOS40MDkxOA0KCQkJCXMxMy4xNjY5OSwyOS40MDgyLDI5LjQxMDE2LDI5LjQwODJjMTYuMjQxMjEsMCwyOS40MDgyLTEzLjE2NjAyLDI5LjQwODItMjkuNDA4MlM0ODMuMTEwMzUsMTIyNS4wMzMyLDQ2Ni44NjkxNCwxMjI1LjAzMzINCgkJCQlMNDY2Ljg2OTE0LDEyMjUuMDMzMnogTTU1Ni43MzI0MiwxMzExLjEzNDc3Yy0yLjM0NzY2LDAtNC4yNTE5NS0xLjkwMjM0LTQuMjUxOTUtNC4yNXYtOTQuOTYxOTENCgkJCQljMC03LjgyODEzLDYuMzQ1Ny0xNC4xNzM4MywxNC4xNzM4My0xNC4xNzM4M2gzLjk1ODk4YzQuNjI1LDAsOC45NTg5OCwyLjI1Njg0LDExLjYxMTMzLDYuMDQ1OWw0MS4xMjIwNyw1OC43NDcwN3YtNTAuNjE5MTQNCgkJCQljMC03LjgyODEzLDYuMzQ1Ny0xNC4xNzM4MywxNC4xNzI4NS0xNC4xNzM4M2g5LjkyMTg4YzIuMzQ3NjYsMCw0LjI1MTk1LDEuOTA0Myw0LjI1MTk1LDQuMjUxOTV2OTQuOTYwOTQNCgkJCQljMCw3LjgyOTEtNi4zNDU3LDE0LjE3Mjg1LTE0LjE3MzgzLDE0LjE3Mjg1aC0zLjk1ODk4Yy00LjYyNSwwLTguOTU4OTgtMi4yNTU4Ni0xMS42MTEzMy02LjA0NDkybC00MS4xMjIwNy01OC43NDYwOXY1MC42MTgxNg0KCQkJCWMwLDcuODI5MS02LjM0NTcsMTQuMTcyODUtMTQuMTcyODUsMTQuMTcyODVINTU2LjczMjQyTDU1Ni43MzI0MiwxMzExLjEzNDc3eiBNMTIxNS4wMjA1MSwxMjExLjkyMjg1DQoJCQkJYzAtNy44MjgxMyw2LjM0NTctMTQuMTczODMsMTQuMTcyODUtMTQuMTczODNoNTAuMzE1NDNjMi4zNDg2MywwLDQuMjUxOTUsMS45MDQzLDQuMjUxOTUsNC4yNTE5NXY1LjY2OTkyDQoJCQkJYzAsNy44MjcxNS02LjM0NTcsMTQuMTcyODUtMTQuMTcyODUsMTQuMTcyODVoLTYuMDI0NDF2NzUuMTE4MTZjMCw3LjgyOTEtNi4zNDU3LDE0LjE3Mjg1LTE0LjE3Mjg1LDE0LjE3Mjg1aC05LjkyMTg4DQoJCQkJYy0yLjM0ODYzLDAtNC4yNTE5NS0xLjkwMjM0LTQuMjUxOTUtNC4yNXYtODUuMDQxMDJoLTE1Ljk0NDM0Yy0yLjM0ODYzLDAtNC4yNTE5NS0xLjkwMzMyLTQuMjUxOTUtNC4yNTE5NVYxMjExLjkyMjg1DQoJCQkJTDEyMTUuMDIwNTEsMTIxMS45MjI4NXogTTc3Ni40NDkyMiwxMjExLjkyMjg1YzAtNy44MjgxMyw2LjM0NTctMTQuMTczODMsMTQuMTczODMtMTQuMTczODNoNTAuMzE0NDUNCgkJCQljMi4zNDk2MSwwLDQuMjUxOTUsMS45MDQzLDQuMjUxOTUsNC4yNTE5NXY1LjY2OTkyYzAsNy44MjcxNS02LjM0NTcsMTQuMTcyODUtMTQuMTcxODgsMTQuMTcyODVoLTYuMDI1Mzl2NzUuMTE4MTYNCgkJCQljMCw3LjgyOTEtNi4zNDU3LDE0LjE3Mjg1LTE0LjE3Mjg1LDE0LjE3Mjg1aC05LjkyMDljLTIuMzQ5NjEsMC00LjI1MTk1LTEuOTAyMzQtNC4yNTE5NS00LjI1di04NS4wNDEwMmgtMTUuOTQ1MzENCgkJCQljLTIuMzQ3NjYsMC00LjI1MTk1LTEuOTAzMzItNC4yNTE5NS00LjI1MTk1VjEyMTEuOTIyODVMNzc2LjQ0OTIyLDEyMTEuOTIyODV6IE05MjkuNjA0NDksMTI3Mi4wMjI0NmwyNi45NTgwMSwzMi4xMjc5Mw0KCQkJCWMyLjMxNDQ1LDIuNzU3ODEsMC4zNDM3NSw2Ljk4NDM4LTMuMjU2ODQsNi45ODQzOGgtMTkuNzA1MDhjLTQuMTg5NDUsMC04LjE2NTA0LTEuODUxNTYtMTAuODU3NDItNS4wNjA1NWwtMjIuNjgxNjQtMjcuMDMxMjUNCgkJCQl2MjcuODQxOGMwLDIuMzQ3NjYtMS45MDMzMiw0LjI1LTQuMjUxOTUsNC4yNWgtOS45MjA5Yy03LjgyNzE1LDAtMTQuMTcyODUtNi4zNDM3NS0xNC4xNzI4NS0xNC4xNzI4NXYtODUuMDM5MDYNCgkJCQljMC03LjgyODEzLDYuMzQ1Ny0xNC4xNzM4MywxNC4xNzI4NS0xNC4xNzM4M2gyOS43NjM2N2MyMi43MDAyLDAsNDEuMTAyNTQsMTcuMTMzNzksNDEuMTAyNTQsMzguMjY4NTUNCgkJCQlDOTU2Ljc1NDg4LDEyNTIuNTkwODIsOTQ1LjQzNjUyLDEyNjYuNzAyMTUsOTI5LjYwNDQ5LDEyNzIuMDIyNDZMOTI5LjYwNDQ5LDEyNzIuMDIyNDZ6IE05MDAuMDYxNTIsMTIyMS44NDM3NXYzMi41OTg2M2g4LjUwMzkxDQoJCQkJYzEwLjk1ODk4LDAsMTkuODQyNzctNy4yOTc4NSwxOS44NDI3Ny0xNi4yOTg4M2MwLTkuMDAxOTUtOC44ODM3OS0xNi4yOTk4LTE5Ljg0Mjc3LTE2LjI5OThIOTAwLjA2MTUyTDkwMC4wNjE1MiwxMjIxLjg0Mzc1eg0KCQkJCSBNMTE1OC4zNTkzOCwxMTk1LjYyMzA1YzExLjM4NDc3LDAsMjIuMDEyNywzLjIzNzMsMzEuMDE3NTgsOC44Mzc4OWMxLjk0NzI3LDEuMjEwOTQsMi41ODQ5NiwzLjc0OTAyLDEuNDM4NDgsNS43MzQzOA0KCQkJCWwtNC45MzI2Miw4LjU0MTk5Yy0zLjI3ODMyLDUuNjc5NjktMTAuMDMzMiw4LjM3Njk1LTE2LjMxNzM4LDYuNTAwOThjLTIuNzY0NjUtMC44MjUyLTUuNjkzMzYtMS4yNjg1NS04LjcyNTU5LTEuMjY4NTUNCgkJCQljLTE2LjgyOTEsMC0zMC40NzI2NiwxMy42NDM1NS0zMC40NzI2NiwzMC40NzI2NmMwLDE2LjgyODEzLDEzLjY0MzU1LDMwLjQ3MjY2LDMwLjQ3MjY2LDMwLjQ3MjY2DQoJCQkJYzMuMDMyMjMsMCw1Ljk2MDk0LTAuNDQzMzYsOC43MjU1OS0xLjI2ODU1YzYuMjk1OS0xLjg3OTg4LDEzLjAzMzIsMC44MTE1MiwxNi4zMTgzNiw2LjUwMDk4bDQuOTMwNjYsOC41NDE5OQ0KCQkJCWMxLjE0NzQ2LDEuOTg4MjgsMC41MTA3NCw0LjUyMzQ0LTEuNDM3NSw1LjczNDM4Yy05LjAwNDg4LDUuNjAxNTYtMTkuNjMyODEsOC44Mzc4OS0zMS4wMTc1OCw4LjgzNzg5DQoJCQkJYy0zMi40ODUzNSwwLTU4LjgxOTM0LTI2LjMzNDk2LTU4LjgxOTM0LTU4LjgxOTM0QzEwOTkuNTQwMDQsMTIyMS45NTcwMywxMTI1Ljg3NDAyLDExOTUuNjIzMDUsMTE1OC4zNTkzOCwxMTk1LjYyMzA1eiIvPg0KCQkJPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiMwMEZGREEiIGQ9Ik0xMzE4LjE5NzI3LDEyMDYuMDMyMjMNCgkJCQljMC03LjgyODEzLDYuMzQ1Ny0xNC4xNzM4MywxNC4xNzI4NS0xNC4xNzM4M2MyMC42NTYyNSwwLDQxLjMxMjUsMCw2MS45Njg3NSwwYzMuNDI5NjksMCw1LjQ1MDIsMy44ODA4NiwzLjQ4MzQsNi42OTA0Mw0KCQkJCWwtMTkuMjk2ODgsMjcuNTY3MzhjMTUuNTQyOTcsOC4zNzU5OCwyNi4xMDY0NSwyNC44MDA3OCwyNi4xMDY0NSw0My42OTUzMWMwLDI3LjM5NzQ2LTIyLjIwODk4LDQ5LjYwNjQ1LTQ5LjYwNjQ1LDQ5LjYwNjQ1DQoJCQkJYy0xNi42ODg0OCwwLTMxLjQ1MTE3LTguMjQwMjMtNDAuNDQzMzYtMjAuODc1OThjLTEuNDUwMi0yLjAzOTA2LTAuODMxMDUtNC44OTk0MSwxLjMzNTk0LTYuMTUyMzRsMTAuOTc3NTQtNi4zMzc4OQ0KCQkJCWM0Ljg4MTg0LTIuODE4MzYsMTAuOTc5NDktMi40NzU1OSwxNS41MTQ2NSwwLjg3MzA1YzMuNTI4MzIsMi42MDU0Nyw3Ljg5MTYsNC4xNDY0OCwxMi42MTUyMyw0LjE0NjQ4DQoJCQkJYzExLjc0MjE5LDAsMjEuMjU5NzctOS41MTg1NSwyMS4yNTk3Ny0yMS4yNTk3N3MtOS41MTc1OC0yMS4yNTk3Ny0yMS4yNTk3Ny0yMS4yNTk3N2gtMTUuMjE3NzcNCgkJCQljLTMuNDI5NjksMC01LjQ1MDItMy44ODA4Ni0zLjQ4NDM4LTYuNjkwNDNsMTguMTM1NzQtMjUuOTA4MmgtMzIuMDA5NzdjLTIuMzQ4NjMsMC00LjI1MTk1LTEuOTAzMzItNC4yNTE5NS00LjI1MTk1VjEyMDYuMDMyMjN6DQoJCQkJIi8+DQoJCTwvZz4NCgkJPGc+DQoJCQk8Zz4NCgkJCQk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iI0RBRThGNyIgZD0iTTg1MC4zOTU1MSw4NTcuNTkxOA0KCQkJCQljLTUwLjM1NjQ1LDAtOTQuMzI1Mi0yNy4zNTY0NS0xMTcuODUyNTQtNjguMDIwNTFsLTgwLjAzMDI3LDQ2LjIwNDFjLTQuNjU1MjcsMi42ODk0NS02LjEzMTg0LDguNzE4NzUtMy4yNDkwMiwxMy4yNTU4Ng0KCQkJCQljNDIuMjM3Myw2Ni40ODYzMywxMTYuNTMzMiwxMTAuNjA3NDIsMjAxLjEzMTg0LDExMC42MDc0MmM4OC4xMjU5OCwwLDE2NS4wNzEyOS00Ny44NzUsMjA2LjI0MzE2LTExOS4wMzYxM2wtODAuNDg3My00Ni40Njk3Mw0KCQkJCQljLTQuMzEzNDgtMi40OTAyMy05LjgwMTc2LTEuMjA1MDgtMTIuNTcwMzEsMi45MzU1NUM5MzkuMTc1NzgsODMzLjU2MjUsODk3LjU5MTgsODU3LjU5MTgsODUwLjM5NTUxLDg1Ny41OTE4DQoJCQkJCUw4NTAuMzk1NTEsODU3LjU5MTh6IE0xMTM2LjcyMTY4LDU1Ni4yMTc3N2M0LjYxNDI2LTIuNjYzMDksNi4xMTAzNS04LjYxOTE0LDMuMzEyNS0xMy4xNTEzNw0KCQkJCQljLTU5LjkxNTA0LTk3LjAzMDI3LTE2Ny4yMjQ2MS0xNjEuNjk0MzQtMjg5LjYzODY3LTE2MS42OTQzNGMtMTI1Ljg5MzU1LDAtMjM1LjgxMzQ4LDY4LjM5MjU4LTI5NC42MzM3OSwxNzAuMDQ5OA0KCQkJCQlsODAuMzc2OTUsNDYuNDA2MjVjNC4zOTc0NiwyLjUzOTA2LDEwLjAwMTk1LDEuMTQ5NDEsMTIuNzEwOTQtMy4xNDU1MQ0KCQkJCQljNDIuMTY0MDYtNjYuODUxNTYsMTE2LjY2ODk1LTExMS4yNjM2NywyMDEuNTQ1OS0xMTEuMjYzNjdjODguMTI1OTgsMCwxNjUuMDcxMjksNDcuODc1OTgsMjA2LjI0MzE2LDExOS4wMzYxMw0KCQkJCQlMMTEzNi43MjE2OCw1NTYuMjE3Nzd6Ii8+DQoJCQkJPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGZpbGw9IiNBNUJBQzgiIGQ9Ik04NTAuMzk1NTEsOTU5LjYzODY3DQoJCQkJCWMtODQuNTk4NjMsMC0xNTguODk0NTMtNDQuMTIxMDktMjAxLjEzMTg0LTExMC42MDc0MmMtMi44NzY5NS00LjUzMDI3LTEuMzk5NDEtMTAuNTcwMzEsMy4yNDkwMi0xMy4yNTU4Nmw4MC4wMzAyNy00Ni4yMDQxDQoJCQkJCWMtMTEuNTgxMDUtMjAuMDE2Ni0xOC4yMDk5Ni00My4yNTQ4OC0xOC4yMDk5Ni02OC4wNDE5OWMwLTc0Ljc4NTE2LDYwLjU1NzYyLTEzNi4wNjI1LDEzNi4wNjI1LTEzNi4wNjI1DQoJCQkJCWM0Ny4xOTYyOSwwLDg4Ljc4MDI3LDI0LjAyOTMsMTEzLjE4NTU1LDYwLjUyMjQ2YzIuNzY0NjUsNC4xMzM3OSw4LjI2MzY3LDUuNDIxODgsMTIuNTcwMzEsMi45MzU1NWw4MC40ODczLTQ2LjQ2OTczDQoJCQkJCWMtNDEuMTcxODgtNzEuMTYwMTYtMTE4LjExNzE5LTExOS4wMzYxMy0yMDYuMjQzMTYtMTE5LjAzNjEzYy04NC44NzY5NSwwLTE1OS4zODE4NCw0NC40MTIxMS0yMDEuNTQ1OSwxMTEuMjYzNjcNCgkJCQkJYy0yLjcwNjA1LDQuMjkxMDItOC4zMTgzNiw1LjY4MTY0LTEyLjcxMDk0LDMuMTQ1NTFsLTgwLjM3Njk1LTQ2LjQwNjI1DQoJCQkJCWMtMjguOTUyMTUsNTAuMDQwMDQtNDUuNTIzNDQsMTA4LjEzOTY1LTQ1LjUyMzQ0LDE3MC4xMDc0MmMwLDE4Ni45NjM4NywxNTEuMzk0NTMsMzQwLjE1NzIzLDM0MC4xNTcyMywzNDAuMTU3MjMNCgkJCQkJYzEyMi40MTQwNiwwLDIyOS43MjM2My02NC42NjQwNiwyODkuNjM4NjctMTYxLjY5NTMxYzIuNzk0OTItNC41MjYzNywxLjI5NDkyLTEwLjQ5MDIzLTMuMzEyNS0xMy4xNTEzN2wtODAuMDgzMDEtNDYuMjM3Mw0KCQkJCQlDMTAxNS40NjY4LDkxMS43NjM2Nyw5MzguNTIxNDgsOTU5LjYzODY3LDg1MC4zOTU1MSw5NTkuNjM4Njd6Ii8+DQoJCQk8L2c+DQoJCQk8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbD0iIzAwRkZEQSIgZD0iTTExMzcuMTg1NTUsNzU4LjExMzI4di03My4xNjc5N2wtNjMuMzY1MjMsMzYuNTgzOTgNCgkJCQlMMTEzNy4xODU1NSw3NTguMTEzMjhMMTEzNy4xODU1NSw3NTguMTEzMjh6IE0xMDI2LjU3NjE3LDcwNS4xNjQwNmwxMjAuMDU4NTktNjkuMzE2NDENCgkJCQljMTIuNTY4MzYtNy4yNTU4NiwyOC4zNDQ3MywxLjg1MjU0LDI4LjM0NTcsMTYuMzY2MjF2MTM4LjYzMDg2Yy0wLjAwMDk4LDE0LjUxMjctMTUuNzc3MzQsMjMuNjIyMDctMjguMzQ1NywxNi4zNjYyMQ0KCQkJCWwtMTIwLjA1ODU5LTY5LjMxNjQxQzEwMTQuMDI4MzIsNzMwLjY0OTQxLDEwMTQuMDI4MzIsNzEyLjQwOTE4LDEwMjYuNTc2MTcsNzA1LjE2NDA2eiIvPg0KCQk8L2c+DQoJPC9nPg0KPC9nPg0KPC9zdmc+DQo=").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.logo=
-tex}).catch(err=>console.warn("Failed to load splash image: ",err));this._LoadBitmapSplashImage("data:image/png;base64,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").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.powered=tex}).catch(err=>console.warn("Failed to load splash image: ",err));this._LoadBitmapSplashImage("data:image/png;base64,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").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.website=
+assetManager.GetIconsSubfolder()+loadingLogoFilename;this._loadingLogoAsset=assetManager.LoadImage({url});this._loadingLogoAsset.LoadStaticTexture(this._webglRenderer).catch(err=>console.warn(`[C3 runtime] Failed to load '${loadingLogoFilename}' for loading screen. Check the project has an icon with that name.`,err))}else if(loaderStyle===4){this._LoadSvgSplashImage("splash-images/splash-logo.svg").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.logo=
+tex}).catch(err=>console.warn("Failed to load splash image: ",err));this._LoadBitmapSplashImage("splash-images/splash-poweredby-512.png").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.powered=tex}).catch(err=>console.warn("Failed to load splash image: ",err));this._LoadBitmapSplashImage("splash-images/splash-website-512.png").then(tex=>{if(this._splashState==="done")this._webglRenderer.DeleteTexture(tex);else this._splashTextures.website=
 tex}).catch(err=>console.warn("Failed to load splash image: ",err))}}async _LoadSvgSplashImage(url){url=(new URL(url,this._runtime.GetBaseURL())).toString();const blob=await C3.FetchBlob(url);const drawable=await this._runtime.RasterSvgImage(blob,2048,2048);return await this._webglRenderer.CreateStaticTextureAsync(drawable,{mipMapQuality:"high"})}async _LoadBitmapSplashImage(url){url=(new URL(url,this._runtime.GetBaseURL())).toString();const blob=await C3.FetchBlob(url);return await this._webglRenderer.CreateStaticTextureAsync(blob,
 {mipMapQuality:"high"})}HideCordovaSplashScreen(){this._runtime.PostComponentMessageToDOM("runtime","hide-cordova-splash")}StartLoadingScreen(){this._loaderStartTime=Date.now();this._runtime.Dispatcher().addEventListener("loadingprogress",this._loadingprogress_handler);this._rafId=requestAnimationFrame(()=>this._DrawLoadingScreen());const loaderStyle=this._runtime.GetLoaderStyle();if(loaderStyle!==3)this.HideCordovaSplashScreen()}async EndLoadingScreen(){this._loadingProgress=1;const loaderStyle=
 this._runtime.GetLoaderStyle();if(loaderStyle===4)await this._splashDonePromise;this._splashDoneResolve=null;this._splashDonePromise=null;if(this._rafId!==-1){cancelAnimationFrame(this._rafId);this._rafId=-1}this._runtime.Dispatcher().removeEventListener("loadingprogress",this._loadingprogress_handler);this._loadingprogress_handler=null;if(this._percentText){this._percentText.Release();this._percentText=null}if(this._loadingLogoAsset){this._loadingLogoAsset.Release();this._loadingLogoAsset=null}this._webglRenderer.Start();
@@ -2834,6 +2834,103 @@ this._selectedIndex=-1;C3.clearArray(this._selectedIndices);this.PostToDOMElemen
 SelectedTextAt(i){i=Math.floor(i);if(i<0||i>=this._selectedIndices.length)return"";i=this._selectedIndices[i];if(i<0||i>=this._items.length)return"";return this._items[i]}}};
 
 
+'use strict';{const C3=self.C3;C3.Plugins.Browser=class BrowserPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Browser.Type=class BrowserType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;const DOM_COMPONENT_ID="browser";C3.Plugins.Browser.Instance=class BrowserInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst,DOM_COMPONENT_ID);this._initLocationStr="";this._isOnline=false;this._referrer="";this._docTitle="";this._isCookieEnabled=false;this._screenWidth=0;this._screenHeight=0;this._windowOuterWidth=0;this._windowOuterHeight=0;this._isScirraArcade=false;this.AddDOMMessageHandlers([["online-state",e=>this._OnOnlineStateChanged(e)],
+["backbutton",()=>this._OnBackButton()],["sw-message",e=>this._OnSWMessage(e)],["hashchange",e=>this._OnHashChange(e)]]);const rt=this.GetRuntime().Dispatcher();this._disposables=new C3.CompositeDisposable(C3.Disposable.From(rt,"afterfirstlayoutstart",()=>this._OnAfterFirstLayoutStart()),C3.Disposable.From(rt,"window-resize",()=>this._OnWindowResize()),C3.Disposable.From(rt,"suspend",()=>this._OnSuspend()),C3.Disposable.From(rt,"resume",()=>this._OnResume()));this._runtime.AddLoadPromise(this.PostToDOMAsync("get-initial-state",
+{"exportType":this._runtime.GetExportType()}).then(data=>{this._initLocationStr=data["location"];this._isOnline=data["isOnline"];this._referrer=data["referrer"];this._docTitle=data["title"];this._isCookieEnabled=data["isCookieEnabled"];this._screenWidth=data["screenWidth"];this._screenHeight=data["screenHeight"];this._windowOuterWidth=data["windowOuterWidth"];this._windowOuterHeight=data["windowOuterHeight"];this._isScirraArcade=data["isScirraArcade"]}))}Release(){super.Release()}_OnAfterFirstLayoutStart(){this.PostToDOM("ready-for-sw-messages")}async _OnOnlineStateChanged(e){const isOnline=
+!!e["isOnline"];if(this._isOnline===isOnline)return;this._isOnline=isOnline;if(this._isOnline)await this.TriggerAsync(C3.Plugins.Browser.Cnds.OnOnline);else await this.TriggerAsync(C3.Plugins.Browser.Cnds.OnOffline)}async _OnWindowResize(){await this.TriggerAsync(C3.Plugins.Browser.Cnds.OnResize)}_OnSuspend(){this.Trigger(C3.Plugins.Browser.Cnds.OnPageHidden)}_OnResume(){this.Trigger(C3.Plugins.Browser.Cnds.OnPageVisible)}async _OnBackButton(){await this.TriggerAsync(C3.Plugins.Browser.Cnds.OnBackButton)}_OnSWMessage(e){const messageType=
+e["type"];if(messageType==="downloading-update")this.Trigger(C3.Plugins.Browser.Cnds.OnUpdateFound);else if(messageType==="update-ready"||messageType==="update-pending")this.Trigger(C3.Plugins.Browser.Cnds.OnUpdateReady);else if(messageType==="offline-ready")this.Trigger(C3.Plugins.Browser.Cnds.OnOfflineReady)}_OnHashChange(e){this._initLocationStr=e["location"];this.Trigger(C3.Plugins.Browser.Cnds.OnHashChange)}GetDebuggerProperties(){const prefix="plugins.browser.debugger";return[{title:"plugins.browser.name",
+properties:[{name:prefix+".user-agent",value:navigator.userAgent},{name:prefix+".is-online",value:this._isOnline},{name:prefix+".is-fullscreen",value:this._runtime.GetCanvasManager().IsDocumentFullscreen()}]}]}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Browser.Cnds={IsOnline(){return this._isOnline},OnOnline(){return true},OnOffline(){return true},OnResize(){return true},CookiesEnabled(){return this._isCookieEnabled},IsFullscreen(){return this._runtime.GetCanvasManager().IsDocumentFullscreen()},OnBackButton(){return true},IsPortraitLandscape(p){const lastInnerWidth=this._runtime.GetCanvasManager().GetLastWidth();const lastInnerHeight=this._runtime.GetCanvasManager().GetLastHeight();const current=lastInnerWidth<=
+lastInnerHeight?0:1;return current===p},OnUpdateFound(){return true},OnUpdateReady(){return true},OnOfflineReady(){return true},OnHashChange(){return true},PageVisible(){return!this._runtime.IsSuspended()},OnPageHidden(){return true},OnPageVisible(){return true},HasJava(){return false},IsDownloadingUpdate(){return false},OnMenuButton(){return false},OnSearchButton(){return false},IsMetered(){return false},IsCharging(){return true},SupportsFullscreen(){return true}}};
+
+
+'use strict';{const C3=self.C3;const ORIENTATIONS=["portrait","landscape","portrait-primary","portrait-secondary","landscape-primary","landscape-secondary"];C3.Plugins.Browser.Acts={Alert(message){this.PostToDOM("alert",{"message":message.toString()})},Close(){if(this._isScirraArcade)return;if(this._runtime.IsDebug())self.C3Debugger.CloseWindow();else this.PostToDOM("close")},Focus(){this.PostToDOM("set-focus",{"isFocus":true})},Blur(){this.PostToDOM("set-focus",{"isFocus":false})},GoBack(){if(this._isScirraArcade)return;
+this.PostToDOM("navigate",{"type":"back"})},GoForward(){if(this._isScirraArcade)return;this.PostToDOM("navigate",{"type":"forward"})},GoHome(){if(this._isScirraArcade)return;this.PostToDOM("navigate",{"type":"home"})},Reload(){if(this._isScirraArcade)return;if(this._runtime.IsDebug())this._runtime.PostToDebugger({"type":"reload"});else this.PostToDOM("navigate",{"type":"reload"})},GoToURL(url,target){this._PostToDOMMaybeSync("navigate",{"type":"url","url":url,"target":target,"exportType":this._runtime.GetExportType()})},
+GoToURLWindow(url,tag){this._PostToDOMMaybeSync("navigate",{"type":"new-window","url":url,"tag":tag,"exportType":this._runtime.GetExportType()})},RequestFullScreen(mode,navUi){if(mode>=2)mode+=1;if(mode===6)mode=2;if(mode===1)mode=0;const modeStr=C3.CanvasManager._FullscreenModeNumberToString(mode);this._runtime.GetCanvasManager().SetDocumentFullscreenMode(modeStr);this._PostToDOMMaybeSync("request-fullscreen",{"navUI":navUi})},CancelFullScreen(){this._PostToDOMMaybeSync("exit-fullscreen")},Vibrate(pattern){const arr=
+pattern.split(",");for(let i=0,len=arr.length;i<len;++i)arr[i]=parseInt(arr[i],10);this._PostToDOMMaybeSync("vibrate",{"pattern":arr})},async InvokeDownload(url,filename){if(!filename)return;const urlToDownload=await this._runtime.GetAssetManager().GetProjectFileUrl(url);this._runtime.InvokeDownload(urlToDownload,filename)},InvokeDownloadString(str,mimeType,filename){if(!filename)return;const dataUri=`data:${mimeType},${encodeURIComponent(str)}`;this._runtime.InvokeDownload(dataUri,filename)},ConsoleLog(type,
+msg){msg=msg.toString();if(type===0)console.log(msg);else if(type===1)console.warn(msg);else if(type===2)console.error(msg)},ConsoleGroup(name){console.group(name)},ConsoleGroupEnd(){console.groupEnd()},ExecJs(jsStr){try{eval(jsStr)}catch(err){console.error("Error executing JavaScript: ",err)}},LockOrientation(o){o=Math.floor(o);if(o<0||o>=ORIENTATIONS.length)return;const orientation=ORIENTATIONS[o];this._PostToDOMMaybeSync("lock-orientation",{"orientation":orientation})},UnlockOrientation(){this._PostToDOMMaybeSync("unlock-orientation")},
+LoadStyleSheet(url){this._runtime.GetAssetManager().LoadStyleSheet(url)},SetHash(h){this.PostToDOM("set-hash",{"hash":h})}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Browser.Exps={URL(){if(this._runtime.IsInWorker())return this._initLocationStr;else return location.toString()},Protocol(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).protocol;else return location.protocol},Domain(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).hostname;else return location.hostname},Port(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).port;else return location.port},PathName(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).pathname;
+else return location.pathname},Hash(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).hash;else return location.hash},QueryString(){if(this._runtime.IsInWorker())return(new URL(this._initLocationStr)).search;else return location.search},QueryParam(param){const search=this._runtime.IsInWorker()?(new URL(this._initLocationStr)).search:location.search;const match=RegExp("[?&]"+param+"=([^&]*)").exec(search);if(match)return decodeURIComponent(match[1].replace(/\+/g," "));else return""},
+Referrer(){return this._referrer},Title(){return this._docTitle},Language(){return navigator.language},Platform(){return navigator.platform},UserAgent(){return navigator.userAgent},ExecJS(jsStr){let result=0;try{result=eval(jsStr)}catch(err){console.error("Error executing JavaScript: ",err)}if(typeof result==="number"||typeof result==="string")return result;if(typeof result==="boolean")return result?1:0;else return 0},Name(){return navigator.appName},Version(){return navigator.appVersion},Product(){return navigator.product},
+Vendor(){return navigator.vendor},BatteryLevel(){return 1},BatteryTimeLeft(){return Infinity},Bandwidth(){const connection=navigator["connection"];if(connection)return connection["downlink"]||connection["downlinkMax"]||connection["bandwidth"]||Infinity;else return Infinity},ConnectionType(){const connection=navigator["connection"];if(connection)return connection["type"]||"unknown";else return"unknown"},DevicePixelRatio(){return self.devicePixelRatio},ScreenWidth(){return this._screenWidth},ScreenHeight(){return this._screenHeight},
+WindowInnerWidth(){return this._runtime.GetCanvasManager().GetLastWidth()},WindowInnerHeight(){return this._runtime.GetCanvasManager().GetLastHeight()},WindowOuterWidth(){return this._windowOuterWidth},WindowOuterHeight(){return this._windowOuterWidth}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX=class AJAXPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX.Type=class AJAXType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX.Instance=class AJAXInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst);this._lastData="";this._curTag="";this._progress=0;this._timeout=-1;this._nextRequestHeaders=new Map;this._nextReponseBinaryData=null;this._nextRequestOverrideMimeType="";this._nwjsFs=null;this._nwjsPath=null;this._nwjsAppFolder=null;this._isNWjs=this._runtime.GetExportType()==="nwjs";if(this._isNWjs){this._nwjsFs=require("fs");this._nwjsPath=require("path");
+const process=self["process"]||nw["process"];this._nwjsAppFolder=this._nwjsPath["dirname"](process["execPath"])+"\\"}}Release(){super.Release()}async _TriggerError(tag,url,err){console.error(`[Construct 3] AJAX request to '${url}' (tag '${tag}') failed: `,err);this._curTag=tag;await this.TriggerAsync(C3.Plugins.AJAX.Cnds.OnAnyError);await this.TriggerAsync(C3.Plugins.AJAX.Cnds.OnError)}async _TriggerComplete(tag){this._curTag=tag;await this.TriggerAsync(C3.Plugins.AJAX.Cnds.OnAnyComplete);await this.TriggerAsync(C3.Plugins.AJAX.Cnds.OnComplete)}async _OnProgress(tag,
+e){if(!e["lengthComputable"])return;this._progress=e["loaded"]/e["total"];this._curTag=tag;await this.TriggerAsync(C3.Plugins.AJAX.Cnds.OnProgress)}_OnError(tag,url,err){if(!this._isNWjs){this._TriggerError(tag,url,err);return}const fs=this._nwjsFs;const filePath=this._nwjsAppFolder+url;if(fs["existsSync"](filePath))fs["readFile"](filePath,{"encoding":"utf8"},(err2,data)=>{if(err2)this._TriggerError(tag,url,err2);else{this._lastData=data.replace(/\r\n/g,"\n");this._TriggerComplete(tag)}});else this._TriggerError(tag,
+url,err)}async _DoCordovaRequest(tag,file){const assetManager=this._runtime.GetAssetManager();const binaryData=this._nextReponseBinaryData;this._nextReponseBinaryData=null;try{if(binaryData){const buffer=await assetManager.CordovaFetchLocalFileAsArrayBuffer(file);binaryData.SetArrayBufferTransfer(buffer);this._lastData="";this._TriggerComplete(tag)}else{const data=await assetManager.CordovaFetchLocalFileAsText(file);this._lastData=data.replace(/\r\n/g,"\n");this._TriggerComplete(tag)}}catch(err){this._TriggerError(tag,
+file,err)}}_DoRequest(tag,url,method,data){return new Promise(resolve=>{const errorFunc=err=>{this._OnError(tag,url,err);resolve()};const binaryData=this._nextReponseBinaryData;this._nextReponseBinaryData=null;try{const request=new XMLHttpRequest;request.onreadystatechange=()=>{if(request.readyState===4){if(binaryData)this._lastData="";else this._lastData=(request.responseText||"").replace(/\r\n/g,"\n");if(request.status>=400)this._TriggerError(tag,url,request.status+request.statusText);else{const hasData=
+this._lastData.length||binaryData&&request.response instanceof ArrayBuffer;if((!this._isNWjs||hasData)&&!(!this._isNWjs&&request.status===0&&!hasData)){if(binaryData)binaryData.SetArrayBufferTransfer(request.response);this._TriggerComplete(tag)}}resolve()}};request.onerror=errorFunc;request.ontimeout=errorFunc;request.onabort=errorFunc;request["onprogress"]=e=>this._OnProgress(tag,e);request.open(method,url);if(this._timeout>=0&&typeof request["timeout"]!=="undefined")request["timeout"]=this._timeout;
+request.responseType=binaryData?"arraybuffer":"text";if(data&&!this._nextRequestHeaders.has("Content-Type"))if(typeof data!=="string")request["setRequestHeader"]("Content-Type","application/octet-stream");else request["setRequestHeader"]("Content-Type","application/x-www-form-urlencoded");for(const [header,value]of this._nextRequestHeaders)try{request["setRequestHeader"](header,value)}catch(err){console.error(`[Construct 3] AJAX: Failed to set header '${header}: ${value}': `,err)}this._nextRequestHeaders.clear();
+if(this._nextRequestOverrideMimeType){try{request["overrideMimeType"](this._nextRequestOverrideMimeType)}catch(err){console.error(`[Construct 3] AJAX: failed to override MIME type: `,err)}this._nextRequestOverrideMimeType=""}if(data)request.send(data);else request.send()}catch(err){errorFunc(err)}})}GetDebuggerProperties(){const prefix="plugins.ajax.debugger";return[{title:prefix+".title",properties:[{name:prefix+".last-data",value:this._lastData}]}]}SaveToJson(){return{"lastData":this._lastData}}LoadFromJson(o){this._lastData=
+o["lastData"];this._curTag="";this._progress=0}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX.Cnds={OnComplete(tag){return C3.equalsNoCase(this._curTag,tag)},OnAnyComplete(){return true},OnError(tag){return C3.equalsNoCase(this._curTag,tag)},OnAnyError(){return true},OnProgress(tag){return C3.equalsNoCase(this._curTag,tag)}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX.Acts={async Request(tag,url){if(this._runtime.IsCordova()&&C3.IsRelativeURL(url)&&location.protocol==="file:")await this._DoCordovaRequest(tag,url);else if(this._runtime.IsPreview()&&C3.IsRelativeURL(url)){const localurl=this._runtime.GetAssetManager().GetLocalUrlAsBlobUrl(url.toLowerCase());await this._DoRequest(tag,localurl,"GET",null)}else await this._DoRequest(tag,url,"GET",null)},async RequestFile(tag,file){if(this._runtime.IsCordova()&&location.protocol===
+"file:")await this._DoCordovaRequest(tag,file);else await this._DoRequest(tag,this._runtime.GetAssetManager().GetLocalUrlAsBlobUrl(file),"GET",null)},async Post(tag,url,data,method){await this._DoRequest(tag,url,method,data)},async PostBinary(tag,url,objectClass,method){if(!objectClass)return;const target=objectClass.GetFirstPicked(this._inst);if(!target)return;const sdkInst=target.GetSdkInstance();const buffer=sdkInst.GetArrayBufferReadOnly();await this._DoRequest(tag,url,method,buffer)},SetTimeout(t){this._timeout=
+t*1E3},SetHeader(n,v){this._nextRequestHeaders.set(n,v)},SetResponseBinary(objectClass){if(!objectClass)return;const inst=objectClass.GetFirstPicked(this._inst);if(!inst)return;this._nextReponseBinaryData=inst.GetSdkInstance()},OverrideMIMEType(m){this._nextRequestOverrideMimeType=m}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.AJAX.Exps={LastData(){return this._lastData},Progress(){return this._progress},Tag(){return this._curTag}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Json=class JSONPlugin extends C3.SDKPluginBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Json.Type=class JSONType extends C3.SDKTypeBase{constructor(objectClass){super(objectClass)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;const IInstance=self.IInstance;C3.Plugins.Json.Instance=class JSONInstance extends C3.SDKInstanceBase{constructor(inst,properties){super(inst);this._valueCache=[null,null];this._locationCache=[null,null];this._data={};this._path=[];this._currentKey="";this._currentValue=0}Release(){super.Release()}_InvalidateValueCache(){this._valueCache[0]=null;this._valueCache[1]=null}_HasValueCache(arr,isMutate){const cacheArr=this._valueCache[0];if(arr===null||cacheArr===null)return false;
+if(cacheArr===arr||C3.arraysEqual(cacheArr,arr))return true;if(isMutate&&cacheArr.length>0){for(let i=0,len=Math.min(arr.length,cacheArr.length);i<len;++i)if(arr[i]!==cacheArr[i])return false;return true}else return false}_GetValueCache(){return this._valueCache[1]}_UpdateValueCache(arr,value){this._valueCache[0]=arr;this._valueCache[1]=value}_InvalidateLocationCache(){this._locationCache[0]=null;this._locationCache[1]=null}_HasLocationCache(str){return this._locationCache[0]===str}_GetLocationCache(){return this._locationCache[1]}_UpdateLocationCache(str,
+value){this._locationCache[0]=str;this._locationCache[1]=value}_SetData(obj){this._data=obj;this._InvalidateValueCache()}_GetData(){return this._data}_SetPath(str){this._path=this._ParsePathUnsafe(str);this._InvalidateLocationCache()}_ParsePath(str){return C3.cloneArray(this._ParsePathUnsafe(str))}_ParsePathUnsafe(str){const buffer=[];let escaped=false;let parts;if(this._HasLocationCache(str))return this._GetLocationCache();if(str[0]==="."){parts=C3.cloneArray(this._path);str=str.slice(1)}else parts=
+[];for(const c of str)if(escaped){buffer.push(c);escaped=false}else if(c==="\\")escaped=true;else if(c==="."){parts.push(buffer.join(""));C3.clearArray(buffer)}else buffer.push(c);if(buffer.length!==0)parts.push(buffer.join(""));this._UpdateLocationCache(str,parts);return parts}_GetValueAtFullPath(path,lazyCreate){if(this._HasValueCache(path,false))return this._GetValueCache();let result=this._data;for(const part of path)if(Array.isArray(result)){const index=parseInt(part,10);if(index<0||index>=result.length||
+!isFinite(index)){result=null;break}result=result[index]}else if(typeof result==="object"&&result!==null)if(result.hasOwnProperty(part))result=result[part];else if(lazyCreate){const o={};result[part]=o;result=o}else{result=null;break}else{result=null;break}this._UpdateValueCache(path,result);return result}_GetValue(str){const path=this._ParsePath(str);if(!path.length)return this._data;const key=path.pop();const obj=this._GetValueAtFullPath(path,false);if(Array.isArray(obj)){const index=parseInt(key,
+10);return index>=0&&index<obj.length?obj[index]:null}else if(typeof obj==="object"&&obj!==null)return obj.hasOwnProperty(key)?obj[key]:null;else return null}_JSONTypeOf(val){if(val===null)return"null";else if(Array.isArray(val))return"array";else return typeof val}_GetTypeOf(str){const val=this._GetValue(str);return this._JSONTypeOf(val)}_ToSafeValue(value){const type=typeof value;if(type==="number"||type==="string")return value;else if(type==="boolean")return value?1:0;else return 0}_GetSafeValue(str){return this._ToSafeValue(this._GetValue(str))}_HasKey(str){const path=
+this._ParsePath(str);if(!path.length)return false;const key=path.pop();const obj=this._GetValueAtFullPath(path,false);if(Array.isArray(obj)){const index=parseInt(key,10);return index>=0&&index<obj.length}else if(typeof obj==="object"&&obj!==null)return obj.hasOwnProperty(key);else return false}_SetValue(str,value){const path=this._ParsePath(str);if(!path.length)return false;if(this._HasValueCache(path,true))this._InvalidateValueCache();const key=path.pop();const obj=this._GetValueAtFullPath(path,
+true);if(Array.isArray(obj)){const index=parseInt(key,10);if(!isFinite(index)||index<0||index>=obj.length)return false;obj[index]=value;return true}else if(typeof obj==="object"&&obj!==null){obj[key]=value;return true}return false}_DeleteKey(str){const path=this._ParsePath(str);if(!path.length)return false;if(this._HasValueCache(path,true))this._InvalidateValueCache();const key=path.pop();const obj=this._GetValueAtFullPath(path,false);if(Array.isArray(obj))return false;else if(typeof obj==="object"&&
+obj!==null){delete obj[key];return true}else return false}SaveToJson(){return{"path":this._path,"data":this._data}}LoadFromJson(o){this._InvalidateValueCache();this._InvalidateLocationCache();this._path=o["path"];this._data=o["data"]}_SanitizeValue(val){const type=typeof val;if(type==="number"){if(!isFinite(val))return 0;return val}if(typeof val=="object")return JSON.stringify(val);return val+""}GetDebuggerProperties(){const prefix="plugins.json.debugger";let topLevelData;try{topLevelData=this._SanitizeValue(this._data)}catch(e){topLevelData=
+'"invalid"'}return[{title:prefix+".title",properties:[{name:prefix+".data",value:topLevelData,onedit:v=>{try{const n=JSON.parse(v);this._SetData(n)}catch(e){}}},{name:prefix+".path",value:this._path.map(seg=>seg.replace(/\./g,"\\.")).join(".")}]}]}GetScriptInterfaceClass(){return self.IJSONInstance}};const map=new WeakMap;self.IJSONInstance=class IJSONInstance extends IInstance{constructor(){super();map.set(this,IInstance._GetInitInst().GetSdkInstance())}getJsonDataCopy(){const data=map.get(this)._GetData();
+return JSON.parse(JSON.stringify(data))}setJsonDataCopy(o){try{const o2=JSON.parse(JSON.stringify(o));map.get(this)._SetData(o2)}catch(err){console.error("[JSON plugin] setJsonData: object is not valid JSON: ",err);throw err;}}setJsonString(str){try{const o=JSON.parse(str);map.get(this)._SetData(o)}catch(err){console.error("[JSON plugin] setJsonString: string is not valid JSON: ",err);throw err;}}toCompactString(){return JSON.stringify(map.get(this)._GetData())}toBeautifiedString(){return JSON.stringify(map.get(this)._GetData(),
+null,4)}}};
+
+
+'use strict';{const C3=self.C3;const JSON_TYPES=["null","boolean","number","string","object","array"];C3.Plugins.Json.Cnds={HasKey(str){return this._HasKey(str)},CompareType(str,typeIndex){return this._GetTypeOf(str)===JSON_TYPES[typeIndex]},CompareValue(str,cmp,value){return C3.compare(this._GetSafeValue(str),cmp,value)},IsBooleanSet(str){return this._GetValue(str)===true},ForEach(str){const value=this._GetValue(str);if(typeof value!=="object"||value===null)return false;const runtime=this._runtime;
+const eventSheetManager=runtime.GetEventSheetManager();const currentEvent=runtime.GetCurrentEvent();const solModifiers=currentEvent.GetSolModifiers();const eventStack=runtime.GetEventStack();const oldFrame=eventStack.GetCurrentStackFrame();const newFrame=eventStack.Push(currentEvent);const oldPath=this._path;const oldKey=this._currentKey;const oldValue=this._currentValue;const subPath=this._ParsePathUnsafe(str);runtime.SetDebuggingEnabled(false);for(const [k,v]of Object.entries(value)){this._path=
+C3.cloneArray(subPath);this._path.push(k);this._currentKey=k;this._currentValue=v;eventSheetManager.PushCopySol(solModifiers);currentEvent.Retrigger(oldFrame,newFrame);eventSheetManager.PopSol(solModifiers)}runtime.SetDebuggingEnabled(true);this._path=oldPath;this._currentKey=oldKey;this._currentValue=oldValue;eventStack.Pop();return false},OnParseError(){return true}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Json.Acts={Parse(str){try{this._SetData(JSON.parse(str))}catch(err){console.warn("[JSON plugin] Failed to parse JSON data: ",err);this._SetData({});this.Trigger(C3.Plugins.Json.Cnds.OnParseError)}},SetPath(str){this._SetPath(str)},SetValue(str,value){this._SetValue(str,value)},SetArray(str,size){let value=this._GetValue(str);if(Array.isArray(value))C3.resizeArray(value,size,0);else{value=[];C3.extendArray(value,size,0);this._SetValue(str,value)}},SetObject(str){this._SetValue(str,
+{})},SetJSON(location,value){let obj=null;try{obj=JSON.parse(value)}catch(err){console.warn("[JSON plugin] Failed to parse JSON data: ",err);this.Trigger(C3.Plugins.Json.Cnds.OnParseError)}this._SetValue(location,obj)},SetNull(str){this._SetValue(str,null)},SetBoolean(str,value){this._SetValue(str,value!==0)},ToggleBoolean(str){const value=this._GetValue(str);if(typeof value==="boolean")this._SetValue(str,!value)},AddTo(str,inc){const value=this._GetValue(str);if(typeof value==="number")this._SetValue(str,
+value+inc)},SubtractFrom(str,dec){const value=this._GetValue(str);if(typeof value==="number")this._SetValue(str,value-dec)},DeleteKey(str){this._DeleteKey(str)},PushValue(side,str,value){const parent=this._GetValue(str);if(Array.isArray(parent))side===0?parent.push(value):parent.unshift(value)},PopValue(side,str){const parent=this._GetValue(str);if(Array.isArray(parent))side===0?parent.pop():parent.shift()},InsertValue(value,str,index){const parent=this._GetValue(str);if(Array.isArray(parent))parent.splice(index,
+0,value)},RemoveValues(count,str,index){const parent=this._GetValue(str);if(Array.isArray(parent))parent.splice(index,count)}}};
+
+
+'use strict';{const C3=self.C3;C3.Plugins.Json.Exps={ToCompactString(){try{return JSON.stringify(this._data)}catch(err){return""}},ToBeautifiedString(){try{return JSON.stringify(this._data,null,4)}catch(err){return""}},Get(str){return this._GetSafeValue(str)},GetAsCompactString(str){const value=this._GetValue(str);return JSON.stringify(value)},GetAsBeautifiedString(str){const value=this._GetValue(str);return JSON.stringify(value,null,4)},Front(str){const parent=this._GetValue(str);if(Array.isArray(parent)){const value=
+parent[0];return this._ToSafeValue(value)}else return-1},Back(str){const parent=this._GetValue(str);if(Array.isArray(parent)){const value=parent[parent.length-1];return this._ToSafeValue(value)}else return-1},Type(str){return this._GetTypeOf(str)},ArraySize(str){const value=this._GetValue(str);if(Array.isArray(value))return value.length;else return-1},Path(){return this._path.map(seg=>seg.replace(/\./g,"\\.")).join(".")},CurrentKey(){return this._currentKey},CurrentValue(){return this._ToSafeValue(this._currentValue)},
+CurrentType(){return this._JSONTypeOf(this._currentValue)}}};
+
+
 'use strict';{const C3=self.C3;C3.Behaviors.Tween=class TweenBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -2909,39 +3006,6 @@ true,result:this.OTHER})}if(C3.IsFiniteNumber(property))property=C3.Behaviors.Tw
 'use strict';{const C3=self.C3;const NAMESPACE=C3.Behaviors.Tween;NAMESPACE.ValueGetters=class ValueGetters{constructor(){}static _GetPropertyAngleValue(value){const r=C3.toRadians(parseFloat(value));return C3.clampAngle(r)}static _GetColorPropertyValue(value){return value.slice(0)}static _GetPropertyValue(value){return value}}};
 
 
-'use strict';{const C3=self.C3;C3.Behaviors.Pin=class PinBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
-
-
-'use strict';{const C3=self.C3;C3.Behaviors.Pin.Type=class PinType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}};
-
-
-'use strict';{const C3=self.C3;C3.Behaviors.Pin.Instance=class PinInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._pinInst=null;this._pinUid=-1;this._mode="";this._propSet=new Set;this._pinDist=0;this._pinAngle=0;this._pinImagePoint=0;this._dx=0;this._dy=0;this._dWidth=0;this._dHeight=0;this._dAngle=0;this._dz=0;this._lastKnownAngle=0;this._destroy=false;if(properties)this._destroy=properties[0];const rt=this._runtime.Dispatcher();this._disposables=
-new C3.CompositeDisposable(C3.Disposable.From(rt,"instancedestroy",e=>this._OnInstanceDestroyed(e.instance)),C3.Disposable.From(rt,"afterload",e=>this._OnAfterLoad()))}Release(){this._pinInst=null;super.Release()}_SetPinInst(inst){if(inst){this._pinInst=inst;this._StartTicking2()}else{this._pinInst=null;this._StopTicking2()}}_Pin(objectClass,mode,propList){if(!objectClass)return;const otherInst=objectClass.GetFirstPicked(this._inst);if(!otherInst)return;this._mode=mode;this._SetPinInst(otherInst);
-const myWi=this._inst.GetWorldInfo();const otherWi=otherInst.GetWorldInfo();if(this._mode==="properties"){const propSet=this._propSet;propSet.clear();for(const p of propList)propSet.add(p);this._dx=myWi.GetX()-otherWi.GetX();this._dy=myWi.GetY()-otherWi.GetY();this._dAngle=myWi.GetAngle()-otherWi.GetAngle();this._lastKnownAngle=myWi.GetAngle();this._dz=myWi.GetZElevation()-otherWi.GetZElevation();if(propSet.has("x")&&propSet.has("y")){this._pinAngle=C3.angleTo(otherWi.GetX(),otherWi.GetY(),myWi.GetX(),
-myWi.GetY())-otherWi.GetAngle();this._pinDist=C3.distanceTo(otherWi.GetX(),otherWi.GetY(),myWi.GetX(),myWi.GetY())}if(propSet.has("width-abs"))this._dWidth=myWi.GetWidth()-otherWi.GetWidth();else if(propSet.has("width-scale"))this._dWidth=myWi.GetWidth()/otherWi.GetWidth();if(propSet.has("height-abs"))this._dHeight=myWi.GetHeight()-otherWi.GetHeight();else if(propSet.has("height-scale"))this._dHeight=myWi.GetHeight()/otherWi.GetHeight()}else this._pinDist=C3.distanceTo(otherWi.GetX(),otherWi.GetY(),
-myWi.GetX(),myWi.GetY())}SaveToJson(){const propSet=this._propSet;const mode=this._mode;const ret={"uid":this._pinInst?this._pinInst.GetUID():-1,"m":mode};if(mode==="rope"||mode==="bar")ret["pd"]=this._pinDist;else if(mode==="properties"){ret["ps"]=[...this._propSet];if(propSet.has("imagepoint"))ret["ip"]=this._pinImagePoint;else if(propSet.has("x")&&propSet.has("y")){ret["pa"]=this._pinAngle;ret["pd"]=this._pinDist}else{if(propSet.has("x"))ret["dx"]=this._dx;if(propSet.has("y"))ret["dy"]=this._dy}if(propSet.has("angle")){ret["da"]=
-this._dAngle;ret["lka"]=this._lastKnownAngle}if(propSet.has("width-abs")||propSet.has("width-scale"))ret["dw"]=this._dWidth;if(propSet.has("height-abs")||propSet.has("height-scale"))ret["dh"]=this._dHeight;if(propSet.has("z"))ret["dz"]=this._dz}return ret}LoadFromJson(o){const mode=o["m"];const propSet=this._propSet;propSet.clear();this._pinUid=o["uid"];if(typeof mode==="number"){this._LoadFromJson_Legacy(o);return}this._mode=mode;if(mode==="rope"||mode==="bar")this._pinDist=o["pd"];else if(mode===
-"properties"){for(const p of o["ps"])propSet.add(p);if(propSet.has("imagepoint"))this._pinImagePoint=o["ip"];else if(propSet.has("x")&&propSet.has("y")){this._pinAngle=o["pa"];this._pinDist=o["pd"]}else{if(propSet.has("x"))this._dx=o["dx"];if(propSet.has("y"))this._dy=o["dy"]}if(propSet.has("angle")){this._dAngle=o["da"];this._lastKnownAngle=o["lka"]||0}if(propSet.has("width-abs")||propSet.has("width-scale"))this._dWidth=o["dw"];if(propSet.has("height-abs")||propSet.has("height-scale"))this._dHeight=
-o["dh"];if(propSet.has("z"))this._dz=o["dz"]}}_LoadFromJson_Legacy(o){const propSet=this._propSet;const myStartAngle=o["msa"];const theirStartAngle=o["tsa"];const pinAngle=o["pa"];const pinDist=o["pd"];const mode=o["m"];switch(mode){case 0:this._mode="properties";propSet.add("x").add("y").add("angle");this._pinAngle=pinAngle;this._pinDist=pinDist;this._dAngle=myStartAngle-theirStartAngle;this._lastKnownAngle=o["lka"];break;case 1:this._mode="properties";propSet.add("x").add("y");this._pinAngle=pinAngle;
-this._pinDist=pinDist;break;case 2:this._mode="properties";propSet.add("angle");this._dAngle=myStartAngle-theirStartAngle;this._lastKnownAngle=o["lka"];break;case 3:this._mode="rope";this._pinDist=o["pd"];break;case 4:this._mode="bar";this._pinDist=o["pd"];break}}_OnAfterLoad(){if(this._pinUid===-1)this._SetPinInst(null);else{this._SetPinInst(this._runtime.GetInstanceByUID(this._pinUid));this._pinUid=-1}}_OnInstanceDestroyed(inst){if(this._pinInst===inst){this._SetPinInst(null);if(this._destroy)this._runtime.DestroyInstance(this._inst)}}Tick2(){const pinInst=
-this._pinInst;if(!pinInst)return;const pinWi=pinInst.GetWorldInfo();const myInst=this._inst;const myWi=myInst.GetWorldInfo();const mode=this._mode;let bboxChanged=false;if(mode==="rope"||mode==="bar"){const dist=C3.distanceTo(myWi.GetX(),myWi.GetY(),pinWi.GetX(),pinWi.GetY());if(dist>this._pinDist||mode==="bar"&&dist<this._pinDist){const a=C3.angleTo(pinWi.GetX(),pinWi.GetY(),myWi.GetX(),myWi.GetY());myWi.SetXY(pinWi.GetX()+Math.cos(a)*this._pinDist,pinWi.GetY()+Math.sin(a)*this._pinDist);bboxChanged=
-true}}else{const propSet=this._propSet;let v=0;if(propSet.has("imagepoint")){const [newX,newY]=pinInst.GetImagePoint(this._pinImagePoint);if(!myWi.EqualsXY(newX,newY)){myWi.SetXY(newX,newY);bboxChanged=true}}else if(propSet.has("x")&&propSet.has("y")){const newX=pinWi.GetX()+Math.cos(pinWi.GetAngle()+this._pinAngle)*this._pinDist;const newY=pinWi.GetY()+Math.sin(pinWi.GetAngle()+this._pinAngle)*this._pinDist;if(!myWi.EqualsXY(newX,newY)){myWi.SetXY(newX,newY);bboxChanged=true}}else{v=pinWi.GetX()+
-this._dx;if(propSet.has("x")&&v!==myWi.GetX()){myWi.SetX(v);bboxChanged=true}v=pinWi.GetY()+this._dy;if(propSet.has("y")&&v!==myWi.GetY()){myWi.SetY(v);bboxChanged=true}}if(propSet.has("angle")){if(this._lastKnownAngle!==myWi.GetAngle())this._dAngle=C3.clampAngle(this._dAngle+(myWi.GetAngle()-this._lastKnownAngle));v=C3.clampAngle(pinWi.GetAngle()+this._dAngle);if(v!==myWi.GetAngle()){myWi.SetAngle(v);bboxChanged=true}this._lastKnownAngle=myWi.GetAngle()}if(propSet.has("width-abs")){v=pinWi.GetWidth()+
-this._dWidth;if(v!==myWi.GetWidth()){myWi.SetWidth(v);bboxChanged=true}}if(propSet.has("width-scale")){v=pinWi.GetWidth()*this._dWidth;if(v!==myWi.GetWidth()){myWi.SetWidth(v);bboxChanged=true}}if(propSet.has("height-abs")){v=pinWi.GetHeight()+this._dHeight;if(v!==myWi.GetHeight()){myWi.SetHeight(v);bboxChanged=true}}if(propSet.has("height-scale")){v=pinWi.GetHeight()*this._dHeight;if(v!==myWi.GetHeight()){myWi.SetHeight(v);bboxChanged=true}}if(propSet.has("z")){v=pinWi.GetZElevation()+this._dz;if(v!==
-myWi.GetZElevation()){myWi.SetZElevation(v);this._runtime.UpdateRender()}}}if(bboxChanged)myWi.SetBboxChanged()}GetDebuggerProperties(){const prefix="behaviors.pin.debugger";return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:prefix+".is-pinned",value:!!this._pinInst},{name:prefix+".pinned-uid",value:this._pinInst?this._pinInst.GetUID():0}]}]}}};
-
-
-'use strict';{const C3=self.C3;C3.Behaviors.Pin.Cnds={IsPinned(){return!!this._pinInst},WillDestroy(){return this._destroy}}};
-
-
-'use strict';{const C3=self.C3;C3.Behaviors.Pin.Acts={PinByDistance(objectClass,mode){this._Pin(objectClass,mode===0?"rope":"bar")},PinByProperties(objectClass,ex,ey,ea,ew,eh,ez){const propList=[];if(ex)propList.push("x");if(ey)propList.push("y");if(ea)propList.push("angle");if(ez)propList.push("z");if(ew===1)propList.push("width-abs");else if(ew===2)propList.push("width-scale");if(eh===1)propList.push("height-abs");else if(eh===2)propList.push("height-scale");if(propList.length===0)return;this._Pin(objectClass,
-"properties",propList)},PinByImagePoint(objectClass,imgPt,ea,ew,eh,ez){const propList=["imagepoint"];if(ea)propList.push("angle");if(ez)propList.push("z");if(ew===1)propList.push("width-abs");else if(ew===2)propList.push("width-scale");if(eh===1)propList.push("height-abs");else if(eh===2)propList.push("height-scale");this._pinImagePoint=imgPt;this._Pin(objectClass,"properties",propList)},SetPinDistance(d){if(this._mode==="rope"||this._mode==="bar")this._pinDist=Math.max(d,0)},SetDestroy(d){this._destroy=
-d},Unpin(){this._SetPinInst(null);this._mode="";this._propSet.clear();this._pinImagePoint=""},Pin(objectClass,mode){switch(mode){case 0:this._Pin(objectClass,"properties",["x","y","angle"]);break;case 1:this._Pin(objectClass,"properties",["x","y"]);break;case 2:this._Pin(objectClass,"properties",["angle"]);break;case 3:this._Pin(objectClass,"rope");break;case 4:this._Pin(objectClass,"bar");break}}}};
-
-
-'use strict';{const C3=self.C3;C3.Behaviors.Pin.Exps={PinnedUID(){return this._pinInst?this._pinInst.GetUID():-1}}};
-
-
 'use strict';{const C3=self.C3;C3.Behaviors.Flash=class FlashBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
 
 
@@ -2983,6 +3047,37 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 'use strict';{const C3=self.C3;C3.Behaviors.scrollto.Exps={}};
 
 
+'use strict';{const C3=self.C3;C3.Behaviors.Sin=class SinBehavior extends C3.SDKBehaviorBase{constructor(opts){super(opts)}Release(){super.Release()}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.Sin.Type=class SinType extends C3.SDKBehaviorTypeBase{constructor(behaviorType){super(behaviorType)}Release(){super.Release()}OnCreate(){}}};
+
+
+'use strict';{const C3=self.C3;const MOVEMENT=0;const WAVE=1;const PERIOD=2;const PERIOD_RANDOM=3;const PERIOD_OFFSET=4;const PERIOD_OFFSET_RANDOM=5;const MAGNITUDE=6;const MAGNITUDE_RANDOM=7;const ENABLE=8;const HORIZONTAL=0;const VERTICAL=1;const SIZE=2;const WIDTH=3;const HEIGHT=4;const ANGLE=5;const OPACITY=6;const VALUE=7;const FORWARDS_BACKWARDS=8;const ZELEVATION=9;const SINE=0;const TRIANGLE=1;const SAWTOOTH=2;const REVERSE_SAWTOOTH=3;const SQUARE=4;const _2pi=2*Math.PI;const _pi_2=Math.PI/
+2;const _3pi_2=3*Math.PI/2;const MOVEMENT_LOOKUP=[0,1,8,3,4,2,5,6,9,7];C3.Behaviors.Sin.Instance=class SinInstance extends C3.SDKBehaviorInstanceBase{constructor(behInst,properties){super(behInst);this._i=0;this._movement=0;this._wave=0;this._period=0;this._mag=0;this._isEnabled=true;this._basePeriod=0;this._basePeriodOffset=0;this._baseMag=0;this._periodRandom=0;this._periodOffsetRandom=0;this._magnitudeRandom=0;this._initialValue=0;this._initialValue2=0;this._lastKnownValue=0;this._lastKnownValue2=
+0;this._ratio=0;if(properties){this._movement=MOVEMENT_LOOKUP[properties[MOVEMENT]];this._wave=properties[WAVE];this._periodRandom=this._runtime.Random()*properties[PERIOD_RANDOM];this._basePeriod=properties[PERIOD];this._period=properties[PERIOD];this._period+=this._periodRandom;this._basePeriodOffset=properties[PERIOD_OFFSET];if(this._period!==0){this._periodOffsetRandom=this._runtime.Random()*properties[PERIOD_OFFSET_RANDOM];this._i=properties[PERIOD_OFFSET]/this._period*_2pi;this._i+=this._periodOffsetRandom/
+this._period*_2pi}this._magnitudeRandom=this._runtime.Random()*properties[MAGNITUDE_RANDOM];this._baseMag=properties[MAGNITUDE];this._mag=properties[MAGNITUDE];this._mag+=this._magnitudeRandom;this._isEnabled=!!properties[ENABLE]}if(this._movement===ANGLE)this._mag=C3.toRadians(this._mag);this.Init();if(this._isEnabled)this._StartTicking()}Release(){super.Release()}SaveToJson(){return{"i":this._i,"e":this._isEnabled,"mv":this._movement,"w":this._wave,"p":this._period,"mag":this._mag,"iv":this._initialValue,
+"iv2":this._initialValue2,"r":this._ratio,"lkv":this._lastKnownValue,"lkv2":this._lastKnownValue2}}LoadFromJson(o){this._i=o["i"];this._SetEnabled(o["e"]);this._movement=o["mv"];this._wave=o["w"];this._period=o["p"];this._mag=o["mag"];this._initialValue=o["iv"];this._initialValue2=o["iv2"];this._ratio=o["r"];this._lastKnownValue=o["lkv"];this._lastKnownValue2=o["lkv2"]}Init(){const wi=this._inst.GetWorldInfo();switch(this._movement){case HORIZONTAL:this._initialValue=wi.GetX();break;case VERTICAL:this._initialValue=
+wi.GetY();break;case SIZE:this._initialValue=wi.GetWidth();this._ratio=wi.GetHeight()/wi.GetWidth();break;case WIDTH:this._initialValue=wi.GetWidth();break;case HEIGHT:this._initialValue=wi.GetHeight();break;case ANGLE:this._initialValue=wi.GetAngle();break;case OPACITY:this._initialValue=wi.GetOpacity();break;case VALUE:this._initialValue=0;break;case FORWARDS_BACKWARDS:this._initialValue=wi.GetX();this._initialValue2=wi.GetY();break;case ZELEVATION:this._initialValue=wi.GetZElevation();break;default:}this._lastKnownValue=
+this._initialValue;this._lastKnownValue2=this._initialValue2}WaveFunc(x){x=x%_2pi;switch(this._wave){case SINE:return Math.sin(x);case TRIANGLE:if(x<=_pi_2)return x/_pi_2;else if(x<=_3pi_2)return 1-2*(x-_pi_2)/Math.PI;else return(x-_3pi_2)/_pi_2-1;case SAWTOOTH:return 2*x/_2pi-1;case REVERSE_SAWTOOTH:return-2*x/_2pi+1;case SQUARE:return x<Math.PI?-1:1}return 0}Tick(){const dt=this._runtime.GetDt(this._inst);if(!this._isEnabled||dt===0)return;if(this._period===0)this._i=0;else this._i=(this._i+dt/
+this._period*_2pi)%_2pi;this._UpdateFromPhase()}_UpdateFromPhase(){const wi=this._inst.GetWorldInfo();switch(this._movement){case HORIZONTAL:if(wi.GetX()!==this._lastKnownValue)this._initialValue+=wi.GetX()-this._lastKnownValue;wi.SetX(this._initialValue+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=wi.GetX();break;case VERTICAL:if(wi.GetY()!==this._lastKnownValue)this._initialValue+=wi.GetY()-this._lastKnownValue;wi.SetY(this._initialValue+this.WaveFunc(this._i)*this._mag);this._lastKnownValue=
+wi.GetY();break;case SIZE:wi.SetWidth(this._initialValue+this.WaveFunc(this._i)*this._mag);wi.SetHeight(wi.GetWidth()*this._ratio);break;case WIDTH:wi.SetWidth(this._initialValue+this.WaveFunc(this._i)*this._mag);break;case HEIGHT:wi.SetHeight(this._initialValue+this.WaveFunc(this._i)*this._mag);break;case ANGLE:if(wi.GetAngle()!==this._lastKnownValue)this._initialValue=C3.clampAngle(this._initialValue+(wi.GetAngle()-this._lastKnownValue));wi.SetAngle(this._initialValue+this.WaveFunc(this._i)*this._mag);
+this._lastKnownValue=wi.GetAngle();break;case OPACITY:wi.SetOpacity(this._initialValue+this.WaveFunc(this._i)*this._mag/100);break;case FORWARDS_BACKWARDS:if(wi.GetX()!==this._lastKnownValue)this._initialValue+=wi.GetX()-this._lastKnownValue;if(wi.GetY()!==this._lastKnownValue2)this._initialValue2+=wi.GetY()-this._lastKnownValue2;wi.SetX(this._initialValue+Math.cos(wi.GetAngle())*this.WaveFunc(this._i)*this._mag);wi.SetY(this._initialValue2+Math.sin(wi.GetAngle())*this.WaveFunc(this._i)*this._mag);
+this._lastKnownValue=wi.GetX();this._lastKnownValue2=wi.GetY();break;case ZELEVATION:wi.SetZElevation(this._initialValue+this.WaveFunc(this._i)*this._mag);break}wi.SetBboxChanged()}_OnSpriteFrameChanged(prevFrame,nextFrame){}_SetEnabled(e){this._isEnabled=!!e;if(this._isEnabled)this._StartTicking();else this._StopTicking()}GetPropertyValueByIndex(index){switch(index){case MOVEMENT:return this._movement;case WAVE:return this._wave;case PERIOD:return this._basePeriod;case MAGNITUDE:return this._baseMag;
+case ENABLE:return this._isEnabled}}SetPropertyValueByIndex(index,value){switch(index){case MOVEMENT:this._movement=MOVEMENT_LOOKUP[value];this.Init();break;case WAVE:this._wave=value;break;case PERIOD:this._basePeriod=value;this._period=this._basePeriod+this._periodRandom;if(!this._isEnabled)if(this._period!==0){this._i=this._basePeriodOffset/this._period*_2pi;this._i+=this._periodOffsetRandom/this._period*_2pi}else this._i=0;break;case MAGNITUDE:this._baseMag=value;this._mag=this._baseMag+this._magnitudeRandom;
+if(this._movement===ANGLE)this._mag=C3.toRadians(this._mag);break;case ENABLE:this._isEnabled=!!value;break}}GetDebuggerProperties(){const prefix="behaviors.sin";return[{title:"$"+this.GetBehaviorType().GetName(),properties:[{name:prefix+".properties.enabled.name",value:this._isEnabled,onedit:v=>this._SetEnabled(v)},{name:prefix+".properties.period.name",value:this._period,onedit:v=>this._period=v},{name:prefix+".properties.magnitude.name",value:this._mag,onedit:v=>this._mag=v},{name:prefix+".debugger.value",
+value:this.WaveFunc(this._i)*this._mag}]}]}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.Sin.Cnds={IsEnabled(){return this._isEnabled},CompareMovement(m){return this._movement===m},ComparePeriod(cmp,v){return C3.compare(this._period,cmp,v)},CompareMagnitude(cmp,v){if(this._movement===5)return C3.compare(this._mag,cmp,C3.toRadians(v));else return C3.compare(this._mag,cmp,v)},CompareWave(w){return this._wave===w}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.Sin.Acts={SetEnabled(e){this._SetEnabled(e!==0)},SetPeriod(x){this._period=x},SetMagnitude(x){this._mag=x;if(this._movement===5)this._mag=C3.toRadians(this._mag)},SetMovement(m){if(this._movement===5&&m!==5)this._mag=C3.toDegrees(this._mag);this._movement=m;this.Init()},SetWave(w){this._wave=w},SetPhase(x){const _2pi=Math.PI*2;this._i=x*_2pi%_2pi;this._UpdateFromPhase()},UpdateInitialState(){this.Init()}}};
+
+
+'use strict';{const C3=self.C3;C3.Behaviors.Sin.Exps={CyclePosition(){return this._i/(2*Math.PI)},Period(){return this._period},Magnitude(){if(this._movement===5)return C3.toDegrees(this._mag);else return this._mag},Value(){return this.WaveFunc(this._i)*this._mag}}};
+
+
 
 {
 	const C3 = self.C3;
@@ -2992,81 +3087,96 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		C3.Plugins.Sprite,
 		C3.Plugins.Text,
 		C3.Behaviors.Tween,
-		C3.Behaviors.Pin,
 		C3.Plugins.Particles,
 		C3.Behaviors.Flash,
 		C3.Plugins.Keyboard,
 		C3.Plugins.Mouse,
 		C3.Behaviors.scrollto,
 		C3.Plugins.List,
+		C3.Plugins.Browser,
+		C3.Behaviors.Sin,
+		C3.Plugins.AJAX,
+		C3.Plugins.Json,
+		C3.Plugins.System.Cnds.IsGroupActive,
+		C3.ScriptsInEvents.C3_colors_helper_Event2_Act1,
+		C3.ScriptsInEvents.C3_colors_helper_Event4_Act1,
+		C3.Plugins.System.Acts.SetLayerBackground,
+		C3.Plugins.System.Exps.rgbex255,
+		C3.ScriptsInEvents.C3_colors_helper_Event5_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event2_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event3_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event4_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event5_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event6_Act1,
+		C3.ScriptsInEvents.C3_json_helper_Event7_Act1,
+		C3.Plugins.AJAX.Acts.RequestFile,
+		C3.Plugins.System.Acts.WaitForPreviousActions,
+		C3.Plugins.Json.Acts.Parse,
+		C3.Plugins.AJAX.Exps.LastData,
 		C3.Plugins.System.Cnds.OnLayoutStart,
-		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.Text.Acts.SetInstanceVar,
-		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.List.Acts.Select,
-		C3.Plugins.List.Acts.SetCSSStyle,
-		C3.Plugins.System.Cnds.ForEach,
-		C3.Plugins.Sprite.Exps.UID,
 		C3.Plugins.List.Exps.SelectedText,
 		C3.Plugins.System.Exps.choose,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.List.Cnds.OnSelectionChanged,
+		C3.Plugins.System.Cnds.CompareBoolVar,
+		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.System.Cnds.Else,
+		C3.Plugins.Sprite.Cnds.IsOverlapping,
+		C3.Plugins.Sprite.Exps.UID,
+		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.TiledBg.Exps.UID,
+		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
+		C3.Plugins.System.Cnds.ForEach,
+		C3.Plugins.Keyboard.Cnds.OnAnyKey,
+		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
+		C3.Plugins.System.Exps.uppercase,
+		C3.Plugins.Keyboard.Exps.TypedKey,
+		C3.Plugins.System.Cnds.ForEachOrdered,
+		C3.Plugins.Sprite.Exps.Y,
+		C3.Plugins.System.Acts.StopLoop,
+		C3.Plugins.Keyboard.Cnds.OnAnyKeyReleased,
+		C3.Plugins.TiledBg.Cnds.CompareHeight,
+		C3.Plugins.System.Cnds.TriggerOnce,
+		C3.Plugins.System.Acts.SetBoolVar,
+		C3.Plugins.System.Acts.Wait,
+		C3.Plugins.System.Acts.RestartLayout,
+		C3.ScriptsInEvents.Chars_Event3_Act1,
+		C3.ScriptsInEvents.Chars_Event4_Act1,
+		C3.Plugins.Sprite.Cnds.PickByUID,
+		C3.Behaviors.scrollto.Acts.Shake,
+		C3.Plugins.Sprite.Acts.Spawn,
+		C3.Plugins.Sprite.Exps.LayerName,
+		C3.Plugins.Sprite.Acts.Destroy,
+		C3.Behaviors.Tween.Acts.TweenTwoProperties,
+		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
+		C3.Plugins.System.Acts.AddVar,
+		C3.ScriptsInEvents.Keyboard_Event2_Act1,
+		C3.ScriptsInEvents.Keyboard_Event3_Act1,
+		C3.Plugins.System.Acts.SetVar,
+		C3.Plugins.Sprite.Acts.SetDefaultColor,
+		C3.Plugins.Browser.Acts.LoadStyleSheet,
+		C3.Plugins.System.Cnds.OnLoadFinished,
+		C3.Plugins.System.Acts.GoToLayout,
+		C3.ScriptsInEvents.Laser_Event2_Act1,
+		C3.Plugins.System.Cnds.PickRandom,
+		C3.Plugins.System.Cnds.PickLastCreated,
+		C3.Plugins.Sprite.Acts.SetInstanceVar,
+		C3.Plugins.Sprite.Acts.SetY,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Plugins.System.Acts.RecreateInitialObjects,
 		C3.Plugins.Text.Exps.Text,
 		C3.Plugins.Text.Exps.X,
 		C3.Plugins.Text.Exps.Y,
 		C3.Plugins.Text.Acts.Destroy,
-		C3.Plugins.System.Cnds.CompareBoolVar,
-		C3.Plugins.System.Cnds.Every,
-		C3.Plugins.System.Cnds.PickRandom,
-		C3.Plugins.Sprite.Acts.Spawn,
-		C3.Plugins.System.Cnds.PickLastCreated,
-		C3.Plugins.Sprite.Acts.MoveToBottom,
-		C3.Plugins.Sprite.Acts.SetInstanceVar,
-		C3.Plugins.Sprite.Acts.SetY,
-		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.Keyboard.Cnds.OnAnyKey,
-		C3.Plugins.Keyboard.Exps.TypedKey,
-		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Plugins.System.Exps.uppercase,
-		C3.Plugins.Sprite.Acts.SetDefaultColor,
-		C3.Plugins.System.Exps.rgbex255,
-		C3.Plugins.System.Cnds.ForEachOrdered,
-		C3.Plugins.Sprite.Exps.Y,
-		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
-		C3.Plugins.Sprite.Exps.LayerName,
-		C3.Behaviors.Pin.Acts.PinByProperties,
-		C3.Plugins.TiledBg.Acts.SetHeight,
-		C3.Plugins.Sprite.Exps.X,
-		C3.Plugins.System.Acts.StopLoop,
-		C3.Plugins.System.Acts.AddVar,
-		C3.Plugins.Keyboard.Cnds.OnAnyKeyReleased,
-		C3.Plugins.TiledBg.Cnds.CompareHeight,
-		C3.Plugins.System.Cnds.TriggerOnce,
-		C3.Plugins.System.Acts.SetLayerVisible,
-		C3.Plugins.System.Acts.Wait,
-		C3.Plugins.System.Acts.WaitForPreviousActions,
-		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.List.Acts.Select,
 		C3.Plugins.Text.Acts.SubInstanceVar,
 		C3.Plugins.Text.Cnds.CompareInstanceVar,
-		C3.Behaviors.scrollto.Acts.Shake,
-		C3.Plugins.List.Cnds.OnSelectionChanged,
-		C3.Plugins.System.Cnds.IsGroupActive,
-		C3.Plugins.Sprite.Cnds.IsOverlapping,
-		C3.Plugins.Sprite.Cnds.OnCollision,
-		C3.Behaviors.Tween.Acts.TweenTwoProperties,
+		C3.Plugins.Text.Acts.SetInstanceVar,
+		C3.Plugins.System.Acts.SetLayerVisible,
+		C3.Plugins.TiledBg.Cnds.PickByUID,
+		C3.Plugins.TiledBg.Acts.SetHeight,
 		C3.Plugins.TiledBg.Exps.Height,
-		C3.Behaviors.Flash.Acts.Flash,
-		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
-		C3.Plugins.Sprite.Acts.Destroy,
-		C3.ScriptsInEvents.Chars_Event7_Act1,
-		C3.ScriptsInEvents.Chars_Event8_Act1,
-		C3.Plugins.Sprite.Cnds.PickByUID,
-		C3.Plugins.System.Cnds.PickByEvaluate,
-		C3.Plugins.Sprite.Exps.PickedCount,
-		C3.Plugins.System.Acts.SetFunctionReturnValue,
-		C3.ScriptsInEvents.Keyboard_Event2_Act1,
-		C3.ScriptsInEvents.Keyboard_Event3_Act1,
-		C3.ScriptsInEvents.Keyboard_Event4_Act1,
-		C3.ScriptsInEvents.Keyboard_Event5_Act1
+		C3.Behaviors.Flash.Acts.Flash
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3074,14 +3184,11 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		{Grid_Light: 0},
 		{Grid_Dark: 0},
 		{Char_Box: 0},
-		{Chars_Field: 0},
 		{Char_Label: 0},
 		{Key: 0},
 		{Hitted: 0},
 		{Tween: 0},
 		{Char: 0},
-		{Pin: 0},
-		{Char_Ray_HIT: 0},
 		{Particles: 0},
 		{Keyboard_Create_Muted: 0},
 		{Keyboard_Create_Char: 0},
@@ -3096,26 +3203,53 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 		{Text_Score_Max: 0},
 		{Counter: 0},
 		{Text_Score_Last: 0},
+		{Loader_Image_Logo: 0},
+		{Laser: 0},
 		{ScrollTo: 0},
 		{Center: 0},
 		{Label_NameKeyboard: 0},
 		{Keyboard_List: 0},
-		{Keyboard_Template_Random: 0},
+		{Browser: 0},
+		{Sine: 0},
+		{Loader_Effect: 0},
+		{AJAX: 0},
+		{colors: 0},
+		{Char_Spawn: 0},
 		{UID: 0},
-		{k: 0},
-		{CharPressed: 0},
+		{Color: 0},
+		{r: 0},
+		{g: 0},
+		{b: 0},
+		{nameLayer: 0},
+		{jsonName: 0},
+		{key: 0},
+		{value_default: 0},
+		{value: 0},
+		{name: 0},
+		{json_base64: 0},
 		{Direction: 0},
 		{Pixels: 0},
+		{Origin_UID: 0},
+		{Target_UID: 0},
+		{Add_Score: 0},
+		{Layer: 0},
 		{X: 0},
 		{Y: 0},
-		{picked: 0},
-		{Layer: 0},
+		{TypedKey: 0},
 		{isRunning: 0},
 		{isCounting: 0},
 		{Score: 0},
 		{Score_Last: 0},
 		{Score_Max: 0},
-		{Keyboard_Template: 0}
+		{Keyboard_Template: 0},
+		{Move_Seconds: 0},
+		{LaserName: 0},
+		{Width: 0},
+		{VisibleForSeconds: 0},
+		{k: 0},
+		{Keyboard_Template_Random: 0},
+		{Counter_Layer: 0},
+		{StartFrom: 0}
 	];
 }
 
@@ -3217,67 +3351,64 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 	}
 
 	self.C3_ExpressionFuncs = [
-		() => 3,
+		() => "Colors Helper",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
 		p => {
-			const v0 = p._GetNode(0).GetVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
 			const v2 = p._GetNode(2).GetVar();
 			const v3 = p._GetNode(3).GetVar();
-			return () => ((((v0.GetValue()) > (v1.GetValue()) ? 1 : 0)) ? (v2.GetValue()) : (v3.GetValue()));
+			return () => f0(v1.GetValue(), v2.GetValue(), v3.GetValue());
 		},
-		() => 0,
+		() => "Json HELPER",
+		() => "Json INITIALIZE",
+		() => "",
 		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => ((((v0.GetValue()) === ("QWERTY") ? 1 : 0)) ? (0) : (1));
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
 		},
-		() => "font-family",
-		() => "Kenney Future Narrow",
-		() => "text-align",
-		() => "center",
-		() => "font-size",
-		() => "xx-large",
-		() => "color",
-		() => "rgb(100,100,100)",
-		() => "background-color",
-		() => "transparent",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
-		},
+		() => "colors",
+		() => "Main",
 		p => {
 			const n0 = p._GetNode(0);
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => and(("Keyboard_" + n0.ExpObject()), f1("_LETTERS", "_SIMPLE_1", "_SIMPLE_2", "_SIMPLE_3"));
 		},
-		() => 1280,
-		() => 720,
-		() => "Keyboard_Letter",
-		() => "Limit",
+		() => "Main :: Countdown",
+		() => 1,
+		() => "Main :: Playing",
 		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => f0(n1.ExpObject(), "Keyboard_Letter");
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0(0.8, 0.9, 1);
+			return () => f0("U", "R", "D", "L");
 		},
+		() => 16,
 		() => "DOWN",
 		() => 64,
 		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0(1, 1.2, 1.5);
 		},
-		() => "Chars",
-		() => 32,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1());
 		},
+		() => 0,
+		() => "CHARS",
+		() => "CHARS :: FUNCTIONS",
+		() => 5,
+		() => 0.05,
+		() => 0.2,
+		() => "Laser",
+		() => 12,
+		() => "Keyboard",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const v1 = p._GetNode(1).GetVar();
@@ -3287,52 +3418,59 @@ inst.GetBehaviorInstanceFromCtor(C3.Behaviors.scrollto);if(!behInst||!behInst.Ge
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(100, 210, 110);
 		},
-		() => "Bottom",
-		p => {
-			const n0 = p._GetNode(0);
-			const n1 = p._GetNode(1);
-			const n2 = p._GetNode(2);
-			const n3 = p._GetNode(3);
-			return () => C3.distanceTo(n0.ExpObject(), (n1.ExpObject() + 32), n2.ExpObject(), (n3.ExpObject() - 32));
-		},
-		() => 1,
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => f0(255, 255, 255);
 		},
+		() => "GlobalVars",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			const v1 = p._GetNode(1).GetVar();
+			const v2 = p._GetNode(2).GetVar();
+			const v3 = p._GetNode(3).GetVar();
+			return () => ((((v0.GetValue()) > (v1.GetValue()) ? 1 : 0)) ? (v2.GetValue()) : (v3.GetValue()));
+		},
+		() => "mystyle.css",
+		() => 2,
+		() => "GenerateRandomChars",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
+		},
+		() => "Chars",
+		() => 32,
+		() => "GenerateLevels",
+		() => 1280,
+		() => 720,
+		() => "Keyboard_Letter",
+		() => "Limit",
+		() => -720,
+		() => "Spawner",
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const n1 = p._GetNode(1);
+			return () => f0(n1.ExpObject(), "Keyboard_Letter");
+		},
+		() => 4,
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((((v0.GetValue()) === ("QWERTY") ? 1 : 0)) ? (0) : (1));
+		},
 		() => "Counter",
-		() => 10,
-		() => 0.5,
-		() => -1,
 		p => {
 			const n0 = p._GetNode(0);
 			const n1 = p._GetNode(1);
 			return () => ((((n0.ExpInstVar()) > (0) ? 1 : 0)) ? ((and("[COLOR=#fe4a43]", n1.ExpInstVar()) + "[/COLOR]")) : ("[COLOR=#64d26e]GO![/COLOR]"));
 		},
-		() => "CHARS",
-		() => "",
-		() => 0.2,
+		() => 10,
+		() => 0.5,
+		() => -1,
+		() => "Score",
 		p => {
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpObject() - 1);
 		},
-		() => 0.1,
-		() => 5,
-		() => 0.05,
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0("U", "R", "D", "L");
-		},
-		() => 16,
-		() => "CHARS :: FUNCTIONS",
-		p => {
-			const n0 = p._GetNode(0);
-			const v1 = p._GetNode(1).GetVar();
-			const n2 = p._GetNode(2);
-			const v3 = p._GetNode(3).GetVar();
-			return () => and(((n0.ExpObject()) === (v1.GetValue()) ? 1 : 0), ((n2.ExpObject()) > (v3.GetValue()) ? 1 : 0));
-		},
-		() => "KEYBOARD"
+		() => 0.1
 	];
 }
 

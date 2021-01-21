@@ -1,0 +1,32 @@
+{
+	"name": "Laser",
+	"plugin-id": "TiledBg",
+	"sid": 321425264023663,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 12,
+		"height": 32,
+		"originX": 0.5,
+		"originY": 0.375,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8245164,
+		"collisionPoly": {
+			"points": [
+				0.3333333333333333,
+				0.125,
+				0.6666666666666666,
+				0.125,
+				0.6666666666666666,
+				0.875,
+				0.3333333333333333,
+				0.875
+			]
+		},
+		"useCollisionPoly": true
+	}
+}

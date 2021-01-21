@@ -1,0 +1,53 @@
+{
+	"name": "Score",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Score",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Score_Show",
+					"functionDescription": "",
+					"functionCategory": "Score",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text_Score",
+							"sid": 157431479663702,
+							"parameters": {
+								"text": "Score"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Score_Last",
+							"sid": 556341372232991,
+							"parameters": {
+								"text": "Score_Last"
+							}
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text_Score_Max",
+							"sid": 903531318166963,
+							"parameters": {
+								"text": "Score_Max"
+							}
+						}
+					],
+					"sid": 385043242638771
+				}
+			],
+			"sid": 330864689116810
+		}
+	],
+	"sid": 555785732157542
+}

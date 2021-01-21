@@ -1,0 +1,159 @@
+{
+	"name": "GenerateRandomChars",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GenerateRandomChars",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "GenerateRandomChar",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 131843121380831,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-random-instance",
+									"objectClass": "System",
+									"sid": 962062303825216,
+									"parameters": {
+										"object": "Key"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 895361806423296,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "k",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 528100166490699
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 962788425001854,
+											"parameters": {
+												"variable": "k",
+												"value": "Key.Key"
+											}
+										}
+									],
+									"sid": 958356009399637
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-random-instance",
+											"objectClass": "System",
+											"sid": 912230311074214,
+											"parameters": {
+												"object": "Char_Spawn"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "spawn-another-object",
+											"objectClass": "Char_Spawn",
+											"sid": 171464926172518,
+											"parameters": {
+												"object": "Char",
+												"layer": "\"Chars\"",
+												"image-point": "0",
+												"create-hierarchy": true
+											}
+										}
+									],
+									"sid": 884656993422704,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 124169937436485,
+													"parameters": {
+														"object": "Char"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-instvar-value",
+													"objectClass": "Char",
+													"sid": 302120908303136,
+													"parameters": {
+														"instance-variable": "Key",
+														"value": "k"
+													}
+												},
+												{
+													"id": "set-y",
+													"objectClass": "Char",
+													"sid": 926820494517671,
+													"parameters": {
+														"y": "32"
+													}
+												}
+											],
+											"sid": 621049503717607
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-last-created",
+													"objectClass": "System",
+													"sid": 976472510841895,
+													"parameters": {
+														"object": "Char_Label"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Char_Label",
+													"sid": 387789525514828,
+													"parameters": {
+														"text": "k"
+													}
+												}
+											],
+											"sid": 892795028635437
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 290636816236085
+		}
+	],
+	"sid": 834355307191813
+}

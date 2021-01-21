@@ -1,0 +1,198 @@
+{
+	"name": "GenerateLevels",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GenerateLevels",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "GenerateLevel",
+					"functionDescription": "",
+					"functionCategory": "New Level",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Keyboard_Template_Random",
+							"type": "string",
+							"initialValue": "Keyboard_QWERTY",
+							"comment": "",
+							"sid": 675304873475381
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 786065614463633,
+							"parameters": {
+								"object": "Keyboard_Create_Char",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Keyboard_Letter\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 212579317495728,
+							"parameters": {
+								"object": "Limit",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Limit\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 319579338162437,
+							"parameters": {
+								"object": "Label_NameKeyboard",
+								"from-x": "0",
+								"from-y": "0",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Keyboard_Letter\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "recreate-initial-objects",
+							"objectClass": "System",
+							"sid": 587526276718049,
+							"parameters": {
+								"object": "Char_Spawn",
+								"from-x": "0",
+								"from-y": "-720",
+								"to-x": "1280",
+								"to-y": "720",
+								"source-layout": "Keyboard_Template_Random",
+								"source-layer": "\"Spawner\"",
+								"offset-x": "0",
+								"offset-y": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 602203705743536,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 636468903463092,
+									"parameters": {
+										"object": "Keyboard_Create_Char"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Keyboard_MoveToPosition",
+									"sid": 145036833251841,
+									"parameters": [
+										"Functions.Keyboard_CreateKey(Keyboard_Create_Char.Text, \"Keyboard_Letter\")",
+										"Keyboard_Create_Char.X",
+										"Keyboard_Create_Char.Y"
+									]
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Keyboard_Create_Char",
+									"sid": 489660972823843
+								}
+							],
+							"sid": 723623406414338
+						}
+					]
+				},
+				{
+					"functionName": "InitializeLevel",
+					"functionDescription": "",
+					"functionCategory": "New Level",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "GlobalVars_Set_Status",
+							"sid": 959554189651729
+						},
+						{
+							"callFunction": "GlobalVars_Set_Score",
+							"sid": 127900551516931
+						},
+						{
+							"callFunction": "Counter_ResetCounter",
+							"sid": 515449461452005,
+							"parameters": [
+								"4"
+							]
+						},
+						{
+							"id": "set-selection",
+							"objectClass": "Keyboard_List",
+							"sid": 532671018364371,
+							"parameters": {
+								"index": "Keyboard_Template = \"QWERTY\" ? 0 : 1"
+							}
+						}
+					],
+					"sid": 713850673053530,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 504286925648203,
+									"parameters": {
+										"object": "Char"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Char_Destroy",
+									"sid": 677391382718815,
+									"parameters": [
+										"Char.UID"
+									]
+								}
+							],
+							"sid": 513721808810593
+						}
+					]
+				}
+			],
+			"sid": 340120358736171
+		}
+	],
+	"sid": 885538769192267
+}

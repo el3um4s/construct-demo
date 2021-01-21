@@ -1,6 +1,6 @@
 {
 	"projectFormatVersion": 1,
-	"savedWithRelease": 23100,
+	"savedWithRelease": 23200,
 	"name": "TypoBattle",
 	"runtime": "c3",
 	"useWorker": "auto",
@@ -11,7 +11,7 @@
 			"id": "TiledBg",
 			"name": "Tiled Background",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -19,7 +19,7 @@
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -27,7 +27,7 @@
 			"id": "Text",
 			"name": "Text",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -35,7 +35,7 @@
 			"id": "Particles",
 			"name": "Particles",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -43,7 +43,7 @@
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -51,7 +51,7 @@
 			"id": "Mouse",
 			"name": "Mouse",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -59,7 +59,31 @@
 			"id": "List",
 			"name": "List",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r232",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r232",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Json",
+			"name": "JSON",
+			"author": "Scirra",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -67,15 +91,7 @@
 			"id": "Tween",
 			"name": "Tween",
 			"author": "Scirra",
-			"version": "r231",
-			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "Pin",
-			"name": "Pin",
-			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -83,7 +99,7 @@
 			"id": "Flash",
 			"name": "Flash",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
 			"bundled": false
 		},
 		{
@@ -91,7 +107,15 @@
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
-			"version": "r231",
+			"version": "r232",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r232",
 			"bundled": false
 		}
 	],
@@ -100,7 +124,12 @@
 		"items": [
 			"Center",
 			"Label_NameKeyboard",
-			"Keyboard_List"
+			"Keyboard_List",
+			"Browser",
+			"Loader_Effect",
+			"AJAX",
+			"colors",
+			"Char_Spawn"
 		],
 		"subfolders": [
 			{
@@ -115,10 +144,8 @@
 			{
 				"items": [
 					"Char_Box",
-					"Chars_Field",
 					"Char_Label",
 					"Char",
-					"Char_Ray_HIT",
 					"Particles"
 				],
 				"subfolders": [],
@@ -160,6 +187,20 @@
 				],
 				"subfolders": [],
 				"name": "UI"
+			},
+			{
+				"items": [
+					"Loader_Image_Logo"
+				],
+				"subfolders": [],
+				"name": "Loader"
+			},
+			{
+				"items": [
+					"Laser"
+				],
+				"subfolders": [],
+				"name": "Laser"
 			}
 		]
 	},
@@ -171,6 +212,7 @@
 	},
 	"layouts": {
 		"items": [
+			"Loader",
 			"Main",
 			"Keys & Chars"
 		],
@@ -208,9 +250,25 @@
 			"Main",
 			"Chars",
 			"Keyboard",
-			"GlobalVars"
+			"GlobalVars",
+			"Loader",
+			"Laser",
+			"GenerateRandomChars",
+			"GenerateLevels",
+			"Counter",
+			"Score",
+			"Limit"
 		],
-		"subfolders": []
+		"subfolders": [
+			{
+				"items": [
+					"c3_colors_helper",
+					"c3_json_helper"
+				],
+				"subfolders": [],
+				"name": "General"
+			}
+		]
 	},
 	"rootFileFolders": {
 		"script": {
@@ -224,31 +282,62 @@
 					}
 				},
 				{
-					"name": "utilities.js",
-					"type": "application/javascript",
-					"sid": 805606730831003,
-					"script-info": {
-						"purpose": "none"
-					}
-				},
-				{
 					"name": "importForEvents.js",
 					"type": "application/javascript",
 					"sid": 574076944781614,
 					"script-info": {
 						"purpose": "imports-for-events"
 					}
-				},
-				{
-					"name": "gameCoordinates.js",
-					"type": "application/javascript",
-					"sid": 654317569784335,
-					"script-info": {
-						"purpose": "none"
-					}
 				}
 			],
-			"subfolders": []
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "colorsHelper.js.js",
+							"type": "application/javascript",
+							"sid": 698123756357053,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "jsonHelper.js.js",
+							"type": "application/javascript",
+							"sid": 422457447938516,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "manipulateInstance.js",
+							"type": "application/javascript",
+							"sid": 437869375440692,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "gameCoordinates.js",
+							"type": "application/javascript",
+							"sid": 654317569784335,
+							"script-info": {
+								"purpose": "none"
+							}
+						},
+						{
+							"name": "utils.js",
+							"type": "application/javascript",
+							"sid": 805606730831003,
+							"script-info": {
+								"purpose": "none"
+							}
+						}
+					],
+					"subfolders": [],
+					"name": "General"
+				}
+			]
 		},
 		"sound": {
 			"items": [],
@@ -339,6 +428,16 @@
 					"name": "Credits.txt",
 					"type": "text/plain",
 					"sid": 478093520871964
+				},
+				{
+					"name": "mystyle.css",
+					"type": "text/css",
+					"sid": 377466008982927
+				},
+				{
+					"name": "colors.json",
+					"type": "application/json",
+					"sid": 687442697044273
 				}
 			],
 			"subfolders": []
@@ -355,13 +454,13 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-21.01.17",
-		"author": "",
-		"authorEmail": "",
-		"authorWebsite": "",
+		"version": "demo-21.01.21",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
 		"appId": "",
 		"pixelRounding": false,
-		"useLoaderLayout": false,
+		"useLoaderLayout": true,
 		"fullscreenMode": "scale-outer",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
@@ -394,7 +493,7 @@
 		"sampling": "trilinear",
 		"downscaling": "medium",
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"clearBackground": true,
 		"enhancedAccelerationPrecision": true,
@@ -402,5 +501,5 @@
 	},
 	"viewportWidth": 1280,
 	"viewportHeight": 720,
-	"firstLayout": "Main"
+	"firstLayout": "Loader"
 }

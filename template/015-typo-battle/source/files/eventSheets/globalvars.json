@@ -60,6 +60,97 @@
 			"isStatic": false,
 			"isConstant": false,
 			"sid": 901705949544057
+		},
+		{
+			"eventType": "variable",
+			"name": "Move_Seconds",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 474224234780610
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "GlobalVars",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "GlobalVars_Set_Score",
+					"functionDescription": "",
+					"functionCategory": "GlobalVars",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 484531321956124,
+							"parameters": {
+								"variable": "Score_Last",
+								"value": "Score"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 192435898412319,
+							"parameters": {
+								"variable": "Score_Max",
+								"value": "Score > Score_Max  ? Score : Score_Max"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 227632161082900,
+							"parameters": {
+								"variable": "Score",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 108337628170784
+				},
+				{
+					"functionName": "GlobalVars_Set_Status",
+					"functionDescription": "",
+					"functionCategory": "GlobalVars",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 636165822028172,
+							"parameters": {
+								"variable": "isRunning",
+								"value": "false"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 683824221751007,
+							"parameters": {
+								"variable": "isCounting",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 654646292282256
+				}
+			],
+			"sid": 441235142691358
 		}
 	],
 	"sid": 110185405822355

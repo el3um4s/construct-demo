@@ -1,0 +1,65 @@
+{
+	"name": "Limit",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Limit",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "LImit_FlashAndReduce",
+					"functionDescription": "",
+					"functionCategory": "Limit",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 333132113644412
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Limit",
+							"sid": 615944178205202,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-height",
+							"objectClass": "Limit",
+							"sid": 394774050875264,
+							"parameters": {
+								"height": "Limit.Height-1"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Limit",
+							"sid": 380729779691619,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "0.5"
+							}
+						}
+					],
+					"sid": 266366999288287
+				}
+			],
+			"sid": 436511228671999
+		}
+	],
+	"sid": 972728000454600
+}

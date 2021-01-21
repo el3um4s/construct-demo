@@ -9,163 +9,6 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Char",
-							"sid": 131869560829974,
-							"parameters": {
-								"object": "Chars_Field"
-							},
-							"isInverted": true
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Char_Destroy",
-							"sid": 444056045382350,
-							"parameters": [
-								"Char.UID"
-							]
-						}
-					],
-					"sid": 229424404924286
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Char",
-							"sid": 971980881243824,
-							"parameters": {
-								"object": "Limit"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "tween-two-properties",
-							"objectClass": "Char",
-							"sid": 347731790154054,
-							"behaviorType": "Tween",
-							"parameters": {
-								"tags": "\"\"",
-								"property": "size",
-								"end-x": "0",
-								"end-y": "0",
-								"time": "0.2",
-								"ease": "default",
-								"destroy-on-complete": "yes",
-								"loop": "no",
-								"ping-pong": "no"
-							}
-						},
-						{
-							"id": "set-height",
-							"objectClass": "Limit",
-							"sid": 471514579714423,
-							"parameters": {
-								"height": "Limit.Height-1"
-							}
-						},
-						{
-							"id": "flash",
-							"objectClass": "Limit",
-							"sid": 674406868179989,
-							"behaviorType": "Flash",
-							"parameters": {
-								"on-time": "0.1",
-								"off-time": "0.1",
-								"duration": "0.5"
-							}
-						}
-					],
-					"sid": 392495196963126
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-boolean-instance-variable-set",
-							"objectClass": "Char",
-							"sid": 500998933269213,
-							"parameters": {
-								"instance-variable": "Hitted"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "shake",
-							"objectClass": "Center",
-							"sid": 428063218161749,
-							"behaviorType": "ScrollTo",
-							"parameters": {
-								"magnitude": "5",
-								"duration": "0.05",
-								"mode": "reducing-magnitude"
-							}
-						},
-						{
-							"id": "spawn-another-object",
-							"objectClass": "Char",
-							"sid": 538835784358403,
-							"parameters": {
-								"object": "Particles",
-								"layer": "Char.LayerName",
-								"image-point": "0",
-								"create-hierarchy": false
-							}
-						},
-						{
-							"id": "wait",
-							"objectClass": "System",
-							"sid": 476789474977778,
-							"parameters": {
-								"seconds": "0.05"
-							}
-						},
-						{
-							"id": "wait-for-previous-actions",
-							"objectClass": "System",
-							"sid": 853382308818848
-						},
-						{
-							"id": "destroy",
-							"objectClass": "Char",
-							"sid": 307944880914224
-						}
-					],
-					"sid": 623552218959058
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "is-overlapping-another-object",
-							"objectClass": "Char",
-							"sid": 963279906504688,
-							"parameters": {
-								"object": "Char"
-							}
-						}
-					],
-					"actions": [
-						{
-							"callFunction": "Char_Move",
-							"sid": 651156786905826,
-							"parameters": [
-								"Char.UID",
-								"choose(\"U\",\"R\",\"D\",\"L\")",
-								"16"
-							]
-						}
-					],
-					"sid": 956764467936961
-				},
-				{
 					"eventType": "group",
 					"disabled": false,
 					"title": "CHARS :: FUNCTIONS",
@@ -175,7 +18,7 @@
 						{
 							"functionName": "Char_Destroy",
 							"functionDescription": "",
-							"functionCategory": "",
+							"functionCategory": "Char",
 							"functionReturnType": "none",
 							"functionIsAsync": false,
 							"functionParameters": [
@@ -192,15 +35,15 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "Utils.deleteInstance(localVars.UID);"
+									"script": "ManipulateInstance.deleteInstance(localVars.UID);"
 								}
 							],
-							"sid": 232100655583145
+							"sid": 334949151642089
 						},
 						{
 							"functionName": "Char_Move",
 							"functionDescription": "",
-							"functionCategory": "",
+							"functionCategory": "Char",
 							"functionReturnType": "none",
 							"functionIsAsync": false,
 							"functionParameters": [
@@ -231,140 +74,204 @@
 							"actions": [
 								{
 									"type": "script",
-									"script": "const direction = localVars.Direction;\nconst distance = localVars.Pixels;\n\nUtils.moveInstance(localVars.UID, {direction, distance});"
+									"script": "ManipulateInstance.moveInstanceToDirection(localVars.UID, {direction: localVars.Direction, distance: localVars.Pixels});"
 								}
 							],
-							"sid": 781475316619032
-						},
-						{
-							"functionName": "Chars_Hitted_Under",
-							"functionDescription": "",
-							"functionCategory": "",
-							"functionReturnType": "number",
-							"functionIsAsync": false,
-							"functionParameters": [
-								{
-									"name": "UID",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"sid": 221294944377763
-								}
-							],
-							"eventType": "function-block",
-							"conditions": [],
-							"actions": [],
-							"sid": 495575528311140,
-							"children": [
-								{
-									"eventType": "variable",
-									"name": "X",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 190224531318470
-								},
-								{
-									"eventType": "variable",
-									"name": "Y",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 461890067817095
-								},
-								{
-									"eventType": "variable",
-									"name": "picked",
-									"type": "number",
-									"initialValue": "0",
-									"comment": "",
-									"isStatic": false,
-									"isConstant": false,
-									"sid": 473748611821017
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-unique-id",
-											"objectClass": "Char",
-											"sid": 203062845280758,
-											"parameters": {
-												"unique-id": "UID"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 583764725302953,
-											"parameters": {
-												"variable": "X",
-												"value": "Char.X"
-											}
-										},
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 201834286350313,
-											"parameters": {
-												"variable": "Y",
-												"value": "Char.Y"
-											}
-										}
-									],
-									"sid": 926452883650215
-								},
-								{
-									"eventType": "block",
-									"conditions": [
-										{
-											"id": "pick-by-evaluate",
-											"objectClass": "System",
-											"sid": 309096980711329,
-											"parameters": {
-												"object": "Char",
-												"expression": "Char.X = X & Char.Y >Y"
-											}
-										}
-									],
-									"actions": [
-										{
-											"id": "set-eventvar-value",
-											"objectClass": "System",
-											"sid": 600769066043398,
-											"parameters": {
-												"variable": "picked",
-												"value": "Char.PickedCount"
-											}
-										}
-									],
-									"sid": 980680373672362
-								},
-								{
-									"eventType": "block",
-									"conditions": [],
-									"actions": [
-										{
-											"id": "set-function-return-value",
-											"objectClass": "Functions",
-											"sid": 319913199757594,
-											"parameters": {
-												"value": "picked"
-											}
-										}
-									],
-									"sid": 773921100453181
-								}
-							]
+							"sid": 791721487989782
 						}
 					],
-					"sid": 184177851027928
+					"sid": 613654249380034
+				},
+				{
+					"functionName": "Char_ShakeSmokeAndDestroy",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 721610600176161
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 991205963135639,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Center",
+							"sid": 313927136523778,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "5",
+								"duration": "0.05",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Char",
+							"sid": 994421981756804,
+							"parameters": {
+								"object": "Particles",
+								"layer": "Char.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 882852012062060,
+							"parameters": {
+								"seconds": "0.05"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 530500428902810
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Char",
+							"sid": 453265067850364
+						}
+					],
+					"sid": 472269273161279
+				},
+				{
+					"functionName": "Char_TweenSizeToDestroy",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 997993674940311
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 597579825415308,
+							"parameters": {
+								"unique-id": "UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "tween-two-properties",
+							"objectClass": "Char",
+							"sid": 408517905695241,
+							"behaviorType": "Tween",
+							"parameters": {
+								"tags": "\"\"",
+								"property": "size",
+								"end-x": "0",
+								"end-y": "0",
+								"time": "0.2",
+								"ease": "default",
+								"destroy-on-complete": "yes",
+								"loop": "no",
+								"ping-pong": "no"
+							}
+						}
+					],
+					"sid": 983836368084736
+				},
+				{
+					"functionName": "Char_LaserHitCharThenDestroyAndAddScore",
+					"functionDescription": "",
+					"functionCategory": "Char",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Origin_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 101659460059642
+						},
+						{
+							"name": "Target_UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 741236520679546
+						},
+						{
+							"name": "Add_Score",
+							"type": "number",
+							"initialValue": "1",
+							"comment": "",
+							"sid": 347619307582574
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "pick-by-unique-id",
+							"objectClass": "Char",
+							"sid": 432627009841728,
+							"parameters": {
+								"unique-id": "Target_UID"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-boolean-instvar",
+							"objectClass": "Char",
+							"sid": 462309763833682,
+							"parameters": {
+								"instance-variable": "Hitted",
+								"value": "true"
+							}
+						},
+						{
+							"callFunction": "Laser_Create",
+							"sid": 132166044989119,
+							"parameters": [
+								"\"Laser\"",
+								"Char.LayerName",
+								"Origin_UID",
+								"Target_UID",
+								"12",
+								"0.05"
+							]
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 574389016950602,
+							"parameters": {
+								"variable": "Score",
+								"value": "Add_Score"
+							}
+						}
+					],
+					"sid": 230237377224441
 				}
 			],
 			"sid": 741398737617039
