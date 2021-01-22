@@ -37,13 +37,13 @@
 						"originalSource": "",
 						"exportFormat": "png",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2732640,
+						"imageSpriteId": 7202709,
 						"useCollisionPoly": true,
 						"imagePoints": [
 							{
 								"name": "Bottom",
 								"x": 0.5,
-								"y": 1
+								"y": 0.9848484848484849
 							}
 						],
 						"duration": 1

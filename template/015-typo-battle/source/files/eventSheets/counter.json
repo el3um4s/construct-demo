@@ -31,9 +31,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Counter",
-							"sid": 647655307595137,
+							"sid": 519080644125327,
 							"parameters": {
-								"text": "Counter.Counter > 0 ? \"[COLOR=#fe4a43]\" & Counter.Counter & \"[/COLOR]\" : \"[COLOR=#64d26e]GO![/COLOR]\""
+								"text": "Counter.Counter > 0 ? Counter.Counter : \"GO\""
 							}
 						}
 					],

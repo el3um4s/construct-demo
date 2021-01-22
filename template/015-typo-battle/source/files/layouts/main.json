@@ -15,9 +15,9 @@
 				1
 			],
 			"backgroundColor": [
-				0.7843137254901961,
-				0.7843137254901961,
-				0.7843137254901961,
+				0.1450980392156863,
+				0.29411764705882354,
+				0.4823529411764706,
 				1
 			],
 			"isTransparent": false,
@@ -189,12 +189,40 @@
 			"global": false
 		},
 		{
-			"name": "Chars_Field",
+			"name": "Limit",
 			"overriden": 0,
 			"instances": [],
-			"sid": 863973206688999,
-			"effectTypes": [],
-			"isInitiallyVisible": false,
+			"sid": 338852150674434,
+			"effectTypes": [
+				{
+					"effectId": "dropshadow",
+					"name": "DropShadow",
+					"instance": {
+						"parameters": {
+							"offsetX": 4,
+							"offsetY": 4,
+							"dropopacity": 1
+						}
+					}
+				},
+				{
+					"effectId": "outline",
+					"name": "Outline",
+					"instance": {
+						"parameters": {
+							"width": 2,
+							"cl": [
+								0,
+								0,
+								0,
+								1
+							],
+							"diag": 0.7071
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
 			"color": [
 				1,
 				1,
@@ -208,9 +236,9 @@
 				1
 			],
 			"isTransparent": true,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
 			"forceOwnTexture": false,
 			"useRenderCells": false,
 			"blendMode": "normal",
@@ -221,7 +249,19 @@
 			"overriden": 0,
 			"instances": [],
 			"sid": 540553081387207,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "dropshadow",
+					"name": "DropShadow",
+					"instance": {
+						"parameters": {
+							"offsetX": 4,
+							"offsetY": 4,
+							"dropopacity": 1
+						}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
 			"color": [
 				1,
@@ -273,11 +313,51 @@
 			"global": false
 		},
 		{
+			"name": "Keyboard_Name",
+			"overriden": 0,
+			"instances": [],
+			"sid": 684889559396094,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 0,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
 			"name": "Keyboard_Letter",
 			"overriden": 0,
 			"instances": [],
 			"sid": 681501727805689,
-			"effectTypes": [],
+			"effectTypes": [
+				{
+					"effectId": "dropshadow",
+					"name": "DropShadow",
+					"instance": {
+						"parameters": {
+							"offsetX": 8,
+							"offsetY": 8,
+							"dropopacity": 1
+						}
+					}
+				}
+			],
 			"isInitiallyVisible": true,
 			"color": [
 				1,
@@ -329,107 +409,6 @@
 			"global": false
 		},
 		{
-			"name": "Limit",
-			"overriden": 0,
-			"instances": [],
-			"sid": 338852150674434,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"color": [
-				1,
-				1,
-				1,
-				1
-			],
-			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
-				1
-			],
-			"isTransparent": true,
-			"parallaxX": 0,
-			"parallaxY": 0,
-			"scaleRate": 0,
-			"forceOwnTexture": false,
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"global": false
-		},
-		{
-			"name": "Counter",
-			"overriden": 0,
-			"instances": [
-				{
-					"type": "Counter",
-					"properties": {
-						"text": "Text",
-						"enable-bbcode": true,
-						"font": "Kenney Future Narrow",
-						"size": 144,
-						"line-height": 0,
-						"bold": true,
-						"italic": false,
-						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
-							1
-						],
-						"horizontal-alignment": "center",
-						"vertical-alignment": "top",
-						"wrapping": "word",
-						"initially-visible": true,
-						"origin": "center"
-					},
-					"uid": 78,
-					"instanceVariables": {
-						"Counter": 3
-					},
-					"behaviors": {},
-					"world": {
-						"x": 640,
-						"y": 216,
-						"width": 1280,
-						"height": 272,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				}
-			],
-			"sid": 203766905110025,
-			"effectTypes": [],
-			"isInitiallyVisible": true,
-			"color": [
-				1,
-				1,
-				1,
-				0.5
-			],
-			"backgroundColor": [
-				0.9411764705882353,
-				0.9411764705882353,
-				0.9411764705882353,
-				1
-			],
-			"isTransparent": false,
-			"parallaxX": 1,
-			"parallaxY": 1,
-			"scaleRate": 1,
-			"forceOwnTexture": false,
-			"useRenderCells": false,
-			"blendMode": "normal",
-			"global": false
-		},
-		{
 			"name": "UI",
 			"overriden": 0,
 			"instances": [
@@ -444,9 +423,9 @@
 						"bold": true,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -457,7 +436,17 @@
 					},
 					"uid": 2,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 200,
 						"y": 16,
@@ -486,9 +475,9 @@
 						"bold": true,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -499,7 +488,17 @@
 					},
 					"uid": 3,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 200,
 						"y": 112,
@@ -528,9 +527,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -541,7 +540,17 @@
 					},
 					"uid": 4,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 16,
 						"y": 16,
@@ -570,9 +579,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -583,7 +592,17 @@
 					},
 					"uid": 6,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 16,
 						"y": 64,
@@ -612,9 +631,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -625,7 +644,17 @@
 					},
 					"uid": 79,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 16,
 						"y": 112,
@@ -654,9 +683,9 @@
 						"bold": true,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "left",
@@ -667,7 +696,17 @@
 					},
 					"uid": 80,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-left",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 200,
 						"y": 64,
@@ -696,9 +735,9 @@
 						"bold": false,
 						"italic": false,
 						"color": [
-							0.39215686274509803,
-							0.39215686274509803,
-							0.39215686274509803,
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -709,7 +748,17 @@
 					},
 					"uid": 83,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-right",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 1016,
 						"y": 8,
@@ -741,7 +790,17 @@
 					},
 					"uid": 84,
 					"instanceVariables": {},
-					"behaviors": {},
+					"behaviors": {
+						"Anchor": {
+							"properties": {
+								"left-edge": "window-right",
+								"top-edge": "window-top",
+								"right-edge": "none",
+								"bottom-edge": "none",
+								"enabled": true
+							}
+						}
+					},
 					"world": {
 						"x": 1024,
 						"y": 48,
@@ -783,162 +842,41 @@
 			"global": false
 		},
 		{
-			"name": "Helper_Grids",
+			"name": "Counter",
 			"overriden": 0,
 			"instances": [
 				{
-					"type": "Grid_Line",
+					"type": "Counter",
 					"properties": {
+						"text": "Text",
+						"enable-bbcode": true,
+						"font": "Kenney Future Narrow",
+						"size": 144,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.8627450980392157,
+							0.8627450980392157,
+							0.8627450980392157,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
 						"initially-visible": true,
-						"origin": "center",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
+						"origin": "center"
 					},
-					"uid": 5,
-					"instanceVariables": {},
+					"uid": 78,
+					"instanceVariables": {
+						"Counter": 3
+					},
 					"behaviors": {},
 					"world": {
 						"x": 640,
-						"y": 360,
-						"width": 8,
-						"height": 720,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Grid_Line",
-					"properties": {
-						"initially-visible": true,
-						"origin": "center",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
-					},
-					"uid": 39,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 4,
-						"y": 360,
-						"width": 8,
-						"height": 720,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Grid_Line",
-					"properties": {
-						"initially-visible": true,
-						"origin": "center",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
-					},
-					"uid": 40,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 1276,
-						"y": 360,
-						"width": 8,
-						"height": 720,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Grid_Line",
-					"properties": {
-						"initially-visible": true,
-						"origin": "center",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
-					},
-					"uid": 41,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 640,
-						"y": 0,
+						"y": 216,
 						"width": 1280,
-						"height": 8,
-						"originX": 0.5,
-						"originY": 0.5,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "Grid_Line",
-					"properties": {
-						"initially-visible": true,
-						"origin": "center",
-						"wrap-horizontal": "repeat",
-						"wrap-vertical": "repeat",
-						"image-offset-x": 0,
-						"image-offset-y": 0,
-						"image-scale-x": 1,
-						"image-scale-y": 1,
-						"image-angle": 0
-					},
-					"uid": 42,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 640,
-						"y": 720,
-						"width": 1280,
-						"height": 8,
+						"height": 272,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -952,9 +890,9 @@
 					}
 				}
 			],
-			"sid": 238719868913286,
+			"sid": 203766905110025,
 			"effectTypes": [],
-			"isInitiallyVisible": false,
+			"isInitiallyVisible": true,
 			"color": [
 				1,
 				1,
@@ -962,9 +900,71 @@
 				1
 			],
 			"backgroundColor": [
-				0.3686274509803922,
-				0.3686274509803922,
-				0.3686274509803922,
+				0.1450980392156863,
+				0.29411764705882354,
+				0.4823529411764706,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Noise",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Noise",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 47,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -2000,
+						"y": -2000,
+						"width": 5280,
+						"height": 4720,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.400000006
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 729372024979846,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
 				1
 			],
 			"isTransparent": true,

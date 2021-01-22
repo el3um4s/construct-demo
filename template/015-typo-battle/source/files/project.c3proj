@@ -16,16 +16,16 @@
 		},
 		{
 			"type": "plugin",
-			"id": "Sprite",
-			"name": "Sprite",
+			"id": "Text",
+			"name": "Text",
 			"author": "Scirra",
 			"version": "r232",
 			"bundled": false
 		},
 		{
 			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
+			"id": "Sprite",
+			"name": "Sprite",
 			"author": "Scirra",
 			"version": "r232",
 			"bundled": false
@@ -104,6 +104,14 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r232",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "scrollto",
 			"name": "Scroll To",
 			"author": "Scirra",
@@ -117,6 +125,22 @@
 			"author": "Scirra",
 			"version": "r232",
 			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "dropshadow",
+			"name": "Drop Shadow",
+			"author": "Ludonaut / Somebody",
+			"version": "0.1",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "outline",
+			"name": "Outline",
+			"author": "Richard Lems",
+			"version": "1.0.0.0",
+			"bundled": false
 		}
 	],
 	"uniqueId": "9rdprc03t04",
@@ -129,12 +153,12 @@
 			"Loader_Effect",
 			"AJAX",
 			"colors",
-			"Char_Spawn"
+			"Char_Spawn",
+			"Noise"
 		],
 		"subfolders": [
 			{
 				"items": [
-					"Grid_Line",
 					"Grid_Light",
 					"Grid_Dark"
 				],
@@ -143,7 +167,6 @@
 			},
 			{
 				"items": [
-					"Char_Box",
 					"Char_Label",
 					"Char",
 					"Particles"
@@ -454,7 +477,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-21.01.21",
+		"version": "demo-21.01.22",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

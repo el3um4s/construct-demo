@@ -4,5 +4,11 @@
 	"sid": 362014755659175,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": []
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 625161281074112
+		}
+	]
 }

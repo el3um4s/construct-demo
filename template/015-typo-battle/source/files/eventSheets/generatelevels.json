@@ -78,6 +78,22 @@
 							}
 						},
 						{
+							"id": "move-to-layer",
+							"objectClass": "Label_NameKeyboard",
+							"sid": 601774340157609,
+							"parameters": {
+								"layer": "\"Keyboard_Name\""
+							}
+						},
+						{
+							"id": "set-font-color",
+							"objectClass": "Label_NameKeyboard",
+							"sid": 817666041701620,
+							"parameters": {
+								"color": "rgbEx255(220, 220, 220)"
+							}
+						},
+						{
 							"id": "recreate-initial-objects",
 							"objectClass": "System",
 							"sid": 587526276718049,

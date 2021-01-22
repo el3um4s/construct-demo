@@ -112,12 +112,12 @@
 						{
 							"id": "shake",
 							"objectClass": "Center",
-							"sid": 313927136523778,
+							"sid": 786252862692532,
 							"behaviorType": "ScrollTo",
 							"parameters": {
-								"magnitude": "5",
+								"magnitude": "10",
 								"duration": "0.05",
-								"mode": "reducing-magnitude"
+								"mode": "constant-magnitude"
 							}
 						},
 						{

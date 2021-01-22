@@ -176,13 +176,56 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Key",
-							"sid": 197000978175362,
+							"sid": 157220521545580,
 							"parameters": {
-								"color": "rgbEx255(100, 210, 110)"
+								"color": "rgbEx255(37, 75, 123)"
 							}
 						}
 					],
-					"sid": 860006417303230
+					"sid": 860006417303230,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 449185224400264,
+									"parameters": {
+										"child": "Key_Border",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 799059464824621
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 390581151875686,
+									"parameters": {
+										"child": "Key_Label",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Key_Label",
+									"sid": 347193741698331,
+									"parameters": {
+										"color": "rgbEx255(220, 220, 220)"
+									}
+								}
+							],
+							"sid": 771413675572425
+						}
+					]
 				},
 				{
 					"functionName": "Keyboard_DecolorKey",
@@ -216,13 +259,65 @@
 						{
 							"id": "set-default-color",
 							"objectClass": "Key",
-							"sid": 957970392443336,
+							"sid": 360393090284311,
 							"parameters": {
-								"color": "rgbEx255(255, 255, 255)"
+								"color": "rgbEx255(220, 220, 220)"
 							}
 						}
 					],
-					"sid": 309057325396966
+					"sid": 309057325396966,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 920755831071402,
+									"parameters": {
+										"child": "Key_Border",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Key_Border",
+									"sid": 797969503433837,
+									"parameters": {
+										"color": "rgbEx255(37, 75, 123)"
+									}
+								}
+							],
+							"sid": 102903540689561
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Key",
+									"sid": 644691309132816,
+									"parameters": {
+										"child": "Key_Label",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-color",
+									"objectClass": "Key_Label",
+									"sid": 245237800646514,
+									"parameters": {
+										"color": "rgbEx255(37, 75, 123)"
+									}
+								}
+							],
+							"sid": 387292307903341
+						}
+					]
 				}
 			],
 			"sid": 641225690415394
