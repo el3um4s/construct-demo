@@ -37,11 +37,3 @@ export function mute(iframeId) { Globals.ytPlayer[iframeId]["player"].mute(); }
 export function unMute(iframeId) { Globals.ytPlayer[iframeId]["player"].unMute(); }
 
 export function lengthPlaylist(iframeId) { return Globals.ytPlayer[iframeId]["player"].getPlaylist().length; }
-
-export function hideControls(iframeId) {
-	Globals.ytPlayer[iframeId]["player"].hideVideoInfo();
-}
-
-export function showControls(iframeId) {
-	console.log(Globals.ytPlayer[iframeId]["player"]);
-}

@@ -117,7 +117,7 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "VideoYT.loadVideoById(localVars.iframeId, localVars.videoId);\nVideoYT.hideControls(localVars.iframeId);"
+							"script": "VideoYT.loadVideoById(localVars.iframeId, localVars.videoId);"
 						}
 					],
 					"sid": 190237502654480
