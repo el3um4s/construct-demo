@@ -39,6 +39,17 @@ My collection of demo projects for Construct 3
 [J-6i]: javascript/006-jsunit/preview.png
 [J-6]: javascript/006-jsunit
 [J-6d]: https://c3demo.stranianelli.com/javascript/006-jsunit/demo
+
+### JavaScript (Scripts Type: MODULE)
+
+|  |               |Name                                      | Demo        |
+|--|---------------|------------------------------------------|-------------|
+| 7|![image][J-7i] | [YouTube][J-7]                           |[Demo][J-7d] |
+
+[J-7i]: javascript/007-youtube/preview.png
+[J-7]: javascript/007-youtube
+[J-7d]: https://c3demo.stranianelli.com/javascript/007-youtube/demo
+
 ### Template
 
 |  |               |Name                                      | Demo        |

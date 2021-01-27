@@ -1,0 +1,15 @@
+{
+	"name": "Playlist",
+	"plugin-id": "Button",
+	"sid": 919804873132788,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "videoId",
+			"type": "string",
+			"desc": "",
+			"sid": 373368561453949
+		}
+	],
+	"behaviorTypes": []
+}

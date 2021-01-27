@@ -1,0 +1,8 @@
+{
+	"name": "Mute",
+	"plugin-id": "Button",
+	"sid": 500260163099216,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": []
+}

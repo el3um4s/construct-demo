@@ -1,0 +1,369 @@
+{
+	"name": "Game",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 383393987835831
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 190622504900533,
+					"parameters": {
+						"object": "iframe"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "initializeVideo",
+					"sid": 662377077921633,
+					"parameters": [
+						"iframe.iframeId"
+					]
+				},
+				{
+					"callFunction": "createVideo",
+					"sid": 993172857447559,
+					"parameters": [
+						"iframe.iframeId"
+					]
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 666261980880331
+				},
+				{
+					"callFunction": "mute",
+					"sid": 536497749242559,
+					"parameters": [
+						"iframe.iframeId"
+					]
+				},
+				{
+					"callFunction": "loadVideoById",
+					"sid": 839030085509737,
+					"parameters": [
+						"iframe.iframeId",
+						"iframe.videoId"
+					]
+				}
+			],
+			"sid": 755621461294885
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Play",
+							"sid": 510688714661314
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlayAllVideos",
+							"sid": 545984250801264
+						}
+					],
+					"sid": 452027821937019
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Pause",
+							"sid": 686329431432948
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PauseAllVideos",
+							"sid": 932898861341421
+						}
+					],
+					"sid": 305795860794040
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Stop",
+							"sid": 977755010614721
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "StopAllVideos",
+							"sid": 761038173769757
+						}
+					],
+					"sid": 716578163773135
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Mute",
+							"sid": 833937770073084
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "MuteAllVideos",
+							"sid": 887526701874555
+						}
+					],
+					"sid": 663627110948623
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Unmute",
+							"sid": 665250972250990
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "UnMuteAllVideos",
+							"sid": 892102525294259
+						}
+					],
+					"sid": 110535700507492
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Playlist",
+							"sid": 134968544519694
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "PlaylistForAllVideo",
+							"sid": 499554870472239,
+							"parameters": [
+								"Playlist.videoId"
+							]
+						}
+					],
+					"sid": 749055786813929
+				}
+			],
+			"sid": 773966119751837
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Functions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "PlayAllVideos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 190144505399879,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "playVideo",
+							"sid": 529318882786136,
+							"parameters": [
+								"iframe.iframeId"
+							]
+						}
+					],
+					"sid": 434074208289776
+				},
+				{
+					"functionName": "PauseAllVideos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 768643727214630,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "pauseVideo",
+							"sid": 112136082276757,
+							"parameters": [
+								"iframe.iframeId"
+							]
+						}
+					],
+					"sid": 838666816051971
+				},
+				{
+					"functionName": "StopAllVideos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 932543687241292,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "stopVideo",
+							"sid": 591757454988322,
+							"parameters": [
+								"iframe.iframeId"
+							]
+						}
+					],
+					"sid": 253839044649070
+				},
+				{
+					"functionName": "MuteAllVideos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 295145473898518,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "mute",
+							"sid": 552537670520271,
+							"parameters": [
+								"iframe.iframeId"
+							]
+						}
+					],
+					"sid": 149506459173658
+				},
+				{
+					"functionName": "UnMuteAllVideos",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 234550908151551,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "unMute",
+							"sid": 964674893445277,
+							"parameters": [
+								"iframe.iframeId"
+							]
+						}
+					],
+					"sid": 891234313475673
+				},
+				{
+					"functionName": "PlaylistForAllVideo",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 865850438955604
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 505976195879276,
+							"parameters": {
+								"object": "iframe"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "loadPlaylist",
+							"sid": 760946148266800,
+							"parameters": [
+								"iframe.iframeId",
+								"videoId"
+							]
+						}
+					],
+					"sid": 497338827048524
+				}
+			],
+			"sid": 957771124334966
+		}
+	],
+	"sid": 465239676473643
+}

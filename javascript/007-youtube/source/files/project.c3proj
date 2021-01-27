@@ -1,0 +1,317 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 23300,
+	"name": "YouTube",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "iframe",
+			"name": "iframe",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "scanlines",
+			"name": "Scan lines",
+			"author": "Scirra",
+			"version": "r233",
+			"bundled": false
+		}
+	],
+	"uniqueId": "2vlxitro0at",
+	"objectTypes": {
+		"items": [
+			"iframe",
+			"Noise",
+			"Browser"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"TB_White",
+					"Mute",
+					"Pause",
+					"Play",
+					"Stop",
+					"Unmute",
+					"Playlist"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"Loader_Effect",
+					"Loader_Image_Logo"
+				],
+				"subfolders": [],
+				"name": "Loader"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Loader",
+			"Game"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Loader",
+			"Game",
+			"VideoYT"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 516484773858941,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "youTube.js",
+					"type": "application/javascript",
+					"sid": 621725912608527,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importForEvents.js",
+					"type": "application/javascript",
+					"sid": 770460999130221,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "globals.js",
+					"type": "application/javascript",
+					"sid": 494465490999473,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "videoYT.js",
+					"type": "application/javascript",
+					"sid": 611335326360170,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Roboto-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 250386425400106
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 849086334815372,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 315003885666070,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 801863986099279,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 216681907449627,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 125007252963174,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 139739376844272,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 980911642829040,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "mystyle.css",
+					"type": "text/css",
+					"sid": 522005662659608
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "Demo-21.01.26",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": true,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.0392156862745098,
+			0.0392156862745098,
+			0.0392156862745098,
+			0
+		],
+		"splashColor": [
+			0.0392156862745098,
+			0.0392156862745098,
+			0.0392156862745098,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 854,
+	"viewportHeight": 480,
+	"firstLayout": "Loader"
+}

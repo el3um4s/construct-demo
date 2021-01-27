@@ -1,0 +1,21 @@
+{
+	"name": "iframe",
+	"plugin-id": "iframe",
+	"sid": 949433437953917,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "iframeId",
+			"type": "string",
+			"desc": "",
+			"sid": 960430331596234
+		},
+		{
+			"name": "videoId",
+			"type": "string",
+			"desc": "",
+			"sid": 244521711787570
+		}
+	],
+	"behaviorTypes": []
+}

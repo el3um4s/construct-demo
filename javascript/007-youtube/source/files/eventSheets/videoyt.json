@@ -1,0 +1,451 @@
+{
+	"name": "VideoYT",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "VideoYT",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "initializeVideo",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 880259002337117
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.initializeVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 238594459485839
+				},
+				{
+					"functionName": "createVideo",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 397036101065174
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "await VideoYT.createVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 289014831231891
+				},
+				{
+					"functionName": "cueVideoById",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 888234893239400
+						},
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 244637153743413
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.cueVideoById(localVars.iframeId, localVars.videoId);"
+						}
+					],
+					"sid": 218579334179453
+				},
+				{
+					"functionName": "loadVideoById",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 946331527765618
+						},
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 644420872529098
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.loadVideoById(localVars.iframeId, localVars.videoId);\nVideoYT.hideControls(localVars.iframeId);"
+						}
+					],
+					"sid": 190237502654480
+				},
+				{
+					"functionName": "loadVideoByUrl",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 287051980197314
+						},
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 141878110290489
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.loadVideoByUrl(localVars.iframeId, localVars.videoId);"
+						}
+					],
+					"sid": 450936108728717
+				},
+				{
+					"functionName": "loadPlaylist",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 231817214001075
+						},
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 952144272917194
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.loadPlaylist(localVars.iframeId, localVars.videoId);"
+						}
+					],
+					"sid": 264106014337306
+				},
+				{
+					"functionName": "loadPlaylistShuffled",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 468057160415192
+						},
+						{
+							"name": "videoId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 707972848653371
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.loadPlaylist(localVars.iframeId, localVars.videoId);\nVideoYT.setShuffleTrue(localVars.iframeId);\nVideoYT.setLoopTrue(localVars.iframeId)"
+						}
+					],
+					"sid": 115711357973676
+				},
+				{
+					"functionName": "setLoopTrue",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 793511427766509
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.playVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 661794466143982
+				},
+				{
+					"functionName": "setLoopFalse",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 375780696731420
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.playVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 378800793929600
+				},
+				{
+					"functionName": "setShuffleTrue",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 620445360261656
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.playVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 851942708634676
+				},
+				{
+					"functionName": "setShuffleFalse",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 818282215247160
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.playVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 674686898205831
+				},
+				{
+					"functionName": "playVideo",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 865823331629761
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.playVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 424694678396069
+				},
+				{
+					"functionName": "pauseVideo",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 153753737666105
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.pauseVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 324934533014048
+				},
+				{
+					"functionName": "stopVideo",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 744889333506348
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.stopVideo(localVars.iframeId);"
+						}
+					],
+					"sid": 692914992989933
+				},
+				{
+					"functionName": "mute",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 784639884589826
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.mute(localVars.iframeId);"
+						}
+					],
+					"sid": 203426546086127
+				},
+				{
+					"functionName": "unMute",
+					"functionDescription": "",
+					"functionCategory": "YouTube",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "iframeId",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 118866845050080
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "VideoYT.unMute(localVars.iframeId);"
+						}
+					],
+					"sid": 806565096273118
+				}
+			],
+			"sid": 732277670190955
+		}
+	],
+	"sid": 970086389273542
+}

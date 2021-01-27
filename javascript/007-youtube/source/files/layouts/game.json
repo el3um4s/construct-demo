@@ -1,0 +1,578 @@
+{
+	"name": "Game",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [],
+			"sid": 702109079058590,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.0392156862745098,
+				0.0392156862745098,
+				0.0392156862745098,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "TB_White",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 3,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 648,
+						"y": 128,
+						"width": 168,
+						"height": 128,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "TB_White",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 13,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 648,
+						"y": 272,
+						"width": 168,
+						"height": 88,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.5
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Play",
+					"properties": {
+						"type": "button",
+						"text": "Play",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 5,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 132,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Stop",
+					"properties": {
+						"type": "button",
+						"text": "Stop",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 7,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 180,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Pause",
+					"properties": {
+						"type": "button",
+						"text": "Pause",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 9,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 156,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Mute",
+					"properties": {
+						"type": "button",
+						"text": "Mute",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 204,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Unmute",
+					"properties": {
+						"type": "button",
+						"text": "Unmute",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 12,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 228,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Playlist",
+					"properties": {
+						"type": "button",
+						"text": "Making Your First Game",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 52,
+					"instanceVariables": {
+						"videoId": "extraCredits"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 276,
+						"width": 160,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Playlist",
+					"properties": {
+						"type": "button",
+						"text": "Ask Gamedev 2020",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 53,
+					"instanceVariables": {
+						"videoId": "askGamdev"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 652,
+						"y": 316,
+						"width": 160,
+						"height": 40,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				}
+			],
+			"sid": 139744113381469,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "YouTube",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "iframe",
+					"properties": {
+						"url": "https://www.youtube.com/embed/pWiC5Ln_0yA?enablejsapi=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0",
+						"html": "",
+						"initially-visible": true,
+						"id": "youtube_A",
+						"allow": "fullscreen; autoplay; encrypted-media",
+						"enable-sandbox": false,
+						"sandbox": "allow-scripts"
+					},
+					"uid": 2,
+					"instanceVariables": {
+						"iframeId": "youtube_A",
+						"videoId": "pWiC5Ln_0yA"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 100,
+						"y": 96,
+						"width": 248,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "iframe",
+					"properties": {
+						"url": "https://www.youtube.com/embed/pWiC5Ln_0yA?enablejsapi=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0",
+						"html": "",
+						"initially-visible": true,
+						"id": "youtube_B",
+						"allow": "fullscreen; autoplay; encrypted-media",
+						"enable-sandbox": false,
+						"sandbox": "allow-scripts"
+					},
+					"uid": 6,
+					"instanceVariables": {
+						"iframeId": "youtube_B",
+						"videoId": "Ek0SgwWmF9w"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 96,
+						"width": 248,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "iframe",
+					"properties": {
+						"url": "https://www.youtube.com/embed/pWiC5Ln_0yA?enablejsapi=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0",
+						"html": "",
+						"initially-visible": true,
+						"id": "tv",
+						"allow": "fullscreen; autoplay; encrypted-media",
+						"enable-sandbox": false,
+						"sandbox": "allow-scripts"
+					},
+					"uid": 8,
+					"instanceVariables": {
+						"iframeId": "tv",
+						"videoId": "z06QR-tz1_o"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 100,
+						"y": 248,
+						"width": 248,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "iframe",
+					"properties": {
+						"url": "https://www.youtube.com/embed/pWiC5Ln_0yA?enablejsapi=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0",
+						"html": "",
+						"initially-visible": true,
+						"id": "circle",
+						"allow": "fullscreen; autoplay; encrypted-media",
+						"enable-sandbox": false,
+						"sandbox": "allow-scripts"
+					},
+					"uid": 10,
+					"instanceVariables": {
+						"iframeId": "circle",
+						"videoId": "F7j5h03W3CA"
+					},
+					"behaviors": {},
+					"world": {
+						"x": 352,
+						"y": 248,
+						"width": 248,
+						"height": 144,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				}
+			],
+			"sid": 204951241634918,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Noise",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Noise",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"wrap-horizontal": "repeat",
+						"wrap-vertical": "repeat",
+						"image-offset-x": 0,
+						"image-offset-y": 0,
+						"image-scale-x": 1,
+						"image-scale-y": 1,
+						"image-angle": 0
+					},
+					"uid": 4,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": -2400,
+						"y": -2464,
+						"width": 5280,
+						"height": 4720,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							0.400000006
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 416122324410933,
+			"effectTypes": [
+				{
+					"effectId": "scanlines",
+					"name": "ScanLines",
+					"instance": {
+						"parameters": {
+							"line-height": 2
+						}
+					}
+				}
+			],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 750646341107599,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 854,
+	"height": 480,
+	"unboundedScrolling": false,
+	"eventSheet": "Game"
+}

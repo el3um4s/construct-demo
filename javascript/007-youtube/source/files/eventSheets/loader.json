@@ -1,0 +1,123 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "check_loading_youtube",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 917931959733270
+		},
+		{
+			"eventType": "variable",
+			"name": "check_loading_loader_layout",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 946637500850951
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 514846989009936
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 174408266519697,
+					"parameters": {
+						"url": "\"mystyle.css\""
+					}
+				},
+				{
+					"type": "script",
+					"script": "await YouTube.LoadAPI();\ng_runtime.globalVars.check_loading_youtube = true;"
+				}
+			],
+			"sid": 403400550689089
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 229656762531727
+				}
+			],
+			"actions": [
+				{
+					"id": "set-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 704475400121714,
+					"parameters": {
+						"variable": "check_loading_loader_layout",
+						"value": "true"
+					}
+				}
+			],
+			"sid": 512153299247799
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 414429420949097,
+					"parameters": {
+						"variable": "check_loading_loader_layout"
+					}
+				},
+				{
+					"id": "compare-boolean-eventvar",
+					"objectClass": "System",
+					"sid": 624489372468197,
+					"parameters": {
+						"variable": "check_loading_youtube"
+					}
+				},
+				{
+					"id": "trigger-once-while-true",
+					"objectClass": "System",
+					"sid": 693228224645272
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 252242886395902,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 998021760019761
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 837903105267183,
+					"parameters": {
+						"layout": "Game"
+					}
+				}
+			],
+			"sid": 654148309469265
+		}
+	],
+	"sid": 931198986618869
+}
