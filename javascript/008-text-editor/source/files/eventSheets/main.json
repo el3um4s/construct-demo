@@ -1,0 +1,217 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 485767016153829
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const textEditor = document.getElementById(\"text-editor\");\nForceFontSize.setObserverFontSize(textEditor, \"24px\");\n\nconst buttons = document.querySelectorAll('input[type=\"button\"]');\nbuttons.forEach(button => ForceFontSize.setObserverFontSize(button, \"16px\"));\n\nKeyboardShortcuts.addListeners_General(textEditor);\nKeyboardShortcuts.addListeners_General(document);\nKeyboardShortcuts.addListener_Keyboard(textEditor);\n"
+				},
+				{
+					"id": "set-focused",
+					"objectClass": "TextInput",
+					"sid": 183671139620981
+				}
+			],
+			"sid": 292869826190752
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Buttons",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "NewFile",
+							"sid": 328578837186034
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "ManageFiles.newFile();"
+						}
+					],
+					"sid": 891517399523904
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Open",
+							"sid": 245971968693853
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "ManageFiles.openFile();"
+						}
+					],
+					"sid": 536569552588818
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Save",
+							"sid": 505911258267611
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "ManageFiles.saveFile();"
+						}
+					],
+					"sid": 526148772735446
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "SaveAs",
+							"sid": 944794262037651
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "ManageFiles.saveAs();"
+						}
+					],
+					"sid": 357772330634441
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "ReloadFile",
+							"sid": 390649742101456
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "ManageFiles.reloadFile();"
+						}
+					],
+					"sid": 740890383066548
+				}
+			],
+			"sid": 467990954585868
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Resize Canvas",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ResizeCanvas",
+					"functionDescription": "",
+					"functionCategory": "Resize",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-canvas-size",
+							"objectClass": "System",
+							"sid": 844477364844997,
+							"parameters": {
+								"width": "PlatformInfo.WindowInnerWidth-8",
+								"height": "PlatformInfo.WindowInnerHeight-8"
+							}
+						}
+					],
+					"sid": 245631979164701
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 554193340418135
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 991163309712324
+						}
+					],
+					"sid": 959681061719600
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-resized",
+							"objectClass": "Browser",
+							"sid": 927433411123164
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 410265800377450
+						}
+					],
+					"sid": 988916407592954
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 451989882679064,
+							"parameters": {
+								"interval-seconds": "1/24"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 216006735334413,
+							"parameters": {
+								"value": "((PlatformInfo.WindowInnerWidth-8) <> PlatformInfo.CanvasCssWidth) | ((PlatformInfo.WindowInnerHeight-8)<>PlatformInfo.CanvasCssHeight)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 409778765093141
+						}
+					],
+					"sid": 467395827791631
+				}
+			],
+			"sid": 142036046419760
+		}
+	],
+	"sid": 199407119769402
+}

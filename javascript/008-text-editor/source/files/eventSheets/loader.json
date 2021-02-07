@@ -1,0 +1,70 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 192232893603548
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 245166168383803,
+					"parameters": {
+						"url": "\"styleTextInput.css\""
+					}
+				},
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 110839335023332,
+					"parameters": {
+						"width": "PlatformInfo.WindowInnerWidth-8",
+						"height": "PlatformInfo.WindowInnerHeight-8"
+					}
+				}
+			],
+			"sid": 995141068643816
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 605404304622978
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 536782645750226,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 760807852478092
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 257617374582118,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 980508424752743
+		}
+	],
+	"sid": 173665395191630
+}

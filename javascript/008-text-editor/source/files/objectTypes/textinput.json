@@ -1,0 +1,14 @@
+{
+	"name": "TextInput",
+	"plugin-id": "TextBox",
+	"sid": 833421862206921,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 749355829045479
+		}
+	]
+}

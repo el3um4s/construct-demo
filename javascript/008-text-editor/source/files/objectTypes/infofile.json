@@ -1,0 +1,15 @@
+{
+	"name": "InfoFile",
+	"plugin-id": "Text",
+	"sid": 343761066203192,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 315763051023067
+		}
+	],
+	"effectTypes": []
+}

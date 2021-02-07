@@ -1,0 +1,14 @@
+{
+	"name": "SaveAs",
+	"plugin-id": "Button",
+	"sid": 528569681161848,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 676120064441600
+		}
+	]
+}

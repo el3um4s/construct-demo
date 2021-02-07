@@ -1,0 +1,14 @@
+{
+	"name": "ReloadFile",
+	"plugin-id": "Button",
+	"sid": 906108634417237,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 631054588363252
+		}
+	]
+}

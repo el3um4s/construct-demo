@@ -1,0 +1,14 @@
+{
+	"name": "Open",
+	"plugin-id": "Button",
+	"sid": 680944081730608,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 387155345880512
+		}
+	]
+}

@@ -45,10 +45,15 @@ My collection of demo projects for Construct 3
 |  |               |Name                                      | Demo        |
 |--|---------------|------------------------------------------|-------------|
 | 7|![image][J-7i] | [YouTube][J-7]                           |[Demo][J-7d] |
+| 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
 [J-7d]: https://c3demo.stranianelli.com/javascript/007-youtube/demo
+
+[J-8i]: javascript/008-text-editor/preview.png
+[J-8]: javascript/008-text-editor
+[J-8d]: https://c3demo.stranianelli.com/javascript/008-text-editor/demo
 
 ### Template
 
@@ -129,6 +134,7 @@ My collection of demo projects for Construct 3
 [T-15i]: template/015-typo-battle/preview.png
 [T-15]: template/015-typo-battle
 [T-15d]: template/015-typo-battle/demo
+
 ### User Interface
 
 |  |               |Name                                      | Demo        |
