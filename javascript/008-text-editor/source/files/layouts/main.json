@@ -141,7 +141,7 @@
 					"world": {
 						"x": 344,
 						"y": 0,
-						"width": 160,
+						"width": 168,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,
@@ -219,9 +219,9 @@
 						}
 					},
 					"world": {
-						"x": 504,
+						"x": 512,
 						"y": 0,
-						"width": 104,
+						"width": 120,
 						"height": 32,
 						"originX": 0,
 						"originY": 0,

@@ -1,5 +1,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 
+import Globals from "./globals.js";
+
 export function setObserverFontSize(element, value = "16px") {
 	const MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
 	const config = {
@@ -8,6 +10,7 @@ export function setObserverFontSize(element, value = "16px") {
 		characterData: true,
 		subtree: false
 	};
+	
 	const observer = new MutationObserver(function(mutations) {
 		mutations.forEach(function(mutation) {
 			if (mutation.type === "attributes") {
@@ -16,5 +19,5 @@ export function setObserverFontSize(element, value = "16px") {
 			}
 		});
 	});
-	observer.observe(element, config);
+	Globals.observer.push(observer.observe(element, config));
 }

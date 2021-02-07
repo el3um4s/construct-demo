@@ -38,11 +38,6 @@ html, body, canvas {
 
 
 @font-face {
-	font-family: 'vt323-regular';
-	src: url('fonts/vt323-regular.ttf') format('truetype');
-}
-
-@font-face {
 	font-family: 'roboto-regular';
 	src: url('fonts/roboto-regular.ttf') format('truetype');
 }

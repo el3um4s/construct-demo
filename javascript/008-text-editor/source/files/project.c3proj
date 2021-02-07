@@ -201,11 +201,6 @@
 		"font": {
 			"items": [
 				{
-					"name": "VT323-Regular.ttf",
-					"type": "application/font-sfnt",
-					"sid": 227351333952505
-				},
-				{
 					"name": "Roboto-Regular.ttf",
 					"type": "application/font-sfnt",
 					"sid": 706114365318392

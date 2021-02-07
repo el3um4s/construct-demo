@@ -1,7 +1,7 @@
 const Globals = {
 	fileHandle: null,
 	fileName: null,
-	observer: null,
+	observer: [],
 	ctrlPressed: false,
 	shiftPressed: false,
 	altPressed: false
