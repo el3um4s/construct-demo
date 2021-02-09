@@ -1,0 +1,137 @@
+{
+	"name": "ePrinter",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 390929299545051
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "printText",
+					"sid": 850279340299399,
+					"parameters": [
+						"txtOutput.UID",
+						"\"This is printing\""
+					]
+				}
+			],
+			"sid": 466886148804888,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-ordered",
+							"objectClass": "System",
+							"sid": 429539815967846,
+							"parameters": {
+								"object": "othersOutput",
+								"expression": "othersOutput.X",
+								"order": "ascending"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = runtime.objects.othersOutput.getFirstPickedInstance();\n\nPrinter.printText(instance.uid, \"Random: \" + Math.ceil(Math.random(0,1)*100))"
+						}
+					],
+					"sid": 994147930737389
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 701779554691829,
+					"parameters": {
+						"interval-seconds": "choose(0.9,1,1.2,1.4,1.6,2,2.1)"
+					}
+				},
+				{
+					"id": "pick-random-instance",
+					"objectClass": "System",
+					"sid": 756612358507004,
+					"parameters": {
+						"object": "othersOutput"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const instance = runtime.objects.othersOutput.getFirstPickedInstance();\nPrinter.printText_Instance(instance,\"Char: \" + choose(\"A\",\"B\",\"C\",\"D\",\"E\",\"F\",\"G\",\"H\",\"I\",\"L\",\"M\",\"N\"))"
+				},
+				{
+					"id": "shake",
+					"objectClass": "Shaker",
+					"sid": 624001518045599,
+					"behaviorType": "ScrollTo",
+					"parameters": {
+						"magnitude": "10",
+						"duration": "0.2",
+						"mode": "reducing-magnitude"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "othersOutput",
+					"sid": 831597203929612,
+					"parameters": {
+						"color": "choose(rgbEx255(240,10,10), rgbEx255(10,240,10),rgbEx255(10,10,240),rgbEx255(240,240,10),rgbEx255(240,10,240),rgbEx255(200,200,200))"
+					}
+				},
+				{
+					"id": "flash",
+					"objectClass": "othersOutput",
+					"sid": 121771234505059,
+					"behaviorType": "Flash",
+					"parameters": {
+						"on-time": "0.1",
+						"off-time": "0.1",
+						"duration": "1.0"
+					}
+				},
+				{
+					"id": "create-object",
+					"objectClass": "System",
+					"sid": 317346191972761,
+					"parameters": {
+						"object-to-create": "Particles",
+						"layer": "othersOutput.LayerName",
+						"x": "othersOutput.X",
+						"y": "othersOutput.Y",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 191897047829894,
+					"parameters": {
+						"seconds": "1"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "othersOutput",
+					"sid": 152711963448642,
+					"parameters": {
+						"color": "rgbEx255(240,240,240)"
+					}
+				}
+			],
+			"sid": 243454425286251
+		}
+	],
+	"sid": 719583430020800
+}

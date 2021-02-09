@@ -1,0 +1,40 @@
+{
+	"name": "Start",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [],
+			"sid": 330088426339383,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				1,
+				1,
+				1,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 579266885692449,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 634,
+	"height": 390,
+	"unboundedScrolling": false,
+	"eventSheet": "eStart"
+}

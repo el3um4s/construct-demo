@@ -1,0 +1,27 @@
+{
+	"name": "eStart",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 570148901824998
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 242579397819509,
+					"parameters": {
+						"layout": "Print"
+					}
+				}
+			],
+			"sid": 582459320126729
+		}
+	],
+	"sid": 119025847463088
+}

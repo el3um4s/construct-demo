@@ -1,0 +1,48 @@
+{
+	"name": "Printer",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Printer",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "printText",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "uid",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 872035916195282
+						},
+						{
+							"name": "text",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 482202747396742
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "Printer.printText(localVars.uid, localVars.text);"
+						}
+					],
+					"sid": 992667293802460
+				}
+			],
+			"sid": 189007321770078
+		}
+	],
+	"sid": 699801835811046
+}

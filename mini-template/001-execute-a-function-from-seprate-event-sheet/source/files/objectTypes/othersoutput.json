@@ -1,0 +1,15 @@
+{
+	"name": "othersOutput",
+	"plugin-id": "Text",
+	"sid": 339349878728708,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 525806748651221
+		}
+	],
+	"effectTypes": []
+}
