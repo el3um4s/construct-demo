@@ -166,6 +166,6 @@ My collection of demo projects for Construct 3
 |--|---------------|--------------------------------------------------------|-------------|
 | 1|![image][MT-1i] | [Execute a function from separate event sheet][MT-1]  |[Demo][MT-1d]|
 
-[MT-1i]: mini-template/001-execute-a-function-from-seprate-event-sheet/preview.png
-[MT-1]: mini-template/001-execute-a-function-from-seprate-event-sheet
-[MT-1d]: mini-template/001-execute-a-function-from-seprate-event-sheet/demo
+[MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
+[MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
+[MT-1d]: mini-template/001-execute-a-function-from-separate-event-sheet/demo
