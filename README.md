@@ -46,6 +46,7 @@ My collection of demo projects for Construct 3
 |--|---------------|------------------------------------------|-------------|
 | 7|![image][J-7i] | [YouTube][J-7]                           |[Demo][J-7d] |
 | 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |
+| 9|![image][J-9i] | [Mesh and Shapes][J-9]                   |[Demo][J-9d] |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
@@ -54,6 +55,10 @@ My collection of demo projects for Construct 3
 [J-8i]: javascript/008-text-editor/preview.png
 [J-8]: javascript/008-text-editor
 [J-8d]: https://c3demo.stranianelli.com/javascript/008-text-editor/demo
+
+[J-9i]: javascript/009-mesh-and-shapes/preview.png
+[J-9]: javascript/009-mesh-and-shapes
+[J-9d]: https://c3demo.stranianelli.com/javascript/009-mesh-and-shapes/demo
 
 ### Template
 

@@ -1,0 +1,123 @@
+{
+	"name": "Mesh",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mesh",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Mesh_Shape",
+					"functionDescription": "",
+					"functionCategory": "Mesh",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 731041785583205
+						},
+						{
+							"name": "Shape",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 534412756313543
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst shape = MeshPremadeShapes[localVars.Shape.toLowerCase()];\n\nMesh.setSizeShape(instance, shape);\nMesh.drawShape(instance, shape);"
+						}
+					],
+					"sid": 594125093826947
+				},
+				{
+					"functionName": "Mesh_RandomizeMargins",
+					"functionDescription": "",
+					"functionCategory": "Mesh",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 722774934244186
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5);\nconst rows = Utils.choose(3,4,5);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomizeMargins(instance, {min:-0.4, max:0.4});"
+						}
+					],
+					"sid": 100162397944428
+				},
+				{
+					"functionName": "Mesh_Remove",
+					"functionDescription": "",
+					"functionCategory": "Mesh",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 865312422660643
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\n\nMesh.removeMesh(instance);"
+						}
+					],
+					"sid": 648092249568918
+				},
+				{
+					"functionName": "Mesh_Randomize",
+					"functionDescription": "",
+					"functionCategory": "Mesh",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 495238551942648
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5);\nconst rows = Utils.choose(3,4,5);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomize(instance);"
+						}
+					],
+					"sid": 321825099925620
+				}
+			],
+			"sid": 631673042141087
+		}
+	],
+	"sid": 440346622493807
+}

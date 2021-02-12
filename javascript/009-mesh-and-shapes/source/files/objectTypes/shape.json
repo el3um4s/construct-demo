@@ -1,0 +1,15 @@
+{
+	"name": "Shape",
+	"plugin-id": "Button",
+	"sid": 581505407806224,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Shape",
+			"type": "string",
+			"desc": "",
+			"sid": 878801187400237
+		}
+	],
+	"behaviorTypes": []
+}

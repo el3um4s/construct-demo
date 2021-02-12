@@ -1,0 +1,91 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Reset",
+					"sid": 502072143496543
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 719976271284785,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Mesh_Remove",
+					"sid": 400757502486454,
+					"parameters": [
+						"Sprite.UID"
+					]
+				}
+			],
+			"sid": 682401969412507
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Randomize_Margin",
+					"sid": 302491430949166
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 797340873975627,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Mesh_RandomizeMargins",
+					"sid": 263101791177500,
+					"parameters": [
+						"Sprite.UID"
+					]
+				}
+			],
+			"sid": 547410678830570
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Shape",
+					"sid": 507001068979211
+				},
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 235472292573344,
+					"parameters": {
+						"object": "Sprite"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Mesh_Shape",
+					"sid": 445771705290019,
+					"parameters": [
+						"Sprite.UID",
+						"Shape.Shape"
+					]
+				}
+			],
+			"sid": 515601047641035
+		}
+	],
+	"sid": 421238421055132
+}
