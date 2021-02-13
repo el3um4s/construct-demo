@@ -37,3 +37,18 @@ html, body, canvas {
 }
 
 
+@font-face {
+	font-family: 'cryptik';
+	src: url('fonts/cryptik.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'vt323-regular';
+	src: url('fonts/vt323-regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'kenney blocks';
+	src: url('fonts/kenney blocks.ttf') format('truetype');
+}
+

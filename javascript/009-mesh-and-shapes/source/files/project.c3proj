@@ -31,6 +31,22 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r235",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r235",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Sin",
 			"name": "Sine",
@@ -64,7 +80,11 @@
 			"Loader_Image_Logo",
 			"Loader_Effect",
 			"Noise",
-			"Shape"
+			"Shape",
+			"Randomize",
+			"TiledBackground",
+			"Text",
+			"List"
 		],
 		"subfolders": []
 	},
@@ -155,7 +175,23 @@
 			"subfolders": []
 		},
 		"font": {
-			"items": [],
+			"items": [
+				{
+					"name": "Cryptik.ttf",
+					"type": "application/font-sfnt",
+					"sid": 279747695214307
+				},
+				{
+					"name": "VT323-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 548894493382017
+				},
+				{
+					"name": "Kenney Blocks.ttf",
+					"type": "application/font-sfnt",
+					"sid": 168343029441003
+				}
+			],
 			"subfolders": []
 		},
 		"icon": {
@@ -235,7 +271,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "Demo 2021.02.12",
+		"version": "Demo 2021.02.13",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",

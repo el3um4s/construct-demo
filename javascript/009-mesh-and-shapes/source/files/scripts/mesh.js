@@ -19,15 +19,13 @@ export function setSizeShape(instance, shape){
 export function drawShape(instance, shape) {
 	const points = shape.points;
 	points.forEach(point => setMeshPointAbsolute(instance, point));
-	return instance;
 }
 
 export function randomize(instance, { min = -0.5, max = 0.5 } = {}) {
-	const { lastRow } = getMeshSize(instance);
-	for (let row = 0; row < lastRow; row++){
+	const { rows } = getMeshSize(instance);
+	for (let row = 0; row < rows; row++){
 		randomizeRow(instance, {row, min, max});
 	}
-	return instance;
 }
 
 export function randomizeMargins(instance, { min = -0.5, max = 0.5 } = {}){
@@ -36,7 +34,6 @@ export function randomizeMargins(instance, { min = -0.5, max = 0.5 } = {}){
 	randomizeRow(instance, {row: lastRow, min, max});
 	randomizeColumn(instance, {col: 0, min, max});
 	randomizeColumn(instance, {col: lastColumn, min, max});
-	return instance;
 }
 
 export function randomizeRow(instance, {row = 0, min = -0.5, max = 0.5 } = {}) {
@@ -45,7 +42,6 @@ export function randomizeRow(instance, {row = 0, min = -0.5, max = 0.5 } = {}) {
   		const value = getRandomArbitraryXY(min, max);
 		setMeshPointRelative(instance, {col, row, ...value});
 	}
-	return instance;
 }
 
 export function randomizeColumn(instance, {col = 0, min = -0.5, max = 0.5 } = {}) {
@@ -54,7 +50,6 @@ export function randomizeColumn(instance, {col = 0, min = -0.5, max = 0.5 } = {}
   		const value = getRandomArbitraryXY(min, max);
 		setMeshPointRelative(instance, {col, row, ...value});
 	}
-	return instance;
 }
 
 function getRandomArbitraryXY(min, max) {

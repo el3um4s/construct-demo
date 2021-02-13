@@ -60,10 +60,35 @@
 					"actions": [
 						{
 							"type": "script",
-							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5);\nconst rows = Utils.choose(3,4,5);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomizeMargins(instance, {min:-0.4, max:0.4});"
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5,6,7,8);\nconst rows = Utils.choose(3,4,5,6,7,8);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomizeMargins(instance, {min:-0.2, max:0.2});"
 						}
 					],
 					"sid": 100162397944428
+				},
+				{
+					"functionName": "Mesh_Randomize",
+					"functionDescription": "",
+					"functionCategory": "Mesh",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "UID",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"sid": 823752488230620
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5,6,7,8);\nconst rows = Utils.choose(3,4,5,6,7,8);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomize(instance, {min:-0.5, max:0.5});"
+						}
+					],
+					"sid": 576820087253247
 				},
 				{
 					"functionName": "Mesh_Remove",
@@ -89,31 +114,6 @@
 						}
 					],
 					"sid": 648092249568918
-				},
-				{
-					"functionName": "Mesh_Randomize",
-					"functionDescription": "",
-					"functionCategory": "Mesh",
-					"functionReturnType": "none",
-					"functionIsAsync": false,
-					"functionParameters": [
-						{
-							"name": "UID",
-							"type": "number",
-							"initialValue": "0",
-							"comment": "",
-							"sid": 495238551942648
-						}
-					],
-					"eventType": "function-block",
-					"conditions": [],
-					"actions": [
-						{
-							"type": "script",
-							"script": "const instance = g_runtime.getInstanceByUid(localVars.UID);\nconst columns = Utils.choose(3,4,5);\nconst rows = Utils.choose(3,4,5);\n\nMesh.createMesh(instance, {columns, rows});\nMesh.randomize(instance);"
-						}
-					],
-					"sid": 321825099925620
 				}
 			],
 			"sid": 631673042141087
