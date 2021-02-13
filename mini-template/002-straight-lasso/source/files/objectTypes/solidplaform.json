@@ -1,0 +1,26 @@
+{
+	"name": "SolidPlaform",
+	"plugin-id": "TiledBg",
+	"sid": 959040063380384,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 401293324753130
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 1.953125,
+		"originY": 1.953125,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 998947,
+		"useCollisionPoly": true
+	}
+}

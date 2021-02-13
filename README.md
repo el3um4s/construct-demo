@@ -169,8 +169,13 @@ My collection of demo projects for Construct 3
 
 |  |               |Name                                                    | Demo        |
 |--|---------------|--------------------------------------------------------|-------------|
-| 1|![image][MT-1i] | [Execute a function from separate event sheet][MT-1]  |[Demo][MT-1d]|
+| 1|![image][MT-1i]| [Execute a function from separate event sheet][MT-1 ]  |[Demo][MT-1d]|
+| 2|![image][MT-2i]| [Straight Lasso][MT-2]                                 |[Demo][MT-2d]|
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
 [MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
 [MT-1d]: mini-template/001-execute-a-function-from-separate-event-sheet/demo
+
+[MT-2i]: mini-template/002-straight-lasso/preview.png
+[MT-2]: mini-template/002-straight-lasso
+[MT-2d]: mini-template/002-straight-lasso/demo
