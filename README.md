@@ -42,23 +42,26 @@ My collection of demo projects for Construct 3
 
 ### JavaScript (Scripts Type: MODULE)
 
-|  |               |Name                                      | Demo        |
-|--|---------------|------------------------------------------|-------------|
-| 7|![image][J-7i] | [YouTube][J-7]                           |[Demo][J-7d] |
-| 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |
-| 9|![image][J-9i] | [Mesh and Shapes][J-9]                   |[Demo][J-9d] |
+|  |               |Name                                      | Demo        | Patreon       |
+|--|---------------|------------------------------------------|-------------|---------------|
+| 7|![image][J-7i] | [YouTube][J-7]                           |[Demo][J-7d] |[Link][J-7p]   |
+| 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |[Link][J-8p]   |
+| 9|![image][J-9i] | [Mesh and Shapes][J-9]                   |[Demo][J-9d] |[Link][J-9p]   |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
 [J-7d]: https://c3demo.stranianelli.com/javascript/007-youtube/demo
+[J-7p]: https://www.patreon.com/posts/46901116
 
 [J-8i]: javascript/008-text-editor/preview.png
 [J-8]: javascript/008-text-editor
 [J-8d]: https://c3demo.stranianelli.com/javascript/008-text-editor/demo
+[J-8p]: https://www.patreon.com/posts/47257691
 
 [J-9i]: javascript/009-mesh-and-shapes/preview.png
 [J-9]: javascript/009-mesh-and-shapes
 [J-9d]: https://c3demo.stranianelli.com/javascript/009-mesh-and-shapes/demo
+[J-9p]: https://www.patreon.com/posts/47493518
 
 ### Template
 
@@ -78,7 +81,7 @@ My collection of demo projects for Construct 3
 |12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|
 |13|![image][T-13i]| [Spell Caster][T-13]                     |[Demo][T-13d]|
 |14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|
-|15|![image][T-15i]| [Typo Battle][T-15]                    |[Demo][T-15d]|
+|15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -179,3 +182,12 @@ My collection of demo projects for Construct 3
 [MT-2i]: mini-template/002-straight-lasso/preview.png
 [MT-2]: mini-template/002-straight-lasso
 [MT-2d]: mini-template/002-straight-lasso/demo
+
+### Other projects
+
+|  | Name                                                   | Patreon                   |
+|--|--------------------------------------------------------|---------------------------|
+| 1| [DenoC3Webview2][A-1 ]                                 |[Deno, C3 & WebView][A-1p] |
+
+[A-1]: https://github.com/el3um4s/DenoC3Webview2
+[A-1p]: https://www.patreon.com/posts/47942650
