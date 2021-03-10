@@ -172,7 +172,7 @@ My collection of demo projects for Construct 3
 
 |  |               |Name                                                    | Demo        |
 |--|---------------|--------------------------------------------------------|-------------|
-| 1|![image][MT-1i]| [Execute a function from separate event sheet][MT-1 ]  |[Demo][MT-1d]|
+| 1|![image][MT-1i]| [Execute a function from separate event sheet][MT-1]   |[Demo][MT-1d]|
 | 2|![image][MT-2i]| [Straight Lasso][MT-2]                                 |[Demo][MT-2d]|
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
@@ -187,7 +187,7 @@ My collection of demo projects for Construct 3
 
 |  |               |Name                                       | Demo        |
 |--|---------------|-------------------------------------------|-------------|
-| 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1 ]  |[Demo][ML-1d]|
+| 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1]   |[Demo][ML-1d]|
 
 [ML-1i]: machine-learning/001-hello-world/preview.png
 [ML-1]: machine-learning/001-hello-world
@@ -197,7 +197,7 @@ My collection of demo projects for Construct 3
 
 |  | Name                                                   | Patreon                   |
 |--|--------------------------------------------------------|---------------------------|
-| 1| [DenoC3Webview2][A-1 ]                                 |[Deno, C3 & WebView][A-1p] |
+| 1| [DenoC3Webview2][A-1]                                  |[Deno, C3 & WebView][A-1p] |
 
 [A-1]: https://github.com/el3um4s/DenoC3Webview2
 [A-1p]: https://www.patreon.com/posts/47942650
