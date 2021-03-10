@@ -183,6 +183,16 @@ My collection of demo projects for Construct 3
 [MT-2]: mini-template/002-straight-lasso
 [MT-2d]: mini-template/002-straight-lasso/demo
 
+### Machine Learning
+
+|  |               |Name                                       | Demo        |
+|--|---------------|-------------------------------------------|-------------|
+| 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1 ]  |[Demo][ML-1d]|
+
+[ML-1i]: machine-learning/001-hello-world/preview.png
+[ML-1]: machine-learning/001-hello-world
+[ML-1d]: machine-learning/001-hello-world/demo
+
 ### Other projects
 
 |  | Name                                                   | Patreon                   |

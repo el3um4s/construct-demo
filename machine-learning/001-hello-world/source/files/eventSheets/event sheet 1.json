@@ -1,0 +1,97 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "Button",
+					"sid": 986085026925457
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Learn",
+					"sid": 169616685587728,
+					"parameters": [
+						"TextInput.Text"
+					]
+				}
+			],
+			"sid": 287804400345573
+		},
+		{
+			"functionName": "Learn",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Target",
+					"type": "string",
+					"initialValue": "Hello World!",
+					"comment": "",
+					"sid": 500523807739960
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"callFunction": "DisableButton",
+					"sid": 921750997409908
+				},
+				{
+					"type": "script",
+					"script": "const target = localVars.Target;\nconst population  = new Population(target, 20);\nawait population.generation();"
+				}
+			],
+			"sid": 497130044672068
+		},
+		{
+			"functionName": "DisableButton",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Button",
+					"sid": 937802843736681,
+					"parameters": {
+						"mode": "disabled"
+					}
+				}
+			],
+			"sid": 217040288576041
+		},
+		{
+			"functionName": "EnableButton",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "Button",
+					"sid": 941256265259534,
+					"parameters": {
+						"mode": "enabled"
+					}
+				}
+			],
+			"sid": 793460056974535
+		}
+	],
+	"sid": 978792903829129
+}
