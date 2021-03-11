@@ -1,0 +1,15 @@
+{
+	"name": "InfoBlinking",
+	"plugin-id": "Text",
+	"sid": 753898385511709,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 422960813913149
+		}
+	],
+	"effectTypes": []
+}

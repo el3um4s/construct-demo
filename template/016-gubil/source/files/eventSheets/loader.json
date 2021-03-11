@@ -1,0 +1,166 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 465439821859808
+				}
+			],
+			"actions": [
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 638939344323715,
+					"parameters": {
+						"key": "Key_To_Save_Statistics"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 660172751063749
+				},
+				{
+					"id": "check-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 543647483167686,
+					"parameters": {
+						"key": "Key_To_Save_Settings"
+					}
+				}
+			],
+			"sid": 994315519278780
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 135556443834272,
+					"parameters": {
+						"key": "Key_To_Save_Statistics"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SaveSystem_Save_Statistics",
+					"sid": 259436402103791,
+					"parameters": [
+						"Key_To_Save_Statistics"
+					]
+				}
+			],
+			"sid": 906277781339029
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 972884064792203,
+					"parameters": {
+						"key": "Key_To_Save_Statistics"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SaveSystem_Read_GlobalVars",
+					"sid": 394643444599181,
+					"parameters": [
+						"Key_To_Save_Statistics"
+					]
+				}
+			],
+			"sid": 760418916296278
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-missing",
+					"objectClass": "LocalStorage",
+					"sid": 372239746271737,
+					"parameters": {
+						"key": "Key_To_Save_Settings"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SaveSystem_Save_Statistics",
+					"sid": 829854976370529,
+					"parameters": [
+						"Key_To_Save_Settings"
+					]
+				}
+			],
+			"sid": 121774463177028
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-item-exists",
+					"objectClass": "LocalStorage",
+					"sid": 961625706993563,
+					"parameters": {
+						"key": "Key_To_Save_Settings"
+					}
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "SaveSystem_Read_GlobalVars",
+					"sid": 338997521338165,
+					"parameters": [
+						"Key_To_Save_Settings"
+					]
+				}
+			],
+			"sid": 502859480626963
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 739134424154311
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 582103953549581,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 271709184294057
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 714349037855965,
+					"parameters": {
+						"layout": "Menu"
+					}
+				}
+			],
+			"sid": 376696901932400
+		}
+	],
+	"sid": 630088158508447
+}

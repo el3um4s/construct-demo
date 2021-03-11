@@ -1,0 +1,16 @@
+{
+	"name": "StatsValue",
+	"plugin-id": "Text",
+	"sid": 366812891267021,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ConnectToVars",
+			"type": "string",
+			"desc": "",
+			"sid": 651080557665282
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

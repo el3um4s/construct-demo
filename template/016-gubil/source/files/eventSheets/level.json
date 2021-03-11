@@ -1,0 +1,939 @@
+{
+	"name": "Level",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Sound"
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "LEVEL",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LEVEL :: Config",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 634117660010035
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 373628748169898,
+									"parameters": {
+										"layer": "\"Helper\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 950983551736040,
+									"parameters": {
+										"variable": "IsTierLost",
+										"value": "false"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 473962854137472
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Points",
+									"sid": 448838783413093
+								}
+							],
+							"sid": 349845314917586,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [],
+									"sid": 933190288324615,
+									"children": [
+										{
+											"eventType": "variable",
+											"name": "NumberLoserBox",
+											"type": "number",
+											"initialValue": "7",
+											"comment": "",
+											"isStatic": false,
+											"isConstant": false,
+											"sid": 799273538356025
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 587678804838561,
+													"parameters": {
+														"variable": "NumberLoserBox",
+														"value": "choose(0,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7,7,7,7,7,8,9,10,11,12,13,14,15,16,17,18,19,20)"
+													}
+												}
+											],
+											"sid": 489885843607930,
+											"children": [
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "for",
+															"objectClass": "System",
+															"sid": 692409004035026,
+															"parameters": {
+																"name": "\"i\"",
+																"start-index": "1",
+																"end-index": "NumberLoserBox"
+															}
+														}
+													],
+													"actions": [],
+													"sid": 972793527432448,
+													"children": [
+														{
+															"eventType": "block",
+															"conditions": [
+																{
+																	"id": "pick-random-instance",
+																	"objectClass": "System",
+																	"sid": 544125265713003,
+																	"parameters": {
+																		"object": "Box"
+																	}
+																}
+															],
+															"actions": [
+																{
+																	"id": "set-boolean-instvar",
+																	"objectClass": "Box",
+																	"sid": 544138290162812,
+																	"parameters": {
+																		"instance-variable": "IsLoser",
+																		"value": "true"
+																	}
+																}
+															],
+															"sid": 633900891542024
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 622878677054780
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Score",
+							"sid": 787860045562400,
+							"parameters": {
+								"text": "Tier_Points"
+							}
+						}
+					],
+					"sid": 173582035092636
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LEVEL :: On Touch",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-any-touch-start",
+									"objectClass": "Touch",
+									"sid": 628179447600792
+								}
+							],
+							"actions": [],
+							"sid": 630284754631513,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 775919834517283,
+											"parameters": {
+												"layer": "\"Helper\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Score_Update_Totals",
+											"sid": 180882621752974
+										},
+										{
+											"callFunction": "Score_Initialize_Tier",
+											"sid": 469197403882518
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 665869612620030,
+											"parameters": {
+												"layer": "\"Helper\"",
+												"visibility": "invisible"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 752116613228395,
+											"parameters": {
+												"variable": "Tier_Games",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 703847164575263
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 690471187311517,
+											"parameters": {
+												"object": "Quit"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 589033051930064,
+											"parameters": {
+												"object": "Sound"
+											},
+											"isInverted": true
+										},
+										{
+											"id": "compare-two-values",
+											"objectClass": "System",
+											"sid": 875329812024237,
+											"parameters": {
+												"first-value": "Bullet.Count",
+												"comparison": 3,
+												"second-value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-active",
+											"objectClass": "RailGun",
+											"sid": 537948375762772,
+											"behaviorType": "Sine",
+											"parameters": {
+												"state": "inactive"
+											}
+										},
+										{
+											"id": "spawn-another-object",
+											"objectClass": "RailGun",
+											"sid": 636111443848336,
+											"parameters": {
+												"object": "Bullet",
+												"layer": "\"Field\"",
+												"image-point": "0",
+												"create-hierarchy": false
+											}
+										},
+										{
+											"callFunction": "Sound_Play_Effect_Shoot",
+											"sid": 298406049209274
+										},
+										{
+											"id": "set-angle",
+											"objectClass": "Bullet",
+											"sid": 967581271276929,
+											"parameters": {
+												"angle": "90"
+											}
+										}
+									],
+									"sid": 713314124436891
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 534151185158883,
+											"parameters": {
+												"object": "Quit"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 120288176327772,
+											"parameters": {
+												"layer": "\"Helper\""
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 162260180470645,
+											"parameters": {
+												"variable": "Tier_Games_Give_Up",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "Score_Update_Totals",
+											"sid": 918537666364874
+										},
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 961692325701567,
+											"parameters": {
+												"layout": "Menu"
+											}
+										}
+									],
+									"sid": 420415970879024
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-touching-object",
+											"objectClass": "Touch",
+											"sid": 295879061157057,
+											"parameters": {
+												"object": "Quit"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 372326249017953,
+											"parameters": {
+												"layer": "\"Helper\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "go-to-layout",
+											"objectClass": "System",
+											"sid": 401629998544516,
+											"parameters": {
+												"layout": "Menu"
+											}
+										}
+									],
+									"sid": 236005752723757
+								}
+							]
+						}
+					],
+					"sid": 865883803339844
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LEVEL :: Bullet",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "Bullet",
+									"sid": 834681181150093,
+									"parameters": {
+										"object": "Box"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 413384532074160,
+									"parameters": {
+										"variable": "Tier_Shoots_Hit",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Bullet",
+									"sid": 807365822655044,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-visible",
+									"objectClass": "Bullet",
+									"sid": 948938706678967,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 731004828131297,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Box",
+											"sid": 876191318090882,
+											"parameters": {
+												"instance-variable": "IsLoser"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Box_WithLoseCondition",
+											"sid": 893847244275036
+										}
+									],
+									"sid": 160333536532149
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 179665149257398
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Box_WithPrize",
+											"sid": 372731941733621,
+											"parameters": [
+												"Box.UID"
+											]
+										}
+									],
+									"sid": 890071612233056
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 334691261769192,
+									"parameters": {
+										"first-value": "Bullet.Count",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "is-active",
+									"objectClass": "RailGun",
+									"sid": 376133375006687,
+									"behaviorType": "Sine",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-active",
+									"objectClass": "RailGun",
+									"sid": 312191085537243,
+									"behaviorType": "Sine",
+									"parameters": {
+										"state": "active"
+									}
+								}
+							],
+							"sid": 958693190596410
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 677024967359811,
+									"parameters": {
+										"first-value": "Box.Count",
+										"comparison": 3,
+										"second-value": "0"
+									}
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 553415167057563,
+									"parameters": {
+										"variable": "IsTierLost"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 655240778665307
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 668694737734895,
+									"parameters": {
+										"variable": "Tier_Points",
+										"value": "Tier_Points * 10"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 572215192694368,
+									"parameters": {
+										"variable": "Tier_Points_Gained",
+										"value": "Tier_Points"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 972524951647125,
+									"parameters": {
+										"variable": "Tier_Games_Level_Completed",
+										"value": "1"
+									}
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 107171074052901
+								}
+							],
+							"sid": 750674227042466
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-created",
+									"objectClass": "Bullet",
+									"sid": 191429432821558
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 553319139371303,
+									"parameters": {
+										"variable": "Tier_Shoots",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 173962459984308
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-outside-layout",
+									"objectClass": "Bullet",
+									"sid": 883085043388402
+								}
+							],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 773568718870826,
+									"parameters": {
+										"variable": "Tier_Shoots_Lost",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 280987271449767
+								}
+							],
+							"sid": 728723552705852
+						}
+					],
+					"sid": 602347467009315
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "LEVEL :: Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Box_WithPrize",
+							"functionDescription": "",
+							"functionCategory": "Level",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 494464375662725
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "Box",
+									"sid": 499838897329296,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Box",
+									"sid": 232883766122506,
+									"parameters": {
+										"instance-variable": "IsLoser"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "Sound_Play_Effect_Point",
+									"sid": 153830306170584
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Box",
+									"sid": 193118356107196,
+									"parameters": {
+										"object": "Points",
+										"layer": "\"Field\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Points",
+									"sid": 287519427784570,
+									"parameters": {
+										"text": "round(random(1,10))"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 261254515502111,
+									"parameters": {
+										"variable": "Tier_Points",
+										"value": "int(Points.Text)"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 330943029742678,
+									"parameters": {
+										"variable": "Tier_Points_Gained",
+										"value": "Tier_Points"
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Points",
+									"sid": 667379842651846,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "Self.Y - 248",
+										"time": "4",
+										"ease": "default",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "shake",
+									"objectClass": "Center",
+									"sid": 507565945613650,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "20",
+										"duration": "0.2",
+										"mode": "reducing-magnitude"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "Box",
+									"sid": 166561504728495,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "0.5"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 217466405130785,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 143119189576516
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Bullet",
+									"sid": 507081661731637
+								},
+								{
+									"id": "destroy",
+									"objectClass": "Box",
+									"sid": 398010283107727
+								}
+							],
+							"sid": 399911791370474
+						},
+						{
+							"functionName": "Box_WithLoseCondition",
+							"functionDescription": "",
+							"functionCategory": "Level",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Sound_Play_Effect_Lose",
+									"sid": 388969983011116
+								},
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 218508160233486,
+									"parameters": {
+										"variable": "IsTierLost",
+										"value": "true"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 899833849730958,
+									"parameters": {
+										"variable": "Tier_Games_Level_Defeats",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 269148352411943,
+									"parameters": {
+										"variable": "Tier_Points_Lost",
+										"value": "Tier_Points"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 383499152151927,
+									"parameters": {
+										"variable": "Tier_Points",
+										"value": "0"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Box",
+									"sid": 581346076726216,
+									"parameters": {
+										"object": "Points",
+										"layer": "\"Field\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Points",
+									"sid": 828412971115864,
+									"parameters": {
+										"text": "\"💀\""
+									}
+								},
+								{
+									"id": "tween-one-property",
+									"objectClass": "Points",
+									"sid": 244226558265239,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "offsetY",
+										"end-value": "Self.Y - 248",
+										"time": "4",
+										"ease": "default",
+										"destroy-on-complete": "yes",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "shake",
+									"objectClass": "Center",
+									"sid": 944650076088297,
+									"behaviorType": "ScrollTo",
+									"parameters": {
+										"magnitude": "30",
+										"duration": "1",
+										"mode": "reducing-magnitude"
+									}
+								}
+							],
+							"sid": 727168932798057,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "Box",
+											"sid": 729587415708766,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 628967055113356,
+											"parameters": {
+												"seconds": "0.5"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 309958704382738
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Box",
+											"sid": 620935061684911
+										}
+									],
+									"sid": 270243768573529
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 161724139820296,
+											"parameters": {
+												"seconds": "4"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 636699995921096
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Bullet",
+											"sid": 883107443815263
+										},
+										{
+											"id": "restart-layout",
+											"objectClass": "System",
+											"sid": 423956066290661
+										}
+									],
+									"sid": 291383946609532
+								}
+							]
+						}
+					],
+					"sid": 365806508065247
+				}
+			],
+			"sid": 880126559682653
+		}
+	],
+	"sid": 326030398251492
+}

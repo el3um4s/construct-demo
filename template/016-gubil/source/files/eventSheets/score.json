@@ -1,0 +1,239 @@
+{
+	"name": "Score",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SCORE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SCORE :: function",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Score_Initialize_Tier",
+							"functionDescription": "",
+							"functionCategory": "Score",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 436747502943869,
+									"parameters": {
+										"variable": "Tier_Games",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 988887796750752,
+									"parameters": {
+										"variable": "Tier_Games_Give_Up",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 877970543167550,
+									"parameters": {
+										"variable": "Tier_Games_Level_Defeats",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 987548404669039,
+									"parameters": {
+										"variable": "Tier_Games_Level_Completed",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 921376802041843,
+									"parameters": {
+										"variable": "Tier_Points",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 878742347311154,
+									"parameters": {
+										"variable": "Tier_Points_Gained",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 469827202135154,
+									"parameters": {
+										"variable": "Tier_Points_Lost",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 870851237350062,
+									"parameters": {
+										"variable": "Tier_Shoots",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 917068673164136,
+									"parameters": {
+										"variable": "Tier_Shoots_Hit",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 669681824407603,
+									"parameters": {
+										"variable": "Tier_Shoots_Lost",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 728204993013849
+						},
+						{
+							"functionName": "Score_Update_Totals",
+							"functionDescription": "",
+							"functionCategory": "Score",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 197083647083184,
+									"parameters": {
+										"variable": "Total_Games",
+										"value": "Tier_Games"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 888675628804397,
+									"parameters": {
+										"variable": "Total_Games_Defeats",
+										"value": "Tier_Games_Level_Defeats"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 511017729777853,
+									"parameters": {
+										"variable": "Total_Games_Give_Up",
+										"value": "Tier_Games_Give_Up"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 656356146537903,
+									"parameters": {
+										"variable": "Total_Games_Level_Completed",
+										"value": "Tier_Games_Level_Completed"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 474190248947408,
+									"parameters": {
+										"variable": "Total_Points",
+										"value": "Tier_Points"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 875287614021343,
+									"parameters": {
+										"variable": "Total_Points_Gained",
+										"value": "Tier_Points_Gained"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 967239017325963,
+									"parameters": {
+										"variable": "Total_Points_Lost",
+										"value": "Tier_Points_Lost"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 295962117896760,
+									"parameters": {
+										"variable": "Total_Shoots",
+										"value": "Tier_Shoots"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 538774589846166,
+									"parameters": {
+										"variable": "Total_Shoots_Hit",
+										"value": "Tier_Shoots_Hit"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 964444210537245,
+									"parameters": {
+										"variable": "Total_Shoots_Lost",
+										"value": "Tier_Shoots_Lost"
+									}
+								},
+								{
+									"callFunction": "SaveSystem_Save_Statistics",
+									"sid": 230779304243948,
+									"parameters": [
+										"Key_To_Save_Statistics"
+									]
+								}
+							],
+							"sid": 197361324340101
+						}
+					],
+					"sid": 263087591460558
+				}
+			],
+			"sid": 344981504052020
+		}
+	],
+	"sid": 787367285495812
+}

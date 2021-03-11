@@ -1,0 +1,523 @@
+{
+	"name": "Sound",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SOUND",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "SOUND_tag_theme_gubil",
+					"type": "string",
+					"initialValue": "SOUND_tag_theme_gubil",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 779570941960922
+				},
+				{
+					"eventType": "variable",
+					"name": "SOUND_tag_effect_lose",
+					"type": "string",
+					"initialValue": "SOUND_tag_effect_lose",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 526301503214255
+				},
+				{
+					"eventType": "variable",
+					"name": "SOUND_tag_effect_point",
+					"type": "string",
+					"initialValue": "SOUND_tag_effect_point",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 725613388712331
+				},
+				{
+					"eventType": "variable",
+					"name": "SOUND_tag_effect_shoot",
+					"type": "string",
+					"initialValue": "SOUND_tag_effect_shoot",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 312764749497122
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 784625393051081
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Sound_Play_Theme",
+							"sid": 602467975591189
+						}
+					],
+					"sid": 801722830185727
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-touched-object",
+							"objectClass": "Touch",
+							"sid": 675415779377268,
+							"parameters": {
+								"object": "Sound"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "toggle-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 329573019193214,
+							"parameters": {
+								"variable": "IsSoundOn"
+							}
+						},
+						{
+							"callFunction": "SaveSystem_Save_Settings",
+							"sid": 528688745930220,
+							"parameters": [
+								"Key_To_Save_Settings"
+							]
+						}
+					],
+					"sid": 324184080609740
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 565095020575956,
+							"parameters": {
+								"variable": "IsSoundOn"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Sound",
+							"sid": 101247638075326,
+							"parameters": {
+								"frame-number": "1"
+							}
+						},
+						{
+							"callFunction": "Sound_UnMute_All",
+							"sid": 677273106875814
+						}
+					],
+					"sid": 940036253709799
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 426148991062560,
+							"parameters": {
+								"variable": "IsSoundOn"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation-frame",
+							"objectClass": "Sound",
+							"sid": 604795233895049,
+							"parameters": {
+								"frame-number": "0"
+							}
+						},
+						{
+							"callFunction": "Sound_Mute_All",
+							"sid": 198207404068535
+						}
+					],
+					"sid": 450130541479306
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SOUND :: effect",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 599527547087318,
+									"parameters": {
+										"tag": "SOUND_tag_effect_lose"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 568631927760575,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil",
+										"db": "-20"
+									}
+								}
+							],
+							"sid": 398380781044996
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-ended",
+									"objectClass": "Audio",
+									"sid": 544537774505436,
+									"parameters": {
+										"tag": "\"effect_lose\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 476679849375466,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil",
+										"db": "0"
+									}
+								}
+							],
+							"sid": 841476746293133
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 893050171589342,
+									"parameters": {
+										"tag": "SOUND_tag_effect_lose"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 226369990642677,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-volume",
+									"objectClass": "Audio",
+									"sid": 790775306457569,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil",
+										"db": "0"
+									}
+								}
+							],
+							"sid": 175824721697414
+						}
+					],
+					"sid": 816783545291290
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SOUND :: function",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Sound_Play_Theme",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 182713459858120,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 401570590765999,
+									"parameters": {
+										"audio-file": "theme_gubil",
+										"loop": "looping",
+										"volume": "0",
+										"tag-optional": "SOUND_tag_theme_gubil"
+									}
+								}
+							],
+							"sid": 394767648195342
+						},
+						{
+							"functionName": "Sound_Play_Effect_Lose",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 700557972294741,
+									"parameters": {
+										"tag": "SOUND_tag_effect_lose"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 513440900396860,
+									"parameters": {
+										"variable": "IsSoundOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 351460666438357,
+									"parameters": {
+										"audio-file": "lose",
+										"loop": "not-looping",
+										"volume": "30",
+										"tag-optional": "SOUND_tag_effect_lose"
+									}
+								}
+							],
+							"sid": 820093744619144
+						},
+						{
+							"functionName": "Sound_Play_Effect_Point",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 413136615811564,
+									"parameters": {
+										"tag": "SOUND_tag_effect_point"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 776944924264189,
+									"parameters": {
+										"variable": "IsSoundOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 754649492910217,
+									"parameters": {
+										"audio-file": "point",
+										"loop": "not-looping",
+										"volume": "30",
+										"tag-optional": "SOUND_tag_effect_point"
+									}
+								}
+							],
+							"sid": 235904267572796
+						},
+						{
+							"functionName": "Sound_Play_Effect_Shoot",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "is-tag-playing",
+									"objectClass": "Audio",
+									"sid": 185240467031453,
+									"parameters": {
+										"tag": "SOUND_tag_effect_shoot"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 886788157898456,
+									"parameters": {
+										"variable": "IsSoundOn"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 721242294154927,
+									"parameters": {
+										"audio-file": "shoot",
+										"loop": "not-looping",
+										"volume": "0",
+										"tag-optional": "SOUND_tag_effect_shoot"
+									}
+								}
+							],
+							"sid": 149888892509163
+						},
+						{
+							"functionName": "Sound_Mute_All",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 743855801431653,
+									"parameters": {
+										"tag": "SOUND_tag_effect_lose",
+										"state": "muted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 302657899473597,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil",
+										"state": "muted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 709060303756410,
+									"parameters": {
+										"tag": "SOUND_tag_effect_point",
+										"state": "muted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 371782617324175,
+									"parameters": {
+										"tag": "SOUND_tag_effect_shoot",
+										"state": "muted"
+									}
+								}
+							],
+							"sid": 268004557953897
+						},
+						{
+							"functionName": "Sound_UnMute_All",
+							"functionDescription": "",
+							"functionCategory": "Sound",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 498506012436378,
+									"parameters": {
+										"tag": "SOUND_tag_effect_lose",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 693599197835418,
+									"parameters": {
+										"tag": "SOUND_tag_theme_gubil",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 720413430744556,
+									"parameters": {
+										"tag": "SOUND_tag_effect_point",
+										"state": "unmuted"
+									}
+								},
+								{
+									"id": "set-muted",
+									"objectClass": "Audio",
+									"sid": 978267877629313,
+									"parameters": {
+										"tag": "SOUND_tag_effect_shoot",
+										"state": "unmuted"
+									}
+								}
+							],
+							"sid": 232345554799251
+						}
+					],
+					"sid": 566902588642067
+				}
+			],
+			"sid": 178321532466532
+		}
+	],
+	"sid": 517582144406487
+}

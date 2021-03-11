@@ -1,0 +1,20 @@
+{
+	"name": "Points",
+	"plugin-id": "Text",
+	"sid": 382482121029665,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 269589119623358
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 495088954592265
+		}
+	],
+	"effectTypes": []
+}

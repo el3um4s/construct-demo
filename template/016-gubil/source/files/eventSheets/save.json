@@ -1,0 +1,99 @@
+{
+	"name": "Save",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SAVE SYSTEM",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "SaveSystem_Save_Statistics",
+					"functionDescription": "",
+					"functionCategory": "Save System",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "KeyName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 302927496952305
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 521709022498131,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const key = localVars.KeyName;\n\nconst Tier_Games = runtime.globalVars.Tier_Games;\nconst Tier_Games_Give_Up = runtime.globalVars.Tier_Games_Give_Up;\nconst Tier_Games_Level_Defeats = runtime.globalVars.Tier_Games_Level_Defeats;\nconst Tier_Games_Level_Completed = runtime.globalVars.Tier_Games_Level_Completed;\nconst Tier_Points = runtime.globalVars.Tier_Points;\nconst Tier_Points_Gained = runtime.globalVars.Tier_Points_Gained;\nconst Tier_Points_Lost = runtime.globalVars.Tier_Points_Lost;\nconst Tier_Shoots = runtime.globalVars.Tier_Shoots;\nconst Tier_Shoots_Hit = runtime.globalVars.Tier_Shoots_Hit;\nconst Tier_Shoots_Lost = runtime.globalVars.Tier_Shoots_Lost;\n\nconst Total_Games = runtime.globalVars.Total_Games;\nconst Total_Games_Give_Up = runtime.globalVars.Total_Games_Give_Up;\nconst Total_Games_Defeats = runtime.globalVars.Total_Games_Defeats;\nconst Total_Games_Level_Completed = runtime.globalVars.Total_Games_Level_Completed;\nconst Total_Points = runtime.globalVars.Total_Points;\nconst Total_Points_Gained = runtime.globalVars.Total_Points_Gained;\nconst Total_Points_Lost = runtime.globalVars.Total_Points_Lost;\nconst Total_Shoots = runtime.globalVars.Total_Shoots;\nconst Total_Shoots_Hit = runtime.globalVars.Total_Shoots_Hit;\n\nconst value = {\n\tTier_Games, \n\tTier_Games_Give_Up, \n\tTier_Games_Level_Defeats, \n\tTier_Games_Level_Completed, \n\tTier_Points, \n\tTier_Points_Gained,\n\tTier_Points_Lost,\n\tTier_Shoots,\n\tTier_Shoots_Hit,\n\tTier_Shoots_Lost,\n\tTotal_Games,\n\tTotal_Games_Give_Up,\n\tTotal_Games_Defeats,\n\tTotal_Games_Level_Completed,\n\tTotal_Points,\n\tTotal_Points_Gained,\n\tTotal_Points_Lost,\n\tTotal_Shoots,\n\tTotal_Shoots_Hit\n\t};\n\nconst storage = runtime.storage;\nawait storage.setItem(key, value);"
+								}
+							],
+							"sid": 531816684706529
+						}
+					]
+				},
+				{
+					"functionName": "SaveSystem_Save_Settings",
+					"functionDescription": "",
+					"functionCategory": "Save System",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "KeyName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 907497957407444
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.KeyName;\nconst IsSoundOn = runtime.globalVars.IsSoundOn;\n\nconst value = { IsSoundOn };\n\nconst storage = runtime.storage;\nawait storage.setItem(key, value);"
+						}
+					],
+					"sid": 990952208797764
+				},
+				{
+					"functionName": "SaveSystem_Read_GlobalVars",
+					"functionDescription": "",
+					"functionCategory": "Save System",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "KeyName",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 850623460213018
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const key = localVars.KeyName;\nconst storage = runtime.storage;\nconst value = await storage.getItem(key);\nconst listVariables = Object.keys(value);\n\nlistVariables.forEach(k => runtime.globalVars[k] = value[k]);"
+						}
+					],
+					"sid": 714373086400024
+				}
+			],
+			"sid": 732617570254216
+		}
+	],
+	"sid": 128810748134889
+}

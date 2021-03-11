@@ -1,0 +1,44 @@
+{
+	"name": "Credits",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 327530336786363
+				}
+			],
+			"actions": [],
+			"sid": 288274021749300,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 723193360935191,
+							"parameters": {
+								"object": "GoToMenu"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 609965304459379,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 311495101521154
+				}
+			]
+		}
+	],
+	"sid": 912043702487044
+}

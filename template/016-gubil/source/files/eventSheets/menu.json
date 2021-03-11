@@ -1,0 +1,136 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "Sound"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 768076361406382
+				}
+			],
+			"actions": [],
+			"sid": 354184919247251,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 444832739132951,
+							"parameters": {
+								"object": "GoToStatistics"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 328028853924879,
+							"parameters": {
+								"object": "GoToCredits"
+							},
+							"isInverted": true
+						},
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 952511933252393,
+							"parameters": {
+								"object": "Sound"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 463562498376511,
+							"parameters": {
+								"layout": "Level"
+							}
+						}
+					],
+					"sid": 532758891724287
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 983889779346932,
+							"parameters": {
+								"object": "GoToStatistics"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 636955736164787,
+							"parameters": {
+								"layout": "Statistics"
+							}
+						}
+					],
+					"sid": 850623868022487
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 650182424615889,
+							"parameters": {
+								"object": "GoToCredits"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 677302285041915,
+							"parameters": {
+								"layout": "Credits"
+							}
+						}
+					],
+					"sid": 376050400761281
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 548719796341641
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Score",
+					"sid": 114202528007128,
+					"parameters": {
+						"text": "Total_Points"
+					}
+				}
+			],
+			"sid": 524064488135875
+		}
+	],
+	"sid": 957870344341422
+}

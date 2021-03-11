@@ -1,0 +1,292 @@
+{
+	"name": "Globals",
+	"events": [
+		{
+			"eventType": "comment",
+			"text": "TIER"
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Games",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 558004766583863
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Games_Give_Up",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 731469257841958
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Games_Level_Defeats",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 155769450785945
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Games_Level_Completed",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 317740140962231
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 417369205504076
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Points_Gained",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 826338243604530
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Points_Lost",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 369644271492263
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Shoots",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 406672695216894
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Shoots_Hit",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 120693435438391
+		},
+		{
+			"eventType": "variable",
+			"name": "Tier_Shoots_Lost",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 517467532759800
+		},
+		{
+			"eventType": "variable",
+			"name": "IsLoserConditionActived",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 463748523669891
+		},
+		{
+			"eventType": "variable",
+			"name": "IsTierLost",
+			"type": "boolean",
+			"initialValue": "false",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 694755760539316
+		},
+		{
+			"eventType": "comment",
+			"text": "TOTAL"
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Games",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 142540675202036
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Games_Give_Up",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 969041430196384
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Games_Defeats",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 459689117032374
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Games_Level_Completed",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 672442377482564
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Points",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 423042530644476
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Points_Gained",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 827304683243516
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Points_Lost",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 799541984823460
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Shoots",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 124649857487400
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Shoots_Hit",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 456860597626961
+		},
+		{
+			"eventType": "variable",
+			"name": "Total_Shoots_Lost",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 732669948493117
+		},
+		{
+			"eventType": "comment",
+			"text": "RULES"
+		},
+		{
+			"eventType": "variable",
+			"name": "SafeTouch",
+			"type": "number",
+			"initialValue": "3",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 422973672216296
+		},
+		{
+			"eventType": "variable",
+			"name": "ScoreWithSafeTouch",
+			"type": "number",
+			"initialValue": "10",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 529907469498726
+		},
+		{
+			"eventType": "comment",
+			"text": "SETTINGS"
+		},
+		{
+			"eventType": "variable",
+			"name": "IsSoundOn",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 768415597285500
+		},
+		{
+			"eventType": "variable",
+			"name": "Key_To_Save_Statistics",
+			"type": "string",
+			"initialValue": "StraniAnelli_Gubil_TrijamEdition_Statistics",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 993558975607977
+		},
+		{
+			"eventType": "variable",
+			"name": "Key_To_Save_Settings",
+			"type": "string",
+			"initialValue": "StraniAnelli_Gubil_TrijamEdition_Settings",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 286093757390632
+		}
+	],
+	"sid": 762740309025664
+}

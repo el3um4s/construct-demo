@@ -1,0 +1,110 @@
+{
+	"name": "Statistics",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "for-each",
+					"objectClass": "System",
+					"sid": 702020364269030,
+					"parameters": {
+						"object": "StatsValue"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 517020314536565,
+			"children": [
+				{
+					"eventType": "variable",
+					"name": "ConnectToVars",
+					"type": "string",
+					"initialValue": "",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 581069554368247
+				},
+				{
+					"eventType": "variable",
+					"name": "UID",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"isStatic": false,
+					"isConstant": false,
+					"sid": 252991845955458
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 859925844523032,
+							"parameters": {
+								"variable": "ConnectToVars",
+								"value": "StatsValue.ConnectToVars"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 852426778293750,
+							"parameters": {
+								"variable": "UID",
+								"value": "StatsValue.UID"
+							}
+						},
+						{
+							"type": "script",
+							"script": "const variable = localVars.ConnectToVars;\nconst uid = localVars.UID;\n\nconst statsValue = runtime.getInstanceByUid(uid)\nstatsValue.text = variable;\nconst value = runtime.globalVars[variable];\nstatsValue.text = `${value}`;"
+						}
+					],
+					"sid": 489521896496579
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-any-touch-start",
+					"objectClass": "Touch",
+					"sid": 918960749738815
+				}
+			],
+			"actions": [],
+			"sid": 132005490229767,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 426494006662239,
+							"parameters": {
+								"object": "GoToMenu"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 563609729363826,
+							"parameters": {
+								"layout": "Menu"
+							}
+						}
+					],
+					"sid": 888005151243892
+				}
+			]
+		}
+	],
+	"sid": 844115472205811
+}
