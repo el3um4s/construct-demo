@@ -189,13 +189,14 @@ My collection of demo projects for Construct 3
 
 ### Machine Learning
 
-|  |               |Name                                       | Demo        |
-|--|---------------|-------------------------------------------|-------------|
-| 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1]   |[Demo][ML-1d]|
+|  |               |Name                                       | Demo        | Patreon       |
+|--|---------------|-------------------------------------------|-------------|---------------|
+| 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1]   |[Demo][ML-1d]|[Link][ML-1p]  |
 
 [ML-1i]: machine-learning/001-hello-world/preview.png
 [ML-1]: machine-learning/001-hello-world
 [ML-1d]: machine-learning/001-hello-world/demo
+[ML-1p]: https://www.patreon.com/posts/genetic-hello-48614130
 
 ### Other projects
 
