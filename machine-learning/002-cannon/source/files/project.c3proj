@@ -1,0 +1,405 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 23900,
+	"name": "Machine Learning Cannon",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "sliderbar",
+			"name": "Slider bar",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Particles",
+			"name": "Particles",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "destroy",
+			"name": "Destroy outside layout",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "solid",
+			"name": "Solid",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r239",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "dropshadow",
+			"name": "Drop Shadow",
+			"author": "Ludonaut / Somebody",
+			"version": "0.1",
+			"bundled": false
+		},
+		{
+			"type": "effect",
+			"id": "outline",
+			"name": "Outline",
+			"author": "Richard Lems",
+			"version": "1.0.0.0",
+			"bundled": false
+		}
+	],
+	"uniqueId": "65v6nccexgi",
+	"objectTypes": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [
+					"ButtonRestart",
+					"ChooseBounce",
+					"ChooseGravity",
+					"ChoosePopulation",
+					"ChoosePreserveFitness",
+					"ChooseRateMutation",
+					"TextLabel",
+					"TextLastIteration",
+					"TextValue"
+				],
+				"subfolders": [],
+				"name": "UI"
+			},
+			{
+				"items": [
+					"Explosion",
+					"Noise"
+				],
+				"subfolders": [],
+				"name": "Effects"
+			},
+			{
+				"items": [
+					"Loader_Effect",
+					"Loader_Image_Logo"
+				],
+				"subfolders": [],
+				"name": "Loader"
+			},
+			{
+				"items": [
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "General"
+			},
+			{
+				"items": [
+					"Cannon",
+					"Rocket",
+					"Target",
+					"TilesBackground",
+					"TilesBorder",
+					"TilesBouncing"
+				],
+				"subfolders": [],
+				"name": "Main"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [
+			"TileSolid_Danger",
+			"Tile_Solid",
+			"SpriteDragAndDrop"
+		],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Main",
+			"Objects",
+			"Loader"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"Loader",
+			"Globals"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 141155333946767,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "importsForEvents.js",
+					"type": "application/javascript",
+					"sid": 791593325234996,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "rocket.js",
+					"type": "application/javascript",
+					"sid": 806306511397010,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "globals.js",
+					"type": "application/javascript",
+					"sid": 391317421978952,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "population.js",
+					"type": "application/javascript",
+					"sid": 131734520562424,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "experience.js",
+					"type": "application/javascript",
+					"sid": 369924957320084,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "MajorMonoDisplay-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 948849761035320
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 991114548763605,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 937246716739024,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 159768095858056,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 377986252630967,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 834504747503776,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 571263146283559,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 173307455300118,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "Demo-2021.03.14",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "samuele@stranianelli.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": true,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.9411764705882353,
+			0.9411764705882353,
+			0.9411764705882353,
+			0
+		],
+		"splashColor": [
+			0.9411764705882353,
+			0.9411764705882353,
+			0.9411764705882353,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			0.9411764705882353,
+			0.9411764705882353,
+			0.9411764705882353,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 856,
+	"viewportHeight": 480,
+	"firstLayout": "Loader"
+}

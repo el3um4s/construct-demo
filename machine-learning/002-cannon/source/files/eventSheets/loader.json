@@ -1,0 +1,40 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 372531377476612
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 328285330117305,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 392156961928462
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 893325141968452,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 270331473290137
+		}
+	],
+	"sid": 814297469799220
+}

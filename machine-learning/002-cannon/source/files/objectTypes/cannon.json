@@ -1,0 +1,44 @@
+{
+	"name": "Cannon",
+	"plugin-id": "Sprite",
+	"sid": 694443877447134,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8752752,
+						"useCollisionPoly": true,
+						"imagePoints": [
+							{
+								"name": "Fire",
+								"x": 0.28125,
+								"y": 0.390625
+							}
+						],
+						"duration": 1
+					}
+				],
+				"sid": 928087393500748,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"name": "TileSolid_Danger",
+	"plugin-id": "TiledBg",
+	"sid": 334662754302799,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"TilesBorder"
+	]
+}

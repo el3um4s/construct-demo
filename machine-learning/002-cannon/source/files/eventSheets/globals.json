@@ -1,0 +1,80 @@
+{
+	"name": "Globals",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Gravity",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 469684152438000
+		},
+		{
+			"eventType": "variable",
+			"name": "Bounce",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 932011661549138
+		},
+		{
+			"eventType": "variable",
+			"name": "PreserveFitness",
+			"type": "number",
+			"initialValue": "50",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 339478054963061
+		},
+		{
+			"eventType": "variable",
+			"name": "Population",
+			"type": "number",
+			"initialValue": "20",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 980220923168513
+		},
+		{
+			"eventType": "variable",
+			"name": "RateMutation",
+			"type": "number",
+			"initialValue": "0.1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 326039019420700
+		},
+		{
+			"eventType": "variable",
+			"name": "PopulationCount",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 499774082718894
+		},
+		{
+			"eventType": "comment",
+			"text": "PopulationStatus can be:\n   - generating: it's generating a new generation\n   - waiting: the generation is doing stuff"
+		},
+		{
+			"eventType": "variable",
+			"name": "PopulationStatus",
+			"type": "string",
+			"initialValue": "waiting",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 866783064899145
+		}
+	],
+	"sid": 204669096987347
+}

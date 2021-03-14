@@ -1,0 +1,22 @@
+{
+	"name": "TextLastIteration",
+	"plugin-id": "Text",
+	"sid": 799282525880178,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "value",
+			"type": "string",
+			"desc": "",
+			"sid": 185575853942977
+		},
+		{
+			"name": "decimals",
+			"type": "number",
+			"desc": "",
+			"sid": 371021764431220
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

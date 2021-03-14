@@ -1,0 +1,834 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SETTINGS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 586833669533902
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "g_runtime.globalVars.Gravity = Globals.WorldDefault.gravity;\ng_runtime.globalVars.Bounce = Globals.WorldDefault.bounceOffSolids ? 1 : 0;\ng_runtime.globalVars.PreserveFitness = Globals.Population.preserveFitness;\ng_runtime.globalVars.Population = Globals.Population.size;\ng_runtime.globalVars.RateMutation = Globals.Population.rateMutation;"
+						},
+						{
+							"id": "set-value",
+							"objectClass": "ChooseGravity",
+							"sid": 807508354470404,
+							"parameters": {
+								"value": "Gravity"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "ChooseBounce",
+							"sid": 829878525071852,
+							"parameters": {
+								"value": "Bounce"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "ChoosePreserveFitness",
+							"sid": 879153646592004,
+							"parameters": {
+								"value": "PreserveFitness"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "ChoosePopulation",
+							"sid": 329908373916569,
+							"parameters": {
+								"value": "Population"
+							}
+						},
+						{
+							"id": "set-value",
+							"objectClass": "ChooseRateMutation",
+							"sid": 798421906476740,
+							"parameters": {
+								"value": "RateMutation"
+							}
+						},
+						{
+							"id": "set-css-style",
+							"objectClass": "ButtonRestart",
+							"sid": 703439808997303,
+							"parameters": {
+								"property-name": "\"font-family\"",
+								"value": "\"MajorMonoDisplay-Regular\""
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 666760011611878,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 488870534085498
+						},
+						{
+							"type": "script",
+							"script": "Globals.Population.generation = new Population();\nGlobals.Population.generation.createRandomGeneration(Globals.Population.size);"
+						}
+					],
+					"sid": 285102167250766
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "SETTINGS :: UI",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Functions",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"functionName": "UpdateStatistics",
+									"functionDescription": "",
+									"functionCategory": "",
+									"functionReturnType": "none",
+									"functionIsAsync": false,
+									"functionParameters": [],
+									"eventType": "function-block",
+									"conditions": [],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const report = Globals.Population.generation.report();\nconst { generationNumber, population, best, totalFitness, average} = report;\nconst { fitness, speed, acceleration, angleOfMotion} = best;\nconst result = {generationNumber, population, best, totalFitness, average, fitness, speed, acceleration, angleOfMotion};\n\nfor (const text of runtime.objects.TextLastIteration.instances()){\n\tconst nameVar = text.instVars.value;\n\tconst decimals = text.instVars.decimals;\n\tlet value = result[nameVar];\n\tif (nameVar == \"angleOfMotion\") {\n\t\tvalue = value * 180 / Math.PI;\n\t}\n\tconst rounded = round(value, decimals);\n\ttext.text = `${rounded}`;\n}\n\nfunction round(value, decimals) {\n  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);\n}"
+										}
+									],
+									"sid": 133796007678068
+								}
+							],
+							"sid": 607892345433473
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Gravity",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextValue",
+											"sid": 979304588330111,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "\"gravity\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextValue",
+											"sid": 541350229875369,
+											"parameters": {
+												"text": "Gravity"
+											}
+										}
+									],
+									"sid": 568924562562819
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-changed",
+											"objectClass": "ChooseGravity",
+											"sid": 584115637493025
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 432732970658205,
+											"parameters": {
+												"variable": "Gravity",
+												"value": "ChooseGravity.Value"
+											}
+										},
+										{
+											"type": "script",
+											"script": "Globals.WorldDefault.gravity = g_runtime.globalVars.Gravity"
+										}
+									],
+									"sid": 508998371464222
+								}
+							],
+							"sid": 445639805836796
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Preserve Fitness",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextValue",
+											"sid": 318009384573439,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "\"preserveFitness\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextValue",
+											"sid": 406037843630093,
+											"parameters": {
+												"text": "\"≤\" & PreserveFitness"
+											}
+										}
+									],
+									"sid": 575374091143504
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-changed",
+											"objectClass": "ChoosePreserveFitness",
+											"sid": 282136241441922
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 538409080099079,
+											"parameters": {
+												"variable": "PreserveFitness",
+												"value": "ChoosePreserveFitness.Value"
+											}
+										},
+										{
+											"type": "script",
+											"script": "Globals.Population.preserveFitness = g_runtime.globalVars.PreserveFitness;"
+										}
+									],
+									"sid": 955527115606891
+								}
+							],
+							"sid": 697155397692538
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Bounce",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextValue",
+											"sid": 659474941995127,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "\"bounce\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextValue",
+											"sid": 313958595730345,
+											"parameters": {
+												"text": "Bounce = 0 ? \"False\" : \"True\""
+											}
+										}
+									],
+									"sid": 997012659336949
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 885548469016439,
+											"parameters": {
+												"variable": "Bounce",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 366017614664591,
+											"parameters": {
+												"layer": "\"Assets\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 453945990010814
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 688091847681493
+										}
+									],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 869350900511337,
+											"parameters": {
+												"layer": "\"Assets\"",
+												"visibility": "visible"
+											}
+										}
+									],
+									"sid": 929095834218565
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-changed",
+											"objectClass": "ChooseBounce",
+											"sid": 644193656203158
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 694514303321114,
+											"parameters": {
+												"variable": "Bounce",
+												"value": "ChooseBounce.Value"
+											}
+										},
+										{
+											"type": "script",
+											"script": "Globals.WorldDefault.bounceOffSolids = !! g_runtime.globalVars.Bounce;"
+										}
+									],
+									"sid": 805821082465536
+								}
+							],
+							"sid": 571943071082047
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Population",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextValue",
+											"sid": 632585735168319,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "\"population\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextValue",
+											"sid": 379281155149128,
+											"parameters": {
+												"text": "Population"
+											}
+										}
+									],
+									"sid": 480753378586023
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-changed",
+											"objectClass": "ChoosePopulation",
+											"sid": 240617333905651
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 707810851557925,
+											"parameters": {
+												"variable": "Population",
+												"value": "ChoosePopulation.Value"
+											}
+										},
+										{
+											"type": "script",
+											"script": "Globals.Population.size = g_runtime.globalVars.Population;"
+										}
+									],
+									"sid": 964300858242523
+								}
+							],
+							"sid": 796050821147623
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: RateMutation",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "TextValue",
+											"sid": 104478860502270,
+											"parameters": {
+												"instance-variable": "Value",
+												"comparison": 0,
+												"value": "\"rateMutation\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "TextValue",
+											"sid": 194677628791997,
+											"parameters": {
+												"text": "RateMutation*100 & \"%\""
+											}
+										}
+									],
+									"sid": 203556518342515
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-changed",
+											"objectClass": "ChooseRateMutation",
+											"sid": 335461443329952
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 621694721427579,
+											"parameters": {
+												"variable": "RateMutation",
+												"value": "ChooseRateMutation.Value"
+											}
+										},
+										{
+											"type": "script",
+											"script": "Globals.Population.rateMutation = g_runtime.globalVars.rateMutation;"
+										}
+									],
+									"sid": 150369150530716
+								}
+							],
+							"sid": 896208341305573
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "SETTINGS :: UI :: Button Restart",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-clicked",
+											"objectClass": "ButtonRestart",
+											"sid": 900881389178909
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "Globals.Population.generation.reset();"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 736707997733185,
+											"parameters": {
+												"variable": "PopulationStatus",
+												"value": "\"generating\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Rocket",
+											"sid": 638918075457102
+										},
+										{
+											"type": "script",
+											"script": "Globals.Population.generation.createRandomGeneration(Globals.Population.size);\nfor (const text of runtime.objects.TextLastIteration.instances()){\n\ttext.text = \"-\";\n}"
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 744323407573549,
+											"parameters": {
+												"variable": "PopulationStatus",
+												"value": "\"waiting\""
+											}
+										}
+									],
+									"sid": 296119756627765
+								}
+							],
+							"sid": 955510734995065
+						}
+					],
+					"sid": 225921576344352
+				}
+			],
+			"sid": 657158324815401
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Rocket",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 683271562056273,
+							"parameters": {
+								"variable": "PopulationCount",
+								"value": "Rocket.Count"
+							}
+						}
+					],
+					"sid": 590974998188550
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Rocket",
+							"sid": 774730101689551,
+							"parameters": {
+								"object": "TileSolid_Danger"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Rocket",
+							"sid": 101848337518741,
+							"parameters": {
+								"object": "Explosion",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						}
+					],
+					"sid": 551155373206928
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Rocket",
+							"sid": 869077860056778,
+							"parameters": {
+								"object": "Target"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "Rocket",
+							"sid": 673037221299489,
+							"parameters": {
+								"object": "Explosion",
+								"layer": "Self.LayerName",
+								"image-point": "0",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-default-color",
+							"objectClass": "Explosion",
+							"sid": 825243090078892,
+							"parameters": {
+								"color": "rgbEx(95, 5, 5)"
+							}
+						}
+					],
+					"sid": 717314322765015
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Rocket",
+							"sid": 581526583569006,
+							"parameters": {
+								"object": "TileSolid_Danger"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Rocket",
+							"sid": 724985190298137,
+							"parameters": {
+								"object": "Target"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const rocket = g_runtime.objects.Rocket.getFirstPickedInstance();\nconst target = g_runtime.objects.Target.getFirstInstance();\nconst {x, y} = target;\nrocket.calcFitness({x,y});\n\nconst experience = rocket.preserveExperience();\nGlobals.Population.generation.add(experience);\n\nrocket.destroy();\n"
+						}
+					],
+					"sid": 153516576578945,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 581275390458412,
+							"parameters": {
+								"variable": "PopulationCount",
+								"comparison": 3,
+								"value": "0"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 923594352571138,
+							"parameters": {
+								"variable": "PopulationStatus",
+								"comparison": 0,
+								"value": "\"waiting\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 667116290415592,
+							"parameters": {
+								"variable": "PopulationStatus",
+								"value": "\"generating\""
+							}
+						},
+						{
+							"callFunction": "UpdateStatistics",
+							"sid": 473293841634767
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 484072245451009,
+							"parameters": {
+								"seconds": "2"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 511845596805377
+						},
+						{
+							"type": "script",
+							"script": "Globals.Population.generation.generation();\ng_runtime.globalVars.PopulationStatus = \"waiting\";"
+						}
+					],
+					"sid": 363872991203958
+				}
+			],
+			"sid": 867381392183748
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Drag'n'Drop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 202122864559304,
+							"parameters": {
+								"comparison": 4,
+								"x-co-ordinate": "TilesBackground.BBoxRight - (SpriteDragAndDrop.Width/2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 589120469778160,
+							"parameters": {
+								"x": "TilesBackground.BBoxRight - (SpriteDragAndDrop.Width/2)-1"
+							}
+						}
+					],
+					"sid": 966812152981158
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-x",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 477718521270694,
+							"parameters": {
+								"comparison": 2,
+								"x-co-ordinate": "TilesBackground.BBoxLeft + (SpriteDragAndDrop.Width/2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 399977655448950,
+							"parameters": {
+								"x": "TilesBackground.BBoxLeft + (SpriteDragAndDrop.Width/2)+1"
+							}
+						}
+					],
+					"sid": 604304020540272
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 473778759504368,
+							"parameters": {
+								"comparison": 4,
+								"y-co-ordinate": "TilesBackground.BBoxBottom - (SpriteDragAndDrop.Height/2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 248508538234878,
+							"parameters": {
+								"y": "TilesBackground.BBoxBottom - (SpriteDragAndDrop.Height/2)-1"
+							}
+						}
+					],
+					"sid": 678399116152931
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-y",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 620633738178387,
+							"parameters": {
+								"comparison": 2,
+								"y-co-ordinate": "TilesBackground.BBoxTop + (SpriteDragAndDrop.Height/2)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-y",
+							"objectClass": "SpriteDragAndDrop",
+							"sid": 147848016830813,
+							"parameters": {
+								"y": "TilesBackground.BBoxTop + (SpriteDragAndDrop.Height/2)+1"
+							}
+						}
+					],
+					"sid": 974407738290640
+				}
+			],
+			"sid": 131623222080083
+		}
+	],
+	"sid": 674121820304502
+}

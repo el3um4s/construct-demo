@@ -1,0 +1,18 @@
+{
+	"name": "Tile_Solid",
+	"plugin-id": "TiledBg",
+	"sid": 252478775575775,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 162808171920098
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"TilesBouncing",
+		"TilesBorder"
+	]
+}
