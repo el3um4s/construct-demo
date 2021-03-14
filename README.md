@@ -192,7 +192,7 @@ My collection of demo projects for Construct 3
 |  |               |Name                                       | Demo        | Patreon       |
 |--|---------------|-------------------------------------------|-------------|---------------|
 | 1|![image][ML-1i]| [Genetic Algorithms: Hello World][ML-1]   |[Demo][ML-1d]|[Link][ML-1p]  |
-| 2|![image][ML-2i]| [Genetic Algorithms: Cannon][ML-2]        |[Demo][ML-2d]|               |
+| 2|![image][ML-2i]| [Genetic Algorithms: Cannon][ML-2]        |[Demo][ML-2d]|[Link][ML-2p]  |
 
 [ML-1i]: machine-learning/001-hello-world/preview.png
 [ML-1]: machine-learning/001-hello-world
@@ -202,6 +202,7 @@ My collection of demo projects for Construct 3
 [ML-2i]: machine-learning/002-cannon/preview.png
 [ML-2]: machine-learning/002-cannon
 [ML-2d]: machine-learning/002-cannon/demo
+[ML-2p]: https://www.patreon.com/posts/genetic-cannon-48747660
 
 ### Other projects
 
