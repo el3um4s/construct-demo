@@ -1,0 +1,284 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 24000,
+	"name": "OpenLayers",
+	"runtime": "c3",
+	"useWorker": "dom",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		}
+	],
+	"uniqueId": "6bgddhdfhu2",
+	"objectTypes": {
+		"items": [
+			"Browser",
+			"Text",
+			"Map",
+			"Noise",
+			"PlatformInfo",
+			"Loader_Image_Logo",
+			"Loader_Effect",
+			"NIL_MILAN",
+			"BottomBar"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Main",
+			"Loader"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Main",
+			"Loader"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "SourceCodePro-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 653798236106536
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 449794653260798,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 213483207751877,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 932099009495716,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 663351757879744,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 747423069093993,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 338358486718632,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 466364454553612,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "mystyle.css",
+					"type": "text/css",
+					"sid": 649874647491685
+				},
+				{
+					"name": "ol.css",
+					"type": "text/css",
+					"sid": 941135681950497
+				},
+				{
+					"name": "ol.js",
+					"type": "text/javascript",
+					"sid": 677590548550613
+				},
+				{
+					"name": "ds964_nil_wm.geojson",
+					"type": "application/octet-stream",
+					"sid": 489158408387217
+				},
+				{
+					"name": "ol.css.map",
+					"type": "application/octet-stream",
+					"sid": 914578273985821
+				},
+				{
+					"name": "ol.js.map",
+					"type": "application/octet-stream",
+					"sid": 415252239648870
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "demo-21.03.18",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": true,
+		"fullscreenMode": "off",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.03137254901960784,
+			0.15294117647058825,
+			0.7686274509803922,
+			0
+		],
+		"splashColor": [
+			0.03137254901960784,
+			0.15294117647058825,
+			0.7686274509803922,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			0.03137254901960784,
+			0.15294117647058825,
+			0.7686274509803922,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 854,
+	"viewportHeight": 480,
+	"firstLayout": "Loader"
+}

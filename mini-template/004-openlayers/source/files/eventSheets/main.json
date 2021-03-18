@@ -1,0 +1,131 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "nil",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535604704088461
+		},
+		{
+			"eventType": "comment",
+			"text": "https://openlayers.org/en/latest/examples/vector-layer.html\nhttps://dati.comune.milano.it/dataset/ds964-nil-vigenti-pgt-2030/resource/9c4e0776-56fc-4f3d-8a90-f4992a3be426"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 991998446113933
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const myDiv = document.createElement(\"div\");\nmyDiv.id = 'mapid';\ndocument.body.appendChild(myDiv);\nmyDiv.style.position = \"absolute\";\n\nconst sourceGeoJSON = await runtime.assets.getProjectFileUrl(\"ds964_nil_wm.geojson\");\n\n\nconst style = new ol.style.Style({\n  fill: new ol.style.Fill({\n    color: 'rgba(255, 255, 255, 0.6)',\n  }),\n  stroke: new ol.style.Stroke({\n    color: '#319FD3',\n    width: 1,\n  }),\n  text: new ol.style.Text({\n    font: '10px \"SourceCodePro-Regular\",Calibri,sans-serif',\n    fill: new ol.style.Fill({\n      color: '#000',\n    }),\n    stroke: new ol.style.Stroke({\n      color: '#fff',\n      width: 1,\n    }),\n  }),\n});\n\nconst mymap = new ol.Map({\n        target: 'mapid',\n        layers: [\n          new ol.layer.Tile({\n            source: new ol.source.OSM()\n          }),\n\t\t  new ol.layer.Tile({\n      \t\tsource: new ol.source.TileJSON({\n        \t\turl: 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json?secure=1',\n        \t\tcrossOrigin: 'anonymous',\n     \t\t\t }),\n   \t\t\t }),\n\t\tnew ol.layer.Vector({\n\t\t\tsource: new ol.source.Vector({\n\t\t\t\turl: sourceGeoJSON,\n\t\t\t\tformat: new ol.format.GeoJSON(),\n\t\t\t}),\n\t\t\tstyle: function (feature) {\n    \t\t\tstyle.getText().setText(feature.get('NIL'));\n    \t\t\treturn style;\n  \t\t\t},\n\t\t})\n        ],\n        view: new ol.View({\n          center: ol.proj.fromLonLat([9.1892, 45.4641]),\n          zoom: 12\n        })\n      });\n\nconst highlightStyle = new ol.style.Style({\n  stroke: new ol.style.Stroke({\n    color: '#f00',\n    width: 1,\n  }),\n  fill: new ol.style.Fill({\n    color: 'rgba(255,0,0,0.1)',\n  }),\n  text: new ol.style.Text({\n    font: '10px \"SourceCodePro-Regular\",Calibri,sans-serif',\n    fill: new ol.style.Fill({\n      color: '#000',\n    }),\n    stroke: new ol.style.Stroke({\n      color: '#f00',\n      width: 1,\n    }),\n  }),\n});\n\nconst featureOverlay = new ol.layer.Vector({\n  source: new ol.source.Vector(),\n  map: mymap,\n  style: function (feature) {\n    highlightStyle.getText().setText(feature.get('NIL'));\n    return highlightStyle;\n  },\n});\n\nlet highlight;\nconst displayFeatureInfo = function (pixel) {\n  const feature = mymap.forEachFeatureAtPixel(pixel, function (feature) {\n    return feature;\n  });\n\n  const info = runtime.objects.NIL_MILAN.getFirstInstance();\n  if (feature) {\n    info.text = `${feature.get('ID_NIL')} - ${feature.get('NIL')}`;\n  } else {\n    info.text = '';\n  }\n\n  if (feature !== highlight) {\n    if (highlight) {\n      featureOverlay.getSource().removeFeature(highlight);\n    }\n    if (feature) {\n      featureOverlay.getSource().addFeature(feature);\n    }\n    highlight = feature;\n  }\n};\n\nmymap.on('pointermove', function (evt) {\n  if (evt.dragging) {\n    return;\n  }\n  var pixel = mymap.getEventPixel(evt.originalEvent);\n  displayFeatureInfo(pixel);\n});\n\nmymap.on('click', function (evt) {\n  displayFeatureInfo(evt.pixel);\n});"
+				}
+			],
+			"sid": 372922741594579
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Resize Canvas",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ResizeCanvas",
+					"functionDescription": "",
+					"functionCategory": "Resize",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-canvas-size",
+							"objectClass": "System",
+							"sid": 839757489299731,
+							"parameters": {
+								"width": "PlatformInfo.WindowInnerWidth",
+								"height": "PlatformInfo.WindowInnerHeight"
+							}
+						}
+					],
+					"sid": 926367938830613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 243878129980223
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 530682673573719
+						}
+					],
+					"sid": 739000936795154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-resized",
+							"objectClass": "Browser",
+							"sid": 763401803760571
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 669182632965022
+						}
+					],
+					"sid": 937495196060747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 752713805898110,
+							"parameters": {
+								"interval-seconds": "1/24"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 981940189916303,
+							"parameters": {
+								"value": "((PlatformInfo.WindowInnerWidth) <> PlatformInfo.CanvasCssWidth) | ((PlatformInfo.WindowInnerHeight)<>PlatformInfo.CanvasCssHeight)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 961955197198245
+						}
+					],
+					"sid": 408607838039925
+				}
+			],
+			"sid": 295244413963739
+		}
+	],
+	"sid": 993363859908735
+}

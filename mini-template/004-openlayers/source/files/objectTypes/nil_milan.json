@@ -1,0 +1,15 @@
+{
+	"name": "NIL_MILAN",
+	"plugin-id": "Text",
+	"sid": 218333908556483,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 193566181389993
+		}
+	],
+	"effectTypes": []
+}
