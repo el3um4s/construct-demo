@@ -10,7 +10,7 @@ Set
 
 **Link**
 
-* **c3p** [leaflet.c3p](source/c3p/leaflet.c3p)
+* **c3p** [open-layers.c3p](source/c3p/open-layers.c3p)
 * **demo** [link](demo)
 * OpenLayers: [link](https://openlayers.org/)
   - [Example Code: Vector Layer](https://openlayers.org/en/latest/examples/vector-layer.html)
