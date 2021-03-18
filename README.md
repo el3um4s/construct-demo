@@ -179,6 +179,7 @@ My collection of demo projects for Construct 3
 | 1|![image][MT-1i]| [Execute a function from separate event sheet][MT-1]   |[Demo][MT-1d]|
 | 2|![image][MT-2i]| [Straight Lasso][MT-2]                                 |[Demo][MT-2d]|
 | 3|![image][MT-3i]| [Leaflet][MT-3]                                        |[Demo][MT-3d]|
+| 4|![image][MT-4i]| [OpenLayers][MT-4]                                     |[Demo][MT-4d]|
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
 [MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
@@ -191,6 +192,10 @@ My collection of demo projects for Construct 3
 [MT-3i]: mini-template/003-leaflet/preview.png
 [MT-3]: mini-template/003-leaflet
 [MT-3d]: mini-template/003-leaflet/demo
+
+[MT-4i]: mini-template/004-openlayers/preview.png
+[MT-4]: mini-template/004-openlayers
+[MT-4d]: mini-template/004-openlayers/demo
 
 ### Machine Learning
 
