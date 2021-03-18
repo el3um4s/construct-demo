@@ -1,7 +1,11 @@
 #mapid {
 	position: absolute;
-	top:0;
-	left:0;
-	width:360px;
-	height:360px;
+	left:304px;
+	top:16px;
+	right:16px;
+	bottom:16px;
+	border-style: solid;
+	border-color: rgb(91, 31, 31);
+	border-radius: 8px;
+	opacity: 80%;
 }

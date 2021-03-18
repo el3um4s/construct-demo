@@ -3,9 +3,9 @@
 	"short_name": "Leaflet",
 	"description": "",
 	"start_url": "index.html",
-	"display": "fullscreen",
+	"display": "standalone",
 	"orientation": "landscape",
-	"background_color": "#ffffff",
+	"background_color": "#fde1af",
 	"icons": [
 		{
 			"src": "icons/icon-16.png",

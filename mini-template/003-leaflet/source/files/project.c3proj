@@ -16,6 +16,30 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "PlatformInfo",
+			"name": "Platform info",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Sprite",
 			"name": "Sprite",
 			"author": "Scirra",
@@ -23,9 +47,17 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "Text",
-			"name": "Text",
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r240",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
 			"author": "Scirra",
 			"version": "r240",
 			"bundled": false
@@ -35,8 +67,12 @@
 	"objectTypes": {
 		"items": [
 			"Browser",
+			"Text",
 			"Map",
-			"Text"
+			"Noise",
+			"PlatformInfo",
+			"Loader_Image_Logo",
+			"Loader_Effect"
 		],
 		"subfolders": []
 	},
@@ -48,13 +84,15 @@
 	},
 	"layouts": {
 		"items": [
-			"Layout 1"
+			"Main",
+			"Loader"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"Main",
+			"Loader"
 		],
 		"subfolders": []
 	},
@@ -178,26 +216,26 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "demo-21.03.17",
+		"version": "demo-21.03.18",
 		"author": "Samuele (Strani Anelli) De Tomasi",
 		"authorEmail": "stranianelli@gmail.com",
 		"authorWebsite": "https://blog.stranianelli.com/",
 		"appId": "",
 		"pixelRounding": false,
-		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"useLoaderLayout": true,
+		"fullscreenMode": "off",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
-			0,
-			0,
-			0,
+			0.9921568627450981,
+			0.8823529411764706,
+			0.6862745098039216,
 			0
 		],
 		"splashColor": [
-			1,
-			1,
-			1,
+			0.9921568627450981,
+			0.8823529411764706,
+			0.6862745098039216,
 			0
 		],
 		"useThemeColor": false,
@@ -225,5 +263,5 @@
 	},
 	"viewportWidth": 854,
 	"viewportHeight": 480,
-	"firstLayout": null
+	"firstLayout": "Loader"
 }

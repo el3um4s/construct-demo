@@ -1,37 +1,20 @@
 {
 	"name": "Map",
-	"plugin-id": "Sprite",
-	"sid": 761830494975504,
+	"plugin-id": "TiledBg",
+	"sid": 783389801230168,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [],
 	"effectTypes": [],
-	"animations": {
-		"items": [
-			{
-				"frames": [
-					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
-						"originalSource": "",
-						"exportFormat": "png",
-						"exportQuality": 0.8,
-						"imageSpriteId": 112683,
-						"useCollisionPoly": true,
-						"duration": 1
-					}
-				],
-				"sid": 793944484369935,
-				"name": "Animation 1",
-				"isLooping": false,
-				"isPingPong": false,
-				"repeatCount": 1,
-				"repeatTo": 0,
-				"speed": 0
-			}
-		],
-		"subfolders": []
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 3072830,
+		"useCollisionPoly": true
 	}
 }
