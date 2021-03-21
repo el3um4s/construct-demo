@@ -249,7 +249,7 @@
 		"orientations": "landscape",
 		"enableWebGL": true,
 		"gpuPreference": "high-performance",
-		"scriptsType": "classic",
+		"scriptsType": "module",
 		"framerateMode": "vsync",
 		"compositingMode": "standard",
 		"sampling": "trilinear",

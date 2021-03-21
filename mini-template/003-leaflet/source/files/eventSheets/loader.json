@@ -14,7 +14,7 @@
 				{
 					"id": "set-canvas-size",
 					"objectClass": "System",
-					"sid": 752165152456421,
+					"sid": 933607610829836,
 					"parameters": {
 						"width": "PlatformInfo.WindowInnerWidth",
 						"height": "PlatformInfo.WindowInnerHeight"

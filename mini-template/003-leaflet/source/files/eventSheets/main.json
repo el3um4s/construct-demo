@@ -12,26 +12,8 @@
 			],
 			"actions": [
 				{
-					"id": "load-stylesheet",
-					"objectClass": "Browser",
-					"sid": 382156441482554,
-					"disabled": true,
-					"parameters": {
-						"url": "\"mystyle.css\""
-					}
-				},
-				{
-					"id": "load-stylesheet",
-					"objectClass": "Browser",
-					"sid": 802455452479907,
-					"disabled": true,
-					"parameters": {
-						"url": "\"leaflet.css\""
-					}
-				},
-				{
 					"type": "script",
-					"script": "// await runtime.assets.loadScripts(\"leaflet.js\");\n\nconst myDiv = document.createElement(\"div\");\nmyDiv.id = 'mapid';\ndocument.body.appendChild(myDiv);\nmyDiv.style.positio = \"absolute\";\n\nvar mymap = L.map('mapid').setView([51.505, -0.09], 13);\n\nL.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'\n}).addTo(mymap);\n\nvar circle = L.circle([51.508, -0.11], {\n    color: 'red',\n    fillColor: '#f03',\n    fillOpacity: 0.5,\n    radius: 500\n}).addTo(mymap);\n\nvar polygon = L.polygon([\n    [51.509, -0.08],\n    [51.503, -0.06],\n    [51.51, -0.047]\n]).addTo(mymap);\n\ncircle.bindPopup(\"I am a circle.\");\npolygon.bindPopup(\"I am a polygon.\");\n"
+					"script": "const myDiv = document.createElement(\"div\");\nmyDiv.id = 'mapid';\ndocument.body.appendChild(myDiv);\nmyDiv.style.position = \"absolute\";\n\nvar mymap = L.map('mapid').setView([51.505, -0.09], 13);\n\nL.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {\n    attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'\n}).addTo(mymap);\n\nvar circle = L.circle([51.508, -0.11], {\n    color: 'red',\n    fillColor: '#f03',\n    fillOpacity: 0.5,\n    radius: 500\n}).addTo(mymap);\n\nvar polygon = L.polygon([\n    [51.509, -0.08],\n    [51.503, -0.06],\n    [51.51, -0.047]\n]).addTo(mymap);\n\ncircle.bindPopup(\"I am a circle.\");\npolygon.bindPopup(\"I am a polygon.\");\n"
 				}
 			],
 			"sid": 372922741594579

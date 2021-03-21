@@ -10,6 +10,7 @@ Set
 
 **Link**
 
+* **Patreon** [free post](https://www.patreon.com/posts/maps-in-3-49027372)
 * **c3p** [open-layers.c3p](source/c3p/open-layers.c3p)
 * **demo** [link](demo)
 * OpenLayers: [link](https://openlayers.org/)
