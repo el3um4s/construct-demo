@@ -2,44 +2,6 @@
 
 My collection of demo projects for Construct 3
 
-### JavaScript (classic mode)
-
-|  |               |Name                                      | Demo        |
-|--|---------------|------------------------------------------|-------------|
-| 0|               | [Snippets][J-0]                          |             |
-| 1|![image][J-1i] | [How to use JSON in JavaScript][J-1]     |[Demo][J-1d] |
-| 2|![image][J-2i] | [How to use hex color][J-2]              |[Demo][J-2d] |
-| 3|![image][J-3i] | [How to use behavior TileMovement][J-3]  |[Demo][J-3d] |
-| 4|![image][J-4i] | [How to create tooltips][J-4]            |[Demo][J-4d] |
-| 5|![image][J-5i] | [How to dynamically import a module][J-5]|[Demo][J-5d] |
-| 6|![image][J-6i] | [JsUnit][J-6]                            |[Demo][J-6d] |
-
-[J-0]: javascript/000-snippets
-
-[J-1i]: javascript/001-how-to-use-json-in-javascript/preview.png
-[J-1]: javascript/001-how-to-use-json-in-javascript
-[J-1d]: https://c3demo.stranianelli.com/javascript/001-how-to-use-json-in-javascript/demo
-
-[J-2i]: javascript/002-how-to-use-hex-color/preview.png
-[J-2]: javascript/002-how-to-use-hex-color
-[J-2d]: https://c3demo.stranianelli.com/javascript/002-how-to-use-hex-color/demo
-
-[J-3i]: javascript/003-how-to-use-behavior-tile-movement/preview.png
-[J-3]: javascript/003-how-to-use-behavior-tile-movement
-[J-3d]: https://c3demo.stranianelli.com/javascript/003-how-to-use-behavior-tile-movement/demo
-
-[J-4i]: javascript/004-how-to-create-tooltips/preview.png
-[J-4]: javascript/004-how-to-create-tooltips
-[J-4d]: https://c3demo.stranianelli.com/javascript/004-how-to-create-tooltips/demo
-
-[J-5i]: javascript/005-how-to-dynamically-import-a-module/preview.png
-[J-5]: javascript/005-how-to-dynamically-import-a-module
-[J-5d]: https://c3demo.stranianelli.com/javascript/005-how-to-dynamically-import-a-module/demo
-
-[J-6i]: javascript/006-jsunit/preview.png
-[J-6]: javascript/006-jsunit
-[J-6d]: https://c3demo.stranianelli.com/javascript/006-jsunit/demo
-
 ### JavaScript (Scripts Type: MODULE)
 
 |  |               |Name                                      | Demo        | Patreon       |
@@ -83,6 +45,7 @@ My collection of demo projects for Construct 3
 |14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|
 |15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|
 |16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|
+|17|![image][T-17i]| [Floating Window][T-17]                  |[Demo][T-17d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -147,6 +110,11 @@ My collection of demo projects for Construct 3
 [T-16i]: template/016-gubil/preview.png
 [T-16]: template/016-gubil
 [T-16d]: template/016-gubil/demo
+
+[T-17i]: template/017-floating-window/preview.png
+[T-17]: template/017-floating-window
+[T-17d]: template/017-floating-window/demo
+
 ### User Interface
 
 |  |               |Name                                      | Demo        |
@@ -224,3 +192,41 @@ My collection of demo projects for Construct 3
 
 [A-1]: https://github.com/el3um4s/DenoC3Webview2
 [A-1p]: https://www.patreon.com/posts/47942650
+
+### JavaScript (classic mode)
+
+|  |               |Name                                      | Demo        |
+|--|---------------|------------------------------------------|-------------|
+| 0|               | [Snippets][J-0]                          |             |
+| 1|![image][J-1i] | [How to use JSON in JavaScript][J-1]     |[Demo][J-1d] |
+| 2|![image][J-2i] | [How to use hex color][J-2]              |[Demo][J-2d] |
+| 3|![image][J-3i] | [How to use behavior TileMovement][J-3]  |[Demo][J-3d] |
+| 4|![image][J-4i] | [How to create tooltips][J-4]            |[Demo][J-4d] |
+| 5|![image][J-5i] | [How to dynamically import a module][J-5]|[Demo][J-5d] |
+| 6|![image][J-6i] | [JsUnit][J-6]                            |[Demo][J-6d] |
+
+[J-0]: javascript/000-snippets
+
+[J-1i]: javascript/001-how-to-use-json-in-javascript/preview.png
+[J-1]: javascript/001-how-to-use-json-in-javascript
+[J-1d]: https://c3demo.stranianelli.com/javascript/001-how-to-use-json-in-javascript/demo
+
+[J-2i]: javascript/002-how-to-use-hex-color/preview.png
+[J-2]: javascript/002-how-to-use-hex-color
+[J-2d]: https://c3demo.stranianelli.com/javascript/002-how-to-use-hex-color/demo
+
+[J-3i]: javascript/003-how-to-use-behavior-tile-movement/preview.png
+[J-3]: javascript/003-how-to-use-behavior-tile-movement
+[J-3d]: https://c3demo.stranianelli.com/javascript/003-how-to-use-behavior-tile-movement/demo
+
+[J-4i]: javascript/004-how-to-create-tooltips/preview.png
+[J-4]: javascript/004-how-to-create-tooltips
+[J-4d]: https://c3demo.stranianelli.com/javascript/004-how-to-create-tooltips/demo
+
+[J-5i]: javascript/005-how-to-dynamically-import-a-module/preview.png
+[J-5]: javascript/005-how-to-dynamically-import-a-module
+[J-5d]: https://c3demo.stranianelli.com/javascript/005-how-to-dynamically-import-a-module/demo
+
+[J-6i]: javascript/006-jsunit/preview.png
+[J-6]: javascript/006-jsunit
+[J-6d]: https://c3demo.stranianelli.com/javascript/006-jsunit/demo

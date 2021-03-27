@@ -1,0 +1,287 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "TargetSize",
+			"type": "number",
+			"initialValue": "256",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 462196966386320
+		},
+		{
+			"eventType": "variable",
+			"name": "Scale",
+			"type": "number",
+			"initialValue": "0.5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 200775420907245
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 697411551988980
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const camera = runtime.objects.Camera.getFirstInstance();\nawait globalThis.moveTo(camera.x,camera.y);"
+				}
+			],
+			"sid": 632043407952167
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 752656712159421,
+					"parameters": {
+						"first-value": "round(PlatformInfo.WindowInnerHeight)",
+						"comparison": 1,
+						"second-value": "targetSize"
+					}
+				},
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 324709197223225,
+					"parameters": {
+						"first-value": "round(PlatformInfo.WindowInnerWidth)",
+						"comparison": 1,
+						"second-value": "targetSize"
+					}
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const targetSize = runtime.globalVars.TargetSize;\nconst realSize = document.getElementsByTagName(\"html\")[0];\nconst deltaHeight = targetSize - realSize.clientHeight;\nconst deltaWidth = targetSize - realSize.clientWidth;\nawait globalThis.resizeBy(deltaWidth,deltaHeight);"
+				}
+			],
+			"sid": 764781799974040,
+			"isOrBlock": true
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "function lerp(start, end, amt) {\n  return (1 - amt) * start + amt * end;\n}\n\nconst camera = runtime.objects.Camera.getFirstInstance();\nconst winX = globalThis.screenX;\nconst winY = globalThis.screenY;\nconst x = lerp(winX, camera.x, 0.25);\nconst y = lerp(winY, camera.y, 0.25);\n\nglobalThis.moveTo(x, y);\n"
+				}
+			],
+			"sid": 270085166121932
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 268191889253414,
+					"parameters": {
+						"first-value": "Camera.BBoxTop",
+						"comparison": 2,
+						"second-value": "Borders.BBoxTop + (targetSize/2)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 541417606131310,
+					"parameters": {
+						"x": "Camera.X",
+						"y": "Borders.BBoxTop + Camera.Height/2"
+					}
+				}
+			],
+			"sid": 421177882140788
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 255351839416122,
+					"parameters": {
+						"first-value": "Camera.BBoxBottom",
+						"comparison": 4,
+						"second-value": "Borders.BBoxBottom -  (targetSize/2)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 628256746081933,
+					"parameters": {
+						"x": "Camera.X",
+						"y": "Borders.BBoxBottom - Camera.Height/2"
+					}
+				}
+			],
+			"sid": 412529742714613
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 600644609328101,
+					"parameters": {
+						"first-value": "Camera.BBoxLeft",
+						"comparison": 2,
+						"second-value": "Borders.BBoxLeft + (targetSize/2)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 369155110008852,
+					"parameters": {
+						"x": "Borders.BBoxLeft + Camera.Width/2",
+						"y": "Camera.Y"
+					}
+				}
+			],
+			"sid": 795797706163315
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-two-values",
+					"objectClass": "System",
+					"sid": 411507687639784,
+					"parameters": {
+						"first-value": "Camera.BBoxRight",
+						"comparison": 4,
+						"second-value": "Borders.BBoxRight - (targetSize/2)"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-position",
+					"objectClass": "Camera",
+					"sid": 220274813909040,
+					"parameters": {
+						"x": "Borders.BBoxRight - Camera.Width/2",
+						"y": "Camera.Y"
+					}
+				}
+			],
+			"sid": 394809367607380
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SCALE",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 439308610431702,
+							"parameters": {
+								"direction": "down"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 163532047155897,
+							"parameters": {
+								"variable": "Scale",
+								"value": "0.1"
+							}
+						}
+					],
+					"sid": 182538874406749
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-mouse-wheel",
+							"objectClass": "Mouse",
+							"sid": 639564583969454,
+							"parameters": {
+								"direction": "up"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 327242343904378,
+							"parameters": {
+								"variable": "Scale",
+								"value": "0.1"
+							}
+						}
+					],
+					"sid": 925397711896304
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 848740771730194
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layout-scale",
+							"objectClass": "System",
+							"sid": 844042033602528,
+							"parameters": {
+								"scale": "Scale"
+							}
+						}
+					],
+					"sid": 571074374300493
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "function lerp(start, end, amt) {\n  return (1 - amt) * start + amt * end;\n}\n\nlet scale = runtime.globalVars.Scale;\nscale = scale < 0.15 ? 0.15 : scale > 2 ? 2 : scale;\nruntime.globalVars.Scale = lerp(runtime.globalVars.Scale, scale, 0.25);"
+						}
+					],
+					"sid": 550309308715922
+				}
+			],
+			"sid": 998014874618996
+		}
+	],
+	"sid": 134518289050464
+}
