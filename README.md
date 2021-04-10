@@ -115,9 +115,9 @@ My collection of demo projects for Construct 3
 [T-17i]: template/017-floating-window/preview.png
 [T-17]: template/017-floating-window
 
-[T-16i]: template/018-geometric-draw/preview.png
-[T-16]: template/018-geometric-draw
-[T-16d]: template/018-geometric-draw/demo
+[T-18i]: template/018-geometric-draw/preview.png
+[T-18]: template/018-geometric-draw
+[T-18d]: template/018-geometric-draw/demo
 
 ### User Interface
 
