@@ -2,6 +2,7 @@
 
 * **c3p** [how-to-dynamically-import-a-module-20.07.12.c3p](source/c3p/how-to-dynamically-import-a-module-20.07.12.c3p)
 * **demo** [link](demo)
+* **Patreon** [link](https://patreon.com/el3um4s)
 
 ```javascript
 let wiki;

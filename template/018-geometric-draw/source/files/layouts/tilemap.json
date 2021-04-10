@@ -1,0 +1,893 @@
+{
+	"name": "TileMap",
+	"layers": [
+		{
+			"name": "Layer 0",
+			"overriden": 0,
+			"instances": [],
+			"sid": 837559082690678,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": false,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Canvas",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "DrawingCanvas",
+					"properties": {
+						"initially-visible": true,
+						"origin": "top-left",
+						"antialiasing": "off"
+					},
+					"uid": 11,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 72,
+						"width": 512,
+						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0
+					}
+				}
+			],
+			"sid": 307539649374671,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "TilemapBackground",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "TilemapBackground",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 16,
+						"tile-height": 16,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 30,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 32,
+							"height": 32,
+							"max-width": 1474,
+							"max-height": 1460,
+							"data": "2152040x0"
+						},
+						"tile-width": 16,
+						"tile-height": 16,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": 24,
+						"y": 72,
+						"width": 512,
+						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.047058823529411764,
+							0.047058823529411764,
+							0.047058823529411764,
+							1
+						],
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 854445008537519,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Tilemap",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Tilemap",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 2,
+						"tile-height": 2,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 29,
+					"instanceVariables": {},
+					"behaviors": {},
+					"ownData": {
+						"tilemapData": {
+							"width": 256,
+							"height": 256,
+							"max-width": 1474,
+							"max-height": 1460,
+							"data": "2152040x0"
+						},
+						"tile-width": 2,
+						"tile-height": 2,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": 24,
+						"y": 72,
+						"width": 512,
+						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.047058823529411764,
+							0.047058823529411764,
+							0.047058823529411764,
+							1
+						],
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 183246138211637,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "Hourglass",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "HourglassBackground",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 17,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 72,
+						"width": 512,
+						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							0.12156862745098039,
+							0.1450980392156863,
+							0.19215686274509805,
+							0.7
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Hourglass",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 18,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 288,
+						"y": 320,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 735316133219172,
+			"effectTypes": [],
+			"isInitiallyVisible": false,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		},
+		{
+			"name": "UI",
+			"overriden": 0,
+			"instances": [
+				{
+					"type": "Rules",
+					"properties": {
+						"text": "(x ^ y) % 9",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": true,
+						"id": ""
+					},
+					"uid": 19,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 8,
+						"width": 504,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Draw",
+					"properties": {
+						"type": "button",
+						"text": "Draw",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 20,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 24,
+						"y": 40,
+						"width": 256,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "SaveImage",
+					"properties": {
+						"type": "button",
+						"text": "Save Image",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 28,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 280,
+						"y": 40,
+						"width": 256,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "ButtonGoTo",
+					"properties": {
+						"type": "button",
+						"text": "go to CANVAS",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": false,
+						"id": ""
+					},
+					"uid": 32,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 824,
+						"y": 560,
+						"width": 160,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "ListRules",
+					"properties": {
+						"items": "(x ^ y) % 5\n(x ^ y) % 9\n(x ^ y) % 17\n(x ^ y) % 33\n(x ^ y) %5 == 1\n(x ^ y) % 9 == 1\n(x ^ y) % 17 == 1\n(x ^ y) % 33 == 1\n(x | y) % 7\n(x | y) % 17\n(x | y) % 29\n(x * y) & 64\n(x * y) & 24\n(x * y) & 47\n(x ^ y) < 77\n(x ^ y) < 214\n(x ^ y) < 120\n(x * 2) % y\n(x * 64) % y\n(x * 31) % y\n((x-128) * 64) % (y-128)\n(x ^ y) & 32\n(x ^ y) & 72\n(x ^ y) & 23\n((x * y) ** 4) % 7\n((x * y) ** 5) % 99\n((x * y) ** 9) % 3\n(x % y) % 4\n(y % x) % 20\n40 % (x % y)\nx & y\nx % y\nx & 9\n(x ** y) % 9\n((x*y) - (y^x)) % 3\nMath.sin(x/333)*12%Math.sin((y-228)/133)*12|0\nvar r=82; ((r-x)*(r-x)+(r-y)*(r-y)) < r*44\nvar r=82; ((r-x)*(r-x)+(r-y)*(r-y)) % 20*r < r*9\nvar r=4; ((r-x%2)*(r-x%4)+(r-y)*(r-y%x)) % r %3\nvar r=66; ((r-x)*(r-x)+(r-y)*(r-y)) % (r*9) <  r*5\nx%3==x%(y%9)\nx%5==x%(y%25)\n(x*8%6)+(x%((y*7)%38))%2\nMath.sin(x*y)*5|0%y\n3%(y%21)-y%(y%2+x)%(x%5)\nx-y & y % 8 & x+y % 8\nx%(7)>y%(3+x)\n(1 == (Math.abs(x+y)^Math.abs(x-y)+1)**37% 7)\n(x & y)   &   (x ^ y) % 19\n((x ^ y) & 32) * ((x ^ y) % 9)\n(x * 64) % y   *   ((x ^ y) < 77)",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"type": "list-box",
+						"multi-select": false,
+						"auto-font-size": true,
+						"id": ""
+					},
+					"uid": 21,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 568,
+						"y": 112,
+						"width": 416,
+						"height": 440,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "BackgroundClear",
+					"properties": {
+						"type": "checkbox",
+						"text": "Clear",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": true,
+						"id": "background-clear"
+					},
+					"uid": 22,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 680,
+						"y": 80,
+						"width": 32,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "BackgroundColor",
+					"properties": {
+						"text": "#1F2531",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": true,
+						"id": "color-background"
+					},
+					"uid": 23,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 912,
+						"y": 72,
+						"width": 72,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Color",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "right",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 24,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 864,
+						"y": 80,
+						"width": 40,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Color Primary",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 25,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 568,
+						"y": 48,
+						"width": 88,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Color",
+					"properties": {
+						"text": "#F0F0F0",
+						"placeholder": "",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"read-only": false,
+						"spell-check": false,
+						"type": "text",
+						"auto-font-size": true,
+						"id": "color-primary"
+					},
+					"uid": 26,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 664,
+						"y": 40,
+						"width": 72,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "BackgroundTransparent",
+					"properties": {
+						"type": "checkbox",
+						"text": "Transparent",
+						"tooltip": "",
+						"initially-visible": true,
+						"enabled": true,
+						"auto-font-size": true,
+						"checked": true,
+						"id": "background-transparent"
+					},
+					"uid": 27,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 752,
+						"y": 80,
+						"width": 32,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						]
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "DRAW ON TILEMAP",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 12,
+						"line-height": 0,
+						"bold": true,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 34,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 560,
+						"y": 8,
+						"width": 432,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Clear",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 75,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 704,
+						"y": 80,
+						"width": 48,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Transparent",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 76,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 776,
+						"y": 80,
+						"width": 96,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Text",
+					"properties": {
+						"text": "Background",
+						"enable-bbcode": true,
+						"font": "Roboto-Regular",
+						"size": 10,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0.9411764705882353,
+							0.9411764705882353,
+							0.9411764705882353,
+							1
+						],
+						"horizontal-alignment": "left",
+						"vertical-alignment": "top",
+						"wrapping": "word",
+						"initially-visible": true,
+						"origin": "top-left"
+					},
+					"uid": 77,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 568,
+						"y": 80,
+						"width": 88,
+						"height": 24,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 200396117912884,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.12156862745098039,
+				0.1450980392156863,
+				0.19215686274509805,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"global": false
+		}
+	],
+	"sid": 919847345641155,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 1000,
+	"height": 600,
+	"unboundedScrolling": false,
+	"eventSheet": "TileMap"
+}

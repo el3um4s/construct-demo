@@ -1,0 +1,111 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "MemoryColorPrimary",
+			"type": "string",
+			"initialValue": "#F0F0F0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 461423959706885
+		},
+		{
+			"eventType": "variable",
+			"name": "MemoryColorBackground",
+			"type": "string",
+			"initialValue": "#1F2531",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 476862903265001
+		},
+		{
+			"eventType": "variable",
+			"name": "MemoryRules",
+			"type": "string",
+			"initialValue": "(x ^ y) % 9",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 533792534454409
+		},
+		{
+			"eventType": "variable",
+			"name": "MemoryBackgroundClear",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 180848923143054
+		},
+		{
+			"eventType": "variable",
+			"name": "MemoryBackgroundTransparent",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 489577038839351
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 185340830905516
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 741178969104120,
+					"parameters": {
+						"url": "\"myStyle.css\""
+					}
+				}
+			],
+			"sid": 983271594284072
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 756540059927209
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 424311326415368,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 423210396374486
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 522958208209425,
+					"parameters": {
+						"layout": "Canvas"
+					}
+				}
+			],
+			"sid": 997958870269733
+		}
+	],
+	"sid": 410241682702711
+}

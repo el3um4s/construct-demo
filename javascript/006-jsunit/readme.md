@@ -2,6 +2,7 @@
 
 * **c3p** [jsunit.c3p](source/c3p/jsunit.c3p)
 * **demo** [link](demo)
+* **Patreon** [link](https://patreon.com/el3um4s)
 
 
 C3 does not allow to use Unit Test regularly. I think it's a problem, but I don't know how to fix it.

@@ -1,0 +1,329 @@
+{
+	"name": "General",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 647586080750252
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Rules",
+					"sid": 318874854953160,
+					"parameters": {
+						"text": "MemoryRules"
+					}
+				}
+			],
+			"sid": 175726942460415
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BackgroundColor",
+					"sid": 861118682366297
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "BackgroundColor",
+					"sid": 931264871285404,
+					"parameters": {
+						"text": "MemoryColorBackground"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 675944912006908,
+					"parameters": {
+						"seconds": "1/60"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 759389575112906
+				},
+				{
+					"type": "script",
+					"script": "const colorBackground = document.getElementById(\"color-background\");\ncolorBackground.type = \"color\";"
+				}
+			],
+			"sid": 817750195790820
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Color",
+					"sid": 986846032888079
+				}
+			],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Color",
+					"sid": 940171449935996,
+					"parameters": {
+						"text": "MemoryColorPrimary"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 779138957725113,
+					"parameters": {
+						"seconds": "1/60"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 144835049005420
+				},
+				{
+					"type": "script",
+					"script": "const colorPrimary = document.getElementById(\"color-primary\");\ncolorPrimary.type = \"color\";\n"
+				}
+			],
+			"sid": 613508722912637
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BackgroundClear",
+					"sid": 780442413665429
+				}
+			],
+			"actions": [],
+			"sid": 109406163457968,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 587733509860776,
+							"parameters": {
+								"variable": "MemoryBackgroundClear",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "BackgroundClear",
+							"sid": 738479775027065,
+							"parameters": {
+								"state": "unchecked"
+							}
+						}
+					],
+					"sid": 250163361913773
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 546476782149772
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "BackgroundClear",
+							"sid": 987604954199435,
+							"parameters": {
+								"state": "checked"
+							}
+						}
+					],
+					"sid": 532747103279798
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "BackgroundTransparent",
+					"sid": 753141382670086
+				}
+			],
+			"actions": [],
+			"sid": 141725413225596,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 274292742243709,
+							"parameters": {
+								"variable": "MemoryBackgroundTransparent",
+								"comparison": 0,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "BackgroundTransparent",
+							"sid": 737503108545933,
+							"parameters": {
+								"state": "unchecked"
+							}
+						}
+					],
+					"sid": 843405584500497
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 645583605329626
+						}
+					],
+					"actions": [
+						{
+							"id": "set-checked",
+							"objectClass": "BackgroundTransparent",
+							"sid": 943375713954966,
+							"parameters": {
+								"state": "checked"
+							}
+						}
+					],
+					"sid": 239512120552293
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-end-of-layout",
+					"objectClass": "System",
+					"sid": 824245360266878
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 109121647977150,
+					"parameters": {
+						"variable": "MemoryColorBackground",
+						"value": "BackgroundColor.Text"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 951575978457815,
+					"parameters": {
+						"variable": "MemoryColorPrimary",
+						"value": "Color.Text"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 232092825922545,
+					"parameters": {
+						"variable": "MemoryRules",
+						"value": "Rules.Text"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 947652252539706,
+					"parameters": {
+						"variable": "MemoryBackgroundClear",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 134698311271362,
+					"parameters": {
+						"variable": "MemoryBackgroundTransparent",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 613333797663953,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-checked",
+							"objectClass": "BackgroundClear",
+							"sid": 587295706761166
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 330584119397676,
+							"parameters": {
+								"variable": "MemoryBackgroundClear",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 645976152739497
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-checked",
+							"objectClass": "BackgroundTransparent",
+							"sid": 625541923157525
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 452136227786483,
+							"parameters": {
+								"variable": "MemoryBackgroundTransparent",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 686909812672540
+				}
+			]
+		}
+	],
+	"sid": 464091454721724
+}

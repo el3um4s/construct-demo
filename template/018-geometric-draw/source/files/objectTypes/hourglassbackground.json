@@ -1,0 +1,49 @@
+{
+	"name": "HourglassBackground",
+	"plugin-id": "Sprite",
+	"sid": 236659372920879,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 512,
+						"height": 512,
+						"originX": 0,
+						"originY": 0,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 8400306,
+						"collisionPoly": {
+							"points": [
+								0.255859375,
+								0.255859375,
+								0.744140625,
+								0.255859375,
+								0.744140625,
+								0.744140625,
+								0.255859375,
+								0.744140625
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 345709760881884,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

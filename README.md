@@ -46,6 +46,7 @@ My collection of demo projects for Construct 3
 |15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|
 |16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|
 |17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>|
+|16|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -113,6 +114,10 @@ My collection of demo projects for Construct 3
 
 [T-17i]: template/017-floating-window/preview.png
 [T-17]: template/017-floating-window
+
+[T-16i]: template/018-geometric-draw/preview.png
+[T-16]: template/018-geometric-draw
+[T-16d]: template/018-geometric-draw/demo
 
 ### User Interface
 

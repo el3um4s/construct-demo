@@ -1,0 +1,39 @@
+label { color: rgba(0,0,0,0)!important; }
+input[type="checkbox"]:checked + label {}
+
+input[type="button"], input[type="text"], select {
+	background-color: #1F2531;
+	color: #F0F0F0;
+	border: 1px solid #F0F0F0;
+	font-family: "Roboto-Regular";
+} 
+
+input[type="text"] {
+	padding-left: 8px;
+}
+
+option {
+	background-color: #1F2531;
+	color: #F0F0F0;
+	padding: 4px 4px 4px 8px;
+	border: 1px solid #1F2531;
+}
+
+input[type="button"]:hover, input[type="text"]:hover, option:hover, input[type="text"]:focus {
+	background-color: #F0F0F0;
+	color: #1F2531;
+	border: 1px solid #1F2531;
+}
+
+
+select::-webkit-scrollbar {
+  width: 10px;
+}
+
+select::-webkit-scrollbar-track {
+  background: #F0F0F0; 
+}
+
+select::-webkit-scrollbar-thumb {
+  background: #0075ff; 
+}

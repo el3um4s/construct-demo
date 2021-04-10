@@ -2,6 +2,7 @@
 
 * **c3p** [004-how-to-create-tooltips-20.06.26.c3p](source/c3p/004-how-to-create-tooltips-20.06.26.c3p)
 * **demo** [link](demo)
+* **Patreon** [link](https://patreon.com/el3um4s)
 
 ### c3_tooltips_helper.js
 

@@ -1,0 +1,318 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 24302,
+	"name": "Geometric Draw",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "DrawingCanvas",
+			"name": "Drawing canvas",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TextBox",
+			"name": "Text input",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Button",
+			"name": "Button",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "List",
+			"name": "List",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Tilemap",
+			"name": "Tilemap",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"version": "r243.2",
+			"bundled": false
+		}
+	],
+	"uniqueId": "u8oevsnityr",
+	"objectTypes": {
+		"items": [
+			"DrawingCanvas",
+			"Rules",
+			"Draw",
+			"ListRules",
+			"BackgroundClear",
+			"BackgroundColor",
+			"Text",
+			"Color",
+			"BackgroundTransparent",
+			"SaveImage",
+			"Browser",
+			"Hourglass",
+			"HourglassBackground",
+			"Tilemap",
+			"TilemapBackground",
+			"ButtonGoTo",
+			"Loader_Image_Logo",
+			"Loader_Effect"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Loader",
+			"Canvas",
+			"TileMap"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Canvas",
+			"TileMap",
+			"Loader",
+			"General"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 357317456542249,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "colorsHelper.js",
+					"type": "application/javascript",
+					"sid": 987763720885754,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "importForEvents.js",
+					"type": "application/javascript",
+					"sid": 559126809048572,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Roboto-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 292691395060443
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 379934052124201,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 820711543549378,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 724232975461879,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 779770962280866,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 595938816669927,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 608709604535252,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 241624580097527,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "Reference.txt",
+					"type": "text/plain",
+					"sid": 902042777726853
+				},
+				{
+					"name": "myStyle.css",
+					"type": "text/css",
+					"sid": 809389758320234
+				}
+			],
+			"subfolders": []
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "Demo v21.04.10",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "samuele@stranianelli.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": true,
+		"fullscreenMode": "off",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.12156862745098039,
+			0.1450980392156863,
+			0.19215686274509805,
+			0
+		],
+		"splashColor": [
+			0.12156862745098039,
+			0.1450980392156863,
+			0.19215686274509805,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 1000,
+	"viewportHeight": 600,
+	"firstLayout": "Loader"
+}

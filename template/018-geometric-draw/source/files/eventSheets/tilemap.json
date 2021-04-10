@@ -1,0 +1,496 @@
+{
+	"name": "TileMap",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "General"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ButtonGoTo",
+					"sid": 106235255401109
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 751731691925885,
+					"parameters": {
+						"layout": "Canvas"
+					}
+				}
+			],
+			"sid": 912163839510055
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 511084938812351
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Tilemap_Draw",
+					"sid": 820631965236232,
+					"parameters": [
+						"Tilemap.UID"
+					]
+				}
+			],
+			"sid": 590280243568498
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "TILEMAP",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "ListRules",
+							"sid": 278451289814050
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Rules",
+							"sid": 762239083907972,
+							"parameters": {
+								"text": "ListRules.SelectedText"
+							}
+						},
+						{
+							"callFunction": "Tilemap_Draw",
+							"sid": 470296617344218,
+							"parameters": [
+								"Tilemap.UID"
+							]
+						}
+					],
+					"sid": 199044415293887
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Draw",
+							"sid": 292168691189707
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Tilemap_Draw",
+							"sid": 179549138164236,
+							"parameters": [
+								"Tilemap.UID"
+							]
+						}
+					],
+					"sid": 618527782849596
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "SaveImage",
+							"sid": 182826365203310
+						}
+					],
+					"actions": [
+						{
+							"id": "clear-canvas",
+							"objectClass": "DrawingCanvas",
+							"sid": 747522966963298,
+							"parameters": {
+								"color": "rgba(0, 0, 0, 0)"
+							}
+						},
+						{
+							"id": "paste-object",
+							"objectClass": "DrawingCanvas",
+							"sid": 691219316490604,
+							"parameters": {
+								"object": "TilemapBackground",
+								"effects": "with-effects"
+							}
+						},
+						{
+							"id": "paste-object",
+							"objectClass": "DrawingCanvas",
+							"sid": 598632374101299,
+							"parameters": {
+								"object": "Tilemap",
+								"effects": "with-effects"
+							}
+						},
+						{
+							"id": "save-image",
+							"objectClass": "DrawingCanvas",
+							"sid": 258621567465121,
+							"parameters": {
+								"format": "png",
+								"jpeg-quality": "75",
+								"x": "0",
+								"y": "0",
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 778595724707073
+						},
+						{
+							"id": "invoke-download",
+							"objectClass": "Browser",
+							"sid": 745116946134592,
+							"parameters": {
+								"url": "DrawingCanvas.SavedImageURL",
+								"filename": "\"image.png\""
+							}
+						}
+					],
+					"sid": 152123910224486
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "TILEMAP :: Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Tilemap_Draw",
+							"functionDescription": "",
+							"functionCategory": "Tilemap",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 716370776735817
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 605483206468724,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "BackgroundTransparent",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 576520525559897
+								},
+								{
+									"eventType": "variable",
+									"name": "BackgroundClear",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 823142401180426
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundTransparent",
+											"sid": 635683824836073
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 665879152394694,
+											"parameters": {
+												"variable": "BackgroundTransparent",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 286819528579482
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundClear",
+											"sid": 130145642128680
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 823766627808668,
+											"parameters": {
+												"variable": "BackgroundClear",
+												"value": "1"
+											}
+										},
+										{
+											"callFunction": "Tilemap_ClearBackground",
+											"sid": 968845662771327,
+											"parameters": [
+												"TilemapBackground.UID",
+												"BackgroundTransparent",
+												"BackgroundColor.Text"
+											]
+										}
+									],
+									"sid": 889247498025136
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 992912235382304,
+											"parameters": {
+												"layer": "\"Hourglass\"",
+												"visibility": "visible"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 850394220887443,
+											"parameters": {
+												"seconds": "1/10"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 580814152709123
+										},
+										{
+											"callFunction": "Tilemap_DrawFromRules",
+											"sid": 572900399012379,
+											"parameters": [
+												"UID",
+												"Rules.Text",
+												"Color.Text",
+												"BackgroundClear"
+											]
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 222132648762102
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 399362029596776,
+											"parameters": {
+												"seconds": "1/10"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 208498577980679
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 283941415994519,
+											"parameters": {
+												"layer": "\"Hourglass\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 774114190150104
+								}
+							]
+						},
+						{
+							"functionName": "Tilemap_DrawFromRules",
+							"functionDescription": "",
+							"functionCategory": "Tilemap",
+							"functionReturnType": "none",
+							"functionIsAsync": true,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 616707087407544
+								},
+								{
+									"name": "Rules",
+									"type": "string",
+									"initialValue": "(x ^ y) % 9",
+									"comment": "",
+									"sid": 416903393463280
+								},
+								{
+									"name": "Color",
+									"type": "string",
+									"initialValue": "\"#0C0C0C\"",
+									"comment": "",
+									"sid": 862930870815475
+								},
+								{
+									"name": "ClearBackground",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 835198860066567
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst rules = localVars.Rules;\nconst hex = localVars.Color;\nconst tilemap = runtime.getInstanceByUid(uid);\nconst clearBackground = !!localVars.ClearBackground;\n\nconst color = hexToRGBA(hex, {formatNumber: \"0-1 Range\", formatReturn: \"ARRAY\" });\ntilemap.colorRgb = color;\n\nconst width = tilemap.mapWidth;\nconst height = tilemap.mapHeight;\n\nfor (let x = 0; x < width; x++) {\n  for (let y = 0; y < height; y++) {\n\tconst condition = eval(rules);\n\n    if (condition) {\n\t\ttilemap.setTileAt(x, y, 1);\n    } else if (clearBackground) {\n\t\ttilemap.setTileAt(x, y, -1);\n\t}\n  }\n}\n"
+								}
+							],
+							"sid": 894790602934003
+						},
+						{
+							"functionName": "Tilemap_ClearBackground",
+							"functionDescription": "",
+							"functionCategory": "Tilemap",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 995668606891759
+								},
+								{
+									"name": "Transparent",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 352304905573955
+								},
+								{
+									"name": "Color",
+									"type": "string",
+									"initialValue": "\"#0C0C0C\"",
+									"comment": "",
+									"sid": 882802295923225
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "pick-by-unique-id",
+									"objectClass": "TilemapBackground",
+									"sid": 616669568402260,
+									"parameters": {
+										"unique-id": "UID"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 278307295076049,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 449162635717002,
+											"parameters": {
+												"variable": "Transparent",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const uid = localVars.UID;\nconst tilemap = runtime.getInstanceByUid(uid);\nconst hex = localVars.Color;\nconst color = hexToRGBA(hex, {formatNumber: \"0-1 Range\", formatReturn: \"ARRAY\" });\ntilemap.colorRgb = color;"
+										},
+										{
+											"id": "set-tile-range",
+											"objectClass": "TilemapBackground",
+											"sid": 718317794790208,
+											"parameters": {
+												"tile-x": "0",
+												"tile-y": "0",
+												"width": "TilemapBackground.Width/16",
+												"height": "TilemapBackground.Height/16",
+												"tile": "1",
+												"state": "normal"
+											}
+										}
+									],
+									"sid": 572095481524289
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 666013781920798
+										}
+									],
+									"actions": [
+										{
+											"id": "erase-tile-range",
+											"objectClass": "TilemapBackground",
+											"sid": 972093767995642,
+											"parameters": {
+												"tile-x": "0",
+												"tile-y": "0",
+												"width": "TilemapBackground.Width/16",
+												"height": "TilemapBackground.Height/16"
+											}
+										}
+									],
+									"sid": 936929803360494
+								}
+							]
+						}
+					],
+					"sid": 202050885794156
+				}
+			],
+			"sid": 878576073438457
+		}
+	],
+	"sid": 567484049402179
+}

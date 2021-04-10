@@ -1,0 +1,588 @@
+{
+	"name": "Canvas",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "General"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 950104341329209
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Canvas_Draw",
+					"sid": 409444766409287,
+					"parameters": [
+						"DrawingCanvas.UID"
+					]
+				}
+			],
+			"sid": 885242603646411
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ButtonGoTo",
+					"sid": 643535210801495
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 662057862208200,
+					"parameters": {
+						"layout": "TileMap"
+					}
+				}
+			],
+			"sid": 686513780914215
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "CANVAS ",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-selection-changed",
+							"objectClass": "ListRules",
+							"sid": 603186916329973
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Rules",
+							"sid": 545086191007715,
+							"parameters": {
+								"text": "ListRules.SelectedText"
+							}
+						},
+						{
+							"callFunction": "Canvas_Draw",
+							"sid": 827550771929902,
+							"parameters": [
+								"DrawingCanvas.UID"
+							]
+						}
+					],
+					"sid": 141433951192527
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "Draw",
+							"sid": 870830850967805
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "Canvas_Draw",
+							"sid": 167953401916745,
+							"parameters": [
+								"DrawingCanvas.UID"
+							]
+						}
+					],
+					"sid": 597473745397231
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-clicked",
+							"objectClass": "SaveImage",
+							"sid": 630801804756701
+						}
+					],
+					"actions": [
+						{
+							"id": "save-image",
+							"objectClass": "DrawingCanvas",
+							"sid": 170359635919219,
+							"parameters": {
+								"format": "png",
+								"jpeg-quality": "75",
+								"x": "0",
+								"y": "0",
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 358389900900907
+						},
+						{
+							"id": "invoke-download",
+							"objectClass": "Browser",
+							"sid": 343008789149187,
+							"parameters": {
+								"url": "DrawingCanvas.SavedImageURL",
+								"filename": "\"image.png\""
+							}
+						}
+					],
+					"sid": 468656713254545
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "CANVAS :: Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Canvas_Draw",
+							"functionDescription": "",
+							"functionCategory": "Canvas",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 845067647962178
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 522081690071557,
+									"parameters": {
+										"layer": "\"Hourglass\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 892426215724003,
+									"parameters": {
+										"seconds": "1/10"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 253811239701661
+								}
+							],
+							"sid": 855917867658336,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundClear",
+											"sid": 686267331007811
+										},
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundTransparent",
+											"sid": 751231952517976
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Canvas_ClearBackground",
+											"sid": 489343795826836,
+											"parameters": [
+												"UID",
+												true,
+												"BackgroundColor.Text"
+											]
+										}
+									],
+									"sid": 160787824277780
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundClear",
+											"sid": 817764577450569
+										},
+										{
+											"id": "is-checked",
+											"objectClass": "BackgroundTransparent",
+											"sid": 412437751327322,
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "Canvas_ClearBackground",
+											"sid": 782771249168603,
+											"parameters": [
+												"UID",
+												false,
+												"BackgroundColor.Text"
+											]
+										}
+									],
+									"sid": 555377338626631
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"callFunction": "Canvas_DrawFromRules",
+											"sid": 199540406887244,
+											"parameters": [
+												"UID",
+												"Rules.Text",
+												"Color.Text"
+											]
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 963942895318805
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 715737772840231,
+											"parameters": {
+												"seconds": "1/10"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 377743308647560
+										},
+										{
+											"id": "set-layer-visible",
+											"objectClass": "System",
+											"sid": 623801831072960,
+											"parameters": {
+												"layer": "\"Hourglass\"",
+												"visibility": "invisible"
+											}
+										}
+									],
+									"sid": 838974236684150
+								}
+							]
+						},
+						{
+							"functionName": "Canvas_DrawPoint",
+							"functionDescription": "",
+							"functionCategory": "Canvas",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 136654256590257
+								},
+								{
+									"name": "PositionLeft",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 665588674572051
+								},
+								{
+									"name": "PositionTop",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 969922196541017
+								},
+								{
+									"name": "PositionRight",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 525473565482300
+								},
+								{
+									"name": "PositionBottom",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 854992518101730
+								},
+								{
+									"name": "R",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 982359038228218
+								},
+								{
+									"name": "G",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 419454071065246
+								},
+								{
+									"name": "B",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 676153371258285
+								},
+								{
+									"name": "A",
+									"type": "number",
+									"initialValue": "100",
+									"comment": "",
+									"sid": 546464064713790
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 986530500570892,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "DrawingCanvas",
+											"sid": 624444819852658,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "fill-rect",
+											"objectClass": "DrawingCanvas",
+											"sid": 835752021340413,
+											"parameters": {
+												"left": "PositionLeft",
+												"top": "PositionBottom",
+												"right": "PositionRight",
+												"bottom": "PositionTop",
+												"color": "rgba(R, G, B, A)"
+											}
+										}
+									],
+									"sid": 796874164575093
+								}
+							]
+						},
+						{
+							"functionName": "Canvas_DrawFromRules",
+							"functionDescription": "",
+							"functionCategory": "Canvas",
+							"functionReturnType": "none",
+							"functionIsAsync": true,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 395498303195177
+								},
+								{
+									"name": "Rules",
+									"type": "string",
+									"initialValue": "(x ^ y) % 9",
+									"comment": "",
+									"sid": 653294633749190
+								},
+								{
+									"name": "Color",
+									"type": "string",
+									"initialValue": "\"#0C0C0C\"",
+									"comment": "",
+									"sid": 430532142685505
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const uid = localVars.UID;\nconst canvas = runtime.getInstanceByUid(uid);\n\n// colors\nconst hex = localVars.Color;\nconst {r, g, b } = hexToRGBA(hex, {formatNumber: \"PERCENTAGE\", formatReturn: \"OBJECT\" });\n\n// draw\nconst width = canvas.surfaceDeviceWidth;\nconst height = canvas.surfaceDeviceHeight;\n\nconst rules = localVars.Rules;\n\nfor (let x = 0; x < width; x++) {\n  for (let y = 0; y < height; y++) {\n\tconst condition = eval(rules);\n\n    if (condition) {\n      runtime.callFunction(\"Canvas_DrawPoint\", uid, x, y, x+1, y+1, r, g, b, 100);\n    }\n  }\n}\n"
+								}
+							],
+							"sid": 536473278202299
+						},
+						{
+							"functionName": "Canvas_ClearBackground",
+							"functionDescription": "",
+							"functionCategory": "Canvas",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "UID",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"sid": 214194527679822
+								},
+								{
+									"name": "Transparent",
+									"type": "boolean",
+									"initialValue": "false",
+									"comment": "",
+									"sid": 661892992955282
+								},
+								{
+									"name": "Color",
+									"type": "string",
+									"initialValue": "\"#0C0C0C\"",
+									"comment": "",
+									"sid": 297326814133946
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [],
+							"sid": 615146230357662,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "r",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 635668003849437
+								},
+								{
+									"eventType": "variable",
+									"name": "g",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 326758377458124
+								},
+								{
+									"eventType": "variable",
+									"name": "b",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 625963862431939
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-by-unique-id",
+											"objectClass": "DrawingCanvas",
+											"sid": 622954243512198,
+											"parameters": {
+												"unique-id": "UID"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 374561901223758,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 689071097041823,
+													"parameters": {
+														"variable": "Transparent"
+													},
+													"isInverted": true
+												}
+											],
+											"actions": [
+												{
+													"type": "script",
+													"script": "const hex = localVars.Color;\nconst {r, g, b } = hexToRGBA(hex, {formatNumber: \"PERCENTAGE\", formatReturn: \"OBJECT\" });\nlocalVars.r = r;\nlocalVars.g = g;\nlocalVars.b = b;"
+												},
+												{
+													"id": "clear-canvas",
+													"objectClass": "DrawingCanvas",
+													"sid": 626118421847995,
+													"parameters": {
+														"color": "rgba(r, g, b, 100)"
+													}
+												}
+											],
+											"sid": 562177864931884
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 634376626238966
+												},
+												{
+													"id": "compare-boolean-eventvar",
+													"objectClass": "System",
+													"sid": 996852777562060,
+													"parameters": {
+														"variable": "Transparent"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "clear-canvas",
+													"objectClass": "DrawingCanvas",
+													"sid": 889949984852153,
+													"parameters": {
+														"color": "rgba(0, 0, 0, 0)"
+													}
+												}
+											],
+											"sid": 953227033004883
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 263935124477966
+				}
+			],
+			"sid": 334382145350109
+		}
+	],
+	"sid": 726411559728219
+}

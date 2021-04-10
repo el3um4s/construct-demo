@@ -8,3 +8,4 @@ Inspirated by [Making a game only using ONE COLOR...](https://www.youtube.com/wa
 
 * **itch.io** [el3um4s.itch.io](https://el3um4s.itch.io/one-color-idle-game)
 * **construct.net** [free arcade](https://www.construct.net/en/free-online-games/one-color-idle-game-17631/play)
+* **Patreon** [link](https://patreon.com/el3um4s)
