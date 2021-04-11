@@ -152,6 +152,7 @@ My collection of demo projects for Construct 3
 | 2|![image][MT-2i]| [Straight Lasso][MT-2]                                 |[Demo][MT-2d]|               |
 | 3|![image][MT-3i]| [Leaflet][MT-3]                                        |[Demo][MT-3d]|[Link][MT-3p]  |
 | 4|![image][MT-4i]| [OpenLayers][MT-4]                                     |[Demo][MT-4d]|[Link][MT-4p]  |
+| 5|![image][MT-5i]| [KeyCode Info][MT-5]                                   |[Demo][MT-5d]|               |
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
 [MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
@@ -170,6 +171,11 @@ My collection of demo projects for Construct 3
 [MT-4]: mini-template/004-openlayers
 [MT-4d]: mini-template/004-openlayers/demo
 [MT-4p]: https://www.patreon.com/posts/maps-in-3-49027372
+
+[MT-5i]: mini-template/004-openlayers/preview.png
+[MT-5]: mini-template/005-keycode-info
+[MT-5d]: mini-template/005-keycode-info/demo
+
 
 ### Machine Learning
 
