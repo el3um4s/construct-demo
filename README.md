@@ -27,26 +27,26 @@ My collection of demo projects for Construct 3
 
 ### Template
 
-|  |               |Name                                      | Demo        |
-|--|---------------|------------------------------------------|-------------|
-| 1|![image][T-1i] | [Top Down Shooter: Laser Game][T-1]      |[Demo][T-1d] |
-| 2|![image][T-2i] | [Wheel of Fortune][T-2]                  |[Demo][T-2d] |
-| 3|![image][T-3i] | [Sandy Road][T-3]                        |[Demo][T-3d] |
-| 4|![image][T-4i] | [Splash Game][T-4]                       |[Demo][T-4d] |
-| 5|![image][T-5i] | [One Color Idle Game][T-5]               |[Demo][T-5d] |
-| 6|![image][T-6i] | [Follow the player][T-6]                 |[Demo][T-6d] |
-| 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |
-| 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |
-| 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |
-|10|![image][T-10i]| [Solo Dungeon Bash][T-10]                |[Demo][T-10d]|
-|11|![image][T-11i]| [Combine Colors][T-11]                   |[Demo][T-11d]|
-|12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|
-|13|![image][T-13i]| [Spell Caster][T-13]                     |[Demo][T-13d]|
-|14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|
-|15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|
-|16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|
-|17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>|
-|16|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|
+|  |               |Name                                      | Demo        | Patreon       |
+|--|---------------|------------------------------------------|-------------|---------------|
+| 1|![image][T-1i] | [Top Down Shooter: Laser Game][T-1]      |[Demo][T-1d] |               |
+| 2|![image][T-2i] | [Wheel of Fortune][T-2]                  |[Demo][T-2d] |               |
+| 3|![image][T-3i] | [Sandy Road][T-3]                        |[Demo][T-3d] |               |
+| 4|![image][T-4i] | [Splash Game][T-4]                       |[Demo][T-4d] |               |
+| 5|![image][T-5i] | [One Color Idle Game][T-5]               |[Demo][T-5d] |               |
+| 6|![image][T-6i] | [Follow the player][T-6]                 |[Demo][T-6d] |               |
+| 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |               |
+| 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |               |
+| 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |               |
+|10|![image][T-10i]| [Solo Dungeon Bash][T-10]                |[Demo][T-10d]|               |
+|11|![image][T-11i]| [Combine Colors][T-11]                   |[Demo][T-11d]|               |
+|12|![image][T-12i]| [Bricks Ball][T-12]                      |[Demo][T-12d]|               |
+|13|![image][T-13i]| [Spell Caster][T-13]                     |[Demo][T-13d]|               |
+|14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|               |
+|15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|               |
+|16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|               |
+|17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>|[Link][T-17p]  |
+|16|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|[Link][T-18p]  |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -114,10 +114,12 @@ My collection of demo projects for Construct 3
 
 [T-17i]: template/017-floating-window/preview.png
 [T-17]: template/017-floating-window
+[T-17p]: https://www.patreon.com/posts/floating-window-49310467
 
 [T-18i]: template/018-geometric-draw/preview.png
 [T-18]: template/018-geometric-draw
 [T-18d]: template/018-geometric-draw/demo
+[T-18p]: https://www.patreon.com/posts/geometric-draw-49913051
 
 ### User Interface
 
