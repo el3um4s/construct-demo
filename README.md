@@ -172,7 +172,7 @@ My collection of demo projects for Construct 3
 [MT-4d]: mini-template/004-openlayers/demo
 [MT-4p]: https://www.patreon.com/posts/maps-in-3-49027372
 
-[MT-5i]: mini-template/004-openlayers/preview.png
+[MT-5i]: mini-template/005-keycode-info/preview.png
 [MT-5]: mini-template/005-keycode-info
 [MT-5d]: mini-template/005-keycode-info/demo
 
