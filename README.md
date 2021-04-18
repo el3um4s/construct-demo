@@ -47,7 +47,7 @@ My collection of demo projects for Construct 3
 |16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|               |
 |17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>|[Link][T-17p]  |
 |18|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|[Link][T-18p]  |
-|19|![image][T-19i]| [Chaos Game][T-19]                       |[Demo][T-16d]|               |
+|19|![image][T-19i]| [Chaos Game][T-19]                       |[Demo][T-19d]|               |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
