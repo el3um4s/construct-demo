@@ -1,0 +1,29 @@
+{
+	"name": "Vertex",
+	"plugin-id": "Sprite",
+	"sid": 876368371761271,
+	"instanceVariables": [
+		{
+			"name": "Order",
+			"type": "number",
+			"desc": "",
+			"sid": 880933652031759
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 542761239435098
+		},
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 515255514123077
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Star"
+	]
+}

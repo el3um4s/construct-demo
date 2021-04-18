@@ -1,0 +1,9 @@
+{
+	"name": "LabelValue_Rule_NotEqualPrePrevious",
+	"plugin-id": "Text",
+	"sid": 833810652891707,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

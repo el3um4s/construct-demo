@@ -1,0 +1,30 @@
+{
+	"name": "Points",
+	"plugin-id": "Sprite",
+	"sid": 544733428012902,
+	"instanceVariables": [
+		{
+			"name": "Order",
+			"type": "number",
+			"desc": "",
+			"sid": 517152250111445
+		},
+		{
+			"name": "Value",
+			"type": "number",
+			"desc": "",
+			"sid": 660160977341556
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 709182163218968
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Point"
+	]
+}

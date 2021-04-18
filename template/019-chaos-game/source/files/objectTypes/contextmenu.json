@@ -1,0 +1,26 @@
+{
+	"name": "ContextMenu",
+	"plugin-id": "TiledBg",
+	"sid": 136916078347328,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "bound",
+			"name": "BoundToLayout",
+			"sid": 965388887281913
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 8,
+		"height": 8,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 6626970,
+		"useCollisionPoly": true
+	}
+}

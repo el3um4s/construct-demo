@@ -1,0 +1,1653 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "PointsCount",
+			"type": "number",
+			"initialValue": "5000",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 589583584249375
+		},
+		{
+			"eventType": "variable",
+			"name": "PointSize",
+			"type": "number",
+			"initialValue": "4",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 620046239970415
+		},
+		{
+			"eventType": "variable",
+			"name": "VertexClicked",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 511395629542017
+		},
+		{
+			"eventType": "variable",
+			"name": "Rule_NotEqualPrevious",
+			"type": "string",
+			"initialValue": "-",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 103100472033399
+		},
+		{
+			"eventType": "variable",
+			"name": "Rule_NotEqualPrePrevious",
+			"type": "string",
+			"initialValue": "-",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 593577477735825
+		},
+		{
+			"eventType": "variable",
+			"name": "Grid_Show",
+			"type": "string",
+			"initialValue": "X",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 858294266660646
+		},
+		{
+			"eventType": "variable",
+			"name": "Grid_Snap",
+			"type": "string",
+			"initialValue": "X",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 988921333942375
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 534551490979068
+				}
+			],
+			"actions": [
+				{
+					"id": "destroy",
+					"objectClass": "Points",
+					"sid": 761068807617457
+				},
+				{
+					"callFunction": "ContextMenu_Show",
+					"sid": 230919328819753,
+					"parameters": [
+						false,
+						false
+					]
+				},
+				{
+					"callFunction": "ChaosGame_GenerateAllPoints",
+					"sid": 319816266873319,
+					"parameters": [
+						"PointsCount"
+					]
+				}
+			],
+			"sid": 804621279995364
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Points",
+					"sid": 188287668683181
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Points",
+					"sid": 891956670120222,
+					"parameters": {
+						"width": "PointSize",
+						"height": "PointSize"
+					}
+				}
+			],
+			"sid": 906765294012939
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-created",
+					"objectClass": "Vertex",
+					"sid": 920256837106047
+				}
+			],
+			"actions": [],
+			"sid": 730866885870070,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Button",
+							"sid": 983528737657529,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"Color\""
+							}
+						},
+						{
+							"id": "pick-random-instance",
+							"objectClass": "System",
+							"sid": 306173759338511,
+							"parameters": {
+								"object": "Button"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Vertex",
+							"sid": 772886885178449,
+							"parameters": {
+								"color": "Button.ColorValue"
+							}
+						}
+					],
+					"sid": 534399480054456
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_PointSize",
+					"sid": 726824463377063,
+					"parameters": {
+						"text": "PointSize"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_PointsCount",
+					"sid": 534591110987123,
+					"parameters": {
+						"text": "PointsCount"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_Rule_NotEqualPrevious",
+					"sid": 278339403076147,
+					"parameters": {
+						"text": "Rule_NotEqualPrevious"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_Rule_NotEqualPrePrevious",
+					"sid": 579682187480933,
+					"parameters": {
+						"text": "Rule_NotEqualPrePrevious"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_ShowGrid",
+					"sid": 661325426080262,
+					"parameters": {
+						"text": "Grid_Show"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "LabelValue_SnapToGrid",
+					"sid": 438838557881070,
+					"parameters": {
+						"text": "Grid_Snap"
+					}
+				}
+			],
+			"sid": 909087612460356
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-eventvar",
+					"objectClass": "System",
+					"sid": 256280092634419,
+					"parameters": {
+						"variable": "Grid_Show",
+						"comparison": 0,
+						"value": "\"X\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 265046819936300,
+					"parameters": {
+						"layer": "\"Grid\"",
+						"visibility": "visible"
+					}
+				}
+			],
+			"sid": 894712251543902
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 768852170788006
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 963656805863501,
+					"parameters": {
+						"layer": "\"Grid\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 914034315978076
+		},
+		{
+			"functionName": "ChaosGame_GenerateAllPoints",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [
+				{
+					"name": "Quantity",
+					"type": "number",
+					"initialValue": "0",
+					"comment": "",
+					"sid": 318421324556541
+				}
+			],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"type": "script",
+					"script": "const quantity = localVars.Quantity;\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst nameObject = \"Points\";\nconst nameLayer = \"Points\";\nconst show = true;\n\nconst rules = [\"normal\"];\n\nif (runtime.globalVars.Rule_NotEqualPrevious != \"-\") {\n\trules.push(\"not equal previous\");\n}\nif (runtime.globalVars.Rule_NotEqualPrePrevious != \"-\") {\n\trules.push(\"not equal pre-previous\");\n}\n\nGame.generateAllPoints({quantity, vertex, nameObject, nameLayer, show, rules});"
+				}
+			],
+			"sid": 727976143250892
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ContextMenu_Show",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Background",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 613258242719152
+						},
+						{
+							"name": "Vertex",
+							"type": "boolean",
+							"initialValue": "false",
+							"comment": "",
+							"sid": 579545126722938
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 655458449302898,
+							"parameters": {
+								"layer": "\"ContextMenu_Vertex\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 436279497033996,
+							"parameters": {
+								"layer": "\"ContextMenu_Background\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 533627500131958,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 338755512479890,
+									"parameters": {
+										"variable": "Background"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 500867404333782,
+									"parameters": {
+										"layer": "\"ContextMenu_Background\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 217766715135499
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 855642680325769,
+									"parameters": {
+										"variable": "Vertex"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 322941421038614,
+									"parameters": {
+										"layer": "\"ContextMenu_Vertex\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 144514196073624
+						}
+					]
+				},
+				{
+					"functionName": "BarMenu_Toggle",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 463534445311400,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 756220263231344,
+									"parameters": {
+										"layer": "\"BarMenu\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 130209444050004,
+									"parameters": {
+										"layer": "\"BarMenu\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 212611497621900
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 385103160789422
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 845651777142151,
+									"parameters": {
+										"layer": "\"BarMenu\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 506595896513160
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "MENU :: Bar",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 699832231184208,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Button"
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 325781401019243,
+									"parameters": {
+										"layer": "\"BarMenu\""
+									}
+								},
+								{
+									"id": "is-on-layer",
+									"objectClass": "Button",
+									"sid": 845041198082511,
+									"parameters": {
+										"layer": "\"BarMenu\""
+									}
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 239970314817755,
+									"parameters": {
+										"layer": "\"ContextMenu_Vertex\""
+									},
+									"isInverted": true
+								},
+								{
+									"id": "layer-is-visible",
+									"objectClass": "System",
+									"sid": 660972204142811,
+									"parameters": {
+										"layer": "\"ContextMenu_Background\""
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 985565899206476,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 254407319831259,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Toggle Menu\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "BarMenu_Toggle",
+											"sid": 682302171365522
+										}
+									],
+									"sid": 718001045498764
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 388465634841489,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Generate\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Points",
+											"sid": 431348640167887
+										},
+										{
+											"callFunction": "ChaosGame_GenerateAllPoints",
+											"sid": 519894066379309,
+											"parameters": [
+												"PointsCount"
+											]
+										}
+									],
+									"sid": 738997339590437
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 750262636408644,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Clear\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "destroy",
+											"objectClass": "Points",
+											"sid": 937403454056159
+										}
+									],
+									"sid": 962834276631154
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 465060037789474,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Toggle Rule Not Equal Previous\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 504040990157022,
+											"parameters": {
+												"variable": "Rule_NotEqualPrevious",
+												"value": "Rule_NotEqualPrevious = \"-\" ? \"X\" : \"-\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Points",
+											"sid": 109688538606296
+										},
+										{
+											"callFunction": "ChaosGame_GenerateAllPoints",
+											"sid": 167083746229132,
+											"parameters": [
+												"PointsCount"
+											]
+										}
+									],
+									"sid": 494072257713729
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 907111319574093,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Toggle Rule Not Equal Pre-Previous\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 589975791248174,
+											"parameters": {
+												"variable": "Rule_NotEqualPrePrevious",
+												"value": "Rule_NotEqualPrePrevious = \"-\" ? \"X\" : \"-\""
+											}
+										},
+										{
+											"id": "destroy",
+											"objectClass": "Points",
+											"sid": 115852077812870
+										},
+										{
+											"callFunction": "ChaosGame_GenerateAllPoints",
+											"sid": 632685310186060,
+											"parameters": [
+												"PointsCount"
+											]
+										}
+									],
+									"sid": 336377356628151
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 723633555528359,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Increase Point Size\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 997357610953629,
+											"parameters": {
+												"variable": "PointSize",
+												"value": "PointSize >= 16 ? 16  : PointSize+1"
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "Point",
+											"sid": 955262207101439,
+											"parameters": {
+												"width": "PointSize",
+												"height": "PointSize"
+											}
+										}
+									],
+									"sid": 239911879132765
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 377821922645957,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Decrease Point Size\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 676415831266198,
+											"parameters": {
+												"variable": "PointSize",
+												"value": "PointSize <= 1 ? 1  : PointSize-1"
+											}
+										},
+										{
+											"id": "set-size",
+											"objectClass": "Point",
+											"sid": 671994223986894,
+											"parameters": {
+												"width": "PointSize",
+												"height": "PointSize"
+											}
+										}
+									],
+									"sid": 299938952801252
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 528385312404083,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Subtract Points\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const p = runtime.globalVars.PointsCount;\n\nconst quantity = p - Utils.match(p)\n     \t\t\t\t.on(p => p <= 1, () => 0)\n     \t\t\t\t.on(p => p > 1 & p <=10 , () => 1)\n\t\t\t\t\t.on(p => p > 10 & p <=100 , () => 10)\n\t\t\t\t\t.on(p => p > 100 & p <=1000 , () => 100)\n\t\t\t\t\t.on(p => p > 1000 & p <=10000 , () => 1000)\n\t\t\t\t\t.on(p => p > 10000 & p <=1000000 , () => 10000)\n     \t\t\t\t.otherwise(p => () => p*0);\n\t \nruntime.globalVars.PointsCount = quantity;\n\nconst points = runtime.objects.Points.getAllInstances();\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst show = true;\n\nGame.changeQuantityPoints({quantity, points, vertex, show})"
+										}
+									],
+									"sid": 712881106174300
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 181799256843378,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Add Points\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"type": "script",
+											"script": "const p = runtime.globalVars.PointsCount;\n\nconst quantity = p + Utils.match(p)\n     \t\t\t\t.on(p => p >= 1 & p <10 , () => 1)\n\t\t\t\t\t.on(p => p >= 10 & p <100 , () => 10)\n\t\t\t\t\t.on(p => p >= 100 & p <1000 , () => 100)\n\t\t\t\t\t.on(p => p >= 1000 & p <10000 , () => 1000)\n\t\t\t\t\t.on(p => p >= 10000 & p <1000000 , () => 10000)\n     \t\t\t\t.otherwise(p => () => p*0);\n\t \nruntime.globalVars.PointsCount = quantity;\n\nconst points = runtime.objects.Points.getAllInstances();\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst show = true;\n\nGame.changeQuantityPoints({quantity, points, vertex, show})"
+										}
+									],
+									"sid": 787760044605725
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 544696379334236,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Toggle Show Grid\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 168633604821863,
+											"parameters": {
+												"variable": "Grid_Show",
+												"value": "Grid_Show = \"-\" ? \"X\" : \"-\""
+											}
+										}
+									],
+									"sid": 398590429000075
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Button",
+											"sid": 744024402051372,
+											"parameters": {
+												"instance-variable": "Command",
+												"comparison": 0,
+												"value": "\"Toggle Snap To Grid\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 131591893588569,
+											"parameters": {
+												"variable": "Grid_Snap",
+												"value": "Grid_Snap = \"-\" ? \"X\" : \"-\""
+											}
+										}
+									],
+									"sid": 245427566184261
+								}
+							]
+						}
+					],
+					"sid": 247989244243678
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "MENU :: Context Menu",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "MENU :: Context Menu :: General",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 489399212922461,
+											"parameters": {
+												"mouse-button": "right",
+												"click-type": "clicked",
+												"object-clicked": "BackgroundClickable"
+											}
+										},
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 413574699003902,
+											"parameters": {
+												"object": "Vertex"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-position",
+											"objectClass": "ContextMenu",
+											"sid": 753635226883419,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										},
+										{
+											"callFunction": "ContextMenu_Show",
+											"sid": 377569372278329,
+											"parameters": [
+												true,
+												false
+											]
+										}
+									],
+									"sid": 255885367986103
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 512454197475539,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Button"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 169259476013574,
+											"parameters": {
+												"layer": "\"ContextMenu_Background\""
+											}
+										},
+										{
+											"id": "is-on-layer",
+											"objectClass": "Button",
+											"sid": 310721655873252,
+											"parameters": {
+												"layer": "\"ContextMenu_Background\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ContextMenu_Show",
+											"sid": 154604790980344,
+											"parameters": [
+												false,
+												false
+											]
+										}
+									],
+									"sid": 377030797814828,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 215912971486118,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"Generate\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Points",
+													"sid": 360483417379111
+												},
+												{
+													"callFunction": "ChaosGame_GenerateAllPoints",
+													"sid": 499929627258009,
+													"parameters": [
+														"PointsCount"
+													]
+												}
+											],
+											"sid": 900909197901967
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 387399199206897,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"Clear\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Points",
+													"sid": 577645269210009
+												}
+											],
+											"sid": 204346441469429
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 605015674712868,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"New Star\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Points",
+													"sid": 743490454764019
+												},
+												{
+													"id": "create-object",
+													"objectClass": "System",
+													"sid": 851822288873678,
+													"parameters": {
+														"object-to-create": "Star",
+														"layer": "\"Vertex\"",
+														"x": "ContextMenu.X",
+														"y": "ContextMenu.Y",
+														"create-hierarchy": false
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 780522020977932,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 955202969386217
+												},
+												{
+													"callFunction": "ChaosGame_GenerateAllPoints",
+													"sid": 203191872327598,
+													"parameters": [
+														"PointsCount"
+													]
+												}
+											],
+											"sid": 611518954409073
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 347762871074746,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"Toggle Menu\""
+													}
+												}
+											],
+											"actions": [
+												{
+													"callFunction": "BarMenu_Toggle",
+													"sid": 351778486534037
+												}
+											],
+											"sid": 284987846093669
+										}
+									]
+								}
+							],
+							"sid": 165082772883569
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "MENU :: Context Menu :: Vertex",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 791242954269085,
+											"parameters": {
+												"mouse-button": "right",
+												"click-type": "clicked",
+												"object-clicked": "Vertex"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 534397325506428,
+											"parameters": {
+												"variable": "VertexClicked",
+												"value": "Vertex.UID"
+											}
+										},
+										{
+											"id": "set-position",
+											"objectClass": "ContextMenu",
+											"sid": 250280111605721,
+											"parameters": {
+												"x": "Mouse.X",
+												"y": "Mouse.Y"
+											}
+										},
+										{
+											"callFunction": "ContextMenu_Show",
+											"sid": 260479879105560,
+											"parameters": [
+												false,
+												true
+											]
+										}
+									],
+									"sid": 962655369730798
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 709615595477014,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "Button"
+											}
+										},
+										{
+											"id": "layer-is-visible",
+											"objectClass": "System",
+											"sid": 804312118420541,
+											"parameters": {
+												"layer": "\"ContextMenu_Vertex\""
+											}
+										},
+										{
+											"id": "is-on-layer",
+											"objectClass": "Button",
+											"sid": 465082857629960,
+											"parameters": {
+												"layer": "\"ContextMenu_Vertex\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "ContextMenu_Show",
+											"sid": 807320604965425,
+											"parameters": [
+												false,
+												false
+											]
+										}
+									],
+									"sid": 349867312349036,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 155857115754561,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"Delete\""
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Vertex",
+													"sid": 910703484959551,
+													"parameters": {
+														"unique-id": "VertexClicked"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "destroy",
+													"objectClass": "Vertex",
+													"sid": 834395095441083
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 717741228776136,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 396377723277031
+												},
+												{
+													"type": "script",
+													"script": "const points = runtime.objects.Points.getAllInstances();\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst show = true;\nGame.regenerateAllPoints({points, vertex, show})"
+												}
+											],
+											"sid": 431364135720939
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-instance-variable",
+													"objectClass": "Button",
+													"sid": 132879687795926,
+													"parameters": {
+														"instance-variable": "Command",
+														"comparison": 0,
+														"value": "\"Color\""
+													}
+												},
+												{
+													"id": "pick-by-unique-id",
+													"objectClass": "Vertex",
+													"sid": 533934907876099,
+													"parameters": {
+														"unique-id": "VertexClicked"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-default-color",
+													"objectClass": "Vertex",
+													"sid": 300280238718302,
+													"parameters": {
+														"color": "Button.ColorValue"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 638709130338270,
+													"parameters": {
+														"seconds": "0"
+													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 275481297052100
+												},
+												{
+													"type": "script",
+													"script": "const points = runtime.objects.Points.getAllInstances();\nGame.recolorAllPoints(points);"
+												}
+											],
+											"sid": 988222099987403
+										}
+									]
+								}
+							],
+							"sid": 350411764601912
+						}
+					],
+					"sid": 861182379824894
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "MENU :: General",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 234041283354330,
+									"parameters": {
+										"object": "ButtonHover"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 880958495793481,
+									"parameters": {
+										"object": "ButtonHover"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonHover",
+									"sid": 789711584949854,
+									"parameters": {
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 710006908637403
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 242420978283155,
+									"parameters": {
+										"object": "ButtonHover"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 464758731414254,
+									"parameters": {
+										"object": "ButtonHover"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-visible",
+									"objectClass": "ButtonHover",
+									"sid": 716198945658055,
+									"parameters": {
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 901552444525355
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 941729282812000,
+									"parameters": {
+										"object": "Button_Text"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 485294976728100,
+									"parameters": {
+										"object": "Button_Text"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-face",
+									"objectClass": "Button_Text",
+									"sid": 148549837368798,
+									"parameters": {
+										"font-face": "\"Roboto-Regular\"",
+										"style": "bold"
+									}
+								}
+							],
+							"sid": 578583900722377
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 443974280857918,
+									"parameters": {
+										"object": "Button_Text"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 166023509177356,
+									"parameters": {
+										"object": "Button_Text"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-font-face",
+									"objectClass": "Button_Text",
+									"sid": 694715608448565,
+									"parameters": {
+										"font-face": "\"Roboto-Regular\"",
+										"style": "normal"
+									}
+								}
+							],
+							"sid": 370651860004800
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 930480718484064,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Vertex"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ContextMenu_Show",
+									"sid": 835887470593088,
+									"parameters": [
+										false,
+										false
+									]
+								}
+							],
+							"sid": 887258403944408
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 418168754124003,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "BackgroundClickable"
+									}
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "ContextMenu_Show",
+									"sid": 795154732293676,
+									"parameters": [
+										false,
+										false
+									]
+								}
+							],
+							"sid": 138040135874218
+						}
+					],
+					"sid": 663665715964613
+				}
+			],
+			"sid": 136805301416189
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Drag And Drop",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-dragging",
+							"objectClass": "Vertex",
+							"sid": 381545780127114,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 760199005483088,
+							"parameters": {
+								"value": "Points.Count > 0"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 257765999228616,
+							"parameters": {
+								"interval-seconds": "1/30"
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const points = runtime.objects.Points.getAllInstances();\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst show = true;\nGame.moveAllPoints({points, vertex, show})"
+						}
+					],
+					"sid": 757061739414807
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 736075292136357,
+							"parameters": {
+								"object": "Vertex"
+							}
+						},
+						{
+							"id": "is-dragging",
+							"objectClass": "Vertex",
+							"sid": 828223031372550,
+							"behaviorType": "DragDrop",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Vertex",
+							"sid": 747268307403326,
+							"parameters": {
+								"animation": "\"Hover\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 768171927484085
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 978624115787919,
+							"parameters": {
+								"object": "Vertex"
+							}
+						},
+						{
+							"id": "is-dragging",
+							"objectClass": "Vertex",
+							"sid": 699902802391585,
+							"behaviorType": "DragDrop"
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Vertex",
+							"sid": 477388526398529,
+							"parameters": {
+								"animation": "\"Dragging\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 248562378061362
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 579593369025566,
+							"parameters": {
+								"object": "Vertex"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Vertex",
+							"sid": 452862877124319,
+							"parameters": {
+								"animation": "\"Stop\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 972061617749065
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-drop",
+							"objectClass": "Vertex",
+							"sid": 691133054549550,
+							"behaviorType": "DragDrop"
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 792670917878662,
+							"parameters": {
+								"variable": "Grid_Snap",
+								"comparison": 0,
+								"value": "\"X\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const vert = runtime.objects.Vertex.getPickedInstances()[0];\nconst {x, y} = vert;\n\nconst newX = findSnap(x, 64);\nconst newY = findSnap(y, 64);\n\nvert.x = newX;\nvert.y = newY;\n\nfunction findSnap(a,b) {\n\tconst quotient = Math.floor(a/b);\n\tconst remainder = a % b;\n\t\n\tif (remainder == 0) return a;\n\t\n\tconst resultA = quotient * b;\n\tconst resultB = (quotient+1) * b;\n\t\n\tconst deltaA = a - resultA;\n\tconst deltaB = a - resultB;\n\t\t\n\treturn deltaA > deltaB ? resultB : resultA;\n}\n\nconst points = runtime.objects.Points.getAllInstances();\nconst vertex = runtime.objects.Vertex.getAllInstances();\nconst show = true;\nGame.moveAllPoints({points, vertex, show})"
+						}
+					],
+					"sid": 726415672008883
+				}
+			],
+			"sid": 401322547845862
+		}
+	],
+	"sid": 394800782228167
+}
