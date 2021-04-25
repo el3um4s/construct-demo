@@ -204,12 +204,20 @@ My collection of demo projects for Construct 3
 
 ### Other projects
 
-|  | Name                                                   | Patreon                   |
-|--|--------------------------------------------------------|---------------------------|
-| 1| [DenoC3Webview2][A-1]                                  |[Deno, C3 & WebView][A-1p] |
+|  | Name                                                   | Patreon                                  |
+|--|--------------------------------------------------------|------------------------------------------|
+| 1| [DenoC3Webview2][A-1]                                  |[Deno, C3 & WebView][A-1p]                |
+| 2| [Pomodoro C3][A-2]                                     |[Pomodoro Clock][A-2p]                    |
+| 3| [Access C3][A-3]                                       |[MS Access, Electron & Construct 3][A-3p] |
 
 [A-1]: https://github.com/el3um4s/DenoC3Webview2
 [A-1p]: https://www.patreon.com/posts/47942650
+
+[A-2]: https://github.com/el3um4s/pomodoro-c3
+[A-2p]: https://www.patreon.com/posts/pomodoro-clock-49716203
+
+[A-3]: https://github.com/el3um4s/access-c3
+[A-3p]: https://www.patreon.com/posts/ms-access-3-50472226
 
 ### JavaScript (classic mode)
 
