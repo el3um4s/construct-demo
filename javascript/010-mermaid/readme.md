@@ -2,6 +2,6 @@
 
 * **c3p** [mermaid.c3p](source/c3p/mermaid.c3p)
 * **demo** [link](demo)
-* **Patreon** [link](https://patreon.com/el3um4s)
+* **Patreon** [free post](https://www.patreon.com/posts/uml-for-database-51059040)
 
 ![animation](animation.gif)
