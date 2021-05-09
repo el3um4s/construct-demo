@@ -1,0 +1,48 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "AutoResize"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 993258668378610
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 314609713991173,
+					"parameters": {
+						"url": "\"theme.css\""
+					}
+				}
+			],
+			"sid": 243292515142944
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 665949112347654
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "await runtime.assets.loadScripts(\"winbox.bundle.js\");\nawait runtime.assets.loadScripts(\"mermaid.min.js\");\nruntime.goToLayout(\"Main\");"
+				}
+			],
+			"sid": 418490540881911
+		}
+	],
+	"sid": 590801383541426
+}

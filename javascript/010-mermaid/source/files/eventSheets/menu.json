@@ -1,0 +1,230 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MENU",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "MENU - Events",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "ToggleWinInfo",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const info = document.getElementById(\"winbox-info\");\n\nif (!info) {\n\tconst theme = Globals.theme.selected;\n\n\tconst projectName = runtime.projectName;\n\tconst projectVersion = runtime.projectVersion;\n\n\tconst html = `\n\t<div style=\"text-align:center;\" id=\"winbox-info\">\n\t<h3 style=\"color=${Globals.theme[theme].textPrimary}\">${projectName}</h3>\n\t<p style=\"color=${Globals.theme[theme].secondaryText}\">v: ${projectVersion}</p>\n\t</div>\n\t`;\n\n\tnew WinBox({\n\t\ttitle: \"Info\",\n\t\tclass: theme,\n\t\tmodal: true,\n\t\tbackground: Globals.theme[theme].statusBar,\n\t\ttop: 32,\n\t\tx: \"center\",\n\t\ty: \"center\",\n\t\twidth: 200,\n\t\theight: 150,\n\t\thtml\n\t});\n}"
+								}
+							],
+							"sid": 770660946514691
+						},
+						{
+							"functionName": "ToggleTheme",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "Globals.theme.selected = Globals.theme.selected === \"dark\" ? \"light\" : \"dark\";\nruntime.callFunction(\"Theme_Update\");"
+								}
+							],
+							"sid": 497880846609682
+						},
+						{
+							"functionName": "NewFile",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const checkInput = document.getElementById(\"input-1\");\nconst checkOutput = document.getElementById(\"output-1\");\nif(!checkInput || !checkOutput) {\n\tconst theme = Globals.theme.selected;\n\n\tconst htmlInput = `\n\t<div class=\"editor\" id=\"input-1\" contenteditable=\"true\"></div>\n\t`;\n\n\tconst htmlOutput = `\n\t<div id=\"output-1\"></div>\n\t`;\n\n\tnew WinBox({\n\t\ttitle: \"INPUT\",\n\t\tclass: theme,\n\t\tbackground: Globals.theme[theme].statusBar,\n\t\ttop: 32,\n\t\thtml: htmlInput\n\t});\n\n\tnew WinBox({\n\t\ttitle: \"PREVIEW\",\n\t\tclass: theme,\n\t\tbackground: Globals.theme[theme].statusBar,\n\t\ttop: 32,\n\t\tx: 32,\n\t\ty: 32,\n\t\thtml: htmlOutput\n\t});\n\n\n\tdocument.getElementById(\"input-1\").addEventListener(\"input\", (e) => {\n\t\tconst output = document.getElementById(\"output-1\");\n\t\tif (output.firstChild !== null) {\n\t\t\toutput.innerHTML = \"\";\n\t\t};\n\n\t\tconst code = e.target.innerText;\n\t\tconst insert = function (code) {\n\t\t\toutput.innerHTML = code;\n\t\t};\n\t\tmermaid.render(\"preparedScheme\", code, insert);\n\t});\n}\n"
+								}
+							],
+							"sid": 554350771795064
+						},
+						{
+							"functionName": "Demo",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "number",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"sid": 234889882035676
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const input = document.getElementById(\"input-1\");\nif (input) {\n\tconst number = localVars.number;\n// \tconst darkMode = `%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': \"true\"}}}%%`;\n// \tconst lightMode = `%%{init: {'theme': 'base', 'themeVariables': { 'darkMode': \"false\"}}}%%`;\n// \tconst theme = Globals.theme.selected;\n// \tconst code = theme === \"dark\" ? darkMode + Demo[`demo_${number}`] : lightMode + Demo[`demo_${number}`];\n\tconst code = Demo[`demo_${number}`];\n\tinput.innerHTML = code\n\t\n\t\n\tconst output = document.getElementById(\"output-1\");\n\tif (output) {\n\t\tif (output.firstChild !== null) {\n\t\t\toutput.innerHTML = \"\";\n\t\t};\n\t\tconst insert = function (code) {\n\t\t\toutput.innerHTML = code.trim();\n\t\t};\n\t\tmermaid.render(\"preparedScheme\", code, insert);\n\t}\n}"
+								}
+							],
+							"sid": 711683232559303
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 408719791611653,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Menu_Text"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Menu_Text",
+									"sid": 180683821543555,
+									"parameters": {
+										"instance-variable": "IsActive"
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const button = runtime.objects.Menu_Text.getFirstPickedInstance();\nconst command = button.instVars.onClick;\nconst parameter = button.instVars.Parameter;\nruntime.callFunction(command, parameter);"
+								}
+							],
+							"sid": 302011017649703
+						}
+					],
+					"sid": 708035235705175
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "MENU - Appareance",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "Theme_Update",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "Theme_Colorize",
+									"sid": 827208391830868,
+									"parameters": [
+										"\"Menu_Tile\""
+									]
+								},
+								{
+									"callFunction": "Theme_Colorize",
+									"sid": 317654722344315,
+									"parameters": [
+										"\"Menu_Text\""
+									]
+								},
+								{
+									"callFunction": "ChangeLabelTheme",
+									"sid": 760145976492254
+								},
+								{
+									"type": "script",
+									"script": "const winbox = document.getElementsByClassName(\"winbox\");\nconst theme = Globals.theme.selected;\n\nfor (let win of winbox) {\n\twin.classList.remove(\"light\");\n\twin.classList.remove(\"dark\");\n\twin.classList.add(theme);\n}"
+								}
+							],
+							"sid": 511445581491262
+						},
+						{
+							"functionName": "Theme_Colorize",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "ObjectsName",
+									"type": "string",
+									"initialValue": "Menu_Tile",
+									"comment": "",
+									"sid": 476378832647004
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const theme = Globals.theme.selected;\nconst name = localVars.ObjectsName; \n\nconst instances = runtime.objects[name].getAllInstances();\n\nfor (const inst of instances){\n\tconst color = inst.instVars.Color;\n\tconst colorHEX = Globals.theme[theme][color];\n\tinst.colorRgb = hexToRGBA(colorHEX);\n}\n"
+								}
+							],
+							"sid": 347765952852600
+						},
+						{
+							"functionName": "ChangeLabelTheme",
+							"functionDescription": "",
+							"functionCategory": "Menu",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Menu_Text",
+									"sid": 537467317324772,
+									"parameters": {
+										"instance-variable": "onClick",
+										"comparison": 0,
+										"value": "\"ToggleTheme\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const menu = runtime.objects.Menu_Text.getFirstPickedInstance();\nmenu.text = Globals.theme.selected.toUpperCase();\n"
+								}
+							],
+							"sid": 314640412277466
+						}
+					],
+					"sid": 279774893333010
+				}
+			],
+			"sid": 263386874261358
+		}
+	],
+	"sid": 202447836221115
+}

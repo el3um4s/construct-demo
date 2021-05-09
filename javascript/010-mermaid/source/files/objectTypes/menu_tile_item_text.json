@@ -1,0 +1,16 @@
+{
+	"name": "Menu_Tile_Item_Text",
+	"plugin-id": "Text",
+	"sid": 375698534536849,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Parameter",
+			"type": "string",
+			"desc": "",
+			"sid": 669259682013779
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

@@ -1,0 +1,25 @@
+{
+	"name": "Menu_Tile",
+	"plugin-id": "TiledBg",
+	"sid": 435521875708859,
+	"instanceVariables": [
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 116920801744846
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 869034995952792
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Menu_Bar",
+		"BackgroundApp"
+	]
+}

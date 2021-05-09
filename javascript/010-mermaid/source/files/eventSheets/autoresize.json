@@ -1,0 +1,100 @@
+{
+	"name": "AutoResize",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Resize Canvas",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ResizeCanvas",
+					"functionDescription": "",
+					"functionCategory": "Resize",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-canvas-size",
+							"objectClass": "System",
+							"sid": 147050003760158,
+							"parameters": {
+								"width": "PlatformInfo.WindowInnerWidth",
+								"height": "PlatformInfo.WindowInnerHeight"
+							}
+						}
+					],
+					"sid": 895219462920275
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 660813055032816
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 712648000700688
+						}
+					],
+					"sid": 604071731741097
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-resized",
+							"objectClass": "Browser",
+							"sid": 587171579153094
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 992558232825873
+						}
+					],
+					"sid": 144477793844745
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 374808088152421,
+							"parameters": {
+								"interval-seconds": "1/24"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 837305942348098,
+							"parameters": {
+								"value": "((PlatformInfo.WindowInnerWidth-8) <> PlatformInfo.CanvasCssWidth) | ((PlatformInfo.WindowInnerHeight-8)<>PlatformInfo.CanvasCssHeight)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 924818351059190
+						}
+					],
+					"sid": 464193376511469
+				}
+			],
+			"sid": 660751270617530
+		}
+	],
+	"sid": 116167765803377
+}

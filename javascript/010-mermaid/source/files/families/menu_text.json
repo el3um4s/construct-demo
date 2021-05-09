@@ -1,0 +1,36 @@
+{
+	"name": "Menu_Text",
+	"plugin-id": "Text",
+	"sid": 253846792399016,
+	"instanceVariables": [
+		{
+			"name": "IsActive",
+			"type": "boolean",
+			"desc": "",
+			"sid": 458738771301758
+		},
+		{
+			"name": "Color",
+			"type": "string",
+			"desc": "",
+			"sid": 735946522372439
+		},
+		{
+			"name": "onClick",
+			"type": "string",
+			"desc": "",
+			"sid": 869908246370718
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 494894308994980
+		}
+	],
+	"effectTypes": [],
+	"members": [
+		"Menu_Tile_Item_Text"
+	]
+}

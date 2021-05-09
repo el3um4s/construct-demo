@@ -1,0 +1,35 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "AutoResize"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Menu"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 107828140887755
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "Theme_Update",
+					"sid": 893495971345090
+				},
+				{
+					"type": "script",
+					"script": "mermaid.initialize({startOnLoad:true});"
+				}
+			],
+			"sid": 425381728837281
+		}
+	],
+	"sid": 915306238624216
+}
