@@ -1,0 +1,131 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "nil",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 535604704088461
+		},
+		{
+			"eventType": "comment",
+			"text": "https://openlayers.org/en/latest/examples/vector-layer.html"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 991998446113933
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "await createMap(\"mapid\");\nawait updateISSposition();\n\nasync function updateISSposition() {\n\tconst issPosition = await findISS();\n\tconst { lat, long, timestamp, speed, altitude } = issPosition;\n\tGlobals.iss.setCoordinates(ol.proj.fromLonLat([long, lat]));\n\tconst view = Globals.map.getView();\n\tview.setCenter(ol.proj.fromLonLat([long, lat]));\n\t\n\tconst info = runtime.objects.ISS_Information.getFirstInstance();\n\tconst newline = \"\\n\";\n\tinfo.text = `[b]TIME:[/b]${newline}${timestamp}${newline}${newline}`;\n\tinfo.text += `[b]LATITUDE:[/b]${newline}${lat}${newline}${newline}`;\n\tinfo.text += `[b]LONGITUDE:[/b]${newline}${long}${newline}${newline}`;\n\tinfo.text += `[b]SPEED:[/b]${newline}${speed} km/hr${newline}${newline}`;\n\tinfo.text += `[b]ALTITUDE:[/b]${newline}${altitude} km`;\n}\n\nsetInterval(await updateISSposition, 2000);\n"
+				}
+			],
+			"sid": 372922741594579
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Resize Canvas",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "ResizeCanvas",
+					"functionDescription": "",
+					"functionCategory": "Resize",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-canvas-size",
+							"objectClass": "System",
+							"sid": 839757489299731,
+							"parameters": {
+								"width": "PlatformInfo.WindowInnerWidth",
+								"height": "PlatformInfo.WindowInnerHeight"
+							}
+						}
+					],
+					"sid": 926367938830613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 243878129980223
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 530682673573719
+						}
+					],
+					"sid": 739000936795154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-resized",
+							"objectClass": "Browser",
+							"sid": 763401803760571
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 669182632965022
+						}
+					],
+					"sid": 937495196060747
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 752713805898110,
+							"parameters": {
+								"interval-seconds": "1/24"
+							}
+						},
+						{
+							"id": "evaluate-expression",
+							"objectClass": "System",
+							"sid": 981940189916303,
+							"parameters": {
+								"value": "((PlatformInfo.WindowInnerWidth) <> PlatformInfo.CanvasCssWidth) | ((PlatformInfo.WindowInnerHeight)<>PlatformInfo.CanvasCssHeight)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "ResizeCanvas",
+							"sid": 961955197198245
+						}
+					],
+					"sid": 408607838039925
+				}
+			],
+			"sid": 295244413963739
+		}
+	],
+	"sid": 993363859908735
+}

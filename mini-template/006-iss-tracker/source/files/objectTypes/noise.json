@@ -1,0 +1,26 @@
+{
+	"name": "Noise",
+	"plugin-id": "TiledBg",
+	"sid": 187984107687638,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 687312822241510
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 35,
+		"height": 39,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "D:\\PROJEKTE\\CONSTRUCT 2\\#ConstructCodeSnippets\\graphics\\noise\\noise256.png",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 8456650,
+		"useCollisionPoly": true
+	}
+}

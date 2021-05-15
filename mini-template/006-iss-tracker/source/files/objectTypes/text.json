@@ -1,0 +1,15 @@
+{
+	"name": "Text",
+	"plugin-id": "Text",
+	"sid": 261909780286115,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 970031478053837
+		}
+	],
+	"effectTypes": []
+}

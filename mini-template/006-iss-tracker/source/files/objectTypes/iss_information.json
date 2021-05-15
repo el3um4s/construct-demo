@@ -1,0 +1,15 @@
+{
+	"name": "ISS_Information",
+	"plugin-id": "Text",
+	"sid": 172109314384024,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Anchor",
+			"name": "Anchor",
+			"sid": 370590476377823
+		}
+	],
+	"effectTypes": []
+}

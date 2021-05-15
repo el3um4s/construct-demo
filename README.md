@@ -167,6 +167,7 @@ My collection of demo projects for Construct 3
 | 3|![image][MT-3i]| [Leaflet][MT-3]                                        |[Demo][MT-3d]|[Link][MT-3p]  |
 | 4|![image][MT-4i]| [OpenLayers][MT-4]                                     |[Demo][MT-4d]|[Link][MT-4p]  |
 | 5|![image][MT-5i]| [KeyCode Info][MT-5]                                   |[Demo][MT-5d]|               |
+| 6|![image][MT-6i]| [ISS Tracker][MT-6]                                    |[Demo][MT-6d]|               |
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
 [MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
@@ -190,6 +191,9 @@ My collection of demo projects for Construct 3
 [MT-5]: mini-template/005-keycode-info
 [MT-5d]: mini-template/005-keycode-info/demo
 
+[MT-6i]: mini-template/006-iss-tracker/preview.png
+[MT-6]: mini-template/006-iss-tracker
+[MT-6d]: mini-template/006-iss-tracker/demo
 
 ### Machine Learning
 

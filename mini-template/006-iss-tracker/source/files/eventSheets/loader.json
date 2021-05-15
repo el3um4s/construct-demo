@@ -1,0 +1,82 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 810380159889559
+				}
+			],
+			"actions": [
+				{
+					"id": "set-canvas-size",
+					"objectClass": "System",
+					"sid": 752165152456421,
+					"parameters": {
+						"width": "PlatformInfo.WindowInnerWidth",
+						"height": "PlatformInfo.WindowInnerHeight"
+					}
+				},
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 512037514052273,
+					"parameters": {
+						"url": "\"mystyle.css\""
+					}
+				},
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 529621177692600,
+					"parameters": {
+						"url": "\"ol.css\""
+					}
+				},
+				{
+					"type": "script",
+					"script": "await runtime.assets.loadScripts(\"ol.js\");"
+				}
+			],
+			"sid": 406819307183824
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 203732434887116
+				}
+			],
+			"actions": [
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 822691928471381,
+					"parameters": {
+						"seconds": "2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 230685253001320
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 245578692813832,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 438810181579692
+		}
+	],
+	"sid": 921487273028092
+}
