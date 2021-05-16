@@ -2,6 +2,6 @@
 
 * **c3p** [iss-tracker.c3p](source/c3p/iss-tracker.c3p)
 * **demo** [link](demo)
-* **Patreon** [link](https://patreon.com/el3um4s)
+* **Patreon** [free post](https://www.patreon.com/posts/iss-tracker-51324836)
 
 ![animation](animation.gif)

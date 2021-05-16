@@ -42,7 +42,7 @@ My collection of demo projects for Construct 3
 | 5|![image][T-5i] | [One Color Idle Game][T-5]               |[Demo][T-5d] |               |
 | 6|![image][T-6i] | [Follow the player][T-6]                 |[Demo][T-6d] |               |
 | 7|![image][T-7i] | [Procedural Map Generation][T-7]         |[Demo][T-7d] |               |
-| 8|![image][T-8i] | [Predator and Prey][T-8]           	    |[Demo][T-8d] |               |
+| 8|![image][T-8i] | [Predator and Prey][T-8]           	  |[Demo][T-8d] |               |
 | 9|![image][T-9i] | [Pachinko][T-9]                          |[Demo][T-9d] |               |
 |10|![image][T-10i]| [Solo Dungeon Bash][T-10]                |[Demo][T-10d]|               |
 |11|![image][T-11i]| [Combine Colors][T-11]                   |[Demo][T-11d]|               |
@@ -167,7 +167,7 @@ My collection of demo projects for Construct 3
 | 3|![image][MT-3i]| [Leaflet][MT-3]                                        |[Demo][MT-3d]|[Link][MT-3p]  |
 | 4|![image][MT-4i]| [OpenLayers][MT-4]                                     |[Demo][MT-4d]|[Link][MT-4p]  |
 | 5|![image][MT-5i]| [KeyCode Info][MT-5]                                   |[Demo][MT-5d]|               |
-| 6|![image][MT-6i]| [ISS Tracker][MT-6]                                    |[Demo][MT-6d]|               |
+| 6|![image][MT-6i]| [ISS Tracker][MT-6]                                    |[Demo][MT-6d]|[Link][MT-6p]  |
 
 [MT-1i]: mini-template/001-execute-a-function-from-separate-event-sheet/preview.png
 [MT-1]: mini-template/001-execute-a-function-from-separate-event-sheet
@@ -194,6 +194,7 @@ My collection of demo projects for Construct 3
 [MT-6i]: mini-template/006-iss-tracker/preview.png
 [MT-6]: mini-template/006-iss-tracker
 [MT-6d]: mini-template/006-iss-tracker/demo
+[MT-6p]: https://www.patreon.com/posts/iss-tracker-51324836
 
 ### Machine Learning
 
