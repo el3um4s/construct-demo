@@ -1,0 +1,27 @@
+{
+	"name": "ChooseYear",
+	"plugin-id": "TiledBg",
+	"sid": 135802725561879,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Year",
+			"type": "string",
+			"desc": "",
+			"sid": 962645035122193
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 7784134,
+		"useCollisionPoly": true
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"name": "HistogramBar",
+	"plugin-id": "TiledBg",
+	"sid": 820733573930209,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Year",
+			"type": "string",
+			"desc": "",
+			"sid": 353270838511688
+		},
+		{
+			"name": "Families",
+			"type": "number",
+			"desc": "",
+			"sid": 533595477320926
+		},
+		{
+			"name": "MaxFamilies",
+			"type": "number",
+			"desc": "",
+			"sid": 751599299473412
+		},
+		{
+			"name": "OriginalSize",
+			"type": "number",
+			"desc": "",
+			"sid": 182330556187967
+		},
+		{
+			"name": "NewSize",
+			"type": "number",
+			"desc": "",
+			"sid": 846660154307543
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 4886283,
+		"useCollisionPoly": true
+	}
+}

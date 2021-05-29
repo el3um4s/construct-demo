@@ -10,6 +10,7 @@ My collection of demo projects for Construct 3
 | 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |[Link][J-8p]   |
 | 9|![image][J-9i] | [Mesh and Shapes][J-9]                   |[Demo][J-9d] |[Link][J-9p]   |
 |10|![image][J-10i]| [Mermaid][J-10]                          |[Demo][J-10d]|[Link][J-10p]  |
+|11|![image][J-11i]| [Milan Districts][J-11]                  |[Demo][J-11d]|               |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
@@ -30,6 +31,10 @@ My collection of demo projects for Construct 3
 [J-10]: javascript/010-mermaid
 [J-10d]: https://c3demo.stranianelli.com/javascript/010-mermaid/demo
 [J-10p]: https://www.patreon.com/posts/uml-for-database-51059040
+
+[J-11i]: javascript/011-milan-districts/preview.png
+[J-11]: javascript/011-milan-districts
+[J-11d]: https://c3demo.stranianelli.com/javascript/011-milan-districts/demo
 
 ### Template
 

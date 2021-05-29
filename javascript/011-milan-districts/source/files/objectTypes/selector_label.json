@@ -1,0 +1,22 @@
+{
+	"name": "Selector_Label",
+	"plugin-id": "Text",
+	"sid": 931057215042800,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Selector",
+			"type": "string",
+			"desc": "",
+			"sid": 998622900050083
+		},
+		{
+			"name": "Label",
+			"type": "string",
+			"desc": "",
+			"sid": 395603351240395
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

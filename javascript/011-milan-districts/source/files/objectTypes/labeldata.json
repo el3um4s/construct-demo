@@ -1,0 +1,28 @@
+{
+	"name": "LabelData",
+	"plugin-id": "Text",
+	"sid": 436430663154106,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "orderBy",
+			"type": "string",
+			"desc": "",
+			"sid": 376792734441451
+		},
+		{
+			"name": "order",
+			"type": "string",
+			"desc": "",
+			"sid": 997591202472086
+		},
+		{
+			"name": "Label",
+			"type": "string",
+			"desc": "",
+			"sid": 490587201045182
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": []
+}

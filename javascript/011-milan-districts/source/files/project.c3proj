@@ -1,0 +1,553 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 24900,
+	"name": "Milan Districts",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Mouse",
+			"name": "Mouse",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "TiledBg",
+			"name": "Tiled Background",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "DragnDrop",
+			"name": "Drag & Drop",
+			"author": "Scirra",
+			"version": "r249",
+			"bundled": false
+		}
+	],
+	"uniqueId": "3jelh187qao",
+	"objectTypes": {
+		"items": [
+			"ChooseYear",
+			"Label",
+			"SumFamiliesSelected",
+			"InvertSelection",
+			"Scrollable_Clickable",
+			"ClearSelection"
+		],
+		"subfolders": [
+			{
+				"items": [
+					"AJAX",
+					"Browser",
+					"Mouse"
+				],
+				"subfolders": [],
+				"name": "System"
+			},
+			{
+				"items": [
+					"List_Content_Boxs",
+					"List_Foreground",
+					"List_Limiter_DOWN",
+					"List_Limiter_UP"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"Item_Families",
+							"Item_ID",
+							"Item_Name",
+							"Item",
+							"Item_Order"
+						],
+						"subfolders": [],
+						"name": "Items"
+					},
+					{
+						"items": [
+							"Titles",
+							"SumFamiliesTotals",
+							"LabelData"
+						],
+						"subfolders": [],
+						"name": "Header"
+					}
+				],
+				"name": "Scrollable"
+			},
+			{
+				"items": [
+					"HistogramBar"
+				],
+				"subfolders": [],
+				"name": "Histogram"
+			},
+			{
+				"items": [
+					"Selector_Base",
+					"Selector_Cursor",
+					"Selector_Label"
+				],
+				"subfolders": [],
+				"name": "Selector"
+			}
+		]
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Main",
+			"Banks"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Main"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 669601055657016,
+					"script-info": {
+						"purpose": "main"
+					}
+				},
+				{
+					"name": "importForEvents.js",
+					"type": "application/javascript",
+					"sid": 461966912247712,
+					"script-info": {
+						"purpose": "imports-for-events"
+					}
+				},
+				{
+					"name": "dataMilano.js",
+					"type": "application/javascript",
+					"sid": 817967261492430,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "standardize.js",
+					"type": "application/javascript",
+					"sid": 762527800397185,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "sourceData.js",
+					"type": "application/javascript",
+					"sid": 479199478351457,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "globals.js",
+					"type": "application/javascript",
+					"sid": 775743035338239,
+					"script-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "manageItems.js",
+					"type": "application/javascript",
+					"sid": 616687602442067,
+					"script-info": {
+						"purpose": "none"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Roboto-Bold.ttf",
+					"type": "application/font-sfnt",
+					"sid": 930353703076324
+				},
+				{
+					"name": "Roboto-Italic.ttf",
+					"type": "application/font-sfnt",
+					"sid": 172742777452219
+				},
+				{
+					"name": "Roboto-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 825787900493919
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 474866015407245,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 762189926230148,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 226717528068092,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 986011579600103,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 832708921220938,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 864747947493814,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 551902048146386,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "2007.json",
+							"type": "application/json",
+							"sid": 314525554786976
+						},
+						{
+							"name": "2008.json",
+							"type": "application/json",
+							"sid": 596531341034953
+						},
+						{
+							"name": "2009.json",
+							"type": "application/json",
+							"sid": 751738503513480
+						},
+						{
+							"name": "2010.json",
+							"type": "application/json",
+							"sid": 210012890818142
+						},
+						{
+							"name": "2011.json",
+							"type": "application/json",
+							"sid": 925225729807322
+						},
+						{
+							"name": "2012.json",
+							"type": "application/json",
+							"sid": 420789795492113
+						},
+						{
+							"name": "2013.json",
+							"type": "application/json",
+							"sid": 679290107829718
+						},
+						{
+							"name": "2014.json",
+							"type": "application/json",
+							"sid": 538562824503204
+						},
+						{
+							"name": "2015.json",
+							"type": "application/json",
+							"sid": 665364082779499
+						},
+						{
+							"name": "2016.json",
+							"type": "application/json",
+							"sid": 350261717911533
+						},
+						{
+							"name": "2018.json",
+							"type": "application/json",
+							"sid": 648795937518700
+						},
+						{
+							"name": "2019.json",
+							"type": "application/json",
+							"sid": 657780498912018
+						},
+						{
+							"name": "2017.json",
+							"type": "application/json",
+							"sid": 241723703016542
+						}
+					],
+					"subfolders": [],
+					"name": "Real"
+				},
+				{
+					"items": [
+						{
+							"name": "2020_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 218144800569647
+						},
+						{
+							"name": "2021_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 605202439556365
+						},
+						{
+							"name": "2022_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 286996702545717
+						},
+						{
+							"name": "2023_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 820593750280754
+						},
+						{
+							"name": "2024_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 770161906186053
+						},
+						{
+							"name": "2025_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 288659851232306
+						},
+						{
+							"name": "2026_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 244397906877219
+						},
+						{
+							"name": "2027_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 110357733624422
+						},
+						{
+							"name": "2028_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 227171901186330
+						},
+						{
+							"name": "2029_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 496507608678753
+						},
+						{
+							"name": "2030_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 218122601667583
+						},
+						{
+							"name": "2031_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 147037977370704
+						},
+						{
+							"name": "2032_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 414876897808669
+						},
+						{
+							"name": "2033_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 527554614662474
+						},
+						{
+							"name": "2034_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 847941647076674
+						},
+						{
+							"name": "2035_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 295061873073229
+						},
+						{
+							"name": "2036_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 205414714873174
+						},
+						{
+							"name": "2037_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 912658330261884
+						},
+						{
+							"name": "2038_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 768649745346483
+						},
+						{
+							"name": "2039_ipotesi_media.json",
+							"type": "application/json",
+							"sid": 157393387033789
+						}
+					],
+					"subfolders": [],
+					"name": "Hypothesis"
+				}
+			]
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "",
+		"version": "1.0.0.0",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "samuele@stranianelli.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "letterbox-scale",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0,
+			0,
+			0,
+			0
+		],
+		"splashColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"useHighDpi": true,
+		"orientations": "landscape",
+		"enableWebGL": true,
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "percent",
+		"preloadSounds": true,
+		"clearBackground": true,
+		"enhancedAccelerationPrecision": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 800,
+	"viewportHeight": 600,
+	"firstLayout": null
+}
