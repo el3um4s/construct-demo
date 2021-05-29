@@ -1,0 +1,69 @@
+{
+	"name": "Item",
+	"plugin-id": "TiledBg",
+	"sid": 568007813549604,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "ID",
+			"type": "number",
+			"desc": "",
+			"sid": 719638947409406
+		},
+		{
+			"name": "Order",
+			"type": "number",
+			"desc": "",
+			"sid": 305460677047340
+		},
+		{
+			"name": "Visible",
+			"type": "boolean",
+			"desc": "",
+			"sid": 243700363217483
+		},
+		{
+			"name": "Selected",
+			"type": "boolean",
+			"desc": "",
+			"sid": 777765664179103
+		},
+		{
+			"name": "Order_Visible",
+			"type": "number",
+			"desc": "",
+			"sid": 245806504066656
+		},
+		{
+			"name": "Families",
+			"type": "number",
+			"desc": "",
+			"sid": 147627667782070
+		},
+		{
+			"name": "NILname",
+			"type": "string",
+			"desc": "",
+			"sid": 251433148467671
+		},
+		{
+			"name": "NIL",
+			"type": "string",
+			"desc": "",
+			"sid": 900447634589935
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 451056,
+		"useCollisionPoly": true
+	}
+}

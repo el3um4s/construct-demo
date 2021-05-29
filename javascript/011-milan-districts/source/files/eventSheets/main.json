@@ -1,0 +1,2206 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "CurrentYear",
+			"type": "string",
+			"initialValue": "2019",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 892001973737430
+		},
+		{
+			"eventType": "variable",
+			"name": "OrderedBy",
+			"type": "string",
+			"initialValue": "families",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 813196879563474
+		},
+		{
+			"eventType": "variable",
+			"name": "OrderDescOrAsc",
+			"type": "string",
+			"initialValue": "desc",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 579289160270745
+		},
+		{
+			"eventType": "variable",
+			"name": "Selector",
+			"type": "string",
+			"initialValue": "Total",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 253888516073417
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "ScrollList",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScrollList :: Initialize",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-start-of-layout",
+									"objectClass": "System",
+									"sid": 570718926446492
+								}
+							],
+							"actions": [
+								{
+									"callFunction": "getCurrentYear",
+									"sid": 373016200583300,
+									"parameters": [
+										"CurrentYear"
+									]
+								},
+								{
+									"callFunction": "createItems",
+									"sid": 571794594024734
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 323682155169349,
+									"parameters": {
+										"seconds": "0.01"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 318748423132347
+								},
+								{
+									"callFunction": "orderItems",
+									"sid": 221771993677884,
+									"parameters": [
+										"\"families\"",
+										"\"desc\""
+									]
+								},
+								{
+									"callFunction": "selectItems",
+									"sid": 194629176002798
+								}
+							],
+							"sid": 466785819881582
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 365362214525153,
+									"parameters": {
+										"object": "Item",
+										"expression": "Item.Order",
+										"order": "ascending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Item",
+									"sid": 717348383108703,
+									"parameters": {
+										"x": "List_Content_Boxs.X",
+										"y": "List_Content_Boxs.Y + loopindex*24"
+									}
+								}
+							],
+							"sid": 225471657468161
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-children",
+									"objectClass": "Item",
+									"sid": 479194011011307
+								}
+							],
+							"actions": [],
+							"sid": 375511717397817,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Item",
+											"sid": 441602358916407,
+											"parameters": {
+												"child": "Item_ID",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_ID",
+											"sid": 164205435887501,
+											"parameters": {
+												"text": "Item.ID"
+											}
+										}
+									],
+									"sid": 447013397215313
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Item",
+											"sid": 797079858001835,
+											"parameters": {
+												"child": "Item_Name",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Name",
+											"sid": 898145064168331,
+											"parameters": {
+												"text": "Item.NILname"
+											}
+										}
+									],
+									"sid": 623084621670898
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Item",
+											"sid": 594033830662443,
+											"parameters": {
+												"child": "Item_Families",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Families",
+											"sid": 834008335933406,
+											"parameters": {
+												"text": "Item.Families"
+											}
+										}
+									],
+									"sid": 916567208500992
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "pick-children",
+											"objectClass": "Item",
+											"sid": 385423120761862,
+											"parameters": {
+												"child": "Item_Order",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "Item_Order",
+											"sid": 340079228401216,
+											"parameters": {
+												"text": "Item.Order+1"
+											}
+										}
+									],
+									"sid": 398060233889468
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-height",
+									"objectClass": "List_Content_Boxs",
+									"sid": 433604718806827,
+									"parameters": {
+										"height": "(Item.Count)*24+8 < 544 ? 544 : (Item.Count)*24+8"
+									}
+								}
+							],
+							"sid": 990475628077912
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const data = Globals.currentYear.data;\nconst families = data.reduce( (acc, cur) => acc + cur.families, 0);\nconst total = runtime.objects.SumFamiliesTotals.getFirstInstance();\ntotal.text = `${families}`;"
+								}
+							],
+							"sid": 478318993305966,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "FamiliesSelected",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 702749767826514
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 923428737052139,
+											"parameters": {
+												"object": "Item"
+											}
+										},
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 479752139663362,
+											"parameters": {
+												"instance-variable": "Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 965927088521948,
+											"parameters": {
+												"variable": "FamiliesSelected",
+												"value": "Item.Families"
+											}
+										}
+									],
+									"sid": 527784386237853
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-text",
+											"objectClass": "SumFamiliesSelected",
+											"sid": 240146492988090,
+											"parameters": {
+												"text": "FamiliesSelected"
+											}
+										}
+									],
+									"sid": 532417681714926
+								}
+							]
+						}
+					],
+					"sid": 358751853409624
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScrollList :: Scroll Event",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "List_Content_Boxs",
+									"sid": 165390227495608,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "List_Limiter_UP.BBoxBottom"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "List_Content_Boxs",
+									"sid": 740739269866987,
+									"parameters": {
+										"y": "lerp(List_Content_Boxs.Y, List_Limiter_UP.BBoxBottom, 0.1)"
+									}
+								}
+							],
+							"sid": 928273517806115
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 943684513026586,
+									"parameters": {
+										"first-value": "List_Content_Boxs.BBoxBottom",
+										"comparison": 2,
+										"second-value": "List_Limiter_DOWN.BBoxTop"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-y",
+									"objectClass": "List_Content_Boxs",
+									"sid": 155780592350575,
+									"parameters": {
+										"y": "lerp(List_Content_Boxs.Y, List_Limiter_DOWN.BBoxTop- List_Content_Boxs.Height, 0.1)\n"
+									}
+								}
+							],
+							"sid": 413896734572873
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 527997514611052,
+									"parameters": {
+										"object": "List_Content_Boxs"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 773973603399486,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 855785228845962,
+											"parameters": {
+												"direction": "down"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "List_Content_Boxs",
+											"sid": 440483969447460,
+											"parameters": {
+												"y": "lerp(List_Content_Boxs.Y, List_Content_Boxs.Y-240, 0.1)"
+											}
+										}
+									],
+									"sid": 873665210015873
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-mouse-wheel",
+											"objectClass": "Mouse",
+											"sid": 584846690670503,
+											"parameters": {
+												"direction": "up"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-y",
+											"objectClass": "List_Content_Boxs",
+											"sid": 759831553657577,
+											"parameters": {
+												"y": "lerp(List_Content_Boxs.Y, List_Content_Boxs.Y+240, 0.1)"
+											}
+										}
+									],
+									"sid": 684184586793527
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 372584886390499,
+									"parameters": {
+										"object": "Item"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 343174039585075,
+									"parameters": {
+										"object": "Item"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Item",
+									"sid": 601059220548537,
+									"parameters": {
+										"color": "rgbEx255(250, 250, 250)"
+									}
+								}
+							],
+							"sid": 787773587708182
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 364375803249266,
+									"parameters": {
+										"object": "Item"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 583664028775905,
+									"parameters": {
+										"object": "Item"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "Item",
+									"sid": 548037253274251,
+									"parameters": {
+										"color": "rgbEx255(255, 200, 125)"
+									}
+								}
+							],
+							"sid": 920429603257519
+						}
+					],
+					"sid": 368618274520674
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScrollList :: Select Item",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "ScrollList :: Select Item :: Clear Selection",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 996493287338207,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "ClearSelection"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 965796745725459,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 783233156737647,
+													"parameters": {
+														"object": "Item"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-boolean-instvar",
+													"objectClass": "Item",
+													"sid": 747945402367963,
+													"parameters": {
+														"instance-variable": "Selected",
+														"value": "false"
+													}
+												}
+											],
+											"sid": 277765962134091,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "NIL",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 279090942029508
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Item",
+															"sid": 587885539810351,
+															"parameters": {
+																"instance-variable": "Selected"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 153974578152224,
+															"parameters": {
+																"variable": "NIL",
+																"value": "Item.NIL"
+															}
+														},
+														{
+															"type": "script",
+															"script": "const NIL = localVars.NIL;\nGlobals.selected.add(NIL);"
+														}
+													],
+													"sid": 165145034219740
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 513166566928087
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 392911542306733,
+															"parameters": {
+																"variable": "NIL",
+																"value": "Item.NIL"
+															}
+														},
+														{
+															"type": "script",
+															"script": "const NIL = localVars.NIL;\nGlobals.selected.delete(NIL);"
+														}
+													],
+													"sid": 736678521516416
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "selectItems",
+													"sid": 158886177160772
+												}
+											],
+											"sid": 565782922144228
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 381815594690999,
+											"parameters": {
+												"object": "ClearSelection"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "ClearSelection",
+											"sid": 899501839042793,
+											"parameters": {
+												"color": "rgbEx255(240, 140, 10)"
+											}
+										}
+									],
+									"sid": 620163022685752
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 621157217364356,
+											"parameters": {
+												"object": "ClearSelection"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "ClearSelection",
+											"sid": 726255850691040,
+											"parameters": {
+												"color": "rgbEx255(31, 37, 49)"
+											}
+										}
+									],
+									"sid": 658450491628804
+								}
+							],
+							"sid": 462435453776028
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "ScrollList :: Select Item :: Invert Selection",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-object-clicked",
+											"objectClass": "Mouse",
+											"sid": 762147375291128,
+											"parameters": {
+												"mouse-button": "left",
+												"click-type": "clicked",
+												"object-clicked": "InvertSelection"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 507848976760055,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each",
+													"objectClass": "System",
+													"sid": 178874354055050,
+													"parameters": {
+														"object": "Item"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "toggle-boolean-instvar",
+													"objectClass": "Item",
+													"sid": 320399653908041,
+													"parameters": {
+														"instance-variable": "Selected"
+													}
+												}
+											],
+											"sid": 363069782693792,
+											"children": [
+												{
+													"eventType": "variable",
+													"name": "NIL",
+													"type": "string",
+													"initialValue": "",
+													"comment": "",
+													"isStatic": false,
+													"isConstant": false,
+													"sid": 312813337584861
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "is-boolean-instance-variable-set",
+															"objectClass": "Item",
+															"sid": 451581767676396,
+															"parameters": {
+																"instance-variable": "Selected"
+															}
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 483555831019949,
+															"parameters": {
+																"variable": "NIL",
+																"value": "Item.NIL"
+															}
+														},
+														{
+															"type": "script",
+															"script": "const NIL = localVars.NIL;\nGlobals.selected.add(NIL);"
+														}
+													],
+													"sid": 737176697185980
+												},
+												{
+													"eventType": "block",
+													"conditions": [
+														{
+															"id": "else",
+															"objectClass": "System",
+															"sid": 390566668892909
+														}
+													],
+													"actions": [
+														{
+															"id": "set-eventvar-value",
+															"objectClass": "System",
+															"sid": 886688688306520,
+															"parameters": {
+																"variable": "NIL",
+																"value": "Item.NIL"
+															}
+														},
+														{
+															"type": "script",
+															"script": "const NIL = localVars.NIL;\nGlobals.selected.delete(NIL);"
+														}
+													],
+													"sid": 811624151111120
+												}
+											]
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"callFunction": "selectItems",
+													"sid": 782030142271223
+												}
+											],
+											"sid": 248704530072904
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 191735452013020,
+											"parameters": {
+												"object": "InvertSelection"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "InvertSelection",
+											"sid": 552472095590226,
+											"parameters": {
+												"color": "rgbEx255(240, 140, 10)"
+											}
+										}
+									],
+									"sid": 716565013014078
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 488346628805822,
+											"parameters": {
+												"object": "InvertSelection"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "InvertSelection",
+											"sid": 648687870118134,
+											"parameters": {
+												"color": "rgbEx255(31, 37, 49)"
+											}
+										}
+									],
+									"sid": 446552386928885
+								}
+							],
+							"sid": 343975567517227
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 970514762667901,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "Item"
+									}
+								},
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 300590098161248,
+									"parameters": {
+										"object": "Scrollable_Clickable"
+									}
+								},
+								{
+									"id": "is-dragging",
+									"objectClass": "List_Content_Boxs",
+									"sid": 949046122821998,
+									"behaviorType": "DragDrop",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "toggle-boolean-instvar",
+									"objectClass": "Item",
+									"sid": 718145402483027,
+									"parameters": {
+										"instance-variable": "Selected"
+									}
+								}
+							],
+							"sid": 108218540544286,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "NIL",
+									"type": "string",
+									"initialValue": "",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 522329643312640
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 645414263224311,
+											"parameters": {
+												"instance-variable": "Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 801285023400803,
+											"parameters": {
+												"variable": "NIL",
+												"value": "Item.NIL"
+											}
+										},
+										{
+											"type": "script",
+											"script": "const NIL = localVars.NIL;\nGlobals.selected.add(NIL);"
+										},
+										{
+											"callFunction": "selectItems",
+											"sid": 839651481792782
+										}
+									],
+									"sid": 480279327116817
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 749355436293646
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 483526366966516,
+											"parameters": {
+												"variable": "NIL",
+												"value": "Item.NIL"
+											}
+										},
+										{
+											"type": "script",
+											"script": "const NIL = localVars.NIL;\nGlobals.selected.delete(NIL);"
+										},
+										{
+											"callFunction": "selectItems",
+											"sid": 726388525731969
+										}
+									],
+									"sid": 437430575300279
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 745424464982431,
+									"parameters": {
+										"object": "Item"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 393545393512448,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "is-boolean-instance-variable-set",
+											"objectClass": "Item",
+											"sid": 408359196834633,
+											"parameters": {
+												"instance-variable": "Selected"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "Item",
+											"sid": 586373947932198,
+											"parameters": {
+												"color": "rgbEx255(240, 140, 10)"
+											}
+										}
+									],
+									"sid": 482586470143386
+								}
+							]
+						}
+					],
+					"sid": 893532105236997
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScrollList :: Functions",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "createItems",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const quantity = Globals.currentYear.data.length;\nManageItems.createItems(quantity);"
+								}
+							],
+							"sid": 543207741499558
+						},
+						{
+							"functionName": "getCurrentYear",
+							"functionDescription": "2019",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "Year",
+									"type": "string",
+									"initialValue": "2019",
+									"comment": "",
+									"sid": 759965233292394
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "await SourceData.getCurrentYear(localVars.Year);\n"
+								}
+							],
+							"sid": 677021676342999
+						},
+						{
+							"functionName": "orderItems",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [
+								{
+									"name": "orderBy",
+									"type": "string",
+									"initialValue": "families",
+									"comment": "",
+									"sid": 641033293110903
+								},
+								{
+									"name": "order",
+									"type": "string",
+									"initialValue": "desc",
+									"comment": "",
+									"sid": 228591241540045
+								}
+							],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const orderBy = localVars.orderBy;\nconst order = localVars.order;\n\nif (orderBy === \"families\") { SourceData.orderDataByFamilies(Globals.currentYear.data, order); }\nif (orderBy === \"id\") {\tSourceData.orderDataByID(Globals.currentYear.data, order); }\nif (orderBy === \"name\") { SourceData.orderDataByName(Globals.currentYear.data, order); }\n\nconst items = runtime.objects.Item.getAllInstances();\nitems.forEach( (item, i) => {\n\tconst {id, families, name, NIL} = Globals.currentYear.data[i];\n\titem.instVars.Order = i;\n\titem.instVars.ID = `${id}`;\n\titem.instVars.Families = families;\n\titem.instVars.NILname = `${name}`;\n\titem.instVars.NIL = `${NIL}`;\n})"
+								}
+							],
+							"sid": 819816999916137
+						},
+						{
+							"functionName": "selectItems",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "const years = Globals.years;\nGlobals.histogram = await SourceData.getAllYears(years, Globals.selected);\nGlobals.totalFamiliesMilan = await SourceData.getTotalFamiliesMilan(years);\n\nlet maxFamilies = 0;\n\nconst selector = runtime.globalVars.Selector;\n\nif (selector === \"District\"){\n\tfor (const year of years) {\n\t\tmaxFamilies = Globals.histogram[year] > maxFamilies ? Globals.histogram[year] : maxFamilies\n\t};\n} else {\n\tfor (const year of years) {\n\t\tmaxFamilies = Globals.totalFamiliesMilan[year] > maxFamilies ? Globals.totalFamiliesMilan[year] : maxFamilies\n\t};\n}\n\nconst histogramBars = runtime.objects.HistogramBar.getAllInstances();\nhistogramBars.forEach( (bar) => {\n\tconst year = bar.instVars.Year;\n\tbar.instVars.MaxFamilies = maxFamilies;\n\tconst families = Globals.histogram[year];\n\tbar.instVars.Families = families;\n})"
+								}
+							],
+							"sid": 861951731871946
+						},
+						{
+							"functionName": "resetSelectItems",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"type": "script",
+									"script": "Globals.selected.clear();"
+								},
+								{
+									"callFunction": "selectItems",
+									"sid": 207247555358168
+								}
+							],
+							"sid": 262598453917621,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each",
+											"objectClass": "System",
+											"sid": 434122759882870,
+											"parameters": {
+												"object": "Item"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-boolean-instvar",
+											"objectClass": "Item",
+											"sid": 115323809598430,
+											"parameters": {
+												"instance-variable": "Selected",
+												"value": "false"
+											}
+										}
+									],
+									"sid": 401848070773686
+								}
+							]
+						}
+					],
+					"sid": 340411228196502
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScrollList :: Histogram",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 565502174108541,
+									"parameters": {
+										"object": "HistogramBar"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 781793796136235,
+							"children": [
+								{
+									"eventType": "variable",
+									"name": "NewWidth",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 243355395824930
+								},
+								{
+									"eventType": "variable",
+									"name": "OldWith",
+									"type": "number",
+									"initialValue": "0",
+									"comment": "",
+									"isStatic": false,
+									"isConstant": false,
+									"sid": 935465146069979
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 891041853779786,
+											"parameters": {
+												"variable": "OldWith",
+												"value": "HistogramBar.Width"
+											}
+										}
+									],
+									"sid": 457108110511472
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 569611547289508,
+											"parameters": {
+												"instance-variable": "Families",
+												"comparison": 4,
+												"value": "0"
+											}
+										},
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 207558915700585,
+											"parameters": {
+												"instance-variable": "MaxFamilies",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 873649111810927,
+											"parameters": {
+												"variable": "NewWidth",
+												"value": "288*(HistogramBar.Families/HistogramBar.MaxFamilies)"
+											}
+										}
+									],
+									"sid": 840552255616469
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 477810754373616,
+											"parameters": {
+												"variable": "NewWidth",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 840611927734407,
+											"parameters": {
+												"variable": "NewWidth",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 919540054928316
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 397927584974936,
+											"parameters": {
+												"variable": "OldWith",
+												"comparison": 3,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 800200270704352,
+											"parameters": {
+												"variable": "OldWith",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 999443106984822
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "set-width",
+											"objectClass": "HistogramBar",
+											"sid": 848606129897072,
+											"parameters": {
+												"width": "lerp(OldWith, NewWidth, 0.1)"
+											}
+										}
+									],
+									"sid": 676891378598018
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "has-children",
+											"objectClass": "HistogramBar",
+											"sid": 326557549162729
+										}
+									],
+									"actions": [],
+									"sid": 932040161214992,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "pick-children",
+													"objectClass": "HistogramBar",
+													"sid": 602698915354130,
+													"parameters": {
+														"child": "Label",
+														"which": "own"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-text",
+													"objectClass": "Label",
+													"sid": 472200898630778,
+													"parameters": {
+														"text": "HistogramBar.Families"
+													}
+												}
+											],
+											"sid": 956137589621673
+										}
+									]
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 203244350609084,
+									"parameters": {
+										"object": "HistogramBar"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 569513016976304,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 290709382056159,
+											"parameters": {
+												"instance-variable": "Year",
+												"comparison": 0,
+												"value": "CurrentYear"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HistogramBar",
+											"sid": 774991619322813,
+											"parameters": {
+												"color": "rgbEx255(240, 140, 10)"
+											}
+										}
+									],
+									"sid": 686509392123092
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 826419747069758,
+											"parameters": {
+												"instance-variable": "Year",
+												"comparison": 1,
+												"value": "CurrentYear"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HistogramBar",
+											"sid": 233371202740744,
+											"parameters": {
+												"color": "rgbEx255(250, 250, 250)"
+											}
+										}
+									],
+									"sid": 277298093447725
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 707095925938204,
+									"parameters": {
+										"object": "HistogramBar"
+									}
+								},
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 816371609312031,
+									"parameters": {
+										"object": "HistogramBar"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 379939852170094,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 435060610180629,
+											"parameters": {
+												"instance-variable": "Year",
+												"comparison": 0,
+												"value": "CurrentYear"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HistogramBar",
+											"sid": 224929785037250,
+											"parameters": {
+												"color": "rgbEx255(240, 140, 10)"
+											}
+										}
+									],
+									"sid": 942635463617948
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "HistogramBar",
+											"sid": 456748098665640,
+											"parameters": {
+												"instance-variable": "Year",
+												"comparison": 1,
+												"value": "CurrentYear"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-default-color",
+											"objectClass": "HistogramBar",
+											"sid": 196505690800289,
+											"parameters": {
+												"color": "rgbEx255(255, 200, 125)"
+											}
+										}
+									],
+									"sid": 385200009803175
+								}
+							]
+						}
+					],
+					"sid": 994505321687501
+				}
+			],
+			"sid": 216970145032237
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MENU",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 351950541509019,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "ChooseYear"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "getCurrentYear",
+							"sid": 576159115313794,
+							"parameters": [
+								"ChooseYear.Year"
+							]
+						},
+						{
+							"callFunction": "resetSelectItems",
+							"sid": 705544306393379
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 915208249520401,
+							"parameters": {
+								"seconds": "0.01"
+							}
+						},
+						{
+							"id": "wait-for-previous-actions",
+							"objectClass": "System",
+							"sid": 672828981310449
+						},
+						{
+							"callFunction": "orderItems",
+							"sid": 438379430358495,
+							"parameters": [
+								"OrderedBy",
+								"OrderDescOrAsc"
+							]
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 236813827411692,
+							"parameters": {
+								"variable": "CurrentYear",
+								"value": "ChooseYear.Year"
+							}
+						}
+					],
+					"sid": 608150382918017
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-children",
+							"objectClass": "ChooseYear",
+							"sid": 133043153093811
+						}
+					],
+					"actions": [],
+					"sid": 198965836928357,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "ChooseYear",
+									"sid": 324614238980150,
+									"parameters": {
+										"child": "Label",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "Label",
+									"sid": 442272443243310,
+									"parameters": {
+										"text": "ChooseYear.Year"
+									}
+								}
+							],
+							"sid": 857855475975164
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 448741462167471,
+							"parameters": {
+								"object": "ChooseYear"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 381425671815537,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChooseYear",
+									"sid": 976182660736070,
+									"parameters": {
+										"instance-variable": "Year",
+										"comparison": 0,
+										"value": "CurrentYear"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "ChooseYear",
+									"sid": 485323907560357,
+									"parameters": {
+										"color": "rgbEx255(240, 140, 10)"
+									}
+								}
+							],
+							"sid": 703789419499601
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChooseYear",
+									"sid": 361317806668955,
+									"parameters": {
+										"instance-variable": "Year",
+										"comparison": 1,
+										"value": "CurrentYear"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "ChooseYear",
+									"sid": 565072549766280,
+									"parameters": {
+										"color": "rgbEx255(250, 250, 250)"
+									}
+								}
+							],
+							"sid": 410016240735673
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 989431004621738,
+							"parameters": {
+								"object": "ChooseYear"
+							}
+						},
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 771163889542692,
+							"parameters": {
+								"object": "ChooseYear"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 126319741289747,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChooseYear",
+									"sid": 208235654031174,
+									"parameters": {
+										"instance-variable": "Year",
+										"comparison": 0,
+										"value": "CurrentYear"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "ChooseYear",
+									"sid": 880133701415316,
+									"parameters": {
+										"color": "rgbEx255(240, 140, 10)"
+									}
+								}
+							],
+							"sid": 332580113666364
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "ChooseYear",
+									"sid": 730372234539322,
+									"parameters": {
+										"instance-variable": "Year",
+										"comparison": 1,
+										"value": "CurrentYear"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-default-color",
+									"objectClass": "ChooseYear",
+									"sid": 573249278610728,
+									"parameters": {
+										"color": "rgbEx255(255, 200, 125)"
+									}
+								}
+							],
+							"sid": 945373310688600
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 740812149538974,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "LabelData"
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "resetSelectItems",
+							"sid": 252757125111408
+						}
+					],
+					"sid": 678356437956017,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "LabelData",
+									"sid": 410391173389792,
+									"parameters": {
+										"instance-variable": "orderBy",
+										"comparison": 0,
+										"value": "OrderedBy"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 460394189934048,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 985688285824799,
+											"parameters": {
+												"variable": "OrderDescOrAsc",
+												"comparison": 0,
+												"value": "\"asc\""
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 617692023965884,
+											"parameters": {
+												"variable": "OrderDescOrAsc",
+												"value": "\"desc\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "LabelData",
+											"sid": 860724905783159,
+											"parameters": {
+												"instance-variable": "order",
+												"value": "\"desc\""
+											}
+										}
+									],
+									"sid": 839599675031881
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 534304939988913
+										}
+									],
+									"actions": [
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 229997692294333,
+											"parameters": {
+												"variable": "OrderDescOrAsc",
+												"value": "\"asc\""
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "LabelData",
+											"sid": 764653126413782,
+											"parameters": {
+												"instance-variable": "order",
+												"value": "\"asc\""
+											}
+										}
+									],
+									"sid": 844039243137988
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 978188964778179
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 223366807063959,
+									"parameters": {
+										"variable": "OrderedBy",
+										"value": "LabelData.orderBy"
+									}
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 515881344835754,
+									"parameters": {
+										"variable": "OrderDescOrAsc",
+										"value": "LabelData.order"
+									}
+								}
+							],
+							"sid": 633345590944926
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "orderItems",
+									"sid": 230940168664367,
+									"parameters": [
+										"OrderedBy",
+										"OrderDescOrAsc"
+									]
+								}
+							],
+							"sid": 925948807367737
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "LabelData",
+							"sid": 524987276288317,
+							"parameters": {
+								"instance-variable": "orderBy",
+								"comparison": 0,
+								"value": "OrderedBy"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 892306711183141,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 419071073112934,
+									"parameters": {
+										"variable": "OrderDescOrAsc",
+										"comparison": 0,
+										"value": "\"asc\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "LabelData",
+									"sid": 840235996726465,
+									"parameters": {
+										"text": "LabelData.Label & \"▲\""
+									}
+								}
+							],
+							"sid": 832590072932722
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 815376743579564,
+									"parameters": {
+										"variable": "OrderDescOrAsc",
+										"comparison": 0,
+										"value": "\"desc\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-text",
+									"objectClass": "LabelData",
+									"sid": 328861524797688,
+									"parameters": {
+										"text": "LabelData.Label & \"▼\""
+									}
+								}
+							],
+							"sid": 962581148065726
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "LabelData",
+							"sid": 813254306637066,
+							"parameters": {
+								"instance-variable": "orderBy",
+								"comparison": 1,
+								"value": "OrderedBy"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "LabelData",
+							"sid": 507919661310611,
+							"parameters": {
+								"text": "LabelData.Label"
+							}
+						}
+					],
+					"sid": 413196386058016
+				}
+			],
+			"sid": 904095918030743
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "SELECTOR",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-x",
+							"objectClass": "Selector_Cursor",
+							"sid": 154780263420504,
+							"parameters": {
+								"x": "lerp(Selector_Cursor.X, Selector_Base.ImagePointX(Selector), 0.1)"
+							}
+						}
+					],
+					"sid": 845263672561751
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 222745915306414,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Selector_Label"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 665963972828720,
+							"parameters": {
+								"variable": "Selector",
+								"value": "Selector_Label.Selector"
+							}
+						},
+						{
+							"callFunction": "selectItems",
+							"sid": 664712461049190
+						}
+					],
+					"sid": 525860772994267
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 633476378058400,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "Selector_Base"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 871626218960493,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 917961132139314,
+									"parameters": {
+										"variable": "Selector",
+										"comparison": 0,
+										"value": "\"Total\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 733931572311738,
+									"parameters": {
+										"variable": "Selector",
+										"value": "\"District\""
+									}
+								}
+							],
+							"sid": 838756904149750
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 406784252634215
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 173904338545634,
+									"parameters": {
+										"variable": "Selector",
+										"value": "\"Total\""
+									}
+								}
+							],
+							"sid": 765395050276992
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"callFunction": "selectItems",
+									"sid": 760641944374895
+								}
+							],
+							"sid": 177029571773921
+						}
+					]
+				}
+			],
+			"sid": 962867865467903
+		}
+	],
+	"sid": 775029336484905
+}

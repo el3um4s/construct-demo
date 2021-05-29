@@ -1,0 +1,26 @@
+{
+	"name": "List_Content_Boxs",
+	"plugin-id": "TiledBg",
+	"sid": 581061312442577,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "DragnDrop",
+			"name": "DragDrop",
+			"sid": 955057264394442
+		}
+	],
+	"effectTypes": [],
+	"image": {
+		"width": 64,
+		"height": 64,
+		"originX": 0.5,
+		"originY": 0.5,
+		"originalSource": "",
+		"exportFormat": "png",
+		"exportQuality": 0.8,
+		"imageSpriteId": 2374491,
+		"useCollisionPoly": true
+	}
+}
