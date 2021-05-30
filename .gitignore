@@ -16,5 +16,8 @@ svelte.config.js
 tsconfig.json
 /docs
 
+/_app
+index.html
+
 package.json
 package-lock.json
