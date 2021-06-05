@@ -1,0 +1,43 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 957320093716943
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "sendMessage",
+					"sid": 274849935350968,
+					"parameters": [
+						"\"status\"",
+						"\"loader layout complete\""
+					]
+				},
+				{
+					"callFunction": "sendMessage",
+					"sid": 389602035419811,
+					"parameters": [
+						"\"status\"",
+						"\"AutoPlay=\" & AutoPlay ? \"AutoPlay=YES\" : \"AutoPlay=NO\""
+					]
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 312519934294545,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 969081775903649
+		}
+	],
+	"sid": 539342381664217
+}

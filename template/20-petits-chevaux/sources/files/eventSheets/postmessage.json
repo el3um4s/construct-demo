@@ -1,0 +1,48 @@
+{
+	"name": "PostMessage",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "PostMessage",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "sendMessage",
+					"functionDescription": "",
+					"functionCategory": "PostMessage",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "Type",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 255289788413964
+						},
+						{
+							"name": "Content",
+							"type": "string",
+							"initialValue": "",
+							"comment": "",
+							"sid": 550762468369395
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const content = localVars.Content;\nconst type = localVars.Type;\n\nconst message = { type, content }\n\nsendMessage(message);"
+						}
+					],
+					"sid": 473012162153117
+				}
+			],
+			"sid": 709149925668358
+		}
+	],
+	"sid": 386243686328612
+}

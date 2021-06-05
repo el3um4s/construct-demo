@@ -1,0 +1,41 @@
+## MESSAGES
+
+### SEND
+
+{
+	type: "status",
+	content: "loader layout complete"
+}
+
+{
+	type: "status",
+	content: "no play"
+}
+
+{
+	type: "status",
+	content: "playing"
+}
+
+{
+	type: "status",
+	content: "AutoPlay=YES" | "AutoPlay=NO"
+}
+
+{
+	type: "win",
+	content: Ball.Value & " : " & Ball.Distance
+}
+
+### GET
+
+{
+	type: "set",
+	content: "AutoPlay=YES" | "AutoPlay=NO"
+}
+
+{
+	type: "status",
+	content: SPIN"
+}
+

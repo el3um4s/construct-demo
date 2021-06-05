@@ -1,0 +1,62 @@
+{
+	"name": "Ball_Margin",
+	"plugin-id": "Sprite",
+	"sid": 428350625131580,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Red",
+			"type": "number",
+			"desc": "",
+			"sid": 322817127053131
+		},
+		{
+			"name": "Green",
+			"type": "number",
+			"desc": "",
+			"sid": 561954175584521
+		},
+		{
+			"name": "Blue",
+			"type": "number",
+			"desc": "",
+			"sid": 454814473506046
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 365154467789361
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 512,
+						"height": 512,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "png",
+						"exportQuality": 0.8,
+						"imageSpriteId": 1321356,
+						"useCollisionPoly": true,
+						"duration": 1
+					}
+				],
+				"sid": 223931438965034,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
