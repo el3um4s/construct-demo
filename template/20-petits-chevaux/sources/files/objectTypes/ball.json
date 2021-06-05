@@ -1,0 +1,51 @@
+{
+	"name": "Ball",
+	"plugin-id": "Text",
+	"sid": 316865790894518,
+	"isGlobal": false,
+	"instanceVariables": [
+		{
+			"name": "Value",
+			"type": "number",
+			"desc": "",
+			"sid": 239940210968326
+		},
+		{
+			"name": "StarterX",
+			"type": "number",
+			"desc": "",
+			"sid": 132939018062022
+		},
+		{
+			"name": "Distance",
+			"type": "number",
+			"desc": "",
+			"sid": 831410836535583
+		},
+		{
+			"name": "RaceEnded",
+			"type": "boolean",
+			"desc": "",
+			"sid": 541400733188497
+		},
+		{
+			"name": "IsLastBall",
+			"type": "number",
+			"desc": "",
+			"sid": 880696053760421
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Orbit",
+			"name": "Orbit",
+			"sid": 296169521205512
+		},
+		{
+			"behaviorId": "Tween",
+			"name": "Tween",
+			"sid": 603875844433702
+		}
+	],
+	"effectTypes": []
+}

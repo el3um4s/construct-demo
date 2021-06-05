@@ -1,0 +1,1376 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "AutoPlay",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 519419414135338
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 262022013851030
+				}
+			],
+			"actions": [
+				{
+					"callFunction": "sendMessage",
+					"sid": 314052515836676,
+					"parameters": [
+						"\"status\"",
+						"\"playing\""
+					]
+				},
+				{
+					"callFunction": "ResetBalls",
+					"sid": 959292586617976
+				},
+				{
+					"callFunction": "Set Start Position",
+					"sid": 172129971900970
+				}
+			],
+			"sid": 946050890508216
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Function",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "Set Start Position",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 238546450752494,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "WinnerIs",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 257449599918574
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "Track",
+									"sid": 767482913513615
+								},
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 930944412090867,
+									"parameters": {
+										"variable": "WinnerIs",
+										"value": "choose(1,2,3,4,5,6,7,8,9)"
+									}
+								}
+							],
+							"sid": 762564764098498
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 821737365246021,
+									"parameters": {
+										"object": "Ball",
+										"expression": "Ball.Value",
+										"order": "ascending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-speed",
+									"objectClass": "Ball",
+									"sid": 649070223785416,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"speed": "random(500,1000)+ (Self.Value = WinnerIs ? 250 : 50)"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Ball",
+									"sid": 631546640562731,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"acceleration": " random(-50,-100) + (Self.Value = WinnerIs ? 25 : -50)"
+									}
+								},
+								{
+									"id": "create-object",
+									"objectClass": "System",
+									"sid": 553201856722648,
+									"parameters": {
+										"object-to-create": "Track",
+										"layer": "\"Tracks\"",
+										"x": "256",
+										"y": "256",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Track",
+									"sid": 867672279517680,
+									"parameters": {
+										"instance-variable": "Value",
+										"value": "Ball.Value"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Track",
+									"sid": 491995271369911,
+									"parameters": {
+										"width": "0",
+										"height": "0"
+									}
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Track",
+									"sid": 119508953679270,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "Ball.Orbit.PrimaryRadius*2",
+										"end-y": "Ball.Orbit.PrimaryRadius*2",
+										"time": "0.10 * Self.Value",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 952466987364926
+								}
+							],
+							"sid": 367651108441694
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 357656652429429,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 343147222974251
+								}
+							],
+							"sid": 607510177564513,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "for-each-ordered",
+											"objectClass": "System",
+											"sid": 965559818434736,
+											"parameters": {
+												"object": "Ball",
+												"expression": "Ball.Value",
+												"order": "ascending"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-two-properties",
+											"objectClass": "Ball",
+											"sid": 274224137654866,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"\"",
+												"property": "size",
+												"end-x": "30",
+												"end-y": "30",
+												"time": "0.10*Self.Value",
+												"ease": "easeoutbounce",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 313950095838710
+										}
+									],
+									"sid": 460785892330293
+								},
+								{
+									"eventType": "block",
+									"conditions": [],
+									"actions": [
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 928934659947062,
+											"parameters": {
+												"seconds": "1"
+											}
+										},
+										{
+											"id": "wait-for-previous-actions",
+											"objectClass": "System",
+											"sid": 205443581746374
+										}
+									],
+									"sid": 570087223836397,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "for-each-ordered",
+													"objectClass": "System",
+													"sid": 939620673201615,
+													"parameters": {
+														"object": "Ball",
+														"expression": "Ball.Value",
+														"order": "ascending"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "tween-one-property",
+													"objectClass": "Ball",
+													"sid": 644051426782526,
+													"behaviorType": "Tween",
+													"parameters": {
+														"tags": "\"\"",
+														"property": "offsetX",
+														"end-value": "Self.StarterX",
+														"time": "1+0.1*Self.Value",
+														"ease": "easeoutbounce",
+														"destroy-on-complete": "no",
+														"loop": "no",
+														"ping-pong": "no"
+													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 806274358014356
+												}
+											],
+											"sid": 275942441523846
+										},
+										{
+											"eventType": "block",
+											"conditions": [],
+											"actions": [
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 730681963169139,
+													"parameters": {
+														"seconds": "2.5"
+													}
+												},
+												{
+													"id": "wait-for-previous-actions",
+													"objectClass": "System",
+													"sid": 222045542102143
+												},
+												{
+													"id": "set-target",
+													"objectClass": "Ball",
+													"sid": 227450412711559,
+													"behaviorType": "Orbit",
+													"parameters": {
+														"x": "256",
+														"y": "256"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "Ball",
+													"sid": 551257119446384,
+													"behaviorType": "Orbit",
+													"parameters": {
+														"state": "enabled"
+													}
+												}
+											],
+											"sid": 479446944906864
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"functionName": "DecreaseVelocityAll",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 734138338519048,
+					"children": [
+						{
+							"eventType": "variable",
+							"name": "countBall",
+							"type": "number",
+							"initialValue": "0",
+							"comment": "",
+							"isStatic": false,
+							"isConstant": false,
+							"sid": 197331224016730
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 307794364637247,
+									"parameters": {
+										"object": "Ball",
+										"expression": "Ball.RaceEnded"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 715892713092320,
+									"parameters": {
+										"variable": "countBall",
+										"value": "Ball.PickedCount"
+									}
+								}
+							],
+							"sid": 190579526007273
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 325111359594686,
+									"parameters": {
+										"object": "Ball"
+									}
+								},
+								{
+									"id": "is-boolean-instance-variable-set",
+									"objectClass": "Ball",
+									"sid": 739071506180633,
+									"parameters": {
+										"instance-variable": "RaceEnded"
+									},
+									"isInverted": true
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 965740333639408,
+									"parameters": {
+										"first-value": "Ball.Orbit.Speed",
+										"comparison": 4,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-acceleration",
+									"objectClass": "Ball",
+									"sid": 621232390120041,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"acceleration": "Self.Orbit.Acceleration *(1+(countBall/Ball.Count))"
+									}
+								}
+							],
+							"sid": 930474614887644
+						}
+					]
+				},
+				{
+					"functionName": "isLastBall",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "number",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-function-return-value",
+							"objectClass": "Functions",
+							"sid": 325294948131465,
+							"parameters": {
+								"value": "0"
+							}
+						}
+					],
+					"sid": 551000885741620,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-by-evaluate",
+									"objectClass": "System",
+									"sid": 456604651733901,
+									"parameters": {
+										"object": "Ball",
+										"expression": "Ball.RaceEnded"
+									}
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 807964728345770,
+									"parameters": {
+										"first-value": "Ball.PickedCount",
+										"comparison": 0,
+										"second-value": "Ball.Count"
+									}
+								},
+								{
+									"id": "trigger-once-while-true",
+									"objectClass": "System",
+									"sid": 811577025588155
+								}
+							],
+							"actions": [
+								{
+									"id": "set-function-return-value",
+									"objectClass": "Functions",
+									"sid": 865858482790676,
+									"parameters": {
+										"value": "1"
+									}
+								}
+							],
+							"sid": 820327956579065
+						}
+					]
+				},
+				{
+					"functionName": "EndRace",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"callFunction": "sendMessage",
+							"sid": 495583205910063,
+							"parameters": [
+								"\"status\"",
+								"\"playing\""
+							]
+						}
+					],
+					"sid": 388627294041440,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 804146680658198,
+									"parameters": {
+										"object": "Ball"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Ball",
+									"sid": 214119937977625,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "256",
+										"end-y": "256",
+										"time": "1",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 344427844053009
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Ball",
+									"sid": 599146859987984,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "0",
+										"end-y": "0",
+										"time": "1",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 428559785239433
+								}
+							],
+							"sid": 969396416057111
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each-ordered",
+									"objectClass": "System",
+									"sid": 234850992501310,
+									"parameters": {
+										"object": "Track",
+										"expression": "Track.Value",
+										"order": "descending"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 543388211950171,
+									"parameters": {
+										"seconds": "1 + 0.10*Track.Value"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 471271797208291
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Track",
+									"sid": 320971903378371,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "1",
+										"end-y": "1",
+										"time": "0.15*Track.Value",
+										"ease": "default",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 689924263690916
+								}
+							],
+							"sid": 120298041409162
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 968627225430336
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 453455028894180,
+									"parameters": {
+										"seconds": "4"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 852381197262505
+								},
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 250707579234167
+								}
+							],
+							"sid": 103621424920644
+						}
+					]
+				},
+				{
+					"functionName": "ResetBalls",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [],
+					"sid": 611324072552573,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "for-each",
+									"objectClass": "System",
+									"sid": 300645788105188,
+									"parameters": {
+										"object": "Ball"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-radius",
+									"objectClass": "Ball",
+									"sid": 348867190577315,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"primary": "20+(Self.Value*24)",
+										"secondary": "20+(Self.Value*24)"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Ball",
+									"sid": 936199839089910,
+									"parameters": {
+										"text": "Self.Value"
+									}
+								},
+								{
+									"id": "set-position",
+									"objectClass": "Ball",
+									"sid": 844994389348252,
+									"parameters": {
+										"x": "256",
+										"y": "256"
+									}
+								},
+								{
+									"id": "set-size",
+									"objectClass": "Ball",
+									"sid": 358228095988856,
+									"parameters": {
+										"width": "1",
+										"height": "1"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Ball",
+									"sid": 970503246688555,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-acceleration",
+									"objectClass": "Ball",
+									"sid": 604127878902024,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"acceleration": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball",
+									"sid": 948663827572735,
+									"parameters": {
+										"instance-variable": "StarterX",
+										"value": "Self.X + Self.Orbit.PrimaryRadius"
+									}
+								},
+								{
+									"id": "set-offset-angle",
+									"objectClass": "Ball",
+									"sid": 610053386679764,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"angle": "0"
+									}
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball",
+									"sid": 500149974897436,
+									"parameters": {
+										"instance-variable": "Distance",
+										"value": "0"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Ball",
+									"sid": 948788986683632,
+									"parameters": {
+										"instance-variable": "RaceEnded",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 442692074335095
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Function :: AutoPlay",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"functionName": "AutoPlay::Toggle",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "toggle-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 605622423193161,
+									"parameters": {
+										"variable": "AutoPlay"
+									}
+								}
+							],
+							"sid": 905242683706995
+						},
+						{
+							"functionName": "AutoPlay::SetTrue",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 244696517727070,
+									"parameters": {
+										"variable": "AutoPlay",
+										"value": "true"
+									}
+								}
+							],
+							"sid": 626748410836826
+						},
+						{
+							"functionName": "AutoPlay::SetFalse",
+							"functionDescription": "",
+							"functionCategory": "",
+							"functionReturnType": "none",
+							"functionIsAsync": false,
+							"functionParameters": [],
+							"eventType": "function-block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "set-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 482285097194348,
+									"parameters": {
+										"variable": "AutoPlay",
+										"value": "false"
+									}
+								}
+							],
+							"sid": 269031785187129
+						}
+					],
+					"sid": 429748287897782
+				}
+			],
+			"sid": 365890112005091
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "COLORS",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 297414008760896,
+							"parameters": {
+								"object": "Ball"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Track",
+							"sid": 270745365270820,
+							"parameters": {
+								"instance-variable": "Value",
+								"comparison": 0,
+								"value": "Ball.Value"
+							}
+						},
+						{
+							"id": "pick-children",
+							"objectClass": "Ball",
+							"sid": 706866763621554,
+							"parameters": {
+								"child": "Ball_Margin",
+								"which": "own"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Track",
+							"sid": 174974078471095,
+							"parameters": {
+								"color": "Ball_Margin.ColorValue"
+							}
+						}
+					],
+					"sid": 993167776894590
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-default-color",
+							"objectClass": "Ball_Margin",
+							"sid": 859538335009949,
+							"parameters": {
+								"color": "rgbEx255(Self.Red,Self.Green,Self.Blue)"
+							}
+						}
+					],
+					"sid": 101793596350888,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "Ball_Margin",
+									"sid": 302692961069114,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Red\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball_Margin",
+									"sid": 641169680691768,
+									"parameters": {
+										"instance-variable": "Red",
+										"value": "Ball_Margin.Tween.Value(\"Red\")"
+									}
+								}
+							],
+							"sid": 563524639008755
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "Ball_Margin",
+									"sid": 431760263030096,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Green\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball_Margin",
+									"sid": 753673179198758,
+									"parameters": {
+										"instance-variable": "Green",
+										"value": "Ball_Margin.Tween.Value(\"Green\")"
+									}
+								}
+							],
+							"sid": 807172654221151
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-playing",
+									"objectClass": "Ball_Margin",
+									"sid": 702323426735863,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"Blue\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball_Margin",
+									"sid": 608988638466617,
+									"parameters": {
+										"instance-variable": "Blue",
+										"value": "Ball_Margin.Tween.Value(\"Blue\")"
+									}
+								}
+							],
+							"sid": 428710456246774
+						}
+					]
+				}
+			],
+			"sid": 339466856145261
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Balls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-font-size",
+							"objectClass": "Ball",
+							"sid": 124403659170587,
+							"parameters": {
+								"size-pt": "Ball.Width/3"
+							}
+						}
+					],
+					"sid": 375505478002308
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each",
+							"objectClass": "System",
+							"sid": 278623433219302,
+							"parameters": {
+								"object": "Ball"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "Ball",
+							"sid": 706165273151364,
+							"parameters": {
+								"instance-variable": "Distance",
+								"value": "Ball.Orbit.TotalAbsoluteRotation"
+							}
+						}
+					],
+					"sid": 481268853250840,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-enabled",
+									"objectClass": "Ball",
+									"sid": 150544818371681,
+									"behaviorType": "Orbit"
+								},
+								{
+									"id": "compare-two-values",
+									"objectClass": "System",
+									"sid": 434580043871046,
+									"parameters": {
+										"first-value": "Ball.Orbit.Speed",
+										"comparison": 2,
+										"second-value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-acceleration",
+									"objectClass": "Ball",
+									"sid": 783080058016923,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"acceleration": "0"
+									}
+								},
+								{
+									"id": "set-speed",
+									"objectClass": "Ball",
+									"sid": 486017178692093,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"speed": "0"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "Ball",
+									"sid": 793264090316350,
+									"behaviorType": "Orbit",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-boolean-instvar",
+									"objectClass": "Ball",
+									"sid": 734105220915348,
+									"parameters": {
+										"instance-variable": "RaceEnded",
+										"value": "true"
+									}
+								},
+								{
+									"callFunction": "DecreaseVelocityAll",
+									"sid": 303915404343515
+								},
+								{
+									"id": "set-instvar-value",
+									"objectClass": "Ball",
+									"sid": 252415966922055,
+									"parameters": {
+										"instance-variable": "IsLastBall",
+										"value": "Functions.isLastBall"
+									}
+								}
+							],
+							"sid": 984080641776606,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "Ball",
+											"sid": 957408272507865,
+											"parameters": {
+												"instance-variable": "IsLastBall",
+												"comparison": 0,
+												"value": "0"
+											}
+										},
+										{
+											"id": "pick-children",
+											"objectClass": "Ball",
+											"sid": 298260196692909,
+											"parameters": {
+												"child": "Ball_Margin",
+												"which": "own"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "tween-value",
+											"objectClass": "Ball_Margin",
+											"sid": 276617307515327,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Red\"",
+												"start-value": "Self.Red",
+												"end-value": "180",
+												"time": "1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "tween-value",
+											"objectClass": "Ball_Margin",
+											"sid": 347875525258645,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Green\"",
+												"start-value": "Self.Green",
+												"end-value": "180",
+												"time": "1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										},
+										{
+											"id": "tween-value",
+											"objectClass": "Ball_Margin",
+											"sid": 798632098033494,
+											"behaviorType": "Tween",
+											"parameters": {
+												"tags": "\"Blue\"",
+												"start-value": "Self.Blue",
+												"end-value": "180",
+												"time": "1",
+												"ease": "noease",
+												"destroy-on-complete": "no",
+												"loop": "no",
+												"ping-pong": "no"
+											}
+										}
+									],
+									"sid": 111950238255545
+								}
+							]
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Ball",
+							"sid": 960496822223200,
+							"parameters": {
+								"instance-variable": "IsLastBall",
+								"comparison": 0,
+								"value": "1"
+							}
+						},
+						{
+							"id": "trigger-once-while-true",
+							"objectClass": "System",
+							"sid": 738533221289134
+						}
+					],
+					"actions": [],
+					"sid": 966011195625813,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "pick-children",
+									"objectClass": "Ball",
+									"sid": 498828824844344,
+									"parameters": {
+										"child": "Ball_Margin",
+										"which": "own"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "Ball_Margin",
+									"sid": 934113213638155
+								}
+							],
+							"sid": 537180965774983
+						},
+						{
+							"eventType": "block",
+							"conditions": [],
+							"actions": [
+								{
+									"id": "move-to-top",
+									"objectClass": "Ball",
+									"sid": 206664688916506
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Ball",
+									"sid": 392015906495128,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "position",
+										"end-x": "256",
+										"end-y": "256",
+										"time": "1",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 350835133394849
+								},
+								{
+									"id": "log",
+									"objectClass": "Browser",
+									"sid": 814770524443890,
+									"disabled": true,
+									"parameters": {
+										"type": "log",
+										"message": "Ball.Value & \" : \" & Ball.Distance"
+									}
+								},
+								{
+									"callFunction": "sendMessage",
+									"sid": 640084089274452,
+									"parameters": [
+										"\"win\"",
+										"Ball.Value & \" : \" & Ball.Distance"
+									]
+								},
+								{
+									"id": "tween-two-properties",
+									"objectClass": "Ball",
+									"sid": 398708779664025,
+									"behaviorType": "Tween",
+									"parameters": {
+										"tags": "\"\"",
+										"property": "size",
+										"end-x": "256",
+										"end-y": "256",
+										"time": "1",
+										"ease": "easeinoutbounce",
+										"destroy-on-complete": "no",
+										"loop": "no",
+										"ping-pong": "no"
+									}
+								},
+								{
+									"id": "wait-for-previous-actions",
+									"objectClass": "System",
+									"sid": 430752121577293
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 449812826300538,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"callFunction": "sendMessage",
+									"sid": 394168864815470,
+									"parameters": [
+										"\"status\"",
+										"\"no play\""
+									]
+								}
+							],
+							"sid": 296239493884890,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-boolean-eventvar",
+											"objectClass": "System",
+											"sid": 710629004855200,
+											"parameters": {
+												"variable": "AutoPlay"
+											}
+										}
+									],
+									"actions": [
+										{
+											"callFunction": "EndRace",
+											"sid": 125393396473356
+										}
+									],
+									"sid": 556006062587787
+								}
+							]
+						}
+					]
+				}
+			],
+			"sid": 442994934876801
+		}
+	],
+	"sid": 465189244689227
+}
