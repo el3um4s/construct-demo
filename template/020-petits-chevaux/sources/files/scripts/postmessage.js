@@ -1,4 +1,9 @@
-const trustedOrigin = "http://localhost:5000";
+const trustedOrigin = [
+		"http://localhost:5000", 
+		"https://c3demo.stranianelli.com", 
+		"https://el3um4s.github.io", 
+		"https://el3um4s.itch.io"
+	];
 
 export function sendMessage(message) {
 	const targetWindow = globalThis.parent;
@@ -14,11 +19,11 @@ export function attachListeners() {
 }
 
 function getMessage(e) {
-	if(e.origin !== "http://localhost:5000") {
+	if( !trustedOrigin.includes(e.origin)) {
 		console.log("Error, wrong origin");
 	} else {
 		const message = e.data;
-		console.log(e.data);
+// 		console.log(e.data);
 		const messageType = message.type;
 		const messageContent = message.content;
 
