@@ -10,7 +10,7 @@ My collection of demo projects for Construct 3
 | 8|![image][J-8i] | [Text Editor][J-8]                       |[Demo][J-8d] |[Link][J-8p]   |
 | 9|![image][J-9i] | [Mesh and Shapes][J-9]                   |[Demo][J-9d] |[Link][J-9p]   |
 |10|![image][J-10i]| [Mermaid][J-10]                          |[Demo][J-10d]|[Link][J-10p]  |
-|11|![image][J-11i]| [Milan Districts][J-11]                  |[Demo][J-11d]|               |
+|11|![image][J-11i]| [Milan Districts][J-11]                  |[Demo][J-11d]|[Link][J-11p]  |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
@@ -35,6 +35,7 @@ My collection of demo projects for Construct 3
 [J-11i]: javascript/011-milan-districts/preview.png
 [J-11]: javascript/011-milan-districts
 [J-11d]: https://c3demo.stranianelli.com/javascript/011-milan-districts/demo
+[J-11p]: https://www.patreon.com/posts/milan-districts-51876743
 
 ### Template
 
@@ -56,9 +57,10 @@ My collection of demo projects for Construct 3
 |14|![image][T-14i]| [Fighting Game][T-14]                    |[Demo][T-14d]|               |
 |15|![image][T-15i]| [Typo Battle][T-15]                      |[Demo][T-15d]|               |
 |16|![image][T-16i]| [GUBIL][T-16]                            |[Demo][T-16d]|               |
-|17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>|[Link][T-17p]  |
+|17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>       |[Link][T-17p]  |
 |18|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|[Link][T-18p]  |
 |19|![image][T-19i]| [Chaos Game][T-19]                       |[Demo][T-19d]|[Link][T-19p]  |
+|20|![image][T-20i]| [Petits Chevaux][T-20]                   |[Demo][T-20d]|               |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -137,6 +139,10 @@ My collection of demo projects for Construct 3
 [T-19]: template/019-chaos-game
 [T-19d]: template/019-chaos-game/demo
 [T-19p]: https://www.patreon.com/posts/chaos-game-50186765
+
+[T-20i]: template/020-petits-chevaux/preview.png
+[T-20]: template/020-petits-chevaux
+[T-20d]: template/020-petits-chevaux/demo
 
 ### User Interface
 

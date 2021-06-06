@@ -2,7 +2,8 @@ const trustedOrigin = [
 		"http://localhost:5000", 
 		"https://c3demo.stranianelli.com", 
 		"https://el3um4s.github.io", 
-		"https://el3um4s.itch.io"
+		"https://el3um4s.itch.io",
+		`${globalThis.location.origin}`
 	];
 
 export function sendMessage(message) {
