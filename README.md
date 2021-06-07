@@ -60,7 +60,7 @@ My collection of demo projects for Construct 3
 |17|![image][T-17i]| [Floating Window][T-17]                  |<a href="https://c3demo.stranianelli.com/template/017-floating-window/demo" target="popup" onclick="window.open('https://c3demo.stranianelli.com/template/017-floating-window/demo','test', 'width=256,height=256,menubar=false,toolbar=false,location=false,resizable=false,status=false')">Demo</a>       |[Link][T-17p]  |
 |18|![image][T-18i]| [Geometric Draw][T-18]                   |[Demo][T-18d]|[Link][T-18p]  |
 |19|![image][T-19i]| [Chaos Game][T-19]                       |[Demo][T-19d]|[Link][T-19p]  |
-|20|![image][T-20i]| [Petits Chevaux][T-20]                   |[Demo][T-20d]|               |
+|20|![image][T-20i]| [Petits Chevaux][T-20]                   |[Demo][T-20d]|[Link][T-20p]  |
 
 [T-1i]: template/001-top-down-shooter-laser-game/preview.png
 [T-1]: template/001-top-down-shooter-laser-game
@@ -143,6 +143,7 @@ My collection of demo projects for Construct 3
 [T-20i]: template/020-petits-chevaux/preview.png
 [T-20]: template/020-petits-chevaux
 [T-20d]: template/020-petits-chevaux/demo
+[T-20p]: https://www.patreon.com/posts/petit-chevaux-52203305
 
 ### User Interface
 
