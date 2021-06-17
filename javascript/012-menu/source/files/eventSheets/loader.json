@@ -1,0 +1,48 @@
+{
+	"name": "Loader",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 211358685822066
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 711818072630546,
+					"parameters": {
+						"url": "\"menu.css\""
+					}
+				}
+			],
+			"sid": 816001048199292
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-loader-layout-complete",
+					"objectClass": "System",
+					"sid": 346006515110134
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 257572452735677,
+					"parameters": {
+						"layout": "Main"
+					}
+				}
+			],
+			"sid": 419976344860622
+		}
+	],
+	"sid": 827332696176715
+}

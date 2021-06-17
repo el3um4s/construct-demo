@@ -1,0 +1,17 @@
+{   
+	"color-primary": "#D12E2C",
+    "color-background": "#CFD6DA",
+
+    "font-title": "Roboto, sans-serif",
+    "font-items": "Roboto, sans-serif",
+    
+    "modal-background": "#62130Dbf",
+
+    "menu-border-radius": "8px",
+    "menu-border-style": "dotted",
+    "menu-border-width": "3px",
+
+    "item-height": "64px",
+    "item-icon-size": "48px",
+    "item-image-size": "64px"
+}

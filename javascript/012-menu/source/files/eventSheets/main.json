@@ -1,0 +1,128 @@
+{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 335584328185327
+				}
+			],
+			"actions": [
+				{
+					"type": "script",
+					"script": "menuSvelte.css.changeStyle(\"menu-min-width\", \"360px\");\nmenuSvelte.css.changeStyle(\"menu-width\", \"360px\");"
+				}
+			],
+			"sid": 799595206853499
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 801933681895077,
+					"parameters": {
+						"object": "Buttons"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 341233513682364,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Buttons",
+							"sid": 608583770786382,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"menu\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showMenu",
+							"sid": 135845545719617
+						}
+					],
+					"sid": 289372634858085
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Buttons",
+							"sid": 593613876119628,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"fonts\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"callFunction": "showFonts",
+							"sid": 192880186215429
+						}
+					],
+					"sid": 798982079502899
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Buttons",
+							"sid": 207903881122599,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"theme\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "themes.showMenu();"
+						}
+					],
+					"sid": 248031787886649
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "Buttons",
+							"sid": 799576190880685,
+							"parameters": {
+								"instance-variable": "Command",
+								"comparison": 0,
+								"value": "\"custom-theme\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"type": "script",
+							"script": "themes.showMenuCustomTheme();"
+						}
+					],
+					"sid": 683599238504296
+				}
+			]
+		}
+	],
+	"sid": 868516719999877
+}

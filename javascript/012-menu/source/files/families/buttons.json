@@ -1,0 +1,18 @@
+{
+	"name": "Buttons",
+	"plugin-id": "Text",
+	"sid": 642280852621376,
+	"instanceVariables": [
+		{
+			"name": "Command",
+			"type": "string",
+			"desc": "",
+			"sid": 592471343881927
+		}
+	],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"members": [
+		"Text"
+	]
+}

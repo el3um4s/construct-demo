@@ -1,0 +1,167 @@
+{
+	"name": "Menu",
+	"events": [
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "MENU",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"functionName": "showMenu",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "menuSvelte.items.clearMenu();\n\nmenuSvelte.columns.setColumns([\"icon\", \"label\", \"description\"]);\nmenuSvelte.title.setTitle(\"Main Menu\");\n\nlet icon = await g_runtime.assets.getProjectFileUrl(\"font.svg\");\nmenuSvelte.items.push({\n\ticon,\n\tlabel: \"Fonts\",\n\tdescription: \"Choose Font Family for the Menu\",\n\tonClick: \"g_runtime.callFunction('showFonts')\"\n});\n\nicon = await g_runtime.assets.getProjectFileUrl(\"theme.svg\");\nmenuSvelte.items.push({\n\ticon,\n\tlabel: \"Theme\",\n\tdescription: \"Choose the theme\",\n\tonClick: \"themes.showMenu()\"\n});\n\nmenuSvelte.visible.true();"
+						}
+					],
+					"sid": 376898570080496
+				},
+				{
+					"functionName": "showFonts",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "menuSvelte.items.clearMenu();\nmenuSvelte.columns.setColumns([\"label\", \"rightIcon\"]);\nmenuSvelte.title.setTitle(\"Choose Fonts\");\n\nlet rightIcon = await g_runtime.assets.getProjectFileUrl(\"menu.svg\");\nmenuSvelte.items.push({\n\trightIcon,\n\tlabel: \"Only Menu\",\n\tonClick: \"g_runtime.callFunction('chooseForMenu')\"\n});\n\nrightIcon = await g_runtime.assets.getProjectFileUrl(\"c.svg\");\nmenuSvelte.items.push({\n\trightIcon,\n\tlabel: \"C3 & Menu\",\n\tonClick: \"g_runtime.callFunction('chooseForC3')\"\n});\n\nmenuSvelte.items.push({\n\tlabel: \"Main\",\n\tonClick: \"g_runtime.callFunction('showMenu')\"\n});\n\nmenuSvelte.visible.true();"
+						}
+					],
+					"sid": 375073313428477
+				},
+				{
+					"functionName": "chooseForC3",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "menuSvelte.items.clearMenu();\nmenuSvelte.columns.setColumns([\"label\"]);\nmenuSvelte.title.setTitle(\"Choose Fonts (C3 & Menu)\");\n\nmenuSvelte.items.loadItemsFromArray(menuArrayFonts);\n\nmenuSvelte.items.unshift({\n\tlabel: \"Go Back\",\n\tonClick: \"g_runtime.callFunction('showFonts')\"\n});\n\nmenuSvelte.visible.true();"
+						}
+					],
+					"sid": 859444747463962
+				},
+				{
+					"functionName": "chooseForMenu",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "menuSvelte.items.clearMenu();\nmenuSvelte.columns.setColumns([\"label\"]);\nmenuSvelte.title.setTitle(\"Choose Fonts (only Menu)\");\n\nmenuSvelte.items.loadItemsFromArray(menuArrayFontsForMenu);\n\nmenuSvelte.items.unshift({\n\tlabel: \"Go Back\",\n\tonClick: \"g_runtime.callFunction('showFonts')\"\n});\n\nmenuSvelte.visible.true();"
+						}
+					],
+					"sid": 754360233674719
+				},
+				{
+					"functionName": "showThemes",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "menuSvelte.visible.true();"
+						}
+					],
+					"sid": 858477654640928
+				},
+				{
+					"functionName": "changeFontTitleAndItems",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": false,
+					"functionParameters": [
+						{
+							"name": "title",
+							"type": "string",
+							"initialValue": "Kenney Future",
+							"comment": "",
+							"sid": 172466694307383
+						},
+						{
+							"name": "items",
+							"type": "string",
+							"initialValue": "Kenney Future",
+							"comment": "",
+							"sid": 343894140570244
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-font-face",
+							"objectClass": "Buttons",
+							"sid": 786121883589348,
+							"parameters": {
+								"font-face": "items",
+								"style": "bold"
+							}
+						},
+						{
+							"type": "script",
+							"script": "const title = localVars.title;\nconst items = localVars.items;\n\nmenuSvelte.css.changeFontTitle(title);\nmenuSvelte.css.changeFontItems(items);"
+						}
+					],
+					"sid": 841622494537644
+				},
+				{
+					"functionName": "CustomTheme",
+					"functionDescription": "",
+					"functionCategory": "",
+					"functionReturnType": "none",
+					"functionIsAsync": true,
+					"functionParameters": [
+						{
+							"name": "jsonName",
+							"type": "string",
+							"initialValue": "Theme-RED.json",
+							"comment": "",
+							"sid": 425570961780828
+						}
+					],
+					"eventType": "function-block",
+					"conditions": [],
+					"actions": [
+						{
+							"type": "script",
+							"script": "const theme = localVars.jsonName;\nconst jsonStyle = await g_runtime.assets.fetchJson(theme);\nmenuSvelte.css.loadTheme(jsonStyle);\n"
+						}
+					],
+					"sid": 890278307126268
+				}
+			],
+			"sid": 924991871222869
+		}
+	],
+	"sid": 671787402349418
+}
