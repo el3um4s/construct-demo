@@ -1,6 +1,6 @@
 # Menu
 
-* **c3p** [menu.c3p](source/c3p/milan-districts.c3p)
+* **c3p** [menu.c3p](source/c3p/menu.c3p)
 * **demo** [link](demo)
 * **Patreon** [link](https://www.patreon.com/el3um4s)
 * **menu.js** [link](source/lib-menu/menu.js)
