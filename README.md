@@ -12,7 +12,7 @@ My collection of demo projects for Construct 3
 |10|![image][J-10i]| [Mermaid][J-10]                          |[Demo][J-10d]|[Link][J-10p]  |
 |11|![image][J-11i]| [Milan Districts][J-11]                  |[Demo][J-11d]|[Link][J-11p]  |
 |12|![image][J-12i]| [Menu][J-12]                             |[Demo][J-12d]|[Link][J-12p]  |
-|13|![image][J-13i]| [Menu for Android][J-13]                 |[Demo][J-13d]|               |
+|13|![image][J-13i]| [Menu for Android][J-13]                 |[Demo][J-13d]|[Link][J-13p]  |
 
 [J-7i]: javascript/007-youtube/preview.png
 [J-7]: javascript/007-youtube
@@ -47,7 +47,7 @@ My collection of demo projects for Construct 3
 [J-13i]: javascript/013-menu-for-android/preview.png
 [J-13]: javascript/013-menu-for-android
 [J-13d]: https://c3demo.stranianelli.com/javascript/013-menu-for-androidu/demo
-[J-13p]: https://www.patreon.com/el3um4s
+[J-13p]: https://www.patreon.com/posts/menu-for-android-52992408
 
 ### Template
 
