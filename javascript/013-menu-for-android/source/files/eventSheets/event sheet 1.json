@@ -1,0 +1,461 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 740535611760961
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 726358886367597,
+					"parameters": {
+						"url": "\"menu.css\""
+					}
+				},
+				{
+					"callFunction": "Info",
+					"sid": 941236247361166
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.items.clearMenu();\nmenuSvelte.css.changeStyle(\"menu-width\", \"360px\");\nmenuSvelte.css.changeStyle(\"min-menu-width\", \"360px\");\nmenuSvelte.css.changeFontTitleAndItems(\"Kenney Future\", \"Kenney Future\");\nmenuSvelte.css.themeStandard(\"Light\");\nmenuSvelte.title.setTitle(\"Poemia\");\nmenuSvelte.columns.setColumns([\"rightImage\", \"label\"]);\nmenuSvelte.css.changeStyle(\"color-primary\", \"steelblue\");\n\nlet rightImage = await runtime.assets.getProjectFileUrl(\"demon.svg\");\nmenuSvelte.items.push({\n\trightImage,\n\tlabel: \"La Divina Commedia\",\n\tonClick: \"g_runtime.callFunction('DivinaCommedia')\"\n});\n\nrightImage = await runtime.assets.getProjectFileUrl(\"heaven.svg\");\nmenuSvelte.items.push({\n\trightImage,\n\tlabel: \"Paradise Lost\",\n\tonClick: \"g_runtime.callFunction('ParadiseLost')\"\n});\n\nrightImage = await runtime.assets.getProjectFileUrl(\"shield.png\");\nmenuSvelte.items.push({\n\trightImage,\n\tlabel: \"Cantar de mio Cid\",\n\tonClick: \"g_runtime.callFunction('Cantar de mio Cid')\"\n});\n\nrightImage = await runtime.assets.getProjectFileUrl(\"helmet.png\");\nmenuSvelte.items.push({\n\trightImage,\n\tlabel: \"Ὀδύσσεια\",\n\tonClick: \"g_runtime.callFunction('Ὀδύσσεια')\"\n});\n\nrightImage = await runtime.assets.getProjectFileUrl(\"information.svg\");\nmenuSvelte.items.push({\n\trightImage,\n\tlabel: \"Info\",\n\tonClick: \"g_runtime.callFunction('Info')\"\n});"
+				}
+			],
+			"sid": 794346961183079
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 945681941483616,
+					"parameters": {
+						"object": "Menu"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 433107482976360,
+					"parameters": {
+						"layer": "\"Links\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "wait",
+					"objectClass": "System",
+					"sid": 453101181991825,
+					"parameters": {
+						"seconds": "0.2"
+					}
+				},
+				{
+					"id": "wait-for-previous-actions",
+					"objectClass": "System",
+					"sid": 849421712625871
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.true();"
+				}
+			],
+			"sid": 994026667625906
+		},
+		{
+			"functionName": "Info",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 117683578853269,
+					"parameters": {
+						"layer": "\"Links\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 164677246861087,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx255(40, 40, 40)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 810425712116543,
+					"parameters": {
+						"text": "\"Info\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Title",
+					"sid": 968203024245847,
+					"parameters": {
+						"color": "rgbEx255(252, 212, 98)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 829770202090831,
+					"parameters": {
+						"text": "\"Sample Android app.\r\n\r\nThis app is for testing purpose and to show how to create custom menus on Android with Construct 3.\n\nVersion: \" & projectversion"
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 406709387920385,
+					"parameters": {
+						"color": "rgbEx255(252, 212, 98)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.false();\n"
+				}
+			],
+			"sid": 465697242134252
+		},
+		{
+			"functionName": "DivinaCommedia",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 789084711781227,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx255(194, 194, 194)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 890810210359881,
+					"parameters": {
+						"text": "\"La Divina Commedia\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Title",
+					"sid": 492009470764795,
+					"parameters": {
+						"color": "rgbEx255(195, 91, 78)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 116306407767611,
+					"parameters": {
+						"text": "\"Nel mezzo del cammin di nostra vita\r\nmi ritrovai per una selva oscura,\r\nché la diritta via era smarrita.\r\n\r\nAhi quanto a dir qual era è cosa dura,\r\nesta selva selvaggia e aspra e forte,\r\nche nel pensier rinova la paura!\r\n\r\nTant'è amara che poco è più morte;\r\nma per trattar del ben ch'i' vi trovai,\r\ndirò de l'altre cose ch'i' v'ho scorte.\r\n\r\nIo non so ben ridir com'i' v'intrai,\r\ntant'era pien di sonno a quel punto\r\nche la verace via abbandonai.\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 439962199781678,
+					"parameters": {
+						"color": "rgbEx255(195, 91, 78)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.false();\n"
+				}
+			],
+			"sid": 565973714914905
+		},
+		{
+			"functionName": "ParadiseLost",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 376200299834122,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx255(194, 194, 194)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 860509405370196,
+					"parameters": {
+						"text": "\"Paradise Lost\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Title",
+					"sid": 745047977881071,
+					"parameters": {
+						"color": "rgbEx255(51, 147, 121)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 216061938115284,
+					"parameters": {
+						"text": "\"Of man’s first disobedience, and the fruit\r\nOf that forbidden tree, whose mortal taste\r\nBrought death into the world, and all our woe,\r\nWith loss of Eden, till one greater man\r\nRestore us, and regain the blissful seat,\r\nSing heavenly muse, that on the secret top\r\nOf Oreb, or of Sinai, didst inspire\r\nThat shepherd, who first taught the chosen seed,\r\nIn the beginning how the heavens and earth\r\nRose out of chaos: Or if Sion hill\r\nDelight thee more, and Siloa's brook that flowed\r\nFast by the oracle of God; I thence\r\nInvoke thy aid to my adventurous song,\r\nThat with no middle flight intends to soar\r\nAbove the Aonian mount, while it pursues\r\nThings unattempted yet in prose or rhyme.\r\nAnd chiefly thou Oh spirit, that dost prefer\r\nBefore all temples the upright heart and pure,\r\nInstruct me, for thou knowest; thou from the first\r\nWast present, and with mighty wings outspread\r\nDove-like satst brooding on the vast abyss\r\nAnd mad'st it pregnant: What in me is dark\r\nIllumine, what is low raise and support;\r\nThat to the heighth of this great argument\r\nI may assert eternal providence,\r\nAnd justify the ways of God to men.\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 791620050300798,
+					"parameters": {
+						"color": "rgbEx255(51, 147, 121)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.false();\n"
+				}
+			],
+			"sid": 241385770724882
+		},
+		{
+			"functionName": "Cantar de mio Cid",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 817913312908059,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx255(194, 194, 194)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 331469223955924,
+					"parameters": {
+						"text": "\"Cantar de mio Cid\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Title",
+					"sid": 452196318214342,
+					"parameters": {
+						"color": "rgbEx255(29, 122, 164)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 417478467105358,
+					"parameters": {
+						"text": "\"De los sos ojos tan fuertemientre llorando, \r\ntornava la cabeça y estávalos catando.\r\nVio puertas abiertas e uços sin cañados,\r\nalcándaras vázias sin pieles e sin mantos\r\ne sin falcones e sin adtores mudados.\r\nSospiró Mio Çid, ca mucho avié grandes cuidados.\r\nFabló mio Çid bien e tan mesurado:\r\n“¡Grado a ti, señor Padre, que estás en alto!     \r\nEsto me an vuelto mios enemigos malos.”\r\nAllí pienssan de aguijar, allí sueltan las riendas.\r\nA la exida de Bivar ovieron la corneja diestra,\r\ne entrando a Burgos oviéronla siniestra.\r\nMeçió mio Çid los ombros y engrameó la tiesta:\r\n“¡Albricia, Álvar Fáñez, ca echados somos de tierra!”\r\n(mas a grand ondra tornaremos a Castiella)\r\nMio Çid Ruy Díaz por Burgos entr(ode),\r\nen su compaña sessaenta pendones;\r\nexiénlo ver mugieres e varones,\r\nburgeses e burgesas por las finiestras son,\r\nplorando de los ojos tanto avién el dolor.\r\nDe las sus bocas todos dizian una razón:\r\n“¡Dios, qué buen vassallo, si oviesse buen señor!”\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 414500420617137,
+					"parameters": {
+						"color": "rgbEx255(29, 122, 164)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.false();\n"
+				}
+			],
+			"sid": 987617105485678
+		},
+		{
+			"functionName": "Ὀδύσσεια",
+			"functionDescription": "",
+			"functionCategory": "",
+			"functionReturnType": "none",
+			"functionIsAsync": false,
+			"functionParameters": [],
+			"eventType": "function-block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-layer-background-color",
+					"objectClass": "System",
+					"sid": 183784077498848,
+					"parameters": {
+						"layer": "0",
+						"color": "rgbEx255(40, 40, 40)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Title",
+					"sid": 771439298561258,
+					"parameters": {
+						"text": "\"Ὀδύσσεια\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Title",
+					"sid": 824854692225411,
+					"parameters": {
+						"color": "rgbEx255(252, 212, 98)"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 384641083660100,
+					"parameters": {
+						"text": "\"Ἄνδρα μοι ἔννεπε, Μοῦσα, πολύτροπον, ὃς μάλα πολλὰ\r\nπλάγχθη, ἐπεὶ Τροίης ἱερὸν πτολίεθρον ἔπερσε·\r\nπολλῶν δ’ ἀνθρώπων ἴδεν ἄστεα καὶ νόον ἔγνω,\r\nπολλὰ δ’ ὅ γ’ ἐν πόντῳ πάθεν ἄλγεα ὃν κατὰ θυμόν,\r\nἀρνύμενος ἥν τε ψυχὴν καὶ νόστον ἑταίρων.\r\nἀλλ' οὐδ' ὧς ἑτάρους ἐρρύσατο, ἱέμενός περ·\r\nαὐτῶν γὰρ σφετέρῃσιν ἀτασθαλίῃσιν ὄλοντο,\r\nνήπιοι, οἳ κατὰ βοῦς Ὑπερίονος Ἠελίοιο\r\nἤσθιον· αὐτὰρ ὁ τοῖσιν ἀφείλετο νόστιμον ἦμαρ.\r\nτῶν ἁμόθεν γε, θεά, θύγατερ Διός, εἰπὲ καὶ ἡμῖν.\""
+					}
+				},
+				{
+					"id": "set-font-color",
+					"objectClass": "Text",
+					"sid": 437421421832999,
+					"parameters": {
+						"color": "rgbEx255(252, 212, 98)"
+					}
+				},
+				{
+					"type": "script",
+					"script": "menuSvelte.visible.false();\n"
+				}
+			],
+			"sid": 746678968079316
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "layer-is-visible",
+					"objectClass": "System",
+					"sid": 101832796170414,
+					"parameters": {
+						"layer": "\"Links\""
+					}
+				}
+			],
+			"actions": [],
+			"sid": 478929071378530,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 745172279651058,
+							"parameters": {
+								"object": "GitHub"
+							}
+						},
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 239299620520000,
+							"parameters": {
+								"object": "LinkGitHub"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "open-url-in-new-window",
+							"objectClass": "Browser",
+							"sid": 167055365406063,
+							"parameters": {
+								"url": "\"https://github.com/el3um4s/construct-demo\"",
+								"tag": "\"GitHub - Construct Demo\""
+							}
+						}
+					],
+					"sid": 854540631829980,
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 804239374869163,
+							"parameters": {
+								"object": "Patreon"
+							}
+						},
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 797696690870043,
+							"parameters": {
+								"object": "LinkPatreon"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "open-url-in-new-window",
+							"objectClass": "Browser",
+							"sid": 133640264172544,
+							"parameters": {
+								"url": "\"https://www.patreon.com/el3um4s\"",
+								"tag": "\"Patreon - el3um4s\""
+							}
+						}
+					],
+					"sid": 240780568138759,
+					"isOrBlock": true
+				}
+			]
+		}
+	],
+	"sid": 609435314571833
+}

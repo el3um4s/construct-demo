@@ -1,0 +1,300 @@
+{
+	"projectFormatVersion": 1,
+	"savedWithRelease": 25300,
+	"name": "Poemia",
+	"runtime": "c3",
+	"useWorker": "auto",
+	"bundleAddons": false,
+	"usedAddons": [
+		{
+			"type": "plugin",
+			"id": "Touch",
+			"name": "Touch",
+			"author": "Scirra",
+			"version": "r253",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Browser",
+			"name": "Browser",
+			"author": "Scirra",
+			"version": "r253",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Sprite",
+			"name": "Sprite",
+			"author": "Scirra",
+			"version": "r253",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Text",
+			"name": "Text",
+			"author": "Scirra",
+			"version": "r253",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Anchor",
+			"name": "Anchor",
+			"author": "Scirra",
+			"version": "r253",
+			"bundled": false
+		}
+	],
+	"uniqueId": "48vyl847ebz",
+	"objectTypes": {
+		"items": [
+			"Touch",
+			"Browser",
+			"Menu",
+			"Text",
+			"Title",
+			"GitHub",
+			"Patreon",
+			"LinkGitHub",
+			"LinkPatreon"
+		],
+		"subfolders": []
+	},
+	"autosaveData": null,
+	"containers": [],
+	"families": {
+		"items": [],
+		"subfolders": []
+	},
+	"layouts": {
+		"items": [
+			"Layout 1"
+		],
+		"subfolders": []
+	},
+	"eventSheets": {
+		"items": [
+			"Event sheet 1"
+		],
+		"subfolders": []
+	},
+	"rootFileFolders": {
+		"script": {
+			"items": [
+				{
+					"name": "main.js",
+					"type": "application/javascript",
+					"sid": 419343418462586,
+					"script-info": {
+						"purpose": "main"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"sound": {
+			"items": [],
+			"subfolders": []
+		},
+		"music": {
+			"items": [],
+			"subfolders": []
+		},
+		"video": {
+			"items": [],
+			"subfolders": []
+		},
+		"font": {
+			"items": [
+				{
+					"name": "Kenney Future.ttf",
+					"type": "application/font-sfnt",
+					"sid": 375852593096131
+				},
+				{
+					"name": "Roboto-Regular.ttf",
+					"type": "application/font-sfnt",
+					"sid": 548932538432630
+				}
+			],
+			"subfolders": []
+		},
+		"icon": {
+			"items": [
+				{
+					"name": "icon-16.png",
+					"type": "image/png",
+					"sid": 404385753957301,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-64.png",
+					"type": "image/png",
+					"sid": 188496752858549,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-128.png",
+					"type": "image/png",
+					"sid": 325802279661756,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-512.png",
+					"type": "image/png",
+					"sid": 809528588850698,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "icon-32.png",
+					"type": "image/png",
+					"sid": 138786499116058,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "loading-logo.png",
+					"type": "image/png",
+					"sid": 760242055070972,
+					"icon-info": {
+						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "icon-256.png",
+					"type": "image/png",
+					"sid": 945032627508078,
+					"icon-info": {
+						"purpose": "app-icon"
+					}
+				}
+			],
+			"subfolders": []
+		},
+		"general": {
+			"items": [
+				{
+					"name": "menu.css",
+					"type": "text/css",
+					"sid": 180741820958488
+				},
+				{
+					"name": "menu.js",
+					"type": "text/javascript",
+					"sid": 400604804496914
+				}
+			],
+			"subfolders": [
+				{
+					"items": [
+						{
+							"name": "shield.png",
+							"type": "image/png",
+							"sid": 847810281674579
+						},
+						{
+							"name": "heaven.svg",
+							"type": "image/svg+xml",
+							"sid": 493221088785021
+						},
+						{
+							"name": "demon.svg",
+							"type": "image/svg+xml",
+							"sid": 375563791909578
+						},
+						{
+							"name": "information.svg",
+							"type": "image/svg+xml",
+							"sid": 355910485474390
+						},
+						{
+							"name": "helmet.png",
+							"type": "image/png",
+							"sid": 815554919840949
+						},
+						{
+							"name": "helmet.svg",
+							"type": "image/svg+xml",
+							"sid": 108824488600497
+						},
+						{
+							"name": "shield.svg",
+							"type": "image/svg+xml",
+							"sid": 120743845363660
+						}
+					],
+					"subfolders": [],
+					"name": "Icons"
+				}
+			]
+		}
+	},
+	"timelines": {
+		"items": [],
+		"subfolders": [
+			{
+				"items": [],
+				"subfolders": []
+			}
+		]
+	},
+	"properties": {
+		"description": "Menu",
+		"version": "1.0.0.2",
+		"author": "Samuele (Strani Anelli) De Tomasi",
+		"authorEmail": "stranianelli@gmail.com",
+		"authorWebsite": "https://blog.stranianelli.com/",
+		"appId": "com.stranianelli.menu",
+		"pixelRounding": false,
+		"useLoaderLayout": false,
+		"fullscreenMode": "scale-outer",
+		"fullscreenQuality": "high",
+		"viewportFit": "auto",
+		"backgroundColor": [
+			0.7607843137254902,
+			0.7607843137254902,
+			0.7607843137254902,
+			0
+		],
+		"splashColor": [
+			0.7607843137254902,
+			0.7607843137254902,
+			0.7607843137254902,
+			0
+		],
+		"useThemeColor": false,
+		"themeColor": [
+			1,
+			1,
+			1,
+			0
+		],
+		"orientations": "portrait",
+		"gpuPreference": "high-performance",
+		"scriptsType": "module",
+		"framerateMode": "vsync",
+		"compositingMode": "standard",
+		"sampling": "trilinear",
+		"downscaling": "medium",
+		"renderingMode": "auto",
+		"anisotropicFiltering": "auto",
+		"maxSpriteSheetSize": 2048,
+		"loaderStyle": "splash",
+		"preloadSounds": true,
+		"cordovaiOSScheme": "app"
+	},
+	"viewportWidth": 480,
+	"viewportHeight": 640,
+	"firstLayout": null
+}
