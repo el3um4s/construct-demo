@@ -1,0 +1,117 @@
+{
+	"autoclickers": {
+		"simps": {
+			"name": "Simp",
+			"starting cost": "1",
+			"price": "1",
+			"buy": "1",
+			"quantity": "0",
+			"pps": "1.1",
+			"description": "",
+			"show on point": "5",
+			"multiplier price": "1.05"
+		},
+		"bois": {
+			"name": "Bois",
+			"starting cost": "10",
+			"price": "10",
+			"buy": "1",
+			"quantity": "0",
+			"pps": "10",
+			"description": "",
+			"show on point": "10",
+			"multiplier price": "1.05"
+		},
+		"harolds": {
+			"name": "Har",
+			"starting cost": "100",
+			"price": "100",
+			"buy": "1",
+			"quantity": "0",
+			"pps": "20",
+			"description": "",
+			"show on point": "50",
+			"multiplier price": "1.02"
+		},
+		"pepe": {
+			"name": "Pepe",
+			"starting cost": "500",
+			"price": "500",
+			"buy": "1",
+			"quantity": "0",
+			"pps": "100",
+			"description": "",
+			"show on point": "300",
+			"multiplier price": "1.01"
+		},
+		"joe": {
+			"name": "Joe's",
+			"starting cost": "1000",
+			"price": "1000",
+			"buy": "1",
+			"quantity": "0",
+			"pps": "200",
+			"description": "",
+			"show on point": "700",
+			"multiplier price": "1.01"
+		}
+		
+	},
+	"upgrades": {
+		"yeet": {
+			"name": "Yeet",
+			"starting cost": "500",
+			"price": "500",
+			"buy": "1",
+			"quantity": "0",
+			"multiplier": "1.25",
+			"description": "",
+			"show on point": "100",
+			"multiplier price": "1.07"
+		},
+		"dab": {
+			"name": "Dab",
+			"starting cost": "1000",
+			"price": "1000",
+			"buy": "1",
+			"quantity": "0",
+			"multiplier": "1.5",
+			"description": "",
+			"show on point": "500",
+			"multiplier price": "1.10"
+		},
+		"fbi": {
+			"name": "FBI",
+			"starting cost": "5000",
+			"price": "5000",
+			"buy": "1",
+			"quantity": "0",
+			"multiplier": "1.75",
+			"description": "",
+			"show on point": "1500",
+			"multiplier price": "1.20"
+		},
+		"chad": {
+			"name": "Chad",
+			"starting cost": "10000",
+			"price": "10000",
+			"buy": "1",
+			"quantity": "0",
+			"multiplier": "1.9",
+			"description": "",
+			"show on point": "3000",
+			"multiplier price": "1.5"
+		},
+		"epic": {
+			"name": "Epic",
+			"starting cost": "50000",
+			"price": "0000",
+			"buy": "1",
+			"quantity": "0",
+			"multiplier": "2",
+			"description": "",
+			"show on point": "15000",
+			"multiplier price": "1.6"
+		}
+	}
+}

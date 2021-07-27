@@ -1,0 +1,27 @@
+{
+	"name": "Jonh",
+	"surname": "Smith",
+	"color": "red",
+	"size": 50,
+	"inventary": ["bag", "pizza", "ancient book"],
+	"ability": [
+		{ 
+			"name": "run",
+			"vaule": 10
+		},
+		{
+			"name": "talk",
+			"value": 1
+		},
+		{
+			"name": "sing",
+			"value": -10
+		}
+	],
+	"stats": {
+		"life": 100,
+		"mana": 50,
+		"attack": 65,
+		"defense": 55
+	}
+}

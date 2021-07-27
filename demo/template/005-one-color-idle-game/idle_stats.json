@@ -1,0 +1,28 @@
+{
+	"settings": {
+		"theme": "dark",
+		"page": "LAY_MONSTERS",
+		"font": "monotalic",
+		"music": "On",
+		"sound": "On"
+	},
+	"currencies": {
+		"primary": {
+			"quantity": "0"
+		}
+	},
+	"generators": {
+		"witch": {
+			"quantity": "0"
+		},
+		"minotaur": {
+			"quantity": "0"
+		},
+		"yeti": {
+			"quantity": "0"
+		},
+		"crystal": {
+			"quantity": "0"
+		}
+	}
+}

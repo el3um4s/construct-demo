@@ -1,0 +1,39 @@
+.editor {
+	white-space: pre-wrap;
+	box-sizing: border-box;
+	width: 100%;
+	height:  100%;
+}
+
+
+.winbox.light{
+    background: #E0E0E0;
+}
+.winbox.light .wb-body {
+    color: #222222;
+    background: #FFFFFF;
+}
+.winbox.light .wb-title {
+	background: #E0E0E0;
+    color: #222222;
+}
+.winbox.light .wb-icon {
+	filter: invert(1);
+	
+}
+
+.winbox.dark{
+    background: #000000;
+}
+.winbox.dark .wb-body {
+    color: #FFFFFF;
+    background: #424242;
+}
+.winbox.dark .wb-title {
+	background: #000000;
+    color: #FFFFFF;
+}
+.winbox.dark .wb-icon {
+	background: #000000;
+   color: #FFFFFF;
+}

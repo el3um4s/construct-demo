@@ -1,0 +1,26 @@
+{
+	"demo":  {
+		"background": "#252A34",
+		"primary": "#f5f5f5",
+		"red": "#ff0000",
+		"debug": "#004d00"
+	},
+	"laser_tank": {
+		"obstacle": {
+			"100": "#7789AE",
+			"60": "#C1BADD",
+			"30": "#F1EDF7"		
+		},
+		"spot": {
+			"color_destroyed": "#252A34",
+			"color_solid": "#b2b9c8"
+		},
+		"coins": {
+			"color_1": "#eeff00",
+			"color_2": "#efe100",
+			"color_3": "#f0c200",
+			"color_4": "#f1a400",
+			"color_5": "#f28500"
+		}
+	}
+}

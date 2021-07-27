@@ -1,0 +1,39 @@
+{
+	"demo":  {
+		"background": "#242323",
+		"primary": "#DBDBDB"
+	},
+	"mood":  {
+		"background": "#F4EAE0",
+		"primary": "#F7925E"
+	},
+	"oscar": {
+		"background": "#2A495D",
+		"primary": "#FF7BC4"
+	},
+	"collage": {
+		"background": "#DDD5D2",
+		"primary": "#1E4C49"
+	},
+	"fall": {
+		"background": "#72A143",
+		"primary": "#CFD5D3"
+	},
+	"camelot": {
+		"background": "#C98244",
+		"primary": "#3D7ACB"
+	},
+	"camelot inverse": {
+		"background": "#3D7ACB",
+		"primary": "#C98244"
+	},
+	"karen": {
+		"background": "#F3CDC4",
+		"primary": "#B96A3F"
+	},
+	"dark": {
+		"background": "#2D2F2E",
+		"primary": "#E5CFB8"
+	}
+	
+}

@@ -1,0 +1,411 @@
+{
+	"currencies": {
+		"primary": {
+			"label": "Points",
+			"description": ""
+		}
+	},
+	"generators": {
+		"witch": {
+			"name": "Witch",
+			"label": "Witch",
+			"icon": "witch",
+			"description": "1 point every 1 seconds",
+			"logger": {
+				"on_creation": "A witch appears",
+				"on_event" : "Witches created {quantity}{currency}"
+			},
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "10"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "10",
+					"cost_multi_factor": "1.11"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "1",
+					"timer_seconds": "1",
+					"generators": ["witch"]
+				}]
+			
+		},
+		"minotaur": {
+			"name": "Minotaur",
+			"label": "Minotaur",
+			"icon": "minotaur",
+			"description": "20 points every 10 seconds",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "50"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "100",
+					"cost_multi_factor": "1.1"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "20",
+					"timer_seconds": "10",
+					"generators": ["minotaur"]
+				}]
+			
+		},
+		"yeti": {
+			"name": "Yeti",
+			"label": "Yeti",
+			"icon": "yeti",
+			"description": "200 point every minute",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "700"
+					}
+				],
+				"generators": []
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000",
+					"cost_multi_factor": "1.07"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "200",
+					"timer_seconds": "60",
+					"generators": ["yeti"]
+				}]		
+		},
+		"quetzalcoatl": {
+			"name": "Quetzalcoatl",
+			"label": "Quetzalcoatl",
+			"icon": "quetzalcoatl",
+			"description": "2000 point every 3 minutes",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "2000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "witch",
+						"quantity": "10"
+					},
+						{
+						"generator": "minotaur",
+						"quantity": "10"
+					},
+					{
+						"generator": "yeti",
+						"quantity": "10"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "5000",
+					"cost_multi_factor": "1.13"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "2000",
+					"timer_seconds": "180",
+					"generators": ["quetzalcoatl"]
+				}]
+		},
+		"dragon": {
+			"name": "Dragon",
+			"label": "Dragon",
+			"icon": "dragon",
+			"description": "10000 point every 10 minutes",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "5000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "witch",
+						"quantity": "50"
+					},
+						{
+						"generator": "minotaur",
+						"quantity": "50"
+					},
+					{
+						"generator": "yeti",
+						"quantity": "50"
+					},
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "5"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "20000",
+					"cost_multi_factor": "1.16"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "10000",
+					"timer_seconds": "600",
+					"generators": ["dragon"]
+				}]
+			
+		},
+		"cthulhu": {
+			"name": "Cthulhu",
+			"label": "Cthulhu",
+			"icon": "cthulhu",
+			"description": "50000 point every 30 minutes",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "50000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "witch",
+						"quantity": "100"
+					},
+						{
+						"generator": "minotaur",
+						"quantity": "100"
+					},
+					{
+						"generator": "yeti",
+						"quantity": "100"
+					},
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "20"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "100000",
+					"cost_multi_factor": "1.16"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "50000",
+					"timer_seconds": "1800",
+					"generators": ["cthulhu"]
+				}]
+			
+		},
+		"unicorn": {
+			"name": "Unicorn",
+			"label": "Unicorn",
+			"icon": "unicorn",
+			"description": "500000 point every 1 hour",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "500000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "50"
+					},
+					{
+						"generator": "cthulhu",
+						"quantity": "10"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000000",
+					"cost_multi_factor": "1.10"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "500000",
+					"timer_seconds": "6000",
+					"generators": ["unicorn"]
+				}]
+			
+		},
+		"gingerbread": {
+			"name": "Gingerbread",
+			"label": "Gingerbread",
+			"icon": "gingerbread",
+			"description": "1000000 point every 30 minutes",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity" : "1000000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "quetzalcoatl",
+						"quantity": "50"
+					},
+					{
+						"generator": "cthulhu",
+						"quantity": "50"
+					},
+					{
+						"generator": "unicorn",
+						"quantity": "10"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "2000000",
+					"cost_multi_factor": "1.05"
+				}
+			],
+			"effects": [{
+					"immediate": "false",
+					"action": "add",
+					"currency": "primary",
+					"base_income": "1000000",
+					"timer_seconds": "1800",
+					"generators": ["gingerbread"]
+				}]
+			
+		},
+		"crystal": {
+			"name": "Crystal",
+			"label": "Crystal",
+			"icon": "crystal",
+			"description": "2x point for all Witches",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity": "1000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "witch",
+						"quantity": "15"
+					},
+						{
+						"generator": "minotaur",
+						"quantity": "1"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "1000",
+					"cost_multi_factor": "1.7"
+				}
+			],
+			"effects": [{
+					"immediate": "true",
+					"action": "multiple",
+					"currency": "primary",
+					"base_income": "2",
+					"timer_seconds": "0",
+					"generators": ["witch"]
+			}]
+		},
+		"magic": {
+			"name": "Magic",
+			"label": "Magic",
+			"icon": "magic",
+			"description": "2x points for all",
+			"requires": {
+				"currencies": [
+					{
+						"currency": "primary",
+						"quantity": "2000"
+					}
+				],
+				"generators": [
+					{
+						"generator": "witch",
+						"quantity": "20"
+					},
+						{
+						"generator": "minotaur",
+						"quantity": "20"
+					},
+					{
+						"generator": "yeti",
+						"quantity": "20"
+					}
+				]
+			},
+			"cost": [
+				{
+					"currency": "primary",
+					"starting_cost": "5000",
+					"cost_multi_factor": "20"
+				}
+			],
+			"effects": [{
+					"immediate": "true",
+					"action": "multiple",
+					"currency": "primary",
+					"base_income": "2",
+					"timer_seconds": "0",
+					"generators": ["ALL"]
+			}]
+		}
+	}
+}

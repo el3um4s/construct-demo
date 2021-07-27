@@ -1,0 +1,442 @@
+{
+	"level_1": {
+		"1": {
+			"log": "Potion",
+			"action": "Potion",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"2": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 1,
+			"reward": 1
+		},
+		"3": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 1,
+			"reward": 0
+		},
+		"4": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 1,
+			"reward": 1
+		},
+		"5": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_2": {
+		"1": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 1,
+			"reward": 1
+		},
+		"2": {
+			"log": "Wolf",
+			"action": "Attack",
+			"value": 2,
+			"health": 1,
+			"reward": 1
+		},
+		"3": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 1,
+			"reward": 0
+		},
+		"4": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		},
+		"5": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_3": {
+		"1": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 2,
+			"reward": 1
+		},
+		"2": {
+			"log": "Wolf",
+			"action": "Attack",
+			"value": 2,
+			"health": 2,
+			"reward": 1
+		},
+		"3": {
+			"log": "Skeleton",
+			"action": "Attack",
+			"value": 3,
+			"health": 2,
+			"reward": 1
+		},
+		"4": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"5": {
+			"log": "Potion",
+			"action": "Potion",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_4": {
+		"1": {
+			"log": "Orc",
+			"action": "Attack",
+			"value": 1,
+			"health": 2,
+			"reward": 2
+		},
+		"2": {
+			"log": "Wolf",
+			"action": "Attack",
+			"value": 2,
+			"health": 2,
+			"reward": 2
+		},
+		"3": {
+			"log": "Skeleton",
+			"action": "Attack",
+			"value": 3,
+			"health": 2,
+			"reward": 2
+		},
+		"4": {
+			"log": "Evil Warrior",
+			"action": "Attack",
+			"value": 4,
+			"health": 2,
+			"reward": 2
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_5": {
+		"1": {
+			"log": "Wolf",
+			"action": "Attack",
+			"value": 2,
+			"health": 3,
+			"reward": 2
+		},
+		"2": {
+			"log": "Skeleton",
+			"action": "Attack",
+			"value": 3,
+			"health": 3,
+			"reward": 2
+		},
+		"3": {
+			"log": "Evil Warrior",
+			"action": "Attack",
+			"value": 4,
+			"health": 3,
+			"reward": 2
+		},
+		"4": {
+			"log": "Devil Bat",
+			"action": "Attack",
+			"value": 5,
+			"health": 3,
+			"reward": 2
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_6": {
+		"1": {
+			"log": "Skeleton",
+			"action": "Attack",
+			"value": 3,
+			"health": 4,
+			"reward": 2
+		},
+		"2": {
+			"log": "Evil Warrior",
+			"action": "Attack",
+			"value": 4,
+			"health": 4,
+			"reward": 2
+		},
+		"3": {
+			"log": "Devil Bat",
+			"action": "Attack",
+			"value": 5,
+			"health": 4,
+			"reward": 2
+		},
+		"4": {
+			"log": "Cyclops",
+			"action": "Attack",
+			"value": 6,
+			"health": 4,
+			"reward": 2
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Potion",
+			"action": "Potion",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_7": {
+		"1": {
+			"log": "Evil Warrior",
+			"action": "Attack",
+			"value": 4,
+			"health": 4,
+			"reward": 3
+		},
+		"2": {
+			"log": "Devil Bat",
+			"action": "Attack",
+			"value": 5,
+			"health": 4,
+			"reward": 3
+		},
+		"3": {
+			"log": "Cyclops",
+			"action": "Attack",
+			"value": 6,
+			"health": 4,
+			"reward": 3
+		},
+		"4": {
+			"log": "Dark Elf",
+			"action": "Attack",
+			"value": 7,
+			"health": 4,
+			"reward": 3
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_8": {
+		"1": {
+			"log": "Devil Bat",
+			"action": "Attack",
+			"value": 5,
+			"health": 8,
+			"reward": 3
+		},
+		"2": {
+			"log": "Cyclops",
+			"action": "Attack",
+			"value": 6,
+			"health": 8,
+			"reward": 3
+		},
+		"3": {
+			"log": "Dark Elf",
+			"action": "Attack",
+			"value": 7,
+			"health": 8,
+			"reward": 3
+		},
+		"4": {
+			"log": "Skeleton Lord",
+			"action": "Attack",
+			"value": 8,
+			"health": 8,
+			"reward": 3
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_9": {
+		"1": {
+			"log": "Cyclops",
+			"action": "Attack",
+			"value": 6,
+			"health": 10,
+			"reward": 3
+		},
+		"2": {
+			"log": "Dark Elf",
+			"action": "Attack",
+			"value": 7,
+			"health": 10,
+			"reward": 3
+		},
+		"3": {
+			"log": "Skeleton Lord",
+			"action": "Attack",
+			"value": 8,
+			"health": 10,
+			"reward": 3
+		},
+		"4": {
+			"log": "Wizard",
+			"action": "Attack",
+			"value": 9,
+			"health": 10,
+			"reward": 3
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Potion",
+			"action": "Potion",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		}
+	},
+	"level_10": {
+		"1": {
+			"log": "Dark Elf",
+			"action": "Attack",
+			"value": 7,
+			"health": 12,
+			"reward": 4
+		},
+		"2": {
+			"log": "Skeleton Lord",
+			"action": "Attack",
+			"value": 8,
+			"health": 12,
+			"reward": 4
+		},
+		"3": {
+			"log": "Wizard",
+			"action": "Attack",
+			"value": 9,
+			"health": 12,
+			"reward": 4
+		},
+		"4": {
+			"log": "Demon",
+			"action": "Attack",
+			"value": 10,
+			"health": 12,
+			"reward": 4
+		},
+		"5": {
+			"log": "Treasure",
+			"action": "Treasure",
+			"value": 1,
+			"health": 0,
+			"reward": 0
+		},
+		"6": {
+			"log": "Empty",
+			"action": "Empty",
+			"value": 0,
+			"health": 0,
+			"reward": 0
+		}
+	}
+}
