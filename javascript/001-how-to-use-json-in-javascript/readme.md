@@ -4,14 +4,13 @@ c3p: how-to-use-json-in-javascript-20.05.26.c3p
 ---
 
 <script>
-import { base } from '$app/paths';
-console.log(window.location.href);
 const isSvelte = (window.location.href.substring(window.location.href.length - 9)) !== "readme.md";
 </script>
 
 
 
-{#if !isSvelte} 
+{#if !isSvelte}
+
 # How to use JSON in JavaScript
 
 * **c3p** [how-to-use-json-in-javascript-20.05.26.c3p](source/c3p/how-to-use-json-in-javascript-20.05.26.c3p)
@@ -19,9 +18,6 @@ const isSvelte = (window.location.href.substring(window.location.href.length - 9
 * **Patreon** [link](https://patreon.com/el3um4s)
   
 {/if}
-
-
-
 
 ### global_runtime.js
 
