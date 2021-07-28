@@ -1,6 +1,6 @@
 {
 	"name": "construct-demo",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "npm run clean && svelte-kit build",
@@ -27,10 +27,15 @@
 		"prettier-plugin-svelte": "^2.2.0",
 		"svelte": "3.40.1",
 		"svelte-check": "^2.0.0",
-		"svelte-preprocess": "^4.0.0",
+		"svelte-preprocess": "^4.7.4",
 		"trash-cli": "^4.0.0",
 		"tslib": "^2.0.0",
-		"typescript": "^4.0.0"
+		"typescript": "^4.0.0",
+		"postcss": "^8.3.5",
+		"postcss-load-config": "^3.1.0",
+		"autoprefixer": "^10.3.1",
+		"cssnano": "^5.0.6",
+		"tailwindcss": "^2.2.4"
 	},
 	"type": "module",
 	"dependencies": {

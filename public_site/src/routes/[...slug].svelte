@@ -70,7 +70,7 @@
 <PageTransition refresh={key}>
 	{#if metadata}
 		{#if metadata.title}
-			<h1>{metadata.title}</h1>
+			<h3 class="text-gray-700 text-3xl font-medium">{metadata.title}</h3>
 		{/if}
 		<ul>
 			<li>

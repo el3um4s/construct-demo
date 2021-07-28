@@ -27,8 +27,8 @@ tags:
 ![animation](images/c3-svelte-menu-12.gif)
 
 
-<img src={ImageSRC} />
+<img src={ImageSRC} alt="gif animata"/>
 
-<img src={GifA} />
+<img src={GifA} alt="gif animata"/>
 
-<img src={GifB} />
+<img src={GifB} alt="gif animata" />
