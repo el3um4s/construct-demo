@@ -1,3 +1,11 @@
+---
+title: How to create tooltips
+c3p: 004-how-to-create-tooltips-20.06.26.c3p
+hasDemo: true
+deprecated: true
+tags:
+  - javascript
+---
 # How to create tooltips
 
 * **c3p** [004-how-to-create-tooltips-20.06.26.c3p](source/c3p/004-how-to-create-tooltips-20.06.26.c3p)

@@ -1,3 +1,13 @@
+---
+title: How to use behavior TileMovement
+c3p: how-to-use-behavior-tile-movement-20.06.07.c3p
+hasDemo: true
+deprecated: true
+preview: preview.png
+tags:
+  - javascript
+---
+
 # How to use behavior TileMovement
 
 * **c3p** [how-to-use-behavior-tile-movement-20.06.07.c3p](source/c3p/how-to-use-behavior-tile-movement-20.06.07.c3p)

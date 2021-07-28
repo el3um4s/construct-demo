@@ -1,3 +1,12 @@
+---
+title: GUBIL
+c3p: gubil.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
 # GUBIL
 
 * **c3p** [gubil.c3p](source/c3p/gubil.c3p)

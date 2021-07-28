@@ -1,3 +1,11 @@
+---
+title: Mermaid
+c3p: mermaid.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - javascript
+---
 # Mermaid
 
 * **c3p** [mermaid.c3p](source/c3p/mermaid.c3p)

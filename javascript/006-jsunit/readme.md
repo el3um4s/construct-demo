@@ -1,3 +1,12 @@
+---
+title: JsUnit
+c3p: jsunit.c3p
+hasDemo: true
+deprecated: true
+tags:
+  - javascript
+---
+
 # JsUnit
 
 * **c3p** [jsunit.c3p](source/c3p/jsunit.c3p)

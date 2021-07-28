@@ -1,3 +1,12 @@
+---
+title: Floating Window
+c3p: floating-window.c3p
+hasDemo: false
+deprecated: false
+tags:
+  - template
+  - game 
+---
 # Floating Window
 
 * **c3p** [floating-window.c3p](source/c3p/floating-window.c3p)

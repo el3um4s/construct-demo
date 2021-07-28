@@ -1,3 +1,13 @@
+---
+title: Leaflet
+c3p: leaflet.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - maps
+  - javascript
+---
+
 # Leaflet
 
 From a Twitter direct message

@@ -1,3 +1,12 @@
+---
+title: YouTube
+c3p: youtube.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - javascript
+---
+
 # YouTube
 
 * **c3p** [youtube.c3p](source/c3p/youtube.c3p)

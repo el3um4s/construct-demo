@@ -6,6 +6,7 @@ import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
+/** @type {import('vite').UserConfig} */
 const config = {
 	"extensions": [".svelte", ...mdsvexConfig.extensions],
 
@@ -20,10 +21,13 @@ const config = {
 			assets: 'build',
 			fallback: null
 		}),
-		// paths: {
-		// 	assets: '/memento-sveltekit-and-github-pages',
-		// 	base: '/memento-sveltekit-and-github-pages'
-		// }
+		vite: () => ({
+			server: {
+				hmr: {
+					overlay: false
+				}
+			}
+		})
 	}
 };
 

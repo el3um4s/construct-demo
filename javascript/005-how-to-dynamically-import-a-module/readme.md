@@ -1,3 +1,12 @@
+---
+title: How to dynamically import a module in Construct 3
+c3p: how-to-dynamically-import-a-module-20.07.12.c3p
+hasDemo: true
+deprecated: true
+tags:
+  - javascript
+---
+
 # How to dynamically import a module in Construct 3
 
 * **c3p** [how-to-dynamically-import-a-module-20.07.12.c3p](source/c3p/how-to-dynamically-import-a-module-20.07.12.c3p)

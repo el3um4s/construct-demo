@@ -1,6 +1,11 @@
 ---
 title: How to use JSON in JavaScript
 c3p: how-to-use-json-in-javascript-20.05.26.c3p
+hasDemo: true
+deprecated: true
+preview: preview.png
+tags:
+  - javascript
 ---
 
 <script>

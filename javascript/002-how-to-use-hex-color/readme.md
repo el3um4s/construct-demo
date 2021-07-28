@@ -1,3 +1,13 @@
+---
+title: How to use HEX color
+c3p: how-to-use-hex-color-20.06.05.c3p
+hasDemo: true
+deprecated: true
+preview: preview.png
+tags:
+  - javascript
+---
+
 # How to use HEX color
 
 * **c3p** [how-to-use-hex-color-20.06.05.c3p](source/c3p/how-to-use-hex-color-20.06.05.c3p)

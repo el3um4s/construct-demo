@@ -1,3 +1,13 @@
+---
+title: Petit Chevaux
+c3p: petits-chevaux.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
+
 # Petit Chevaux
 
 * **c3p** [petits-chevaux.c3p](source/c3p/petits-chevaux.c3p)

@@ -1,8 +1,11 @@
 ---
-title: Top Down Shooter (Laser Game)
-category: 
-    - template
-    - game 
+title: Top Down Shooter - Laser Game
+c3p: top-down-shooter-laser-game-20.08.14.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
 ---
 
 # Top Down Shooter: Laser Game

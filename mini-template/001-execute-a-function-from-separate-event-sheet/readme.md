@@ -1,3 +1,12 @@
+---
+title: Execute a function from separate event sheet
+c3p: execute-a-function-from-separate-event-sheet.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - mini template
+---
+
 # Execute a function from separate event sheet
 
 From C3 Forum: [EXECUTING JS SCRIPT IN SEPERATE LAYOUT](https://www.construct.net/en/forum/construct-3/scripting-51/executing-js-script-seperate-158272)

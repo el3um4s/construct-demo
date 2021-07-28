@@ -1,3 +1,12 @@
+---
+title: Emulated Crop Scale
+c3p: emulated-crop-scale-20.08.20.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - user interface
+---
+
 # Emulated Crop Scale
 
 * **c3p - only event sheet** [Emulated Crop Scale-20.08.20.c3p](source/c3p/emulated-crop-scale-20.08.20.c3p)

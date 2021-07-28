@@ -1,3 +1,12 @@
+---
+title: Fighting Game
+c3p: fighting-game.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
 # Fighting Game
 
 * **c3p** [fighting-game.c3p](source/c3p/fighting-game.c3p)

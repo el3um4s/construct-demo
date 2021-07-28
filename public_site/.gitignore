@@ -5,3 +5,4 @@ node_modules
 /build
 /src/demos
 /static/demo
+/static/image-post

@@ -1,3 +1,11 @@
+---
+title: Mesh and Shapes
+c3p: mesh-and-shapes.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - javascript
+---
 # Mesh and Shapes
 
 * **c3p** [mesh-and-shapes.c3p](source/c3p/mesh-and-shapes.c3p)

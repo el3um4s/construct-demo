@@ -1,3 +1,13 @@
+---
+title: KeyCode Info
+c3p: keycode-info.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - mini template
+  - javascript
+---
+
 # KeyCode Info
 
 From C3 Forum: [NEED HELP ON CONVERTING SCRIPT MODULES READY](https://www.construct.net/en/forum/construct-3/scripting-51/need-help-converting-script-159773)

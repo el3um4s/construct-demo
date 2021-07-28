@@ -1,3 +1,11 @@
+---
+title: Geometric Draw
+c3p: geometric-draw.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+---
 # Geometric Draw
 
 * **c3p** [geometric-draw.c3p](source/c3p/geometric-draw.c3p)

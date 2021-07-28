@@ -1,3 +1,11 @@
+---
+title: Milan districts
+c3p: milan-districts.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - javascript
+---
 # Milan districts
 
 * **c3p** [milan-districts.c3p](source/c3p/milan-districts.c3p)

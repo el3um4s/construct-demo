@@ -1,25 +1,43 @@
 <script context="module">
-	// export const ssr = false;
+	export const ssr = false;
 
-	const allPosts = import.meta.globEager(`../demos/**/readme.md`);
-	let body = [];
-	for (let path in allPosts) {
-		const post = allPosts[path];
-		// const metadata = post.metadata;
-		// const namePage = path.split('/');
-		// const slugPage = namePage[namePage.length - 2].slice(4);
-		const slugPage = path.replace('../demos/', '').replace('/readme.md', '');
-		// console.log(slug);
-		const p = {
-			path,
-			///metadata,
-			slugPage
-		};
-		body.push(p);
+	// const allPosts = import.meta.globEager(`../demos/**/readme.md`);
+
+	async function generateBody(allPosts) {
+		let body = [];
+		for (let path in allPosts) {
+			const post = allPosts[path];
+			const metadata = post.metadata;
+			// const namePage = path.split('/');
+			// const slugPage = namePage[namePage.length - 2].slice(4);
+			const slugPage = path.replace('../demos/', '').replace('/readme.md', '');
+			const preview = `image-post/${slugPage}/preview.png`;
+			// const preview = `/src/demos/${slugPage}/preview.png`;
+			// const preview = `/src/demos/${slugPage}/`;
+			// const hasPreview = metadata?.preview ? true : false;
+			// let image = null;
+			// if (hasPreview) {
+			// 	image = await import(`../demos/${slugPage}/preview.png`);
+			// 	console.log(image);
+			// }
+			const p = {
+				path,
+				metadata,
+				slugPage,
+				preview
+				// preview,
+				// hasPreview,
+				// image: image ? image.default : ''
+			};
+			body.push(p);
+		}
+		return body;
 	}
 
 	// console.log(body);
 	export const load = async () => {
+		const allPosts = import.meta.globEager(`../demos/**/readme.md`);
+		let body = await generateBody(allPosts);
 		return { props: { posts: body } };
 	};
 </script>
@@ -29,13 +47,23 @@
 	export let posts;
 </script>
 
-<ul>
-	{#each posts as { slugPage }}
-		<li>
-			<a href={`${base}/${slugPage}`} sveltekit:prefetch>{slugPage}</a>
-		</li>
+<div>
+	{#each posts as { slugPage, metadata, preview }}
+		<p>
+			<!-- {#if hasPreview} -->
+			<!-- {image} -->
+			<!-- <img src={image} alt="preview" /> -->
+			<!-- <img src="{preview}/{metadata.preview}" alt="preview" /> -->
+			<!-- <div class="image-div" style="background-image: url('{image}')" /> -->
+			<!-- {/if} -->
+			<img src={`${base}/${preview}`} alt="preview" />
+			<a href={`${base}/${slugPage}`} sveltekit:prefetch
+				>{#if metadata?.title} {metadata.title} {:else}{slugPage}{/if}</a
+			>
+			({#if metadata?.tags} {metadata.tags} {:else}"NO TAGS"{/if})
+		</p>
 	{/each}
-</ul>
+</div>
 
 <!-- <ul>
 	{#each posts as { slugPage, metadata: { title, slug } }}
@@ -47,8 +75,5 @@
 <style>
 	a {
 		color: #2a2a2a;
-	}
-	li {
-		margin-bottom: 16px;
 	}
 </style>

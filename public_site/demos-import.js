@@ -5,22 +5,25 @@ import {
 import trash from 'trash';
 import listFolders from './listFolders.js'
 
+console.log("trash old files");
+await trash(`./static/demos`);
+await trash(`./src/demos/`);
+await trash(`./static/images-post`)
+
 listFolders.forEach(async (demo) => {
-    console.log("trash old files");
-    await trash(`./static/demos`);
-    await cleanFolder(demo);
+    // console.log("trash old files");
+    // await trash(`./static/demos`);
+    // await trash(`./src/demos/`);
+    // await trash(`./static/images-post`);
     console.log("copy to src/demos");
     await importFolderSRC(demo);
     console.log("copy to static/demos");
-    await importFolderSTATIC(demo);
+    await importFolderSTATIC_Demo(demo);
+    console.log("copy to static/image-post");
+    await importFolderSTATIC_Images(demo)
     console.log("OK - completed")
-})
 
-async function cleanFolder(name) {
-    console.log(`trashing ${name}`);
-    await trash(`./src/demos/${name}`);
-    console.log(`clean ok: ${name}`);
-};
+})
 
 
 async function importFolderSRC(name) {
@@ -35,7 +38,7 @@ async function importFolderSRC(name) {
     }
 };
 
-async function importFolderSTATIC(name) {
+async function importFolderSTATIC_Demo(name) {
     console.log(`copying ${name} to static/demos`);
     const listDir = await readDir(`../${name}`);
     listDir.forEach(d => {
@@ -43,6 +46,30 @@ async function importFolderSTATIC(name) {
             fs.copySync(`../${name}/${d}/demo`, `./static/demo/${name}/${d}`, {
                 filter: filterFuncSTATIC
             });
+        } catch (err) {
+            console.error(err);
+        }
+    })
+};
+
+async function importFolderSTATIC_Images(name) {
+    console.log(`copying ${name} to static/images-post`);
+    const listDir = await readDir(`../${name}`);
+    listDir.forEach(d => {
+        try {
+            fs.copySync(`../${name}/${d}/image.jpg`, `./static/image-post/${name}/${d}/image.jpg`);
+        } catch (err) {
+            console.error(err);
+        }
+
+        try {
+            fs.copySync(`../${name}/${d}/image.webp`, `./static/image-post/${name}/${d}/image.webp`);
+        } catch (err) {
+            console.error(err);
+        }
+
+        try {
+            fs.copySync(`../${name}/${d}/preview.png`, `./static/image-post/${name}/${d}/preview.png`);
         } catch (err) {
             console.error(err);
         }

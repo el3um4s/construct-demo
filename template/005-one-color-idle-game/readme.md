@@ -1,3 +1,13 @@
+---
+title: One Color Idle Game
+c3p: one-color-idle-game.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
+
 # One Color Idle Game
 
 Inspirated by [Making a game only using ONE COLOR...](https://www.youtube.com/watch?v=5TO_GHShqEQ) and [The Math of Idle Games](https://gameanalytics.com/blog/idle-game-mathematics.html)

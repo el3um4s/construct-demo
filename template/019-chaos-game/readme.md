@@ -1,3 +1,12 @@
+---
+title: Chaos Game
+c3p: chaos-game.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+---
+
 # Chaos Game
 
 * **c3p** [chaos-game.c3p](source/c3p/chaos-game.c3p)

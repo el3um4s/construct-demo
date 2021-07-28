@@ -1,3 +1,12 @@
+---
+title: Genetic Algorithms - Hello World
+c3p: ml-hello-world.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - machine learning
+---
+
 # Genetic Algorithms: Hello World
 
 * **c3p** [ml-hello-world.c3p](source/c3p/ml-hello-world.c3p)

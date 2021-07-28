@@ -1,3 +1,13 @@
+---
+title: OpenLayers
+c3p: open-layers.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - maps
+  - javascript
+---
+
 # OpenLayers
 
 Thanks to [@Viglino](https://github.com/Viglino) and [@laurentgontier](https://www.laurentgontier.com/) for the advices

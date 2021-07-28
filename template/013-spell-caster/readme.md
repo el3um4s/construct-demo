@@ -1,3 +1,13 @@
+---
+title: Spell Caster
+c3p: spell-caster.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
+
 # Spell Caster
 
 * **c3p** [spell-caster.c3p](source/c3p/spell-caster.c3p)

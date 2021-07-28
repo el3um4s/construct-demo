@@ -1,3 +1,13 @@
+---
+title: Predator And Prey
+c3p: predator_and_prey.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - template
+  - game 
+---
+
 # Predator And Prey
 
 * **c3p** [predator_and_prey.c3p](source/c3p/predator_and_prey.c3p)

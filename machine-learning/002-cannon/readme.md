@@ -1,3 +1,11 @@
+---
+title: Genetic Algorithms - Cannon
+c3p: ml-cannon.c3p
+hasDemo: true
+deprecated: false
+tags:
+  - machine learning
+---
 # Genetic Algorithms: Cannon
 
 * **c3p** [ml-cannon.c3p](source/c3p/ml-cannon.c3p)
