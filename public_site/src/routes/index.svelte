@@ -54,6 +54,7 @@
 			href={`${base}/${slugPage}`}
 			preview="{base}/{preview}"
 			tags={metadata?.tags ? metadata.tags : []}
+			description={metadata?.description ? metadata.description : ''}
 		/>
 		<!-- <p>
 			<a href={`${base}/${slugPage}`} sveltekit:prefetch>
