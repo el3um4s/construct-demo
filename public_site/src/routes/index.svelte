@@ -10,7 +10,8 @@
 			// const namePage = path.split('/');
 			// const slugPage = namePage[namePage.length - 2].slice(4);
 			const slugPage = path.replace('../demos/', '').replace('/readme.md', '');
-			const preview = `image-post/${slugPage}/preview.png`;
+			// const preview = `image-post/${slugPage}/preview.png`;
+			const preview = `image-post/${slugPage}/image.jpg`;
 			// const preview = `/src/demos/${slugPage}/preview.png`;
 			// const preview = `/src/demos/${slugPage}/`;
 			// const hasPreview = metadata?.preview ? true : false;
@@ -42,17 +43,24 @@
 
 <script>
 	import { base } from '$app/paths';
+	import Card from '$lib/components/Card/Card.svelte';
 	export let posts;
 </script>
 
 <div>
 	{#each posts as { slugPage, metadata, preview }}
-		<p>
+		<Card
+			title={metadata?.title ? metadata.title : slugPage}
+			href={`${base}/${slugPage}`}
+			preview="{base}/{preview}"
+			tags={metadata?.tags ? metadata.tags : []}
+		/>
+		<!-- <p>
 			<a href={`${base}/${slugPage}`} sveltekit:prefetch>
 				<img src={`${base}/${preview}`} alt="preview" />
 				{#if metadata?.title} {metadata.title} {:else}{slugPage}{/if}
 			</a>
 			({#if metadata?.tags} {metadata.tags} {:else}"NO TAGS"{/if})
-		</p>
+		</p> -->
 	{/each}
 </div>
