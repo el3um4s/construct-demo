@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	export let sidebarOpen: Function;
 </script>
 
 <header class="flex justify-between item-center py-4 px-6 bg-white border-b-4 border-indigo-600">
-	<div class="flex items-center text-red-500 font-bold">This page is just a test!</div>
 	<div class="flex items-center">
-		<button class="text-gray-500 focus:outline-none lg:hidden">
+		<button class="text-gray-500 focus:outline-none lg:hidden" on:click={() => sidebarOpen()}>
 			<svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M4 6H20M4 12H20M4 18H11"
@@ -37,6 +37,9 @@
 			/>
 		</div>
 	</div>
+
+	<div class="flex items-center text-red-500 font-bold">This page is just a test!</div>
+
 	<div class="flex items-center space-x-2">
 		<a sveltekit:prefetch href={`${base}/`}>Home</a>
 		<a href="https://github.com/el3um4s/construct-demo"

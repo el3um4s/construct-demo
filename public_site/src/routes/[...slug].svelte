@@ -62,9 +62,9 @@
 	export let path;
 	export let pathDemoOnLine;
 
-	console.log('path: ', path);
-	const a = `${base}/demo/${path}/index.html`;
-	console.log('a: ', a);
+	// console.log('path: ', path);
+	// const a = `${base}/demo/${path}/index.html`;
+	// console.log('a: ', a);
 </script>
 
 <PageTransition refresh={key}>

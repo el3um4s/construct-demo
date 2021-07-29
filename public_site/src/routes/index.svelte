@@ -48,10 +48,10 @@
 <div>
 	{#each posts as { slugPage, metadata, preview }}
 		<p>
-			<img src={`${base}/${preview}`} alt="preview" />
-			<a href={`${base}/${slugPage}`} sveltekit:prefetch
-				>{#if metadata?.title} {metadata.title} {:else}{slugPage}{/if}</a
-			>
+			<a href={`${base}/${slugPage}`} sveltekit:prefetch>
+				<img src={`${base}/${preview}`} alt="preview" />
+				{#if metadata?.title} {metadata.title} {:else}{slugPage}{/if}
+			</a>
 			({#if metadata?.tags} {metadata.tags} {:else}"NO TAGS"{/if})
 		</p>
 	{/each}
