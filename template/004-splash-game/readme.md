@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2020-08-24 12:00"
+  updated: "2020-08-24 12:00"
 ---
 
 # Splash Game

@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - javascript
+date:
+  created: "2021-06-19 12:00"
+  updated: "2021-06-19 12:00"
 ---
 
 <script>

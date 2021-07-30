@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - javascript
+date:
+  created: "2021-01-27 12:00"
+  updated: "2021-01-27 12:00"
 ---
 
 # YouTube

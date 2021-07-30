@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2020-11-25 12:00"
+  updated: "2020-11-25 12:00"
 ---
 
 # Spell Caster

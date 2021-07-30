@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: true
 tags:
   - javascript
+date:
+  created: "2020-07-11 12:00"
+  updated: "2020-07-11 12:00"
 ---
 
 # How to dynamically import a module in Construct 3

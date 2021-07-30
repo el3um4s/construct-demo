@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: true
 tags:
   - javascript
+date:
+  created: "2020-06-26 12:00"
+  updated: "2020-06-26 12:00"
 ---
 # How to create tooltips
 

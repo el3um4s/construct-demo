@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - mini template
   - javascript
+date:
+  created: "2021-04-11 12:00"
+  updated: "2021-04-11 12:00"
 ---
 
 # KeyCode Info

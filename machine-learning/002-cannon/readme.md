@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - machine learning
+date:
+  created: "2021-03-14 12:00"
+  updated: "2021-03-14 12:00"
 ---
 # Genetic Algorithms: Cannon
 

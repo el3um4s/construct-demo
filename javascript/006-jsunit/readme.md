@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: true
 tags:
   - javascript
+date:
+  created: "2021-01-08 12:00"
+  updated: "2021-01-08 12:00"
 ---
 
 # JsUnit

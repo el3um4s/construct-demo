@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2020-11-09 12:00"
+  updated: "2020-11-09 12:00"
 ---
 
 # Pachinko

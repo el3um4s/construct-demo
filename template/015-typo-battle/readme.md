@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2021-01-17 12:00"
+  updated: "2021-01-17 12:00"
 ---
 # Typo Battle
 

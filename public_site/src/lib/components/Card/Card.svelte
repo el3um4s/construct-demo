@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 
 	export let title;
@@ -6,6 +6,11 @@
 	export let preview = '';
 	export let tags = [];
 	export let description = '';
+	export let dataCreated;
+	export let dataUpdated;
+	export let id;
+
+	export let locales: string = 'en-US';
 
 	const randomColor = [
 		'bg-blue-300',
@@ -25,6 +30,15 @@
 		'bg-purple-500',
 		'bg-purple-600'
 	];
+
+	function writeDate(d: string, locales: string): string {
+		const s = new Date(d).toLocaleDateString(locales, {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		});
+		return s;
+	}
 </script>
 
 <div
@@ -58,9 +72,22 @@
 			<div class="text-gray-900 font-bold text-xl mb-2">
 				<a {href} sveltekit:prefetch>{title}</a>
 			</div>
-			<p class="text-gray-700 text-base">
-				{description}
-			</p>
+			<p class="text-gray-700 text-xs hidden">{id}</p>
+			{#if dataCreated !== ''}
+				<p class="text-gray-700 text-xs">
+					created {writeDate(dataCreated, locales)}
+				</p>
+			{/if}
+			{#if dataCreated != dataUpdated}
+				<p class="text-gray-700 text-xs">
+					updated {dataUpdated}
+				</p>
+			{/if}
+			{#if description !== ''}
+				<p class="text-gray-700 text-base">
+					{description}
+				</p>
+			{/if}
 		</div>
 		{#if tags.length > 0}
 			<div class="px-6 pt-4 pb-2">

@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - mini template
+date:
+  created: "2021-02-09 12:00"
+  updated: "2021-02-09 12:00"
 ---
 
 # Execute a function from separate event sheet

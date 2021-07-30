@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - user interface
+date:
+  created: "2020-08-21 12:00"
+  updated: "2020-08-21 12:00"
 ---
 
 # Emulated Crop Scale

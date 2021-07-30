@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2020-08-26 12:00"
+  updated: "2020-08-26 12:00"
 ---
 
 # One Color Idle Game

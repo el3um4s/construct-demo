@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - template
+date:
+  created: "2021-04-10 12:00"
+  updated: "2021-04-10 12:00"
 ---
 # Geometric Draw
 

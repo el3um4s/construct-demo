@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - mini template
+date:
+  created: "2021-02-13 12:00"
+  updated: "2021-02-13 12:00"
 ---
 
 # Straight Lasso

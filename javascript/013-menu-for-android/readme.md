@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - javascript
+date:
+  created: "2021-06-27 12:00"
+  updated: "2021-06-27 12:00"
 ---
 
 # Menu for Android

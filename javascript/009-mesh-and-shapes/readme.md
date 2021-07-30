@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - javascript
+date:
+  created: "2021-02-12 12:00"
+  updated: "2021-02-12 12:00"
 ---
 # Mesh and Shapes
 

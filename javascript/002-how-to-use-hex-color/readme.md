@@ -6,6 +6,9 @@ deprecated: true
 preview: preview.png
 tags:
   - javascript
+date:
+  created: "2020-05-30 12:00"
+  updated: "2020-05-30 12:00"
 ---
 
 # How to use HEX color

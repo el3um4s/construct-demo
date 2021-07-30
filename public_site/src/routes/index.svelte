@@ -7,27 +7,16 @@
 		for (let path in allPosts) {
 			const post = allPosts[path];
 			const metadata = post.metadata;
-			// const namePage = path.split('/');
-			// const slugPage = namePage[namePage.length - 2].slice(4);
 			const slugPage = path.replace('../demos/', '').replace('/readme.md', '');
-			// const preview = `image-post/${slugPage}/preview.png`;
 			const preview = `image-post/${slugPage}/image.jpg`;
-			// const preview = `/src/demos/${slugPage}/preview.png`;
-			// const preview = `/src/demos/${slugPage}/`;
-			// const hasPreview = metadata?.preview ? true : false;
-			// let image = null;
-			// if (hasPreview) {
-			// 	image = await import(`../demos/${slugPage}/preview.png`);
-			// 	console.log(image);
-			// }
+
+			const id = Math.random().toString();
 			const p = {
 				path,
 				metadata,
 				slugPage,
-				preview
-				// preview,
-				// hasPreview,
-				// image: image ? image.default : ''
+				preview,
+				id
 			};
 			body.push(p);
 		}
@@ -41,20 +30,29 @@
 	};
 </script>
 
-<script>
+<script lang="ts">
 	import { base } from '$app/paths';
 	import Card from '$lib/components/Card/Card.svelte';
-	export let posts;
+	export let posts: any[];
+
+	posts = posts.sort((a, b) => {
+		const postA = +new Date(a?.metadata?.date?.created ? a.metadata.date.created : '1990-01-01');
+		const postB = +new Date(b?.metadata?.date?.created ? b.metadata.date.created : '1990-01-01');
+		return postB - postA;
+	});
 </script>
 
 <div>
-	{#each posts as { slugPage, metadata, preview }}
+	{#each posts as { slugPage, metadata, preview, id }, i}
 		<Card
+			{id}
 			title={metadata?.title ? metadata.title : slugPage}
 			href={`${base}/${slugPage}`}
 			preview="{base}/{preview}"
 			tags={metadata?.tags ? metadata.tags : []}
 			description={metadata?.description ? metadata.description : ''}
+			dataCreated={metadata?.date?.created ? metadata.date.created : ''}
+			dataUpdated={metadata?.date?.updated ? metadata.date.updated : ''}
 		/>
 		<!-- <p>
 			<a href={`${base}/${slugPage}`} sveltekit:prefetch>

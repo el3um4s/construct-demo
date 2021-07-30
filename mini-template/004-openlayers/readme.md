@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - maps
   - javascript
+date:
+  created: "2021-03-18 12:00"
+  updated: "2021-03-18 12:00"
 ---
 
 # OpenLayers

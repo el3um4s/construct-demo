@@ -6,6 +6,9 @@ deprecated: true
 preview: preview.png
 tags:
   - javascript
+date:
+  created: "2020-06-05 12:00"
+  updated: "2020-06-05 12:00"
 ---
 
 # How to use behavior TileMovement

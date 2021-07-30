@@ -6,6 +6,9 @@ deprecated: false
 tags:
   - template
   - game 
+date:
+  created: "2021-03-27 12:00"
+  updated: "2021-03-27 12:00"
 ---
 # Floating Window
 

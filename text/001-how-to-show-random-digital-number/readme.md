@@ -5,6 +5,9 @@ hasDemo: true
 deprecated: false
 tags:
   - text
+date:
+  created: "2020-05-30 12:00"
+  updated: "2020-05-30 12:00"
 ---
 
 # How to show random digital number
