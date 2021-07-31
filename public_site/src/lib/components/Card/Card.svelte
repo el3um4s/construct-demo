@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { base } from '$app/paths';
+	import { fly } from 'svelte/transition';
 
 	export let title;
 	export let href;
@@ -42,13 +43,14 @@
 </script>
 
 <div
+	transition:fly
 	class="w-full lg:max-w-full
 		lg:flex
-		mt-6
-		border border-gray-400
-		bg-white
-		rounded
-		hover:ring-4
+		border-gray-300
+		border-b-2
+		lg:border-none
+		hover:bg-gray-800
+		p-2
 		"
 >
 	<div
@@ -67,35 +69,35 @@
 		</a>
 	</div>
 
-	<div class="p-4 flex flex-col justify-between leading-normal">
+	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300">
 		<div class="mb-8">
-			<div class="text-gray-900 font-bold text-xl mb-2">
+			<div class="text-yellow-200 text-xl mb-2">
 				<a {href} sveltekit:prefetch>{title}</a>
 			</div>
-			<p class="text-gray-700 text-xs hidden">{id}</p>
+			<p class="text-xs hidden">{id}</p>
 			{#if dataCreated !== ''}
-				<p class="text-gray-700 text-xs">
+				<p class="text-xs">
 					created {writeDate(dataCreated, locales)}
 				</p>
 			{/if}
 			{#if dataCreated != dataUpdated}
-				<p class="text-gray-700 text-xs">
+				<p class="text-xs">
 					updated {dataUpdated}
 				</p>
 			{/if}
 			{#if description !== ''}
-				<p class="text-gray-700 text-base">
+				<p class="text-base">
 					{description}
 				</p>
 			{/if}
 		</div>
 		{#if tags.length > 0}
-			<div class="px-6 pt-4 pb-2">
+			<div>
 				{#each tags as tag}
 					<a
 						href={`${base}/tags/${tag}`}
 						sveltekit:prefetch
-						class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+						class="tag inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100"
 						>#{tag}</a
 					>
 				{/each}
@@ -103,3 +105,9 @@
 		{/if}
 	</div>
 </div>
+
+<style>
+	.tag {
+		clip-path: polygon(10% 0%, 100% 1%, 100% 100%, 10% 100%, 0% 50%);
+	}
+</style>

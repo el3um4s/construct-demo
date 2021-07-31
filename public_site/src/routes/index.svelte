@@ -31,16 +31,25 @@
 </script>
 
 <script lang="ts">
+	import { fade, fly } from 'svelte/transition';
+	import { flip } from 'svelte/animate';
+
 	import { base } from '$app/paths';
+
 	import Card from '$lib/components/Card/Card.svelte';
+	import Order from '$lib/components/Card/Order.svelte';
+
+	import { settings } from '$lib/store/settings';
+	import sortPost from '$lib/ts/order';
+
 	export let posts: any[];
 
-	posts = posts.sort((a, b) => {
-		const postA = +new Date(a?.metadata?.date?.created ? a.metadata.date.created : '1990-01-01');
-		const postB = +new Date(b?.metadata?.date?.created ? b.metadata.date.created : '1990-01-01');
-		return postB - postA;
-	});
+	posts = sortPost(posts, $settings.orderBy, $settings.order);
+
+	$: posts = sortPost(posts, $settings.orderBy, $settings.order);
 </script>
+
+<Order />
 
 <div>
 	{#each posts as { slugPage, metadata, preview, id }, i}
@@ -54,12 +63,5 @@
 			dataCreated={metadata?.date?.created ? metadata.date.created : ''}
 			dataUpdated={metadata?.date?.updated ? metadata.date.updated : ''}
 		/>
-		<!-- <p>
-			<a href={`${base}/${slugPage}`} sveltekit:prefetch>
-				<img src={`${base}/${preview}`} alt="preview" />
-				{#if metadata?.title} {metadata.title} {:else}{slugPage}{/if}
-			</a>
-			({#if metadata?.tags} {metadata.tags} {:else}"NO TAGS"{/if})
-		</p> -->
 	{/each}
 </div>
