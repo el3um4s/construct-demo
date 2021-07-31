@@ -36,7 +36,7 @@
 </div>
 
 <style>
-	::-webkit-scrollbar {
+	/* ::-webkit-scrollbar {
 		width: 7px;
 		height: 7px;
 	}
@@ -51,5 +51,5 @@
 
 	::-webkit-scrollbar-thumb:hover {
 		background: #718096;
-	}
+	} */
 </style>

@@ -2,6 +2,8 @@
 	import { base } from '$app/paths';
 	import { fly } from 'svelte/transition';
 
+	import Tag from './Tag.svelte';
+
 	export let title;
 	export let href;
 	export let preview = '';
@@ -94,20 +96,9 @@
 		{#if tags.length > 0}
 			<div>
 				{#each tags as tag}
-					<a
-						href={`${base}/tags/${tag}`}
-						sveltekit:prefetch
-						class="tag inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100"
-						>#{tag}</a
-					>
+					<Tag {tag} />
 				{/each}
 			</div>
 		{/if}
 	</div>
 </div>
-
-<style>
-	.tag {
-		clip-path: polygon(10% 0%, 100% 1%, 100% 100%, 10% 100%, 0% 50%);
-	}
-</style>

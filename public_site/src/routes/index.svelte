@@ -31,13 +31,10 @@
 </script>
 
 <script lang="ts">
-	import { fade, fly } from 'svelte/transition';
-	import { flip } from 'svelte/animate';
-
 	import { base } from '$app/paths';
 
 	import Card from '$lib/components/Card/Card.svelte';
-	import Order from '$lib/components/Card/Order.svelte';
+	import Settings from '$lib/components/Layout/Settings/Settings.svelte';
 
 	import { settings } from '$lib/store/settings';
 	import sortPost from '$lib/ts/order';
@@ -49,10 +46,10 @@
 	$: posts = sortPost(posts, $settings.orderBy, $settings.order);
 </script>
 
-<Order />
+<Settings />
 
 <div>
-	{#each posts as { slugPage, metadata, preview, id }, i}
+	{#each posts as { slugPage, metadata, preview, id }, i ({ id })}
 		<Card
 			{id}
 			title={metadata?.title ? metadata.title : slugPage}

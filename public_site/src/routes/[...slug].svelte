@@ -68,9 +68,12 @@
 </script>
 
 <PageTransition refresh={key}>
+	<header class="sticky top-0 z-30 flex justify-between item-center py-4 px-6 bg-gray-900">
+		<a class="flex items-center font-bold" label="Home" href="{base}/">Home</a>
+	</header>
 	{#if metadata}
 		{#if metadata.title}
-			<h3 class="text-gray-700 text-3xl font-medium">{metadata.title}</h3>
+			<h3 class="text-gray-300 text-3xl font-medium">{metadata.title}</h3>
 		{/if}
 		<ul>
 			<li>
