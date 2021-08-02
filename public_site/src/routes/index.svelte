@@ -41,15 +41,15 @@
 
 	export let posts: any[];
 
-	posts = sortPost(posts, $settings.orderBy, $settings.order);
+	// posts = sortPost(posts, $settings.orderBy, $settings.order);
 
-	$: posts = sortPost(posts, $settings.orderBy, $settings.order);
+	$: sortedPosts = [...sortPost(posts, $settings.orderBy, $settings.order)];
 </script>
 
 <Settings />
 
 <div>
-	{#each posts as { slugPage, metadata, preview, id }, i ({ id })}
+	{#each sortedPosts as { slugPage, metadata, preview, id }, i ({ id })}
 		<Card
 			{id}
 			title={metadata?.title ? metadata.title : slugPage}

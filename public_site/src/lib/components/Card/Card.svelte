@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
-	import { fly } from 'svelte/transition';
-
 	import Tag from './Tag.svelte';
 
 	export let title;
@@ -45,7 +42,6 @@
 </script>
 
 <div
-	transition:fly
 	class="w-full lg:max-w-full
 		lg:flex
 		border-gray-300
