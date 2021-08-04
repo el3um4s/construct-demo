@@ -3,11 +3,13 @@ import { Writable, writable } from "svelte/store"
 export interface Settings {
     order: "ascending" | "descending";
     orderBy: string;
+    showDeprecated: boolean;
 }
 
 const customSettings:Writable<Settings> = writable({
     order: "descending",
-    orderBy: "date-update"
+    orderBy: "date-update",
+    showDeprecated: false
 })
 
 export const settings = {
@@ -36,6 +38,15 @@ export const settings = {
             return {
                 ...s,
                 orderBy
+            }
+        });
+    },
+
+    showDeprecated: (val:boolean):void => {
+        customSettings.update( s => {
+            return {
+                ...s,
+                showDeprecated: val
             }
         });
     }

@@ -1,4 +1,4 @@
-const sortPost = (listPost: any[], orderBy = "date-update", order = "descending"):any[] => {
+const sortPost = (listPost: any[], orderBy = "date-update", order = "descending", showDeprecated = false):any[] => {
     const posts = [...listPost];
     let result;
     match(orderBy)
@@ -6,6 +6,7 @@ const sortPost = (listPost: any[], orderBy = "date-update", order = "descending"
         .on(o => o === "date-update", () => {result = sortDateUpdate(posts, order)})
         .on(o => o === "title", () => {result = sortTitle(posts, order)})
         .otherwise(o => () => {result = sortTitle(posts, order)});
+    result = [...filterDeprecate(result, showDeprecated)];
     return result;
 }
 
@@ -40,6 +41,11 @@ function sortTitle(listPost: any[], order = "ascending"):any[] {
 		return  order === "ascending" ? postA.localeCompare(postB) : postB.localeCompare(postA);
 	});
     return posts;
+}
+
+function filterDeprecate(listPost: any[], showDeprecated = false): any[] {
+    if (showDeprecated) return [...listPost];
+    return [...listPost].filter(el => el?.metadata?.deprecated === false );
 }
 
 

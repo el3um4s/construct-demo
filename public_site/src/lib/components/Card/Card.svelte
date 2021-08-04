@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Tag from './Tag.svelte';
+	import Deprecated from './Deprecated.svelte';
+	import { blur } from 'svelte/transition';
 
 	export let title;
 	export let href;
@@ -9,6 +11,7 @@
 	export let dataCreated;
 	export let dataUpdated;
 	export let id;
+	export let deprecated = false;
 
 	export let locales: string = 'en-US';
 
@@ -42,6 +45,7 @@
 </script>
 
 <div
+	in:blur
 	class="w-full lg:max-w-full
 		lg:flex
 		border-gray-300
@@ -70,7 +74,7 @@
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300">
 		<div class="mb-8">
 			<div class="text-yellow-200 text-xl mb-2">
-				<a {href} sveltekit:prefetch>{title}</a>
+				<a {href} sveltekit:prefetch>{title}</a>{#if deprecated}<Deprecated />{/if}
 			</div>
 			<p class="text-xs hidden">{id}</p>
 			{#if dataCreated !== ''}

@@ -32,26 +32,26 @@
 
 <script lang="ts">
 	import { base } from '$app/paths';
-
-	import Card from '$lib/components/Card/Card.svelte';
-	import Settings from '$lib/components/Layout/Settings/Settings.svelte';
+	import { flip } from 'svelte/animate';
 
 	import { settings } from '$lib/store/settings';
 	import sortPost from '$lib/ts/order';
 
+	import Card from '$lib/components/Card/Card.svelte';
+	import Settings from '$lib/components/Layout/Settings/Settings.svelte';
+
 	export let posts: any[];
 
-	// posts = sortPost(posts, $settings.orderBy, $settings.order);
-
-	$: sortedPosts = [...sortPost(posts, $settings.orderBy, $settings.order)];
+	$: listPosts = [...sortPost(posts, $settings.orderBy, $settings.order, $settings.showDeprecated)];
 </script>
 
 <Settings />
 
-<div>
-	{#each sortedPosts as { slugPage, metadata, preview, id }, i ({ id })}
+{#each listPosts as { slugPage, metadata, preview, id }, i ({ id })}
+	<span animate:flip>
 		<Card
 			{id}
+			deprecated={metadata?.deprecated}
 			title={metadata?.title ? metadata.title : slugPage}
 			href={`${base}/${slugPage}`}
 			preview="{base}/{preview}"
@@ -60,5 +60,5 @@
 			dataCreated={metadata?.date?.created ? metadata.date.created : ''}
 			dataUpdated={metadata?.date?.updated ? metadata.date.updated : ''}
 		/>
-	{/each}
-</div>
+	</span>
+{/each}
