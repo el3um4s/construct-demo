@@ -4,31 +4,71 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
+		<link href="/assets/prism.css" rel="stylesheet" data-svelte="svelte-1j3v9ak"><link href="/assets/flaticon/css/uicons-regular-rounded.css" rel="stylesheet" data-svelte="svelte-1j3v9ak">
 
 		
 
-		<link rel="modulepreload" href="/./_app/start-87854a31.js">
-		<link rel="modulepreload" href="/./_app/chunks/vendor-6cb4db44.js">
+		<link rel="modulepreload" href="/./_app/start-94452723.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-7f0fd85c.js">
 		<link rel="modulepreload" href="/./_app/chunks/paths-45dac81d.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-6a340b2a.js">
+		<link rel="modulepreload" href="/./_app/pages/support-me.svx-0300b3d6.js">
 		<link rel="stylesheet" href="/./_app/assets/start-0826e215.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-52e53ee5.css">
 
 		<script type="module">
-			import { start } from "/./_app/start-87854a31.js";
+			import { start } from "/./_app/start-94452723.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":"/."},
 				session: {},
 				host: location.host,
 				route: true,
-				spa: true,
+				spa: false,
 				trailing_slash: "never",
-				hydrate: null
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/./_app/pages/__layout.svelte-6a340b2a.js"),
+						import("/./_app/pages/support-me.svx-0300b3d6.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/support-me",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
 			});
 		</script>
 	</head>
 	<body>
 		<div id="svelte">
+
+
+
+
+<div class="flex h-screen bg-gray-900 font-roboto"><div class="fixed z-30 inset-y-0 left-0 w-0 overflow-y-auto translate-x-0 lg:static inset-0 lg:w-64"><div class="flex items-center justify-center mt-8"><div class="flex items-center"><img src="/assets/icons/C3logo-monochrome-darkBG-RGB.svg" alt="" class="h-12 w-12">
+
+<span class="text-white text-2xl mx-2 font-semibold">C3 Demo</span></div></div>
+
+	<nav class="mt-10"><a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 " href="/"><span class="fi fi-rr-home"></span>
+
+	<span class="mx-3">Home</span></a>
+<a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 " href="/about"><span class="fi fi-rr-info"></span>
+
+	<span class="mx-3">About</span></a>
+<a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 " href="/support-me"><span class="fi fi-rr-ticket"></span>
+
+	<span class="mx-3">Support Me</span></a>
+<a class="flex items-center mt-4 py-2 px-6 text-gray-500 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100 " href="/thanks"><span class="fi fi-rr-trophy"></span>
+
+	<span class="mx-3">Thanks</span></a></nav></div>
+	<div class="flex-1 flex flex-col overflow-hidden"><header class="sticky top-0 z-30 flex justify-between item-center py-4 px-6"><div class="flex items-center text-red-500 font-bold">Work in progress!</div></header>
+<main class="flex-1 overflow-x-hidden overflow-y-auto"><div class="container max-w-5xl mx-auto px-6 py8"><div></div></div></main></div></div>
+
+
 
 	
 </div>
