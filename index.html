@@ -8,20 +8,20 @@
 
 		
 
-		<link rel="modulepreload" href="/./_app/start-ba4877f8.js">
-		<link rel="modulepreload" href="/./_app/chunks/vendor-32501590.js">
+		<link rel="modulepreload" href="/./_app/start-87854a31.js">
+		<link rel="modulepreload" href="/./_app/chunks/vendor-6cb4db44.js">
 		<link rel="modulepreload" href="/./_app/chunks/paths-45dac81d.js">
-		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-bd04aa90.js">
-		<link rel="modulepreload" href="/./_app/chunks/PageTransition-1f985611.js">
-		<link rel="modulepreload" href="/./_app/pages/index.svelte-36116b2c.js">
-		<link rel="modulepreload" href="/./_app/chunks/readme-e3506c9f.js">
-		<link rel="modulepreload" href="/./_app/chunks/Card-518b32e3.js">
+		<link rel="modulepreload" href="/./_app/pages/__layout.svelte-c754018e.js">
+		<link rel="modulepreload" href="/./_app/chunks/PageTransition-14438608.js">
+		<link rel="modulepreload" href="/./_app/pages/index.svelte-e7b43b4d.js">
+		<link rel="modulepreload" href="/./_app/chunks/readme-53009696.js">
+		<link rel="modulepreload" href="/./_app/chunks/Settings-9dd0af32.js">
 		<link rel="stylesheet" href="/./_app/assets/start-0826e215.css">
-		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-5b83afd4.css">
-		<link rel="stylesheet" href="/./_app/assets/Card-f633c9b6.css">
+		<link rel="stylesheet" href="/./_app/assets/pages/__layout.svelte-fe78781c.css">
+		<link rel="stylesheet" href="/./_app/assets/Settings-a9e15835.css">
 
 		<script type="module">
-			import { start } from "/./_app/start-ba4877f8.js";
+			import { start } from "/./_app/start-87854a31.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"","assets":"/."},
@@ -34,8 +34,8 @@
 					status: 200,
 					error: null,
 					nodes: [
-						import("/./_app/pages/__layout.svelte-bd04aa90.js"),
-						import("/./_app/pages/index.svelte-36116b2c.js")
+						import("/./_app/pages/__layout.svelte-c754018e.js"),
+						import("/./_app/pages/index.svelte-e7b43b4d.js")
 					],
 					page: {
 						host: location.host, // TODO this is redundant
@@ -71,141 +71,158 @@
 	<span class="mx-3">Thanks</span></a></nav></div>
 	<div class="flex-1 flex flex-col overflow-hidden"><header class="sticky top-0 z-30 flex justify-between item-center py-4 px-6"><div class="flex items-center text-red-500 font-bold">Work in progress!</div></header>
 <main class="flex-1 overflow-x-hidden overflow-y-auto"><div class="container max-w-5xl mx-auto px-6 py8"><div><div class="sticky top-0 z-30 bg-gray-900 flex justify-between item-center py-4 px-6"><div class="flex items-center"></div>
-	<div class="flex items-center space-x-2"><select class="p-2 bg-gray-600 text-gray-300 rounded border-2 border-gray-600"><option value="date-creation">Date (creation)
-</option><option value="date-update">Date (update)
-</option><option value="title">Title
+	<div class="flex items-center space-x-2"><select class="p-2 bg-gray-600 text-gray-300 rounded border-2 border-gray-600"><option value="date-update" selected>Date (update)
+</option><option value="date-creation" >Date (creation)
+</option><option value="title" >Title
 </option></select>
 
 
-<div class="text-gray-300 flex bg-gray-900 hover:bg-gray-800 p-2"><div title="Order descending"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"><path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"></path></svg></div></div></div></div>
+<div class="text-gray-300 flex bg-gray-900 hover:bg-gray-800 p-2"><div title="Order descending"><svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor"><path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h7a1 1 0 100-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM15 8a1 1 0 10-2 0v5.586l-1.293-1.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L15 13.586V8z"></path></svg></div></div>
 
-<div><div class="w-full lg:max-w-full
+
+
+<label for="show-deprecated" class="flex flex-col items-center"><span class="mb-1 cursor-pointer lowercase text-sm">depreated</span>
+	<div class="switch svelte-d0zfuv"><input id="show-deprecated" name="show-deprecated" type="checkbox" class="sr-only svelte-d0zfuv" >
+<div class="track svelte-d0zfuv"></div>
+<div class="thumb svelte-d0zfuv"></div></div>
+</label></div></div>
+
+<span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-400"><a href="/javascript/013-menu-for-android" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Menu for Android" style="background-image: url(&quot;/image-post/javascript/013-menu-for-android/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-400"><a href="/javascript/013-menu-for-android" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Menu for Android" style="background-image: url(&quot;/image-post/javascript/013-menu-for-android/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/013-menu-for-android" sveltekit:prefetch>Menu for Android</a></div>
-	<p class="text-xs hidden">0.1636269300366191</p>
+	<p class="text-xs hidden">0.3160026486754508</p>
 	<p class="text-xs">created June 27, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-400"><a href="/javascript/012-menu" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Menu" style="background-image: url(&quot;/image-post/javascript/012-menu/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-300"><a href="/javascript/012-menu" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Menu" style="background-image: url(&quot;/image-post/javascript/012-menu/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/012-menu" sveltekit:prefetch>Menu</a></div>
-	<p class="text-xs hidden">0.31782732429258664</p>
+	<p class="text-xs hidden">0.9186306642621309</p>
 	<p class="text-xs">created June 19, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/template/020-petits-chevaux" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Petit Chevaux" style="background-image: url(&quot;/image-post/template/020-petits-chevaux/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-600"><a href="/template/020-petits-chevaux" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Petit Chevaux" style="background-image: url(&quot;/image-post/template/020-petits-chevaux/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/020-petits-chevaux" sveltekit:prefetch>Petit Chevaux</a></div>
-	<p class="text-xs hidden">0.9421258715504328</p>
+	<p class="text-xs hidden">0.09732811676979947</p>
 	<p class="text-xs">created June 6, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/javascript/011-milan-districts" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Milan districts" style="background-image: url(&quot;/image-post/javascript/011-milan-districts/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/javascript/011-milan-districts" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Milan districts" style="background-image: url(&quot;/image-post/javascript/011-milan-districts/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/011-milan-districts" sveltekit:prefetch>Milan districts</a></div>
-	<p class="text-xs hidden">0.32858380687791366</p>
+	<p class="text-xs hidden">0.8869590518687986</p>
 	<p class="text-xs">created May 29, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/mini-template/006-iss-tracker" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="ISS Tracker" style="background-image: url(&quot;/image-post/mini-template/006-iss-tracker/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/mini-template/006-iss-tracker" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="ISS Tracker" style="background-image: url(&quot;/image-post/mini-template/006-iss-tracker/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/006-iss-tracker" sveltekit:prefetch>ISS Tracker</a></div>
-	<p class="text-xs hidden">0.6049759797300049</p>
+	<p class="text-xs hidden">0.5978319659839775</p>
 	<p class="text-xs">created May 15, 2021</p>
 	
 	</div>
-<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-500"><a href="/javascript/010-mermaid" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Mermaid" style="background-image: url(&quot;/image-post/javascript/010-mermaid/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-600"><a href="/javascript/010-mermaid" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Mermaid" style="background-image: url(&quot;/image-post/javascript/010-mermaid/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/010-mermaid" sveltekit:prefetch>Mermaid</a></div>
-	<p class="text-xs hidden">0.8146535486468112</p>
+	<p class="text-xs hidden">0.5084386323839605</p>
 	<p class="text-xs">created May 9, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-400"><a href="/template/019-chaos-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Chaos Game" style="background-image: url(&quot;/image-post/template/019-chaos-game/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/template/019-chaos-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Chaos Game" style="background-image: url(&quot;/image-post/template/019-chaos-game/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/019-chaos-game" sveltekit:prefetch>Chaos Game</a></div>
-	<p class="text-xs hidden">0.8101859739808508</p>
+	<p class="text-xs hidden">0.2930106025494288</p>
 	<p class="text-xs">created April 18, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-500"><a href="/mini-template/005-keycode-info" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="KeyCode Info" style="background-image: url(&quot;/image-post/mini-template/005-keycode-info/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-400"><a href="/mini-template/005-keycode-info" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="KeyCode Info" style="background-image: url(&quot;/image-post/mini-template/005-keycode-info/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/005-keycode-info" sveltekit:prefetch>KeyCode Info</a></div>
-	<p class="text-xs hidden">0.5667090674808175</p>
+	<p class="text-xs hidden">0.5499166569589558</p>
 	<p class="text-xs">created April 11, 2021</p>
 	
 	</div>
-<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-400"><a href="/template/018-geometric-draw" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Geometric Draw" style="background-image: url(&quot;/image-post/template/018-geometric-draw/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/template/018-geometric-draw" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Geometric Draw" style="background-image: url(&quot;/image-post/template/018-geometric-draw/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/018-geometric-draw" sveltekit:prefetch>Geometric Draw</a></div>
-	<p class="text-xs hidden">0.6319027550972411</p>
+	<p class="text-xs hidden">0.22131434623066637</p>
 	<p class="text-xs">created April 10, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
@@ -215,39 +232,42 @@ p-2
 "><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/template/017-floating-window" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Floating Window" style="background-image: url(&quot;/image-post/template/017-floating-window/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/017-floating-window" sveltekit:prefetch>Floating Window</a></div>
-	<p class="text-xs hidden">0.8920044229030035</p>
+	<p class="text-xs hidden">0.3984489452055666</p>
 	<p class="text-xs">created March 27, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-400"><a href="/mini-template/004-openlayers" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="OpenLayers" style="background-image: url(&quot;/image-post/mini-template/004-openlayers/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-400"><a href="/mini-template/004-openlayers" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="OpenLayers" style="background-image: url(&quot;/image-post/mini-template/004-openlayers/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/004-openlayers" sveltekit:prefetch>OpenLayers</a></div>
-	<p class="text-xs hidden">0.3600332001669184</p>
+	<p class="text-xs hidden">0.08983369561896715</p>
 	<p class="text-xs">created March 18, 2021</p>
 	
 	</div>
-<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-600"><a href="/mini-template/003-leaflet" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Leaflet" style="background-image: url(&quot;/image-post/mini-template/003-leaflet/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-300"><a href="/mini-template/003-leaflet" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Leaflet" style="background-image: url(&quot;/image-post/mini-template/003-leaflet/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/003-leaflet" sveltekit:prefetch>Leaflet</a></div>
-	<p class="text-xs hidden">0.9792181043958321</p>
+	<p class="text-xs hidden">0.869833709651058</p>
 	<p class="text-xs">created March 17, 2021</p>
 	
 	</div>
-<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/maps" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#maps</a><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
@@ -257,417 +277,372 @@ p-2
 "><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/machine-learning/002-cannon" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Genetic Algorithms - Cannon" style="background-image: url(&quot;/image-post/machine-learning/002-cannon/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/machine-learning/002-cannon" sveltekit:prefetch>Genetic Algorithms - Cannon</a></div>
-	<p class="text-xs hidden">0.6136003390573708</p>
+	<p class="text-xs hidden">0.9567348179301456</p>
 	<p class="text-xs">created March 14, 2021</p>
 	
 	</div>
-<div><a href="/tags/machine learning" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#machine learning</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/machine learning" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#machine learning</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/016-gubil" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="GUBIL" style="background-image: url(&quot;/image-post/template/016-gubil/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/template/016-gubil" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="GUBIL" style="background-image: url(&quot;/image-post/template/016-gubil/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/016-gubil" sveltekit:prefetch>GUBIL</a></div>
-	<p class="text-xs hidden">0.7663055833137924</p>
+	<p class="text-xs hidden">0.08279170856585694</p>
 	<p class="text-xs">created March 11, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-300"><a href="/mini-template/002-straight-lasso" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Straight Lasso" style="background-image: url(&quot;/image-post/mini-template/002-straight-lasso/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-500"><a href="/mini-template/002-straight-lasso" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Straight Lasso" style="background-image: url(&quot;/image-post/mini-template/002-straight-lasso/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/002-straight-lasso" sveltekit:prefetch>Straight Lasso</a></div>
-	<p class="text-xs hidden">0.7680246479452733</p>
+	<p class="text-xs hidden">0.37579288040771086</p>
 	<p class="text-xs">created February 13, 2021</p>
 	
 	</div>
-<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-600"><a href="/javascript/009-mesh-and-shapes" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Mesh and Shapes" style="background-image: url(&quot;/image-post/javascript/009-mesh-and-shapes/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/javascript/009-mesh-and-shapes" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Mesh and Shapes" style="background-image: url(&quot;/image-post/javascript/009-mesh-and-shapes/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/009-mesh-and-shapes" sveltekit:prefetch>Mesh and Shapes</a></div>
-	<p class="text-xs hidden">0.2689197459925292</p>
+	<p class="text-xs hidden">0.6775487067141024</p>
 	<p class="text-xs">created February 12, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/machine-learning/001-hello-world" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Genetic Algorithms - Hello World" style="background-image: url(&quot;/image-post/machine-learning/001-hello-world/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-500"><a href="/machine-learning/001-hello-world" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Genetic Algorithms - Hello World" style="background-image: url(&quot;/image-post/machine-learning/001-hello-world/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/machine-learning/001-hello-world" sveltekit:prefetch>Genetic Algorithms - Hello World</a></div>
-	<p class="text-xs hidden">0.00976520532561631</p>
+	<p class="text-xs hidden">0.9880888793810871</p>
 	<p class="text-xs">created March 10, 2021</p>
 	<p class="text-xs">updated 2021-02-10 12:00</p>
 	</div>
-<div><a href="/tags/machine learning" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#machine learning</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/machine learning" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#machine learning</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-400"><a href="/mini-template/001-execute-a-function-from-separate-event-sheet" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Execute a function from separate event sheet" style="background-image: url(&quot;/image-post/mini-template/001-execute-a-function-from-separate-event-sheet/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-500"><a href="/mini-template/001-execute-a-function-from-separate-event-sheet" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Execute a function from separate event sheet" style="background-image: url(&quot;/image-post/mini-template/001-execute-a-function-from-separate-event-sheet/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/mini-template/001-execute-a-function-from-separate-event-sheet" sveltekit:prefetch>Execute a function from separate event sheet</a></div>
-	<p class="text-xs hidden">0.9265232618708901</p>
+	<p class="text-xs hidden">0.7399079452541839</p>
 	<p class="text-xs">created February 9, 2021</p>
 	
 	</div>
-<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/mini template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#mini template</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/javascript/008-text-editor" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Text Editor" style="background-image: url(&quot;/image-post/javascript/008-text-editor/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/javascript/008-text-editor" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Text Editor" style="background-image: url(&quot;/image-post/javascript/008-text-editor/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/008-text-editor" sveltekit:prefetch>Text Editor</a></div>
-	<p class="text-xs hidden">0.8236631177031692</p>
+	<p class="text-xs hidden">0.3059838391153431</p>
 	<p class="text-xs">created February 7, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/javascript/007-youtube" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="YouTube" style="background-image: url(&quot;/image-post/javascript/007-youtube/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/javascript/007-youtube" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="YouTube" style="background-image: url(&quot;/image-post/javascript/007-youtube/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/007-youtube" sveltekit:prefetch>YouTube</a></div>
-	<p class="text-xs hidden">0.7623424052004342</p>
+	<p class="text-xs hidden">0.3877473407634131</p>
 	<p class="text-xs">created January 27, 2021</p>
 	
 	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-600"><a href="/template/015-typo-battle" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Typo Battle" style="background-image: url(&quot;/image-post/template/015-typo-battle/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-500"><a href="/template/015-typo-battle" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Typo Battle" style="background-image: url(&quot;/image-post/template/015-typo-battle/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/015-typo-battle" sveltekit:prefetch>Typo Battle</a></div>
-	<p class="text-xs hidden">0.3138128624653047</p>
+	<p class="text-xs hidden">0.4427095337763465</p>
 	<p class="text-xs">created January 17, 2021</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-500"><a href="/javascript/006-jsunit" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="JsUnit" style="background-image: url(&quot;/image-post/javascript/006-jsunit/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/006-jsunit" sveltekit:prefetch>JsUnit</a></div>
-	<p class="text-xs hidden">0.08314971977511232</p>
-	<p class="text-xs">created January 8, 2021</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/014-fighting-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Fighting Game" style="background-image: url(&quot;/image-post/template/014-fighting-game/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/template/014-fighting-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Fighting Game" style="background-image: url(&quot;/image-post/template/014-fighting-game/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/014-fighting-game" sveltekit:prefetch>Fighting Game</a></div>
-	<p class="text-xs hidden">0.6951212324903147</p>
+	<p class="text-xs hidden">0.3288784442607391</p>
 	<p class="text-xs">created November 28, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-400"><a href="/template/013-spell-caster" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Spell Caster" style="background-image: url(&quot;/image-post/template/013-spell-caster/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-500"><a href="/template/013-spell-caster" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Spell Caster" style="background-image: url(&quot;/image-post/template/013-spell-caster/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/013-spell-caster" sveltekit:prefetch>Spell Caster</a></div>
-	<p class="text-xs hidden">0.9649732459173754</p>
+	<p class="text-xs hidden">0.6015223561218688</p>
 	<p class="text-xs">created November 25, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/012-bricks-ball" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Bricks Ball" style="background-image: url(&quot;/image-post/template/012-bricks-ball/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/template/012-bricks-ball" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Bricks Ball" style="background-image: url(&quot;/image-post/template/012-bricks-ball/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/012-bricks-ball" sveltekit:prefetch>Bricks Ball</a></div>
-	<p class="text-xs hidden">0.8080690949514757</p>
+	<p class="text-xs hidden">0.581892983272376</p>
 	<p class="text-xs">created November 23, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/template/011-combine-colors" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Combine Colors" style="background-image: url(&quot;/image-post/template/011-combine-colors/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-600"><a href="/template/011-combine-colors" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Combine Colors" style="background-image: url(&quot;/image-post/template/011-combine-colors/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/011-combine-colors" sveltekit:prefetch>Combine Colors</a></div>
-	<p class="text-xs hidden">0.4513061055590737</p>
+	<p class="text-xs hidden">0.19785164629497887</p>
 	<p class="text-xs">created November 16, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-300"><a href="/template/010-solo-dungeon-bash" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Solo Dungeon Bash" style="background-image: url(&quot;/image-post/template/010-solo-dungeon-bash/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/template/010-solo-dungeon-bash" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Solo Dungeon Bash" style="background-image: url(&quot;/image-post/template/010-solo-dungeon-bash/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/010-solo-dungeon-bash" sveltekit:prefetch>Solo Dungeon Bash</a></div>
-	<p class="text-xs hidden">0.38491158950147764</p>
+	<p class="text-xs hidden">0.5162098324776587</p>
 	<p class="text-xs">created November 13, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/template/009-pachinko" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Pachinko" style="background-image: url(&quot;/image-post/template/009-pachinko/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/template/009-pachinko" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Pachinko" style="background-image: url(&quot;/image-post/template/009-pachinko/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/009-pachinko" sveltekit:prefetch>Pachinko</a></div>
-	<p class="text-xs hidden">0.066149077251066</p>
+	<p class="text-xs hidden">0.31893377908904097</p>
 	<p class="text-xs">created November 9, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-400"><a href="/template/008-predator-and-prey" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Predator And Prey" style="background-image: url(&quot;/image-post/template/008-predator-and-prey/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/008-predator-and-prey" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Predator And Prey" style="background-image: url(&quot;/image-post/template/008-predator-and-prey/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/008-predator-and-prey" sveltekit:prefetch>Predator And Prey</a></div>
-	<p class="text-xs hidden">0.007933843295259813</p>
+	<p class="text-xs hidden">0.23311594106792244</p>
 	<p class="text-xs">created October 21, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/007-procedural-map-generation" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Procedural Map Generation" style="background-image: url(&quot;/image-post/template/007-procedural-map-generation/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-500"><a href="/template/007-procedural-map-generation" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Procedural Map Generation" style="background-image: url(&quot;/image-post/template/007-procedural-map-generation/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/007-procedural-map-generation" sveltekit:prefetch>Procedural Map Generation</a></div>
-	<p class="text-xs hidden">0.7473536510362773</p>
+	<p class="text-xs hidden">0.09929951126666325</p>
 	<p class="text-xs">created October 17, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-400"><a href="/template/006-follow-the-player" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Follow the player" style="background-image: url(&quot;/image-post/template/006-follow-the-player/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/template/006-follow-the-player" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Follow the player" style="background-image: url(&quot;/image-post/template/006-follow-the-player/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/006-follow-the-player" sveltekit:prefetch>Follow the player</a></div>
-	<p class="text-xs hidden">0.35905621776031826</p>
+	<p class="text-xs hidden">0.11448473593629926</p>
 	<p class="text-xs">created September 19, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-400"><a href="/template/005-one-color-idle-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="One Color Idle Game" style="background-image: url(&quot;/image-post/template/005-one-color-idle-game/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-500"><a href="/template/005-one-color-idle-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="One Color Idle Game" style="background-image: url(&quot;/image-post/template/005-one-color-idle-game/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/005-one-color-idle-game" sveltekit:prefetch>One Color Idle Game</a></div>
-	<p class="text-xs hidden">0.20468331803923756</p>
+	<p class="text-xs hidden">0.6585408074229502</p>
 	<p class="text-xs">created August 26, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-500"><a href="/template/004-splash-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Splash Game" style="background-image: url(&quot;/image-post/template/004-splash-game/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/template/004-splash-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Splash Game" style="background-image: url(&quot;/image-post/template/004-splash-game/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/004-splash-game" sveltekit:prefetch>Splash Game</a></div>
-	<p class="text-xs hidden">0.7025016992901822</p>
+	<p class="text-xs hidden">0.15440084799372267</p>
 	<p class="text-xs">created August 24, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-400"><a href="/user-interface/001-emulated-crop-scale" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Emulated Crop Scale" style="background-image: url(&quot;/image-post/user-interface/001-emulated-crop-scale/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-600"><a href="/user-interface/001-emulated-crop-scale" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Emulated Crop Scale" style="background-image: url(&quot;/image-post/user-interface/001-emulated-crop-scale/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/user-interface/001-emulated-crop-scale" sveltekit:prefetch>Emulated Crop Scale</a></div>
-	<p class="text-xs hidden">0.4764603617552394</p>
+	<p class="text-xs hidden">0.13354013448797786</p>
 	<p class="text-xs">created August 21, 2020</p>
 	
 	</div>
-<div><a href="/tags/user interface" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#user interface</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/user interface" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#user interface</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-500"><a href="/user-interface/002-grid-system" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Grid System for Construct 3" style="background-image: url(&quot;/image-post/user-interface/002-grid-system/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-400"><a href="/user-interface/002-grid-system" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Grid System for Construct 3" style="background-image: url(&quot;/image-post/user-interface/002-grid-system/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/user-interface/002-grid-system" sveltekit:prefetch>Grid System for Construct 3</a></div>
-	<p class="text-xs hidden">0.7098726590034297</p>
+	<p class="text-xs hidden">0.5677869760442711</p>
 	<p class="text-xs">created August 21, 2020</p>
 	
 	</div>
-<div><a href="/tags/user interface" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#user interface</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/user interface" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#user interface</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/template/002-wheel-of-fortune" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Wheel of Fortune" style="background-image: url(&quot;/image-post/template/002-wheel-of-fortune/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-600"><a href="/template/002-wheel-of-fortune" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Wheel of Fortune" style="background-image: url(&quot;/image-post/template/002-wheel-of-fortune/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/002-wheel-of-fortune" sveltekit:prefetch>Wheel of Fortune</a></div>
-	<p class="text-xs hidden">0.18235552835661673</p>
+	<p class="text-xs hidden">0.9885846913964247</p>
 	<p class="text-xs">created August 18, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-500"><a href="/template/003-sandy-road" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Sandy Road" style="background-image: url(&quot;/image-post/template/003-sandy-road/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-300"><a href="/template/003-sandy-road" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Sandy Road" style="background-image: url(&quot;/image-post/template/003-sandy-road/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/003-sandy-road" sveltekit:prefetch>Sandy Road</a></div>
-	<p class="text-xs hidden">0.598402426487405</p>
+	<p class="text-xs hidden">0.12664324225845713</p>
 	<p class="text-xs">created August 18, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
 lg:border-none
 hover:bg-gray-800
 p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-300"><a href="/template/001-top-down-shooter-laser-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Top Down Shooter - Laser Game" style="background-image: url(&quot;/image-post/template/001-top-down-shooter-laser-game/image.jpg&quot;);"></div></a></div>
+"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-400"><a href="/template/001-top-down-shooter-laser-game" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="Top Down Shooter - Laser Game" style="background-image: url(&quot;/image-post/template/001-top-down-shooter-laser-game/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/template/001-top-down-shooter-laser-game" sveltekit:prefetch>Top Down Shooter - Laser Game</a></div>
-	<p class="text-xs hidden">0.7469153054876074</p>
+	<p class="text-xs hidden">0.09167444833134852</p>
 	<p class="text-xs">created August 15, 2020</p>
 	
 	</div>
-<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-300"><a href="/javascript/005-how-to-dynamically-import-a-module" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to dynamically import a module in Construct 3" style="background-image: url(&quot;/image-post/javascript/005-how-to-dynamically-import-a-module/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/005-how-to-dynamically-import-a-module" sveltekit:prefetch>How to dynamically import a module in Construct 3</a></div>
-	<p class="text-xs hidden">0.309477932163817</p>
-	<p class="text-xs">created July 11, 2020</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/javascript/004-how-to-create-tooltips" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to create tooltips" style="background-image: url(&quot;/image-post/javascript/004-how-to-create-tooltips/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/004-how-to-create-tooltips" sveltekit:prefetch>How to create tooltips</a></div>
-	<p class="text-xs hidden">0.24214178598089897</p>
-	<p class="text-xs">created June 26, 2020</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-600"><a href="/javascript/003-how-to-use-behavior-tile-movement" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to use behavior TileMovement" style="background-image: url(&quot;/image-post/javascript/003-how-to-use-behavior-tile-movement/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/003-how-to-use-behavior-tile-movement" sveltekit:prefetch>How to use behavior TileMovement</a></div>
-	<p class="text-xs hidden">0.4862334675172728</p>
-	<p class="text-xs">created June 5, 2020</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-indigo-600"><a href="/javascript/002-how-to-use-hex-color" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to use HEX color" style="background-image: url(&quot;/image-post/javascript/002-how-to-use-hex-color/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/002-how-to-use-hex-color" sveltekit:prefetch>How to use HEX color</a></div>
-	<p class="text-xs hidden">0.7671003300021064</p>
-	<p class="text-xs">created May 30, 2020</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
+<div><a href="/tags/template" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#template</a><a href="/tags/game" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#game</a></div></div></div>
+	</span><span><div class="w-full lg:max-w-full
 lg:flex
 border-gray-300
 border-b-2
@@ -677,39 +652,12 @@ p-2
 "><div class="h-48 lg:h-auto lg:w-48 text-center bg-green-600"><a href="/text/001-how-to-show-random-digital-number" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to show random digital number" style="background-image: url(&quot;/image-post/text/001-how-to-show-random-digital-number/image.jpg&quot;);"></div></a></div>
 
 	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/text/001-how-to-show-random-digital-number" sveltekit:prefetch>How to show random digital number</a></div>
-	<p class="text-xs hidden">0.7309015418199054</p>
+	<p class="text-xs hidden">0.9294365337252972</p>
 	<p class="text-xs">created May 30, 2020</p>
 	
 	</div>
-<div><a href="/tags/text" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#text</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-blue-500"><a href="/javascript/001-how-to-use-json-in-javascript" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="How to use JSON in JavaScript" style="background-image: url(&quot;/image-post/javascript/001-how-to-use-json-in-javascript/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/001-how-to-use-json-in-javascript" sveltekit:prefetch>How to use JSON in JavaScript</a></div>
-	<p class="text-xs hidden">0.2988840767163101</p>
-	<p class="text-xs">created May 27, 2020</p>
-	
-	</div>
-<div><a href="/tags/javascript" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#javascript</a></div></div></div><div class="w-full lg:max-w-full
-lg:flex
-border-gray-300
-border-b-2
-lg:border-none
-hover:bg-gray-800
-p-2
-"><div class="h-48 lg:h-auto lg:w-48 text-center bg-purple-400"><a href="/javascript/000-snippets" sveltekit:prefetch><div class="h-48 lg:h-full lg:w-48 flex-none bg-cover bg-center text-center overflow-hidden content-center" title="javascript/000-snippets" style="background-image: url(&quot;/image-post/javascript/000-snippets/image.jpg&quot;);"></div></a></div>
-
-	<div class="p-4 flex flex-col justify-between leading-normal text-gray-300"><div class="mb-8"><div class="text-yellow-200 text-xl mb-2"><a href="/javascript/000-snippets" sveltekit:prefetch>javascript/000-snippets</a></div>
-	<p class="text-xs hidden">0.499711231652737</p>
-	
-	
-	</div>
-</div></div></div></div></div></main></div>
+<div><a href="/tags/text" sveltekit:prefetch class="inline-block bg-purple-300 px-3 py-1 text-sm font-semibold text-gray-800 mr-2 mb-2 hover:bg-purple-100 svelte-1s62n97">#text</a></div></div></div>
+	</span></div></div></main></div>
 </div>
 
 
