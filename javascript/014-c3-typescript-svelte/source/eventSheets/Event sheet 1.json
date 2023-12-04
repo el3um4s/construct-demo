@@ -1,0 +1,31 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 987601404943755
+				}
+			],
+			"actions": [
+				{
+					"id": "load-stylesheet",
+					"objectClass": "Browser",
+					"sid": 126796098470789,
+					"parameters": {
+						"url": "\"index.css\""
+					}
+				},
+				{
+					"type": "script",
+					"script": "globalThis.Counter();"
+				}
+			],
+			"sid": 270216047170900
+		}
+	],
+	"sid": 299736324024635
+}
