@@ -1,7 +1,7 @@
 {
 	"projectFormatVersion": 1,
 	"savedWithRelease": 36900,
-	"name": "New project",
+	"name": "REPOSITORY-DEMO-SVELTE",
 	"runtime": "c3",
 	"useWorker": "auto",
 	"bundleAddons": false,
@@ -218,7 +218,7 @@
 	},
 	"properties": {
 		"description": "",
-		"version": "1.0.0.0",
+		"version": "0.0.1",
 		"author": "",
 		"authorEmail": "",
 		"authorWebsite": "",

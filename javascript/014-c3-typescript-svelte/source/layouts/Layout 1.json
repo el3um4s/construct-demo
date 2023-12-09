@@ -17,7 +17,7 @@
 						"class": "",
 						"allow-context-menu": false,
 						"stop-input-events": "no",
-						"origin": "top-left",
+						"origin": "center",
 						"set-color": true,
 						"default-color": [
 							0,
@@ -40,12 +40,12 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 334,
-						"y": 192,
+						"x": 427,
+						"y": 240,
 						"width": 200,
-						"height": 100,
-						"originX": 0,
-						"originY": 0,
+						"height": 200,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
